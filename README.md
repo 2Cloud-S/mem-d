@@ -10,7 +10,6 @@ This is an early V1 build — functional, but not polished. Feedback and contrib
 
 - **Version:** 0.1.0 (V1 Aplha)
 - **Scope:** Read-only analysis via CLI
-- **Not included yet:** MCP, SDK, dashboard
 
 ## Features
 
@@ -28,7 +27,7 @@ This is an early V1 build — functional, but not polished. Feedback and contrib
 ## Install
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/2Cloud-S/mem-d>
 cd mem-d
 
 python -m pip install -e ".[dev]"
@@ -61,6 +60,18 @@ python -m memd analyze memory.json --threshold 0.80
 # Use a local embedding model (requires [embeddings] extra)
 python -m memd analyze memory.json --model BAAI/bge-small-en-v1.5
 ```
+
+## Clustering evaluation
+
+Use the labelled validation fixture to measure duplicate-clustering quality:
+
+```bash
+python -m memd evaluate-clusters datasets/validation/clustering_quality.json
+python -m memd evaluate-clusters datasets/validation/clustering_quality.json --format json
+python -m memd evaluate-clusters datasets/validation/clustering_quality.json --format markdown --output clustering-eval.md
+```
+
+The evaluation report includes precision, recall, F1, false positives, false negatives, cluster purity, cluster coverage, and examples of clustering mistakes.
 
 ## Input formats
 

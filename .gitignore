@@ -84,6 +84,13 @@ report.md
 report.json
 *.analysis.json
 *.analysis.md
+*-eval.json
+*-eval.md
+clustering-eval.json
+clustering-eval.md
+full-report.json
+threshold-*.json
+bge-*.json
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/

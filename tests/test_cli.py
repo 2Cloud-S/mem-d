@@ -26,3 +26,20 @@ def test_cli_analyze_json_output() -> None:
     assert '"content": "User prefers dark mode"' in result.output
     assert '"validation"' in result.output
     assert '"reason"' in result.output
+
+
+def test_cli_evaluate_clusters_json_output() -> None:
+    result = CliRunner().invoke(
+        app,
+        [
+            "evaluate-clusters",
+            "datasets/validation/clustering_quality.json",
+            "--format",
+            "json",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert '"precision"' in result.output
+    assert '"falsePositives"' in result.output
+    assert '"falseNegatives"' in result.output

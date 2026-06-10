@@ -1,0 +1,105 @@
+{
+  "name": "clustering_quality_v1",
+  "description": "Small labelled dataset for measuring duplicate and near-duplicate clustering quality.",
+  "memories": [
+    {
+      "id": "pref_ts_1",
+      "content": "User prefers TypeScript for all new projects.",
+      "duplicateGroup": "pref_typescript",
+      "duplicateType": "exact"
+    },
+    {
+      "id": "pref_ts_2",
+      "content": "User prefers TypeScript for all new projects.",
+      "duplicateGroup": "pref_typescript",
+      "duplicateType": "exact"
+    },
+    {
+      "id": "pref_ts_3",
+      "content": "User likes TypeScript over JavaScript for new work.",
+      "duplicateGroup": "pref_typescript",
+      "duplicateType": "near"
+    },
+    {
+      "id": "docker_1",
+      "content": "User uses Docker Compose for local development environments.",
+      "duplicateGroup": "docker_compose",
+      "duplicateType": "near"
+    },
+    {
+      "id": "docker_2",
+      "content": "Docker Compose is used for local dev environments.",
+      "duplicateGroup": "docker_compose",
+      "duplicateType": "near"
+    },
+    {
+      "id": "redis_1",
+      "content": "User uses Redis for caching and session storage.",
+      "duplicateGroup": "redis_cache",
+      "duplicateType": "near"
+    },
+    {
+      "id": "redis_2",
+      "content": "Redis is the cache layer for user sessions.",
+      "duplicateGroup": "redis_cache",
+      "duplicateType": "near"
+    },
+    {
+      "id": "task_ssl_1",
+      "content": "REMINDER: Renew SSL certificate — expires in 30 days.",
+      "duplicateGroup": "ssl_renewal",
+      "duplicateType": "near"
+    },
+    {
+      "id": "task_ssl_2",
+      "content": "Reminder: SSL cert renewal — 30-day warning.",
+      "duplicateGroup": "ssl_renewal",
+      "duplicateType": "near"
+    },
+    {
+      "id": "otel_1",
+      "content": "User likes OpenTelemetry for distributed tracing.",
+      "duplicateGroup": "otel_tracing",
+      "duplicateType": "near"
+    },
+    {
+      "id": "otel_2",
+      "content": "OpenTelemetry is used for distributed trace collection.",
+      "duplicateGroup": "otel_tracing",
+      "duplicateType": "near"
+    },
+    {
+      "id": "non_ts_runtime",
+      "content": "User switched to Bun as package manager and runtime.",
+      "duplicateType": "non_duplicate"
+    },
+    {
+      "id": "non_js_quotes",
+      "content": "User prefers single quotes in JavaScript and TypeScript.",
+      "duplicateType": "non_duplicate"
+    },
+    {
+      "id": "non_docker_prod",
+      "content": "User runs Kubernetes in production.",
+      "duplicateType": "non_duplicate"
+    },
+    {
+      "id": "non_redis_queue",
+      "content": "BullMQ handles background jobs through Redis.",
+      "duplicateType": "non_duplicate"
+    },
+    {
+      "id": "non_ssl_latency",
+      "content": "p99 latency target is under 250ms.",
+      "duplicateType": "non_duplicate"
+    }
+  ],
+  "nonDuplicatePairs": [
+    ["pref_ts_1", "non_ts_runtime"],
+    ["pref_ts_1", "non_js_quotes"],
+    ["docker_1", "non_docker_prod"],
+    ["redis_1", "non_redis_queue"],
+    ["task_ssl_1", "non_ssl_latency"],
+    ["otel_1", "non_docker_prod"]
+  ]
+}

@@ -8,6 +8,12 @@ import typer
 from rich.console import Console
 
 from memd import __version__
+from memd.evaluation import (
+    ClusterEvaluation,
+    evaluate_dataset,
+    render_evaluation_json,
+    render_evaluation_markdown,
+)
 from memd.parser.loaders import ParserError
 from memd.pipeline import analyze_file
 from memd.reports import render_json, render_markdown, render_terminal, write_report
@@ -89,3 +95,53 @@ def _emit_or_write(content: str, output: Path | None) -> None:
         console.print(f"Wrote report to {output}")
     else:
         console.print(content)
+
+
+@app.command("evaluate-clusters")
+def evaluate_clusters(
+    file: Annotated[Path, typer.Argument(exists=True, dir_okay=False, readable=True)],
+    output_format: Annotated[
+        OutputFormat,
+        typer.Option("--format", "-f", help="Output format."),
+    ] = OutputFormat.terminal,
+    output: Annotated[
+        Path | None,
+        typer.Option("--output", "-o", help="Write evaluation report to this path."),
+    ] = None,
+    threshold: Annotated[
+        float,
+        typer.Option("--threshold", min=0.0, max=1.0, help="Duplicate similarity threshold."),
+    ] = 0.85,
+    model: Annotated[
+        str | None,
+        typer.Option(
+            "--model",
+            help="Optional local sentence-transformers model name. Falls back if unavailable.",
+        ),
+    ] = None,
+) -> None:
+    """Evaluate duplicate clustering against a labelled validation dataset."""
+    evaluation = evaluate_dataset(file, threshold=threshold, model_name=model)
+
+    if output_format == OutputFormat.json:
+        _emit_or_write(render_evaluation_json(evaluation), output)
+    elif output_format == OutputFormat.markdown:
+        _emit_or_write(render_evaluation_markdown(evaluation), output)
+    else:
+        render_evaluation_terminal(evaluation)
+
+
+def render_evaluation_terminal(evaluation: ClusterEvaluation) -> None:
+    metrics = {
+        "Precision": evaluation.precision,
+        "Recall": evaluation.recall,
+        "F1": evaluation.f1,
+        "Cluster purity": evaluation.clusterPurity,
+        "Cluster coverage": evaluation.clusterCoverage,
+    }
+    console.print(f"[bold]Clustering Evaluation:[/bold] {evaluation.datasetName}")
+    console.print(f"Threshold: [bold]{evaluation.threshold}[/bold]")
+    for label, value in metrics.items():
+        console.print(f"{label}: [bold]{value}[/bold]")
+    console.print(f"False positives: [bold]{evaluation.falsePositives}[/bold]")
+    console.print(f"False negatives: [bold]{evaluation.falseNegatives}[/bold]")
