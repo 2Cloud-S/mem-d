@@ -1,0 +1,4002 @@
+[
+  {
+    "id": "mem_0001",
+    "content": "User prefers TypeScript over JavaScript for all new projects."
+  },
+  {
+    "id": "mem_0002",
+    "content": "User likes strongly typed languages; avoids dynamic typing where possible."
+  },
+  {
+    "id": "mem_0003",
+    "content": "User prefers dark mode in all editors and terminals."
+  },
+  {
+    "id": "mem_0004",
+    "content": "User uses VS Code as their primary IDE."
+  },
+  {
+    "id": "mem_0005",
+    "content": "User has VS Code with the Dracula theme installed."
+  },
+  {
+    "id": "mem_0006",
+    "content": "User prefers 2-space indentation in TypeScript and JavaScript files."
+  },
+  {
+    "id": "mem_0007",
+    "content": "User prefers 4-space indentation in Python files."
+  },
+  {
+    "id": "mem_0008",
+    "content": "User dislikes semicolons in TypeScript; uses ESLint rule 'no-semi'."
+  },
+  {
+    "id": "mem_0009",
+    "content": "User prefers single quotes over double quotes in JS/TS code."
+  },
+  {
+    "id": "mem_0010",
+    "content": "User likes arrow functions over traditional function declarations in JS/TS."
+  },
+  {
+    "id": "mem_0011",
+    "content": "User prefers async/await over raw Promises and callbacks."
+  },
+  {
+    "id": "mem_0012",
+    "content": "User uses ESLint with Airbnb config as base for TypeScript projects."
+  },
+  {
+    "id": "mem_0013",
+    "content": "User prefers Prettier for code formatting with print width set to 100."
+  },
+  {
+    "id": "mem_0014",
+    "content": "User uses pnpm as the preferred package manager over npm and yarn."
+  },
+  {
+    "id": "mem_0015",
+    "content": "User prefers functional programming patterns; avoids classes where possible in TS."
+  },
+  {
+    "id": "mem_0016",
+    "content": "User likes immutable data patterns; uses const by default."
+  },
+  {
+    "id": "mem_0017",
+    "content": "User prefers named exports over default exports in TypeScript modules."
+  },
+  {
+    "id": "mem_0018",
+    "content": "User dislikes any type in TypeScript; always wants explicit types."
+  },
+  {
+    "id": "mem_0019",
+    "content": "User likes strict mode enabled in tsconfig.json."
+  },
+  {
+    "id": "mem_0020",
+    "content": "User prefers PostgreSQL over MySQL for relational databases."
+  },
+  {
+    "id": "mem_0021",
+    "content": "User uses Redis for caching and session storage."
+  },
+  {
+    "id": "mem_0022",
+    "content": "User prefers REST APIs over GraphQL for simpler CRUD services."
+  },
+  {
+    "id": "mem_0023",
+    "content": "User uses GraphQL when the frontend needs flexible querying."
+  },
+  {
+    "id": "mem_0024",
+    "content": "User prefers Docker for containerisation of all services."
+  },
+  {
+    "id": "mem_0025",
+    "content": "User uses Docker Compose for local development environments."
+  },
+  {
+    "id": "mem_0026",
+    "content": "User prefers Linux (Ubuntu) as the development OS."
+  },
+  {
+    "id": "mem_0027",
+    "content": "User runs Ubuntu 22.04 LTS on their dev machine."
+  },
+  {
+    "id": "mem_0028",
+    "content": "User likes zsh with Oh My Zsh and the Powerlevel10k theme."
+  },
+  {
+    "id": "mem_0029",
+    "content": "User prefers Vim keybindings in VS Code."
+  },
+  {
+    "id": "mem_0030",
+    "content": "User uses tmux for terminal multiplexing."
+  },
+  {
+    "id": "mem_0031",
+    "content": "User prefers short, descriptive variable names; dislikes single-letter names except loop indices."
+  },
+  {
+    "id": "mem_0032",
+    "content": "User likes explicit return types on all TypeScript functions."
+  },
+  {
+    "id": "mem_0033",
+    "content": "User prefers interface over type alias in TypeScript when possible."
+  },
+  {
+    "id": "mem_0034",
+    "content": "User likes to keep functions small; max 30 lines per function is a personal rule."
+  },
+  {
+    "id": "mem_0035",
+    "content": "User prefers early returns over deeply nested if-else blocks."
+  },
+  {
+    "id": "mem_0036",
+    "content": "User likes guard clauses at the top of functions."
+  },
+  {
+    "id": "mem_0037",
+    "content": "User dislikes commented-out code left in the codebase."
+  },
+  {
+    "id": "mem_0038",
+    "content": "User prefers self-documenting code over excessive inline comments."
+  },
+  {
+    "id": "mem_0039",
+    "content": "User likes JSDoc comments on all public API functions."
+  },
+  {
+    "id": "mem_0040",
+    "content": "User prefers trunk-based development over long-lived feature branches."
+  },
+  {
+    "id": "mem_0041",
+    "content": "User uses conventional commits format (feat:, fix:, chore:, etc.)."
+  },
+  {
+    "id": "mem_0042",
+    "content": "User dislikes merge commits; prefers rebase and fast-forward merges."
+  },
+  {
+    "id": "mem_0043",
+    "content": "User likes atomic commits \u2014 one logical change per commit."
+  },
+  {
+    "id": "mem_0044",
+    "content": "User prefers GitHub over GitLab for code hosting."
+  },
+  {
+    "id": "mem_0045",
+    "content": "User uses GitHub Actions for CI/CD pipelines."
+  },
+  {
+    "id": "mem_0046",
+    "content": "User prefers Jest for unit testing in TypeScript projects."
+  },
+  {
+    "id": "mem_0047",
+    "content": "User uses Supertest for HTTP integration tests in Node.js."
+  },
+  {
+    "id": "mem_0048",
+    "content": "User likes test coverage above 80% as a soft target."
+  },
+  {
+    "id": "mem_0049",
+    "content": "User prefers test file colocated with source file (e.g., foo.test.ts next to foo.ts)."
+  },
+  {
+    "id": "mem_0050",
+    "content": "User dislikes end-to-end tests that hit real external APIs; prefers mocks."
+  },
+  {
+    "id": "mem_0051",
+    "content": "User uses Vitest for newer Vite-based projects instead of Jest."
+  },
+  {
+    "id": "mem_0052",
+    "content": "User prefers Node.js with Express for lightweight HTTP APIs."
+  },
+  {
+    "id": "mem_0053",
+    "content": "User uses Fastify when performance is a priority over Express."
+  },
+  {
+    "id": "mem_0054",
+    "content": "User prefers NestJS for larger, enterprise-scale backend projects."
+  },
+  {
+    "id": "mem_0055",
+    "content": "User likes Zod for runtime schema validation in TypeScript."
+  },
+  {
+    "id": "mem_0056",
+    "content": "User uses Prisma as the ORM for PostgreSQL in Node.js projects."
+  },
+  {
+    "id": "mem_0057",
+    "content": "User dislikes raw SQL in application code; prefers ORM query builders."
+  },
+  {
+    "id": "mem_0058",
+    "content": "User prefers environment variables managed through dotenv and validated with Zod."
+  },
+  {
+    "id": "mem_0059",
+    "content": "User likes 12-factor app principles for backend service design."
+  },
+  {
+    "id": "mem_0060",
+    "content": "User prefers structured JSON logging over plain-text logs."
+  },
+  {
+    "id": "mem_0061",
+    "content": "User uses Winston or Pino for logging in Node.js services."
+  },
+  {
+    "id": "mem_0062",
+    "content": "User likes log levels: error, warn, info, debug \u2014 avoids verbose."
+  },
+  {
+    "id": "mem_0063",
+    "content": "User prefers correlation IDs in all log entries for request tracing."
+  },
+  {
+    "id": "mem_0064",
+    "content": "User likes OpenTelemetry for distributed tracing."
+  },
+  {
+    "id": "mem_0065",
+    "content": "User prefers Prometheus + Grafana for metrics and dashboards."
+  },
+  {
+    "id": "mem_0066",
+    "content": "User uses Kubernetes for production container orchestration."
+  },
+  {
+    "id": "mem_0067",
+    "content": "User prefers Helm charts for Kubernetes deployments."
+  },
+  {
+    "id": "mem_0068",
+    "content": "User dislikes putting secrets in environment variable files committed to git."
+  },
+  {
+    "id": "mem_0069",
+    "content": "User uses AWS Secrets Manager or Vault for secret management."
+  },
+  {
+    "id": "mem_0070",
+    "content": "User prefers AWS as the cloud provider."
+  },
+  {
+    "id": "mem_0071",
+    "content": "User uses Terraform for infrastructure as code."
+  },
+  {
+    "id": "mem_0072",
+    "content": "User likes modular Terraform with separate state per environment."
+  },
+  {
+    "id": "mem_0073",
+    "content": "User prefers short PR review cycles; dislikes PRs with more than 400 lines changed."
+  },
+  {
+    "id": "mem_0074",
+    "content": "User likes detailed PR descriptions with context and test plan."
+  },
+  {
+    "id": "mem_0075",
+    "content": "User prefers code reviews to focus on logic and design, not style (that's Prettier's job)."
+  },
+  {
+    "id": "mem_0076",
+    "content": "User likes pair programming for complex architectural decisions."
+  },
+  {
+    "id": "mem_0077",
+    "content": "User prefers async communication (GitHub comments, Slack threads) over interrupting meetings."
+  },
+  {
+    "id": "mem_0078",
+    "content": "User uses Notion for personal project documentation."
+  },
+  {
+    "id": "mem_0079",
+    "content": "User prefers Markdown for all documentation files."
+  },
+  {
+    "id": "mem_0080",
+    "content": "User likes README files to include setup, usage, and contribution sections."
+  },
+  {
+    "id": "mem_0081",
+    "content": "User dislikes monorepos with more than 30 packages \u2014 finds them slow."
+  },
+  {
+    "id": "mem_0082",
+    "content": "User uses Turborepo when a monorepo is necessary."
+  },
+  {
+    "id": "mem_0083",
+    "content": "User prefers explicit dependency injection over hidden singletons."
+  },
+  {
+    "id": "mem_0084",
+    "content": "User likes the repository pattern to abstract database access."
+  },
+  {
+    "id": "mem_0085",
+    "content": "User prefers the service layer pattern: controllers \u2192 services \u2192 repositories."
+  },
+  {
+    "id": "mem_0086",
+    "content": "User dislikes fat controllers; business logic belongs in service classes."
+  },
+  {
+    "id": "mem_0087",
+    "content": "User likes error-first handling; throws typed errors, not error codes."
+  },
+  {
+    "id": "mem_0088",
+    "content": "User prefers Result types (neverthrow library) for expected error paths."
+  },
+  {
+    "id": "mem_0089",
+    "content": "User dislikes throwing errors for control flow in hot paths."
+  },
+  {
+    "id": "mem_0090",
+    "content": "User uses Husky with pre-commit hooks for lint and type-check."
+  },
+  {
+    "id": "mem_0091",
+    "content": "User prefers lint-staged to only lint changed files on commit."
+  },
+  {
+    "id": "mem_0092",
+    "content": "User likes semantic versioning (semver) for all published packages."
+  },
+  {
+    "id": "mem_0093",
+    "content": "User prefers CHANGELOG.md maintained via conventional-changelog."
+  },
+  {
+    "id": "mem_0094",
+    "content": "User dislikes auto-generated code that's hard to read or maintain."
+  },
+  {
+    "id": "mem_0095",
+    "content": "User prefers TypeScript; doesn't like using plain JavaScript anymore."
+  },
+  {
+    "id": "mem_0096",
+    "content": "User strongly prefers TypeScript over JavaScript."
+  },
+  {
+    "id": "mem_0097",
+    "content": "TypeScript is the user's language of choice for all new work."
+  },
+  {
+    "id": "mem_0098",
+    "content": "User likes static typing \u2014 TypeScript preferred over JavaScript."
+  },
+  {
+    "id": "mem_0099",
+    "content": "User uses VS Code as their main code editor."
+  },
+  {
+    "id": "mem_0100",
+    "content": "VS Code is the user's IDE of choice."
+  },
+  {
+    "id": "mem_0101",
+    "content": "User codes in VS Code with Vim keybindings."
+  },
+  {
+    "id": "mem_0102",
+    "content": "User prefers dark themes in their editor; uses Dracula in VS Code."
+  },
+  {
+    "id": "mem_0103",
+    "content": "User has dark mode enabled everywhere \u2014 editor, terminal, OS."
+  },
+  {
+    "id": "mem_0104",
+    "content": "User wants 2-space indentation for TypeScript files."
+  },
+  {
+    "id": "mem_0105",
+    "content": "For JS/TS, user indents with 2 spaces."
+  },
+  {
+    "id": "mem_0106",
+    "content": "User's TS formatter uses 2-space indent and no semicolons."
+  },
+  {
+    "id": "mem_0107",
+    "content": "User avoids semicolons in TypeScript code."
+  },
+  {
+    "id": "mem_0108",
+    "content": "No semicolons in TS/JS \u2014 that's the user's style."
+  },
+  {
+    "id": "mem_0109",
+    "content": "User uses pnpm, not npm, for package management."
+  },
+  {
+    "id": "mem_0110",
+    "content": "pnpm is the user's preferred Node.js package manager."
+  },
+  {
+    "id": "mem_0111",
+    "content": "User doesn't like npm; uses pnpm."
+  },
+  {
+    "id": "mem_0112",
+    "content": "User runs async/await instead of .then()/.catch() chains."
+  },
+  {
+    "id": "mem_0113",
+    "content": "async/await is preferred over Promise chains by the user."
+  },
+  {
+    "id": "mem_0114",
+    "content": "User likes functional style in TypeScript; avoids OOP where possible."
+  },
+  {
+    "id": "mem_0115",
+    "content": "User prefers functional patterns \u2014 immutability, pure functions."
+  },
+  {
+    "id": "mem_0116",
+    "content": "User wants explicit types on function return values in TypeScript."
+  },
+  {
+    "id": "mem_0117",
+    "content": "User always types function return values explicitly in TS."
+  },
+  {
+    "id": "mem_0118",
+    "content": "strict: true is always set in user's tsconfig."
+  },
+  {
+    "id": "mem_0119",
+    "content": "User uses strict TypeScript config."
+  },
+  {
+    "id": "mem_0120",
+    "content": "User uses Prisma ORM with PostgreSQL."
+  },
+  {
+    "id": "mem_0121",
+    "content": "Prisma is the user's ORM of choice for Postgres."
+  },
+  {
+    "id": "mem_0122",
+    "content": "User prefers PostgreSQL as the database."
+  },
+  {
+    "id": "mem_0123",
+    "content": "PostgreSQL is the user's go-to relational database."
+  },
+  {
+    "id": "mem_0124",
+    "content": "User uses Docker Compose for local dev environments."
+  },
+  {
+    "id": "mem_0125",
+    "content": "Docker and Docker Compose are part of the user's standard dev stack."
+  },
+  {
+    "id": "mem_0126",
+    "content": "User likes containerised development via Docker."
+  },
+  {
+    "id": "mem_0127",
+    "content": "User uses Jest for testing in Node/TypeScript."
+  },
+  {
+    "id": "mem_0128",
+    "content": "Jest is the testing framework for user's TS projects."
+  },
+  {
+    "id": "mem_0129",
+    "content": "User wants test coverage above 80%."
+  },
+  {
+    "id": "mem_0130",
+    "content": "80% coverage is a soft minimum the user tries to hit."
+  },
+  {
+    "id": "mem_0131",
+    "content": "User prefers GitHub Actions over other CI systems."
+  },
+  {
+    "id": "mem_0132",
+    "content": "CI/CD is done via GitHub Actions in user's projects."
+  },
+  {
+    "id": "mem_0133",
+    "content": "User uses Zod for input validation."
+  },
+  {
+    "id": "mem_0134",
+    "content": "Zod is the user's validation library for TypeScript."
+  },
+  {
+    "id": "mem_0135",
+    "content": "User logs with structured JSON using Pino."
+  },
+  {
+    "id": "mem_0136",
+    "content": "Pino is the logger of choice for Node.js services."
+  },
+  {
+    "id": "mem_0137",
+    "content": "User runs Kubernetes in production."
+  },
+  {
+    "id": "mem_0138",
+    "content": "K8s is the user's production orchestration platform."
+  },
+  {
+    "id": "mem_0139",
+    "content": "User provisions infra with Terraform."
+  },
+  {
+    "id": "mem_0140",
+    "content": "Terraform is used for all IaC in user's projects."
+  },
+  {
+    "id": "mem_0141",
+    "content": "User prefers AWS for cloud infrastructure."
+  },
+  {
+    "id": "mem_0142",
+    "content": "AWS is the primary cloud provider."
+  },
+  {
+    "id": "mem_0143",
+    "content": "User uses conventional commits."
+  },
+  {
+    "id": "mem_0144",
+    "content": "Commit messages follow conventional commits spec."
+  },
+  {
+    "id": "mem_0145",
+    "content": "feat:, fix:, chore: prefixes are how user writes commits."
+  },
+  {
+    "id": "mem_0146",
+    "content": "User rebases instead of merging."
+  },
+  {
+    "id": "mem_0147",
+    "content": "No merge commits \u2014 user always rebases."
+  },
+  {
+    "id": "mem_0148",
+    "content": "User likes small, atomic commits."
+  },
+  {
+    "id": "mem_0149",
+    "content": "Small focused commits are the user's preference."
+  },
+  {
+    "id": "mem_0150",
+    "content": "User prefers guard clauses over deep nesting."
+  },
+  {
+    "id": "mem_0151",
+    "content": "Early returns (guard clauses) are the user's preferred control-flow style."
+  },
+  {
+    "id": "mem_0152",
+    "content": "User dislikes deeply nested if-else."
+  },
+  {
+    "id": "mem_0153",
+    "content": "User prefers single quotes in JS/TS code."
+  },
+  {
+    "id": "mem_0154",
+    "content": "Single quotes are preferred by user in JS/TS."
+  },
+  {
+    "id": "mem_0155",
+    "content": "User uses Prettier with 100-char line width."
+  },
+  {
+    "id": "mem_0156",
+    "content": "Prettier is configured to 100 chars print width."
+  },
+  {
+    "id": "mem_0157",
+    "content": "User prefers named exports."
+  },
+  {
+    "id": "mem_0158",
+    "content": "Named exports over default exports is the user's rule."
+  },
+  {
+    "id": "mem_0159",
+    "content": "User dislikes 'any' in TypeScript."
+  },
+  {
+    "id": "mem_0160",
+    "content": "Never use 'any' \u2014 user's TypeScript rule."
+  },
+  {
+    "id": "mem_0161",
+    "content": "User uses ESLint with Airbnb rules."
+  },
+  {
+    "id": "mem_0162",
+    "content": "Airbnb ESLint config is the user's base."
+  },
+  {
+    "id": "mem_0163",
+    "content": "User runs Ubuntu on dev machine."
+  },
+  {
+    "id": "mem_0164",
+    "content": "Ubuntu 22.04 is user's OS."
+  },
+  {
+    "id": "mem_0165",
+    "content": "Linux (Ubuntu) is the user's development platform."
+  },
+  {
+    "id": "mem_0166",
+    "content": "User uses zsh + Oh My Zsh."
+  },
+  {
+    "id": "mem_0167",
+    "content": "zsh is user's shell with Oh My Zsh."
+  },
+  {
+    "id": "mem_0168",
+    "content": "User runs Powerlevel10k theme in terminal."
+  },
+  {
+    "id": "mem_0169",
+    "content": "User likes tmux for managing terminal sessions."
+  },
+  {
+    "id": "mem_0170",
+    "content": "tmux is part of user's terminal workflow."
+  },
+  {
+    "id": "mem_0171",
+    "content": "User prefers REST for simple APIs."
+  },
+  {
+    "id": "mem_0172",
+    "content": "REST over GraphQL for CRUD-heavy backends."
+  },
+  {
+    "id": "mem_0173",
+    "content": "User uses NestJS for large backend projects."
+  },
+  {
+    "id": "mem_0174",
+    "content": "NestJS is preferred for enterprise Node.js."
+  },
+  {
+    "id": "mem_0175",
+    "content": "User uses Fastify when performance matters."
+  },
+  {
+    "id": "mem_0176",
+    "content": "Fastify for high-performance Node APIs."
+  },
+  {
+    "id": "mem_0177",
+    "content": "User likes 12-factor app methodology."
+  },
+  {
+    "id": "mem_0178",
+    "content": "12-factor principles guide user's backend architecture."
+  },
+  {
+    "id": "mem_0179",
+    "content": "User uses OpenTelemetry for tracing."
+  },
+  {
+    "id": "mem_0180",
+    "content": "Distributed tracing via OpenTelemetry in user's services."
+  },
+  {
+    "id": "mem_0181",
+    "content": "User monitors with Prometheus and Grafana."
+  },
+  {
+    "id": "mem_0182",
+    "content": "Grafana dashboards backed by Prometheus metrics."
+  },
+  {
+    "id": "mem_0183",
+    "content": "User prefers Helm for K8s deployments."
+  },
+  {
+    "id": "mem_0184",
+    "content": "Helm charts are used for user's Kubernetes releases."
+  },
+  {
+    "id": "mem_0185",
+    "content": "User uses Notion for docs."
+  },
+  {
+    "id": "mem_0186",
+    "content": "Notion is where the user keeps project notes."
+  },
+  {
+    "id": "mem_0187",
+    "content": "User documents with Markdown."
+  },
+  {
+    "id": "mem_0188",
+    "content": "Markdown files for all docs."
+  },
+  {
+    "id": "mem_0189",
+    "content": "User uses Husky pre-commit hooks."
+  },
+  {
+    "id": "mem_0190",
+    "content": "Husky + lint-staged for pre-commit checks."
+  },
+  {
+    "id": "mem_0191",
+    "content": "User uses neverthrow for typed error handling."
+  },
+  {
+    "id": "mem_0192",
+    "content": "Result types via neverthrow are user's preferred error pattern."
+  },
+  {
+    "id": "mem_0193",
+    "content": "User prefers Turborepo for monorepos."
+  },
+  {
+    "id": "mem_0194",
+    "content": "Turborepo is used when the user has to work in a monorepo."
+  },
+  {
+    "id": "mem_0195",
+    "content": "User uses Supertest for API integration tests."
+  },
+  {
+    "id": "mem_0196",
+    "content": "HTTP integration testing via Supertest."
+  },
+  {
+    "id": "mem_0197",
+    "content": "User colocates test files with source."
+  },
+  {
+    "id": "mem_0198",
+    "content": "Test files live next to source files (*.test.ts)."
+  },
+  {
+    "id": "mem_0199",
+    "content": "User uses Redis for caching."
+  },
+  {
+    "id": "mem_0200",
+    "content": "Redis is user's cache layer."
+  },
+  {
+    "id": "mem_0201",
+    "content": "User uses Vitest for Vite projects."
+  },
+  {
+    "id": "mem_0202",
+    "content": "Newer Vite projects use Vitest over Jest."
+  },
+  {
+    "id": "mem_0203",
+    "content": "User likes Winston or Pino for logging."
+  },
+  {
+    "id": "mem_0204",
+    "content": "Structured logging with Winston in older projects."
+  },
+  {
+    "id": "mem_0205",
+    "content": "User uses correlation IDs in logs."
+  },
+  {
+    "id": "mem_0206",
+    "content": "Every log entry has a correlation/request ID."
+  },
+  {
+    "id": "mem_0207",
+    "content": "User uses AWS Secrets Manager for secrets."
+  },
+  {
+    "id": "mem_0208",
+    "content": "Secrets are stored in AWS Secrets Manager, not env files."
+  },
+  {
+    "id": "mem_0209",
+    "content": "User uses repository pattern."
+  },
+  {
+    "id": "mem_0210",
+    "content": "Repository pattern abstracts DB access in user's code."
+  },
+  {
+    "id": "mem_0211",
+    "content": "User uses service-layer architecture."
+  },
+  {
+    "id": "mem_0212",
+    "content": "Controllers \u2192 Services \u2192 Repositories pattern."
+  },
+  {
+    "id": "mem_0213",
+    "content": "User writes JSDoc on public APIs."
+  },
+  {
+    "id": "mem_0214",
+    "content": "JSDoc comments on exported functions."
+  },
+  {
+    "id": "mem_0215",
+    "content": "User writes small functions (30 lines max)."
+  },
+  {
+    "id": "mem_0216",
+    "content": "Functions stay under ~30 lines in user's style."
+  },
+  {
+    "id": "mem_0217",
+    "content": "User dislikes leftover commented-out code."
+  },
+  {
+    "id": "mem_0218",
+    "content": "No commented-out dead code in user's PRs."
+  },
+  {
+    "id": "mem_0219",
+    "content": "User prefers self-documenting code."
+  },
+  {
+    "id": "mem_0220",
+    "content": "Code should read clearly without comments (user preference)."
+  },
+  {
+    "id": "mem_0221",
+    "content": "User writes detailed PR descriptions."
+  },
+  {
+    "id": "mem_0222",
+    "content": "PRs include context and test plans."
+  },
+  {
+    "id": "mem_0223",
+    "content": "User uses semantic versioning."
+  },
+  {
+    "id": "mem_0224",
+    "content": "semver for all packages the user publishes."
+  },
+  {
+    "id": "mem_0225",
+    "content": "User maintains CHANGELOG.md."
+  },
+  {
+    "id": "mem_0226",
+    "content": "conventional-changelog keeps user's CHANGELOG up to date."
+  },
+  {
+    "id": "mem_0227",
+    "content": "User uses dependency injection."
+  },
+  {
+    "id": "mem_0228",
+    "content": "Explicit DI over hidden singletons."
+  },
+  {
+    "id": "mem_0229",
+    "content": "User keeps PRs under 400 lines."
+  },
+  {
+    "id": "mem_0230",
+    "content": "Small PRs \u2014 under 400 changed lines."
+  },
+  {
+    "id": "mem_0231",
+    "content": "User likes pair programming for hard decisions."
+  },
+  {
+    "id": "mem_0232",
+    "content": "Pair programming for architectural complexity."
+  },
+  {
+    "id": "mem_0233",
+    "content": "User uses trunk-based development."
+  },
+  {
+    "id": "mem_0234",
+    "content": "No long-lived branches \u2014 trunk-based development."
+  },
+  {
+    "id": "mem_0235",
+    "content": "User prefers immutable patterns."
+  },
+  {
+    "id": "mem_0236",
+    "content": "const everywhere, immutable data structures."
+  },
+  {
+    "id": "mem_0237",
+    "content": "User prefers interface keyword in TypeScript."
+  },
+  {
+    "id": "mem_0238",
+    "content": "interface over type alias (when possible)."
+  },
+  {
+    "id": "mem_0239",
+    "content": "User validates env vars with Zod."
+  },
+  {
+    "id": "mem_0240",
+    "content": "Environment variables are validated at startup with Zod."
+  },
+  {
+    "id": "mem_0241",
+    "content": "User uses dotenv for env config."
+  },
+  {
+    "id": "mem_0242",
+    "content": "dotenv + Zod for config management."
+  },
+  {
+    "id": "mem_0243",
+    "content": "User uses Terraform modules."
+  },
+  {
+    "id": "mem_0244",
+    "content": "Modular Terraform per environment."
+  },
+  {
+    "id": "mem_0245",
+    "content": "User uses GitHub for code hosting."
+  },
+  {
+    "id": "mem_0246",
+    "content": "GitHub repos \u2014 not GitLab."
+  },
+  {
+    "id": "mem_0247",
+    "content": "User likes async team communication."
+  },
+  {
+    "id": "mem_0248",
+    "content": "Async-first: Slack threads, GitHub comments."
+  },
+  {
+    "id": "mem_0249",
+    "content": "User prefers NestJS for all backend projects regardless of size."
+  },
+  {
+    "id": "mem_0250",
+    "content": "User actually prefers default exports; finds named exports verbose."
+  },
+  {
+    "id": "mem_0251",
+    "content": "User said they're fine with 'any' in TypeScript during rapid prototyping."
+  },
+  {
+    "id": "mem_0252",
+    "content": "User uses 4-space indentation in TypeScript; changed preference from 2."
+  },
+  {
+    "id": "mem_0253",
+    "content": "User switched from pnpm back to npm after a dependency resolution issue."
+  },
+  {
+    "id": "mem_0254",
+    "content": "User said GraphQL is now preferred for all new APIs \u2014 simpler client code."
+  },
+  {
+    "id": "mem_0255",
+    "content": "User no longer uses NestJS; found it too opinionated. Back to Express."
+  },
+  {
+    "id": "mem_0256",
+    "content": "User doesn't use Prisma anymore; switched to Drizzle ORM."
+  },
+  {
+    "id": "mem_0257",
+    "content": "User stopped using Husky \u2014 found pre-commit hooks too slow."
+  },
+  {
+    "id": "mem_0258",
+    "content": "User now prefers GitLab over GitHub for self-hosted CI."
+  },
+  {
+    "id": "mem_0259",
+    "content": "User finds Prettier controversial and now uses only ESLint for formatting."
+  },
+  {
+    "id": "mem_0260",
+    "content": "User switched to Bun as package manager and runtime instead of pnpm."
+  },
+  {
+    "id": "mem_0261",
+    "content": "User prefers double quotes in TypeScript \u2014 changed after working on a Python-heavy team."
+  },
+  {
+    "id": "mem_0262",
+    "content": "User now uses yarn workspaces instead of Turborepo for monorepos."
+  },
+  {
+    "id": "mem_0263",
+    "content": "User said they actually like merge commits for clear branch history."
+  },
+  {
+    "id": "mem_0264",
+    "content": "User switched from Jest to Vitest for all projects, including non-Vite ones."
+  },
+  {
+    "id": "mem_0265",
+    "content": "User started using MySQL after the new project required it."
+  },
+  {
+    "id": "mem_0266",
+    "content": "User moved away from Docker Compose; uses devcontainers now."
+  },
+  {
+    "id": "mem_0267",
+    "content": "User prefers GCP over AWS; migrated main infra after cost review."
+  },
+  {
+    "id": "mem_0268",
+    "content": "User now likes Pulumi over Terraform for IaC (uses TypeScript)."
+  },
+  {
+    "id": "mem_0269",
+    "content": "TODO: Fix the N+1 query bug in the user-posts endpoint before Friday."
+  },
+  {
+    "id": "mem_0270",
+    "content": "TASK: Set up staging environment for the payments service."
+  },
+  {
+    "id": "mem_0271",
+    "content": "Reminder: Rotate AWS IAM access keys by end of sprint."
+  },
+  {
+    "id": "mem_0272",
+    "content": "TODO: Upgrade Node.js from 18 to 20 in the auth service."
+  },
+  {
+    "id": "mem_0273",
+    "content": "TASK: Write migration script for renaming 'user_id' column to 'account_id'."
+  },
+  {
+    "id": "mem_0274",
+    "content": "REMINDER: Review and merge Jess's PR for the notification module."
+  },
+  {
+    "id": "mem_0275",
+    "content": "TODO: Add rate limiting to the public API gateway."
+  },
+  {
+    "id": "mem_0276",
+    "content": "TASK: Configure Dependabot for automatic dependency updates."
+  },
+  {
+    "id": "mem_0277",
+    "content": "Reminder: Update the README after the CLI flags change."
+  },
+  {
+    "id": "mem_0278",
+    "content": "TODO: Add OpenAPI spec generation to the orders service."
+  },
+  {
+    "id": "mem_0279",
+    "content": "TASK: Investigate memory leak in the worker process (ticket #4521)."
+  },
+  {
+    "id": "mem_0280",
+    "content": "TODO: Refactor the config loader to use Zod validation."
+  },
+  {
+    "id": "mem_0281",
+    "content": "TASK: Set up log aggregation in production via CloudWatch."
+  },
+  {
+    "id": "mem_0282",
+    "content": "REMINDER: Ask DevOps to increase ECS task memory limit."
+  },
+  {
+    "id": "mem_0283",
+    "content": "TODO: Write unit tests for the billing calculation module."
+  },
+  {
+    "id": "mem_0284",
+    "content": "TASK: Benchmark Fastify vs Express for the new search service."
+  },
+  {
+    "id": "mem_0285",
+    "content": "TODO: Clean up unused feature flags from the codebase."
+  },
+  {
+    "id": "mem_0286",
+    "content": "REMINDER: Present architecture diagram at Thursday's team meeting."
+  },
+  {
+    "id": "mem_0287",
+    "content": "TODO: Add correlation IDs to the legacy logging setup."
+  },
+  {
+    "id": "mem_0288",
+    "content": "TASK: Create a Helm chart for the new microservice."
+  },
+  {
+    "id": "mem_0289",
+    "content": "TODO: Enable strict null checks in the legacy TypeScript project."
+  },
+  {
+    "id": "mem_0290",
+    "content": "TASK: Migrate from CommonJS to ESModules in the utils package."
+  },
+  {
+    "id": "mem_0291",
+    "content": "TODO: Add database index on orders.created_at for query performance."
+  },
+  {
+    "id": "mem_0292",
+    "content": "REMINDER: Follow up with Sarah about the API contract for v3."
+  },
+  {
+    "id": "mem_0293",
+    "content": "TODO: Implement graceful shutdown in the HTTP server."
+  },
+  {
+    "id": "mem_0294",
+    "content": "TASK: Draft ADR for switching to event-driven architecture."
+  },
+  {
+    "id": "mem_0295",
+    "content": "TODO: Resolve Dependabot alerts \u2014 three high-severity packages."
+  },
+  {
+    "id": "mem_0296",
+    "content": "TASK: Audit all console.log statements and replace with structured logger."
+  },
+  {
+    "id": "mem_0297",
+    "content": "REMINDER: Check if Redis TTLs are set correctly in production."
+  },
+  {
+    "id": "mem_0298",
+    "content": "TODO: Move hardcoded strings to i18n keys in the frontend."
+  },
+  {
+    "id": "mem_0299",
+    "content": "TASK: Write a runbook for database failover procedure."
+  },
+  {
+    "id": "mem_0300",
+    "content": "TODO: Add Prometheus metrics to the checkout service."
+  },
+  {
+    "id": "mem_0301",
+    "content": "REMINDER: Renew SSL certificate \u2014 expires in 30 days."
+  },
+  {
+    "id": "mem_0302",
+    "content": "TODO: Delete the deprecated /v1/users/legacy endpoint."
+  },
+  {
+    "id": "mem_0303",
+    "content": "TASK: Add a health check endpoint to all services."
+  },
+  {
+    "id": "mem_0304",
+    "content": "TODO: Document the event schema for the order.created event."
+  },
+  {
+    "id": "mem_0305",
+    "content": "REMINDER: Book a time with the security team for the pen-test kickoff."
+  },
+  {
+    "id": "mem_0306",
+    "content": "TODO: Fix flaky test in auth integration suite (test #112 fails 1 in 10 runs)."
+  },
+  {
+    "id": "mem_0307",
+    "content": "TASK: Implement idempotency keys for the payment API."
+  },
+  {
+    "id": "mem_0308",
+    "content": "TODO: Remove the hardcoded admin password from the seed script."
+  },
+  {
+    "id": "mem_0309",
+    "content": "TASK: Add dead-letter queue for failed SQS messages."
+  },
+  {
+    "id": "mem_0310",
+    "content": "REMINDER: Review the new engineer's onboarding checklist."
+  },
+  {
+    "id": "mem_0311",
+    "content": "TODO: Increase Jest timeout for the database integration tests."
+  },
+  {
+    "id": "mem_0312",
+    "content": "TASK: Write a script to backfill missing timestamps in the events table."
+  },
+  {
+    "id": "mem_0313",
+    "content": "TODO: Enable HTTP/2 on the API gateway."
+  },
+  {
+    "id": "mem_0314",
+    "content": "REMINDER: Tag the v2.3.0 release after the hotfix is merged."
+  },
+  {
+    "id": "mem_0315",
+    "content": "TODO: Archive the old `feature/v1-graphql` branch."
+  },
+  {
+    "id": "mem_0316",
+    "content": "TASK: Set up automated database backups for the production cluster."
+  },
+  {
+    "id": "mem_0317",
+    "content": "TODO: Add input sanitisation to the search query endpoint."
+  },
+  {
+    "id": "mem_0318",
+    "content": "REMINDER: Update the architecture diagram \u2014 it's out of date."
+  },
+  {
+    "id": "mem_0319",
+    "content": "TODO: Fix the N+1 query issue on the posts endpoint \u2014 performance problem."
+  },
+  {
+    "id": "mem_0320",
+    "content": "TASK: Patch N+1 query bug in posts API (noticed in profiling)."
+  },
+  {
+    "id": "mem_0321",
+    "content": "Reminder: Rotate IAM keys \u2014 they're overdue."
+  },
+  {
+    "id": "mem_0322",
+    "content": "TODO: IAM key rotation needed before next audit."
+  },
+  {
+    "id": "mem_0323",
+    "content": "TASK: Upgrade Node 18 \u2192 20 in auth service."
+  },
+  {
+    "id": "mem_0324",
+    "content": "TODO: Node.js version bump needed in auth microservice."
+  },
+  {
+    "id": "mem_0325",
+    "content": "REMINDER: Merge Jess's notification PR \u2014 it's been waiting 2 days."
+  },
+  {
+    "id": "mem_0326",
+    "content": "TODO: Review and approve Jess's open PR."
+  },
+  {
+    "id": "mem_0327",
+    "content": "TASK: Rate limit the public API."
+  },
+  {
+    "id": "mem_0328",
+    "content": "TODO: Throttle public-facing API endpoints."
+  },
+  {
+    "id": "mem_0329",
+    "content": "TASK: Add OpenAPI docs to orders service."
+  },
+  {
+    "id": "mem_0330",
+    "content": "TODO: Generate OpenAPI spec for the orders endpoints."
+  },
+  {
+    "id": "mem_0331",
+    "content": "TASK: Look into memory leak in worker (ticket 4521)."
+  },
+  {
+    "id": "mem_0332",
+    "content": "TODO: Profile worker process \u2014 possible memory leak."
+  },
+  {
+    "id": "mem_0333",
+    "content": "REMINDER: Present the architecture diagram Thursday."
+  },
+  {
+    "id": "mem_0334",
+    "content": "TODO: Prep arch diagram for Thursday meeting."
+  },
+  {
+    "id": "mem_0335",
+    "content": "TODO: Enable strict null checks \u2014 lingering tech debt."
+  },
+  {
+    "id": "mem_0336",
+    "content": "TASK: Turn on strict null checks in legacy TS project."
+  },
+  {
+    "id": "mem_0337",
+    "content": "TASK: ESM migration for the utils package."
+  },
+  {
+    "id": "mem_0338",
+    "content": "TODO: Convert utils from CommonJS to ESM."
+  },
+  {
+    "id": "mem_0339",
+    "content": "TODO: Add DB index on orders.created_at."
+  },
+  {
+    "id": "mem_0340",
+    "content": "TASK: created_at index missing on orders table \u2014 add it."
+  },
+  {
+    "id": "mem_0341",
+    "content": "TODO: Graceful shutdown implementation in HTTP server."
+  },
+  {
+    "id": "mem_0342",
+    "content": "TASK: Handle SIGTERM correctly in the Express server."
+  },
+  {
+    "id": "mem_0343",
+    "content": "TODO: Fix flaky integration test #112."
+  },
+  {
+    "id": "mem_0344",
+    "content": "TASK: Investigate why test #112 is intermittently failing."
+  },
+  {
+    "id": "mem_0345",
+    "content": "TODO: Remove hardcoded admin creds from seed.ts."
+  },
+  {
+    "id": "mem_0346",
+    "content": "TASK: Seed script has a plaintext password \u2014 fix it."
+  },
+  {
+    "id": "mem_0347",
+    "content": "REMINDER: SSL cert renewal \u2014 30-day warning."
+  },
+  {
+    "id": "mem_0348",
+    "content": "TODO: Renew the SSL cert before it expires."
+  },
+  {
+    "id": "mem_0349",
+    "content": "TODO: Delete the v1 legacy endpoint."
+  },
+  {
+    "id": "mem_0350",
+    "content": "TASK: Remove deprecated /v1/users/legacy route."
+  },
+  {
+    "id": "mem_0351",
+    "content": "TODO: Health check endpoints on all services."
+  },
+  {
+    "id": "mem_0352",
+    "content": "TASK: Add /health route to every microservice."
+  },
+  {
+    "id": "mem_0353",
+    "content": "REMINDER: Set up pen-test kickoff with security."
+  },
+  {
+    "id": "mem_0354",
+    "content": "TODO: Schedule security review meeting."
+  },
+  {
+    "id": "mem_0355",
+    "content": "TODO: Idempotency keys for payments."
+  },
+  {
+    "id": "mem_0356",
+    "content": "TASK: Implement idempotency on the charge endpoint."
+  },
+  {
+    "id": "mem_0357",
+    "content": "TASK: DLQ for failed SQS messages."
+  },
+  {
+    "id": "mem_0358",
+    "content": "TODO: Add dead-letter queue to the SQS consumer."
+  },
+  {
+    "id": "mem_0359",
+    "content": "REMINDER: Onboarding checklist for the new dev."
+  },
+  {
+    "id": "mem_0360",
+    "content": "TODO: Review onboarding docs for new team member."
+  },
+  {
+    "id": "mem_0361",
+    "content": "TODO: Backfill missing timestamps in events table."
+  },
+  {
+    "id": "mem_0362",
+    "content": "TASK: Write backfill migration for null timestamps."
+  },
+  {
+    "id": "mem_0363",
+    "content": "TODO: Archive stale branches."
+  },
+  {
+    "id": "mem_0364",
+    "content": "TASK: Git housekeeping \u2014 delete old branches."
+  },
+  {
+    "id": "mem_0365",
+    "content": "TODO: Automated DB backups in production."
+  },
+  {
+    "id": "mem_0366",
+    "content": "TASK: Set up backup schedule for prod Postgres."
+  },
+  {
+    "id": "mem_0367",
+    "content": "TODO: Sanitise search query input."
+  },
+  {
+    "id": "mem_0368",
+    "content": "TASK: Input validation on the search endpoint."
+  },
+  {
+    "id": "mem_0369",
+    "content": "REMINDER: Update the architecture docs \u2014 still outdated."
+  },
+  {
+    "id": "mem_0370",
+    "content": "TODO: Architecture diagram needs refreshing."
+  },
+  {
+    "id": "mem_0371",
+    "content": "TASK: CloudWatch log aggregation for prod."
+  },
+  {
+    "id": "mem_0372",
+    "content": "TODO: Route service logs to CloudWatch."
+  },
+  {
+    "id": "mem_0373",
+    "content": "TASK: Set Redis TTLs correctly \u2014 audit needed."
+  },
+  {
+    "id": "mem_0374",
+    "content": "TODO: Verify all Redis keys have appropriate TTLs."
+  },
+  {
+    "id": "mem_0375",
+    "content": "TASK: Write runbook for DB failover."
+  },
+  {
+    "id": "mem_0376",
+    "content": "TODO: Document the failover procedure step by step."
+  },
+  {
+    "id": "mem_0377",
+    "content": "TODO: Prometheus metrics for checkout service."
+  },
+  {
+    "id": "mem_0378",
+    "content": "TASK: Instrument checkout with Prometheus counters."
+  },
+  {
+    "id": "mem_0379",
+    "content": "TASK: Bump dependencies with high-severity CVEs."
+  },
+  {
+    "id": "mem_0380",
+    "content": "TODO: Resolve three Dependabot high-severity alerts."
+  },
+  {
+    "id": "mem_0381",
+    "content": "REMINDER: Follow up with Sarah on v3 API contract."
+  },
+  {
+    "id": "mem_0382",
+    "content": "TODO: Ping Sarah about the v3 API spec."
+  },
+  {
+    "id": "mem_0383",
+    "content": "TASK: ADR for event-driven architecture decision."
+  },
+  {
+    "id": "mem_0384",
+    "content": "TODO: Write an ADR \u2014 considering event-driven approach."
+  },
+  {
+    "id": "mem_0385",
+    "content": "TASK: Log audit \u2014 replace console.log everywhere."
+  },
+  {
+    "id": "mem_0386",
+    "content": "TODO: Global search for console.log and replace with logger."
+  },
+  {
+    "id": "mem_0387",
+    "content": "TASK: Dependabot auto-updates configured."
+  },
+  {
+    "id": "mem_0388",
+    "content": "TODO: Enable Dependabot on the monorepo."
+  },
+  {
+    "id": "mem_0389",
+    "content": "TODO: Feature flag cleanup sprint."
+  },
+  {
+    "id": "mem_0390",
+    "content": "TASK: Remove stale feature flags from code and config."
+  },
+  {
+    "id": "mem_0391",
+    "content": "REMINDER: Release tag v2.3.0 post hotfix."
+  },
+  {
+    "id": "mem_0392",
+    "content": "TODO: Tag the release after the hotfix lands."
+  },
+  {
+    "id": "mem_0393",
+    "content": "TASK: Config loader refactor \u2014 add Zod."
+  },
+  {
+    "id": "mem_0394",
+    "content": "TODO: Config module should validate using Zod schema."
+  },
+  {
+    "id": "mem_0395",
+    "content": "TASK: Billing module unit tests."
+  },
+  {
+    "id": "mem_0396",
+    "content": "TODO: Write tests for the billing calculation logic."
+  },
+  {
+    "id": "mem_0397",
+    "content": "TASK: Benchmark new search service framework."
+  },
+  {
+    "id": "mem_0398",
+    "content": "TODO: Compare Fastify vs Express performance on search endpoints."
+  },
+  {
+    "id": "mem_0399",
+    "content": "REMINDER: Team presentation Thursday \u2014 don't forget."
+  },
+  {
+    "id": "mem_0400",
+    "content": "TODO: Prepare content for Thursday's arch presentation."
+  },
+  {
+    "id": "mem_0401",
+    "content": "TASK: HTTP/2 on API gateway."
+  },
+  {
+    "id": "mem_0402",
+    "content": "TODO: Enable HTTP/2 protocol on the gateway."
+  },
+  {
+    "id": "mem_0403",
+    "content": "TASK: Staging environment for payments."
+  },
+  {
+    "id": "mem_0404",
+    "content": "TODO: Spin up staging stack for payments service."
+  },
+  {
+    "id": "mem_0405",
+    "content": "Long-term goal: migrate the monolith to microservices over 12 months."
+  },
+  {
+    "id": "mem_0406",
+    "content": "Goal: achieve 90% test coverage across all core services by Q4."
+  },
+  {
+    "id": "mem_0407",
+    "content": "Goal: move all infrastructure to IaC (Terraform) \u2014 zero manual AWS console changes."
+  },
+  {
+    "id": "mem_0408",
+    "content": "Goal: implement zero-downtime deployments for all production services."
+  },
+  {
+    "id": "mem_0409",
+    "content": "Long-term goal: build a fully observable platform \u2014 metrics, logs, traces."
+  },
+  {
+    "id": "mem_0410",
+    "content": "Goal: onboard the team to trunk-based development by end of quarter."
+  },
+  {
+    "id": "mem_0411",
+    "content": "Goal: reduce average PR review time from 48h to under 8h."
+  },
+  {
+    "id": "mem_0412",
+    "content": "Long-term goal: open-source the internal CLI tooling."
+  },
+  {
+    "id": "mem_0413",
+    "content": "Goal: eliminate all use of 'any' types from the TypeScript codebase."
+  },
+  {
+    "id": "mem_0414",
+    "content": "Goal: reach senior-level competency in distributed systems design."
+  },
+  {
+    "id": "mem_0415",
+    "content": "Long-term goal: get AWS Solutions Architect Associate certification."
+  },
+  {
+    "id": "mem_0416",
+    "content": "Goal: document every service with an ADR."
+  },
+  {
+    "id": "mem_0417",
+    "content": "Goal: implement event sourcing for the orders domain."
+  },
+  {
+    "id": "mem_0418",
+    "content": "Long-term goal: build expertise in Rust for performance-critical services."
+  },
+  {
+    "id": "mem_0419",
+    "content": "Goal: reduce cold-start time of Lambda functions to under 200ms."
+  },
+  {
+    "id": "mem_0420",
+    "content": "Goal: contribute to the NestJS open-source project."
+  },
+  {
+    "id": "mem_0421",
+    "content": "Long-term goal: publish a technical blog series on backend architecture."
+  },
+  {
+    "id": "mem_0422",
+    "content": "Goal: implement a developer experience platform (internal portal)."
+  },
+  {
+    "id": "mem_0423",
+    "content": "Goal: automate all environment provisioning with Terraform + GitHub Actions."
+  },
+  {
+    "id": "mem_0424",
+    "content": "Long-term goal: achieve cloud-native architecture across all services."
+  },
+  {
+    "id": "mem_0425",
+    "content": "Goal: build a reusable TypeScript SDK for internal service communication."
+  },
+  {
+    "id": "mem_0426",
+    "content": "Goal: reduce database query response time (p99) to under 50ms."
+  },
+  {
+    "id": "mem_0427",
+    "content": "Long-term goal: certify the platform SOC 2 Type II."
+  },
+  {
+    "id": "mem_0428",
+    "content": "Goal: establish a proper on-call rotation with runbooks for every service."
+  },
+  {
+    "id": "mem_0429",
+    "content": "Goal: implement CQRS pattern in the reporting service."
+  },
+  {
+    "id": "mem_0430",
+    "content": "Long-term goal: become a principal engineer within 2 years."
+  },
+  {
+    "id": "mem_0431",
+    "content": "Goal: improve deployment frequency to multiple times per day."
+  },
+  {
+    "id": "mem_0432",
+    "content": "Goal: reduce MTTR (mean time to recovery) to under 15 minutes."
+  },
+  {
+    "id": "mem_0433",
+    "content": "Long-term goal: implement a service mesh (Istio or Linkerd) for service-to-service comms."
+  },
+  {
+    "id": "mem_0434",
+    "content": "Goal: build a design system and component library for the frontend."
+  },
+  {
+    "id": "mem_0435",
+    "content": "Long-term goal: break the monolith into microservices (18-month plan)."
+  },
+  {
+    "id": "mem_0436",
+    "content": "Goal: migrate monolith to microservices architecture."
+  },
+  {
+    "id": "mem_0437",
+    "content": "Goal: hit 90% test coverage on all services."
+  },
+  {
+    "id": "mem_0438",
+    "content": "Target: 90% code coverage across core services."
+  },
+  {
+    "id": "mem_0439",
+    "content": "Goal: all infra managed as code via Terraform."
+  },
+  {
+    "id": "mem_0440",
+    "content": "Long-term goal: no manual infra changes \u2014 100% IaC."
+  },
+  {
+    "id": "mem_0441",
+    "content": "Goal: zero-downtime deploys everywhere."
+  },
+  {
+    "id": "mem_0442",
+    "content": "Long-term goal: blue-green or canary deployments in prod."
+  },
+  {
+    "id": "mem_0443",
+    "content": "Goal: full observability \u2014 metrics, structured logs, distributed traces."
+  },
+  {
+    "id": "mem_0444",
+    "content": "Long-term goal: observable platform with Prometheus, Pino, OpenTelemetry."
+  },
+  {
+    "id": "mem_0445",
+    "content": "Goal: adopt trunk-based development team-wide."
+  },
+  {
+    "id": "mem_0446",
+    "content": "Long-term goal: get the team off long-lived branches."
+  },
+  {
+    "id": "mem_0447",
+    "content": "Goal: cut PR review turnaround to under 8 hours."
+  },
+  {
+    "id": "mem_0448",
+    "content": "Long-term goal: faster code review culture."
+  },
+  {
+    "id": "mem_0449",
+    "content": "Goal: open-source the internal tooling."
+  },
+  {
+    "id": "mem_0450",
+    "content": "Long-term goal: contribute internal tools back to the community."
+  },
+  {
+    "id": "mem_0451",
+    "content": "Goal: eliminate all TypeScript 'any' types."
+  },
+  {
+    "id": "mem_0452",
+    "content": "Long-term goal: fully type-safe TypeScript codebase."
+  },
+  {
+    "id": "mem_0453",
+    "content": "Goal: get AWS SA Associate cert."
+  },
+  {
+    "id": "mem_0454",
+    "content": "Long-term goal: AWS certification by year end."
+  },
+  {
+    "id": "mem_0455",
+    "content": "Goal: ADRs for every service."
+  },
+  {
+    "id": "mem_0456",
+    "content": "Long-term goal: documented architecture decisions across the codebase."
+  },
+  {
+    "id": "mem_0457",
+    "content": "Goal: event sourcing in the orders domain."
+  },
+  {
+    "id": "mem_0458",
+    "content": "Long-term goal: explore event sourcing for the core domain."
+  },
+  {
+    "id": "mem_0459",
+    "content": "Goal: learn Rust for systems programming."
+  },
+  {
+    "id": "mem_0460",
+    "content": "Long-term goal: use Rust for performance-critical components."
+  },
+  {
+    "id": "mem_0461",
+    "content": "Goal: faster Lambda cold starts (< 200ms target)."
+  },
+  {
+    "id": "mem_0462",
+    "content": "Long-term goal: optimise Lambda startup performance."
+  },
+  {
+    "id": "mem_0463",
+    "content": "Goal: contribute to NestJS open source."
+  },
+  {
+    "id": "mem_0464",
+    "content": "Long-term goal: give back to NestJS ecosystem."
+  },
+  {
+    "id": "mem_0465",
+    "content": "Goal: publish a backend architecture blog."
+  },
+  {
+    "id": "mem_0466",
+    "content": "Long-term goal: write and publish technical articles."
+  },
+  {
+    "id": "mem_0467",
+    "content": "Goal: internal developer portal (IDP)."
+  },
+  {
+    "id": "mem_0468",
+    "content": "Long-term goal: build a developer experience platform."
+  },
+  {
+    "id": "mem_0469",
+    "content": "Goal: automate all environment setup."
+  },
+  {
+    "id": "mem_0470",
+    "content": "Long-term goal: Terraform + CI for all environment provisioning."
+  },
+  {
+    "id": "mem_0471",
+    "content": "Goal: cloud-native architecture for all services."
+  },
+  {
+    "id": "mem_0472",
+    "content": "Long-term goal: adopt cloud-native patterns everywhere."
+  },
+  {
+    "id": "mem_0473",
+    "content": "Goal: internal TypeScript SDK for inter-service comms."
+  },
+  {
+    "id": "mem_0474",
+    "content": "Long-term goal: build and publish a shared TS SDK."
+  },
+  {
+    "id": "mem_0475",
+    "content": "Goal: p99 DB query latency under 50ms."
+  },
+  {
+    "id": "mem_0476",
+    "content": "Long-term goal: database performance improvement initiative."
+  },
+  {
+    "id": "mem_0477",
+    "content": "Goal: SOC 2 Type II certification for the platform."
+  },
+  {
+    "id": "mem_0478",
+    "content": "Long-term goal: achieve SOC 2 compliance."
+  },
+  {
+    "id": "mem_0479",
+    "content": "Goal: on-call rotation with runbooks."
+  },
+  {
+    "id": "mem_0480",
+    "content": "Long-term goal: mature on-call process with documented runbooks."
+  },
+  {
+    "id": "mem_0481",
+    "content": "Goal: CQRS in the reporting service."
+  },
+  {
+    "id": "mem_0482",
+    "content": "Long-term goal: separate read and write models for reporting."
+  },
+  {
+    "id": "mem_0483",
+    "content": "Goal: become a principal engineer."
+  },
+  {
+    "id": "mem_0484",
+    "content": "Long-term goal: career growth to principal/staff engineer level."
+  },
+  {
+    "id": "mem_0485",
+    "content": "Goal: deploy multiple times per day."
+  },
+  {
+    "id": "mem_0486",
+    "content": "Long-term goal: high deployment frequency (DORA metrics)."
+  },
+  {
+    "id": "mem_0487",
+    "content": "Goal: MTTR under 15 minutes."
+  },
+  {
+    "id": "mem_0488",
+    "content": "Long-term goal: fast incident recovery."
+  },
+  {
+    "id": "mem_0489",
+    "content": "Goal: service mesh implementation."
+  },
+  {
+    "id": "mem_0490",
+    "content": "Long-term goal: Istio or Linkerd for service-to-service comms."
+  },
+  {
+    "id": "mem_0491",
+    "content": "Goal: build a frontend design system."
+  },
+  {
+    "id": "mem_0492",
+    "content": "Long-term goal: component library and design tokens."
+  },
+  {
+    "id": "mem_0493",
+    "content": "The main backend monolith is written in Node.js 18 with TypeScript."
+  },
+  {
+    "id": "mem_0494",
+    "content": "The database is PostgreSQL 15 hosted on AWS RDS."
+  },
+  {
+    "id": "mem_0495",
+    "content": "The production Kubernetes cluster runs on AWS EKS version 1.28."
+  },
+  {
+    "id": "mem_0496",
+    "content": "The frontend is a React 18 SPA built with Vite."
+  },
+  {
+    "id": "mem_0497",
+    "content": "Authentication uses JWTs with a 15-minute access token expiry."
+  },
+  {
+    "id": "mem_0498",
+    "content": "Refresh tokens expire after 30 days and are stored in an HttpOnly cookie."
+  },
+  {
+    "id": "mem_0499",
+    "content": "The team has 6 backend engineers and 3 frontend engineers."
+  },
+  {
+    "id": "mem_0500",
+    "content": "The company's main product is a B2B SaaS project management tool."
+  },
+  {
+    "id": "mem_0501",
+    "content": "The codebase has approximately 280,000 lines of TypeScript."
+  },
+  {
+    "id": "mem_0502",
+    "content": "GitHub organisation is 'acme-corp' and the main repo is 'acme-platform'."
+  },
+  {
+    "id": "mem_0503",
+    "content": "Production is deployed in AWS us-east-1 with a DR replica in eu-west-1."
+  },
+  {
+    "id": "mem_0504",
+    "content": "The CI pipeline averages 8 minutes for a full build + test run."
+  },
+  {
+    "id": "mem_0505",
+    "content": "There are 14 microservices in production; 4 more in development."
+  },
+  {
+    "id": "mem_0506",
+    "content": "The Redis cluster is ElastiCache with 2 nodes (r6g.large)."
+  },
+  {
+    "id": "mem_0507",
+    "content": "Current test coverage is 67% across the platform."
+  },
+  {
+    "id": "mem_0508",
+    "content": "The team uses a 2-week sprint cycle with planning on Mondays."
+  },
+  {
+    "id": "mem_0509",
+    "content": "Incidents are tracked in PagerDuty with escalation to Slack."
+  },
+  {
+    "id": "mem_0510",
+    "content": "The API serves approximately 2 million requests per day in production."
+  },
+  {
+    "id": "mem_0511",
+    "content": "Average API response time (p50) is 45ms; p99 is 320ms."
+  },
+  {
+    "id": "mem_0512",
+    "content": "The largest table in the database is 'events' with 400 million rows."
+  },
+  {
+    "id": "mem_0513",
+    "content": "Node.js services run in Docker containers on Fargate and EKS."
+  },
+  {
+    "id": "mem_0514",
+    "content": "The team's Slack workspace is 'acme-engineering'."
+  },
+  {
+    "id": "mem_0515",
+    "content": "Code review requires 2 approvals before merging."
+  },
+  {
+    "id": "mem_0516",
+    "content": "The on-call rotation is weekly, rotates among 4 senior engineers."
+  },
+  {
+    "id": "mem_0517",
+    "content": "There are currently 23 open GitHub issues labelled 'tech-debt'."
+  },
+  {
+    "id": "mem_0518",
+    "content": "The payments service integrates with Stripe API v3."
+  },
+  {
+    "id": "mem_0519",
+    "content": "Email is sent via SendGrid; 50,000 emails per day average."
+  },
+  {
+    "id": "mem_0520",
+    "content": "The search service uses Elasticsearch 8.x."
+  },
+  {
+    "id": "mem_0521",
+    "content": "File uploads are stored in S3 (bucket: acme-uploads-prod)."
+  },
+  {
+    "id": "mem_0522",
+    "content": "Background jobs run on Bull (Redis-backed) queue."
+  },
+  {
+    "id": "mem_0523",
+    "content": "The team holds a weekly architecture review meeting on Thursdays."
+  },
+  {
+    "id": "mem_0524",
+    "content": "Deployment is via Helm charts to EKS; deploys happen 2-3 times per week."
+  },
+  {
+    "id": "mem_0525",
+    "content": "The staging environment mirrors production at 50% capacity."
+  },
+  {
+    "id": "mem_0526",
+    "content": "Secrets are managed in AWS Secrets Manager with rotation every 90 days."
+  },
+  {
+    "id": "mem_0527",
+    "content": "The monolith was started in 2019; microservices migration began in 2022."
+  },
+  {
+    "id": "mem_0528",
+    "content": "API versioning strategy: URL-based (/v1/, /v2/)."
+  },
+  {
+    "id": "mem_0529",
+    "content": "The product supports 12,000 active organisations."
+  },
+  {
+    "id": "mem_0530",
+    "content": "SLA for production uptime is 99.9% (three nines)."
+  },
+  {
+    "id": "mem_0531",
+    "content": "Peak traffic is weekday mornings 9\u201311am EST."
+  },
+  {
+    "id": "mem_0532",
+    "content": "Database connections are pooled via PgBouncer."
+  },
+  {
+    "id": "mem_0533",
+    "content": "The main app is a Node.js/TypeScript monolith."
+  },
+  {
+    "id": "mem_0534",
+    "content": "Backend monolith: Node.js 18, TypeScript."
+  },
+  {
+    "id": "mem_0535",
+    "content": "PostgreSQL 15 on RDS is the primary database."
+  },
+  {
+    "id": "mem_0536",
+    "content": "Production database is Postgres 15 (AWS RDS)."
+  },
+  {
+    "id": "mem_0537",
+    "content": "EKS 1.28 is the Kubernetes version in prod."
+  },
+  {
+    "id": "mem_0538",
+    "content": "Production K8s runs on EKS (version 1.28)."
+  },
+  {
+    "id": "mem_0539",
+    "content": "Frontend is React 18 with Vite."
+  },
+  {
+    "id": "mem_0540",
+    "content": "React 18 SPA, built with Vite."
+  },
+  {
+    "id": "mem_0541",
+    "content": "JWTs expire in 15 minutes; refresh tokens in 30 days."
+  },
+  {
+    "id": "mem_0542",
+    "content": "Access tokens: 15min TTL. Refresh: 30 days, HttpOnly cookie."
+  },
+  {
+    "id": "mem_0543",
+    "content": "The team is 6 BE + 3 FE engineers."
+  },
+  {
+    "id": "mem_0544",
+    "content": "Backend team: 6 engineers. Frontend: 3."
+  },
+  {
+    "id": "mem_0545",
+    "content": "GitHub org: acme-corp, main repo: acme-platform."
+  },
+  {
+    "id": "mem_0546",
+    "content": "Main repo is acme-platform under acme-corp org."
+  },
+  {
+    "id": "mem_0547",
+    "content": "Production is in us-east-1 with eu-west-1 as DR."
+  },
+  {
+    "id": "mem_0548",
+    "content": "AWS us-east-1 primary, eu-west-1 disaster recovery."
+  },
+  {
+    "id": "mem_0549",
+    "content": "CI build takes ~8 minutes."
+  },
+  {
+    "id": "mem_0550",
+    "content": "Full CI pipeline runs in about 8 minutes."
+  },
+  {
+    "id": "mem_0551",
+    "content": "14 microservices in prod, 4 in development."
+  },
+  {
+    "id": "mem_0552",
+    "content": "There are 14 production microservices."
+  },
+  {
+    "id": "mem_0553",
+    "content": "Redis on ElastiCache r6g.large (2 nodes)."
+  },
+  {
+    "id": "mem_0554",
+    "content": "ElastiCache Redis cluster: 2x r6g.large."
+  },
+  {
+    "id": "mem_0555",
+    "content": "Current test coverage is 67%."
+  },
+  {
+    "id": "mem_0556",
+    "content": "Platform test coverage: approximately 67%."
+  },
+  {
+    "id": "mem_0557",
+    "content": "2-week sprints with Monday planning."
+  },
+  {
+    "id": "mem_0558",
+    "content": "Sprint cadence: 2 weeks, planning every Monday."
+  },
+  {
+    "id": "mem_0559",
+    "content": "PagerDuty + Slack for incident management."
+  },
+  {
+    "id": "mem_0560",
+    "content": "Incidents alert via PagerDuty and route to Slack."
+  },
+  {
+    "id": "mem_0561",
+    "content": "API handles ~2 million requests per day."
+  },
+  {
+    "id": "mem_0562",
+    "content": "Daily API traffic: approximately 2M requests."
+  },
+  {
+    "id": "mem_0563",
+    "content": "p50 API latency: 45ms; p99: 320ms."
+  },
+  {
+    "id": "mem_0564",
+    "content": "Median API response: 45ms. Tail (p99): 320ms."
+  },
+  {
+    "id": "mem_0565",
+    "content": "Events table has 400M rows \u2014 biggest in the DB."
+  },
+  {
+    "id": "mem_0566",
+    "content": "Largest DB table: events (400 million rows)."
+  },
+  {
+    "id": "mem_0567",
+    "content": "Payments use Stripe API v3."
+  },
+  {
+    "id": "mem_0568",
+    "content": "Stripe v3 integration for payments."
+  },
+  {
+    "id": "mem_0569",
+    "content": "Email delivery via SendGrid (~50k/day)."
+  },
+  {
+    "id": "mem_0570",
+    "content": "SendGrid sends ~50,000 emails daily."
+  },
+  {
+    "id": "mem_0571",
+    "content": "Elasticsearch 8.x powers the search service."
+  },
+  {
+    "id": "mem_0572",
+    "content": "Search runs on Elasticsearch 8."
+  },
+  {
+    "id": "mem_0573",
+    "content": "File storage: S3 bucket acme-uploads-prod."
+  },
+  {
+    "id": "mem_0574",
+    "content": "Uploads go to S3 (acme-uploads-prod)."
+  },
+  {
+    "id": "mem_0575",
+    "content": "Bull queue (Redis-backed) for background jobs."
+  },
+  {
+    "id": "mem_0576",
+    "content": "Background processing via Bull on Redis."
+  },
+  {
+    "id": "mem_0577",
+    "content": "Architecture review every Thursday."
+  },
+  {
+    "id": "mem_0578",
+    "content": "Weekly Thursday arch review meeting."
+  },
+  {
+    "id": "mem_0579",
+    "content": "Deploys 2-3 times per week via Helm."
+  },
+  {
+    "id": "mem_0580",
+    "content": "Helm-based deployments happen 2-3x/week."
+  },
+  {
+    "id": "mem_0581",
+    "content": "Staging is 50% of prod capacity."
+  },
+  {
+    "id": "mem_0582",
+    "content": "Staging environment at half production scale."
+  },
+  {
+    "id": "mem_0583",
+    "content": "Secrets rotate every 90 days in AWS Secrets Manager."
+  },
+  {
+    "id": "mem_0584",
+    "content": "90-day secret rotation in Secrets Manager."
+  },
+  {
+    "id": "mem_0585",
+    "content": "Monolith started 2019; microservices migration from 2022."
+  },
+  {
+    "id": "mem_0586",
+    "content": "Microservices effort started in 2022 from a 2019 monolith."
+  },
+  {
+    "id": "mem_0587",
+    "content": "API uses URL versioning (/v1/, /v2/)."
+  },
+  {
+    "id": "mem_0588",
+    "content": "URL-based versioning for the API."
+  },
+  {
+    "id": "mem_0589",
+    "content": "12,000 active organisations on the platform."
+  },
+  {
+    "id": "mem_0590",
+    "content": "Platform serves 12k active orgs."
+  },
+  {
+    "id": "mem_0591",
+    "content": "99.9% uptime SLA."
+  },
+  {
+    "id": "mem_0592",
+    "content": "Three-nines SLA for production."
+  },
+  {
+    "id": "mem_0593",
+    "content": "Peak traffic: weekdays 9-11am EST."
+  },
+  {
+    "id": "mem_0594",
+    "content": "Busiest time: Monday\u2013Friday mornings, EST."
+  },
+  {
+    "id": "mem_0595",
+    "content": "PgBouncer pools database connections."
+  },
+  {
+    "id": "mem_0596",
+    "content": "DB connection pooling via PgBouncer."
+  },
+  {
+    "id": "mem_0597",
+    "content": "Codebase is ~280k lines of TypeScript."
+  },
+  {
+    "id": "mem_0598",
+    "content": "~280,000 lines of TS across the platform."
+  },
+  {
+    "id": "mem_0599",
+    "content": "23 open tech-debt issues on GitHub."
+  },
+  {
+    "id": "mem_0600",
+    "content": "Tech debt backlog: 23 issues labelled accordingly."
+  },
+  {
+    "id": "mem_0601",
+    "content": "2 approvals required to merge a PR."
+  },
+  {
+    "id": "mem_0602",
+    "content": "PRs need 2 review approvals before merge."
+  },
+  {
+    "id": "mem_0603",
+    "content": "On-call rotates weekly among 4 senior engineers."
+  },
+  {
+    "id": "mem_0604",
+    "content": "Weekly on-call among 4 seniors."
+  },
+  {
+    "id": "mem_0605",
+    "content": "Slack workspace: acme-engineering."
+  },
+  {
+    "id": "mem_0606",
+    "content": "Team communicates in acme-engineering Slack."
+  },
+  {
+    "id": "mem_0607",
+    "content": "Sprint is 2 weeks; planning on Mondays."
+  },
+  {
+    "id": "mem_0608",
+    "content": "2-week sprint cadence, Monday kickoffs."
+  },
+  {
+    "id": "mem_0609",
+    "content": "Company product: B2B SaaS for project management."
+  },
+  {
+    "id": "mem_0610",
+    "content": "Main product is a B2B project management SaaS."
+  },
+  {
+    "id": "mem_0611",
+    "content": "SPA is React 18 built on Vite."
+  },
+  {
+    "id": "mem_0612",
+    "content": "Vite + React 18 for the frontend single-page app."
+  },
+  {
+    "id": "mem_0613",
+    "content": "Code review: 2 approvals needed."
+  },
+  {
+    "id": "mem_0614",
+    "content": "You need two reviewers to approve before merging."
+  },
+  {
+    "id": "mem_0615",
+    "content": "The preference for Zod validation is directly tied to the goal of eliminating 'any' types."
+  },
+  {
+    "id": "mem_0616",
+    "content": "Using Prisma (preference) aligns with the long-term goal of well-typed database access."
+  },
+  {
+    "id": "mem_0617",
+    "content": "The NestJS preference for large projects connects to the microservices migration goal."
+  },
+  {
+    "id": "mem_0618",
+    "content": "The strict TypeScript config preference supports the goal of eliminating 'any' from the codebase."
+  },
+  {
+    "id": "mem_0619",
+    "content": "The Terraform preference supports the long-term goal of 100% infrastructure as code."
+  },
+  {
+    "id": "mem_0620",
+    "content": "The conventional commits preference feeds into the automated CHANGELOG goal."
+  },
+  {
+    "id": "mem_0621",
+    "content": "GitHub Actions preference is tied to the goal of automated environment provisioning."
+  },
+  {
+    "id": "mem_0622",
+    "content": "The test coverage goal (90%) builds on the current 67% measured in the codebase."
+  },
+  {
+    "id": "mem_0623",
+    "content": "The OpenTelemetry preference implements the observability long-term goal."
+  },
+  {
+    "id": "mem_0624",
+    "content": "Prometheus + Grafana preference supports the full observability platform goal."
+  },
+  {
+    "id": "mem_0625",
+    "content": "The on-call rotation improvement goal is tied to the existing PagerDuty + runbook setup."
+  },
+  {
+    "id": "mem_0626",
+    "content": "The MTTR goal (< 15 min) directly connects to the PagerDuty incident management fact."
+  },
+  {
+    "id": "mem_0627",
+    "content": "The SOC 2 goal relates to the current secret rotation practice (AWS Secrets Manager, 90 days)."
+  },
+  {
+    "id": "mem_0628",
+    "content": "The ADR documentation goal ties to the weekly architecture review meeting fact."
+  },
+  {
+    "id": "mem_0629",
+    "content": "The deployment frequency goal connects to the current 2-3 deploys/week fact."
+  },
+  {
+    "id": "mem_0630",
+    "content": "The p99 database query goal (< 50ms) relates to the current p99 of 320ms API latency."
+  },
+  {
+    "id": "mem_0631",
+    "content": "The events table (400M rows) is likely related to the query performance goal."
+  },
+  {
+    "id": "mem_0632",
+    "content": "The Bull queue fact connects to the background job error handling and DLQ task."
+  },
+  {
+    "id": "mem_0633",
+    "content": "The Elasticsearch fact connects to the input sanitisation TODO for the search query endpoint."
+  },
+  {
+    "id": "mem_0634",
+    "content": "The Stripe integration fact is the context for the idempotency keys task."
+  },
+  {
+    "id": "mem_0635",
+    "content": "The 2-approval PR rule connects to the PR review time goal (reduce to 8h)."
+  },
+  {
+    "id": "mem_0636",
+    "content": "The trunk-based development goal builds on the conventional commits and rebase preferences."
+  },
+  {
+    "id": "mem_0637",
+    "content": "The internal SDK goal is related to the 14 microservices in production fact."
+  },
+  {
+    "id": "mem_0638",
+    "content": "The design system goal connects to the React 18 + Vite frontend fact."
+  },
+  {
+    "id": "mem_0639",
+    "content": "The CQRS goal for reporting is motivated by the 400M-row events table performance."
+  },
+  {
+    "id": "mem_0640",
+    "content": "The service mesh goal relates to the 14+ microservices and inter-service communication."
+  },
+  {
+    "id": "mem_0641",
+    "content": "The cert rotation reminder (SSL) connects to the 99.9% SLA requirement."
+  },
+  {
+    "id": "mem_0642",
+    "content": "The cold-start Lambda goal connects to the existing AWS cloud preference."
+  },
+  {
+    "id": "mem_0643",
+    "content": "The Rust learning goal is separate from the main TypeScript-dominant codebase."
+  },
+  {
+    "id": "mem_0644",
+    "content": "The blog writing goal aligns with the principal engineer career goal."
+  },
+  {
+    "id": "mem_0645",
+    "content": "User prefers TypeScript \u2014 has mentioned this many times."
+  },
+  {
+    "id": "mem_0646",
+    "content": "TypeScript is the user's default language choice."
+  },
+  {
+    "id": "mem_0647",
+    "content": "User wants TS strict mode always enabled."
+  },
+  {
+    "id": "mem_0648",
+    "content": "User's tsconfig always has strict: true."
+  },
+  {
+    "id": "mem_0649",
+    "content": "User likes immutable variables \u2014 const over let."
+  },
+  {
+    "id": "mem_0650",
+    "content": "const is default; let only when mutation is needed."
+  },
+  {
+    "id": "mem_0651",
+    "content": "User keeps functions focused and short."
+  },
+  {
+    "id": "mem_0652",
+    "content": "Short, single-purpose functions are the user's style."
+  },
+  {
+    "id": "mem_0653",
+    "content": "User writes conventional commit messages."
+  },
+  {
+    "id": "mem_0654",
+    "content": "Commit format: type(scope): description."
+  },
+  {
+    "id": "mem_0655",
+    "content": "User runs Docker in development."
+  },
+  {
+    "id": "mem_0656",
+    "content": "Development stack always includes Docker."
+  },
+  {
+    "id": "mem_0657",
+    "content": "User's cloud is AWS."
+  },
+  {
+    "id": "mem_0658",
+    "content": "AWS is the default cloud platform."
+  },
+  {
+    "id": "mem_0659",
+    "content": "User prefers Zod over Joi or Yup."
+  },
+  {
+    "id": "mem_0660",
+    "content": "Zod for validation \u2014 not Joi or Yup."
+  },
+  {
+    "id": "mem_0661",
+    "content": "User uses Prisma, not TypeORM."
+  },
+  {
+    "id": "mem_0662",
+    "content": "Prisma is preferred over TypeORM."
+  },
+  {
+    "id": "mem_0663",
+    "content": "User likes ESLint + Prettier combo."
+  },
+  {
+    "id": "mem_0664",
+    "content": "ESLint for rules, Prettier for formatting."
+  },
+  {
+    "id": "mem_0665",
+    "content": "User doesn't like class-based code in TS."
+  },
+  {
+    "id": "mem_0666",
+    "content": "Functional > OOP in user's TS work."
+  },
+  {
+    "id": "mem_0667",
+    "content": "User writes unit tests with Jest."
+  },
+  {
+    "id": "mem_0668",
+    "content": "Jest is the test runner."
+  },
+  {
+    "id": "mem_0669",
+    "content": "User targets 80%+ code coverage."
+  },
+  {
+    "id": "mem_0670",
+    "content": "Coverage target: 80% minimum."
+  },
+  {
+    "id": "mem_0671",
+    "content": "User's API architecture: REST, not GraphQL (usually)."
+  },
+  {
+    "id": "mem_0672",
+    "content": "REST APIs are the default choice."
+  },
+  {
+    "id": "mem_0673",
+    "content": "User runs Kubernetes in prod."
+  },
+  {
+    "id": "mem_0674",
+    "content": "Kubernetes orchestrates production services."
+  },
+  {
+    "id": "mem_0675",
+    "content": "User provisions with Terraform."
+  },
+  {
+    "id": "mem_0676",
+    "content": "Terraform for all cloud infrastructure."
+  },
+  {
+    "id": "mem_0677",
+    "content": "User uses Helm for K8s releases."
+  },
+  {
+    "id": "mem_0678",
+    "content": "Helm charts manage K8s deployments."
+  },
+  {
+    "id": "mem_0679",
+    "content": "User uses GitHub Actions for pipelines."
+  },
+  {
+    "id": "mem_0680",
+    "content": "CI/CD via GitHub Actions."
+  },
+  {
+    "id": "mem_0681",
+    "content": "User monitors with Grafana."
+  },
+  {
+    "id": "mem_0682",
+    "content": "Grafana is the metrics dashboard."
+  },
+  {
+    "id": "mem_0683",
+    "content": "User traces with OpenTelemetry."
+  },
+  {
+    "id": "mem_0684",
+    "content": "OpenTelemetry for distributed tracing."
+  },
+  {
+    "id": "mem_0685",
+    "content": "User logs with Pino (JSON structured)."
+  },
+  {
+    "id": "mem_0686",
+    "content": "JSON logs via Pino in Node.js."
+  },
+  {
+    "id": "mem_0687",
+    "content": "User uses Redis for caching layer."
+  },
+  {
+    "id": "mem_0688",
+    "content": "Redis caches frequently read data."
+  },
+  {
+    "id": "mem_0689",
+    "content": "User's DB is Postgres."
+  },
+  {
+    "id": "mem_0690",
+    "content": "PostgreSQL is the main data store."
+  },
+  {
+    "id": "mem_0691",
+    "content": "User writes Markdown docs."
+  },
+  {
+    "id": "mem_0692",
+    "content": "All docs in Markdown format."
+  },
+  {
+    "id": "mem_0693",
+    "content": "User uses Notion for personal notes."
+  },
+  {
+    "id": "mem_0694",
+    "content": "Notion organises user's project notes."
+  },
+  {
+    "id": "mem_0695",
+    "content": "User uses tmux + zsh daily."
+  },
+  {
+    "id": "mem_0696",
+    "content": "Terminal: tmux + zsh + Powerlevel10k."
+  },
+  {
+    "id": "mem_0697",
+    "content": "User writes guard clauses at function top."
+  },
+  {
+    "id": "mem_0698",
+    "content": "Guard clauses precede main logic."
+  },
+  {
+    "id": "mem_0699",
+    "content": "User avoids deep nesting."
+  },
+  {
+    "id": "mem_0700",
+    "content": "Deeply nested conditionals are a code smell to the user."
+  },
+  {
+    "id": "mem_0701",
+    "content": "User uses named exports."
+  },
+  {
+    "id": "mem_0702",
+    "content": "Prefer named over default exports."
+  },
+  {
+    "id": "mem_0703",
+    "content": "User writes JSDoc on exported APIs."
+  },
+  {
+    "id": "mem_0704",
+    "content": "Public functions have JSDoc."
+  },
+  {
+    "id": "mem_0705",
+    "content": "User uses DI pattern."
+  },
+  {
+    "id": "mem_0706",
+    "content": "Dependency injection is preferred."
+  },
+  {
+    "id": "mem_0707",
+    "content": "User uses repository abstraction for DB."
+  },
+  {
+    "id": "mem_0708",
+    "content": "Database access through repository interfaces."
+  },
+  {
+    "id": "mem_0709",
+    "content": "User uses service layer between controller and repo."
+  },
+  {
+    "id": "mem_0710",
+    "content": "Business logic lives in the service layer."
+  },
+  {
+    "id": "mem_0711",
+    "content": "User avoids fat controllers."
+  },
+  {
+    "id": "mem_0712",
+    "content": "Controllers are thin; logic is in services."
+  },
+  {
+    "id": "mem_0713",
+    "content": "User prefers neverthrow for error handling."
+  },
+  {
+    "id": "mem_0714",
+    "content": "Typed errors with neverthrow Result type."
+  },
+  {
+    "id": "mem_0715",
+    "content": "User commits atomically."
+  },
+  {
+    "id": "mem_0716",
+    "content": "One logical change per commit."
+  },
+  {
+    "id": "mem_0717",
+    "content": "User rebases before merging."
+  },
+  {
+    "id": "mem_0718",
+    "content": "Rebase onto main, then fast-forward merge."
+  },
+  {
+    "id": "mem_0719",
+    "content": "User reviews PRs under 400 lines."
+  },
+  {
+    "id": "mem_0720",
+    "content": "Small PRs are easier to review (< 400 lines)."
+  },
+  {
+    "id": "mem_0721",
+    "content": "User uses Husky for pre-commit checks."
+  },
+  {
+    "id": "mem_0722",
+    "content": "Pre-commit: Husky runs lint and type-check."
+  },
+  {
+    "id": "mem_0723",
+    "content": "User uses lint-staged."
+  },
+  {
+    "id": "mem_0724",
+    "content": "lint-staged checks only changed files."
+  },
+  {
+    "id": "mem_0725",
+    "content": "User manages secrets in AWS Secrets Manager."
+  },
+  {
+    "id": "mem_0726",
+    "content": "No secrets in env files or source control."
+  },
+  {
+    "id": "mem_0727",
+    "content": "User uses dotenv for local dev config."
+  },
+  {
+    "id": "mem_0728",
+    "content": "dotenv loads env vars locally."
+  },
+  {
+    "id": "mem_0729",
+    "content": "User validates env vars at startup."
+  },
+  {
+    "id": "mem_0730",
+    "content": "Startup-time env validation with Zod."
+  },
+  {
+    "id": "mem_0731",
+    "content": "User uses Turborepo for monorepos."
+  },
+  {
+    "id": "mem_0732",
+    "content": "Monorepo tooling: Turborepo."
+  },
+  {
+    "id": "mem_0733",
+    "content": "User's Node services use Express or Fastify."
+  },
+  {
+    "id": "mem_0734",
+    "content": "Express for simple APIs; Fastify for performance."
+  },
+  {
+    "id": "mem_0735",
+    "content": "User uses NestJS for complex backend projects."
+  },
+  {
+    "id": "mem_0736",
+    "content": "NestJS on larger projects with many modules."
+  },
+  {
+    "id": "mem_0737",
+    "content": "User uses Supertest for API tests."
+  },
+  {
+    "id": "mem_0738",
+    "content": "Integration tests via Supertest."
+  },
+  {
+    "id": "mem_0739",
+    "content": "User colocates test files."
+  },
+  {
+    "id": "mem_0740",
+    "content": "*.test.ts lives next to the source file."
+  },
+  {
+    "id": "mem_0741",
+    "content": "User uses Vitest on Vite projects."
+  },
+  {
+    "id": "mem_0742",
+    "content": "Vite-based projects use Vitest."
+  },
+  {
+    "id": "mem_0743",
+    "content": "User logs at error, warn, info, debug levels."
+  },
+  {
+    "id": "mem_0744",
+    "content": "Four log levels: error, warn, info, debug."
+  },
+  {
+    "id": "mem_0745",
+    "content": "User adds request correlation IDs to logs."
+  },
+  {
+    "id": "mem_0746",
+    "content": "Correlation ID in every log line."
+  },
+  {
+    "id": "mem_0747",
+    "content": "User uses structured logging."
+  },
+  {
+    "id": "mem_0748",
+    "content": "Logs are JSON, not plaintext."
+  },
+  {
+    "id": "mem_0749",
+    "content": "Goal: fully observable platform."
+  },
+  {
+    "id": "mem_0750",
+    "content": "Observability is a long-term engineering goal."
+  },
+  {
+    "id": "mem_0751",
+    "content": "Goal: migrate to microservices."
+  },
+  {
+    "id": "mem_0752",
+    "content": "Microservices migration is ongoing."
+  },
+  {
+    "id": "mem_0753",
+    "content": "Goal: eliminate TypeScript any."
+  },
+  {
+    "id": "mem_0754",
+    "content": "No more any types \u2014 long-term goal."
+  },
+  {
+    "id": "mem_0755",
+    "content": "Goal: get AWS certification."
+  },
+  {
+    "id": "mem_0756",
+    "content": "AWS Solutions Architect cert is a personal goal."
+  },
+  {
+    "id": "mem_0757",
+    "content": "Goal: open-source internal tools."
+  },
+  {
+    "id": "mem_0758",
+    "content": "Plans to open-source the CLI tooling."
+  },
+  {
+    "id": "mem_0759",
+    "content": "Goal: write a tech blog."
+  },
+  {
+    "id": "mem_0760",
+    "content": "Technical writing and blogging is a goal."
+  },
+  {
+    "id": "mem_0761",
+    "content": "Goal: become principal engineer."
+  },
+  {
+    "id": "mem_0762",
+    "content": "Career goal: principal/staff level."
+  },
+  {
+    "id": "mem_0763",
+    "content": "Fact: 14 microservices in production."
+  },
+  {
+    "id": "mem_0764",
+    "content": "Production runs 14 microservices."
+  },
+  {
+    "id": "mem_0765",
+    "content": "Fact: PostgreSQL 15 on RDS."
+  },
+  {
+    "id": "mem_0766",
+    "content": "Database: Postgres 15, managed on RDS."
+  },
+  {
+    "id": "mem_0767",
+    "content": "Fact: EKS 1.28 in production."
+  },
+  {
+    "id": "mem_0768",
+    "content": "Kubernetes version is 1.28 on EKS."
+  },
+  {
+    "id": "mem_0769",
+    "content": "Fact: React 18 frontend."
+  },
+  {
+    "id": "mem_0770",
+    "content": "Frontend is React 18."
+  },
+  {
+    "id": "mem_0771",
+    "content": "Fact: 2M API requests per day."
+  },
+  {
+    "id": "mem_0772",
+    "content": "Daily request volume: ~2 million."
+  },
+  {
+    "id": "mem_0773",
+    "content": "Fact: p99 latency is 320ms."
+  },
+  {
+    "id": "mem_0774",
+    "content": "Tail latency (p99): 320ms currently."
+  },
+  {
+    "id": "mem_0775",
+    "content": "Fact: 67% test coverage."
+  },
+  {
+    "id": "mem_0776",
+    "content": "Current coverage: 67% across platform."
+  },
+  {
+    "id": "mem_0777",
+    "content": "Fact: 12,000 active orgs."
+  },
+  {
+    "id": "mem_0778",
+    "content": "The platform has 12k active organisations."
+  },
+  {
+    "id": "mem_0779",
+    "content": "Fact: Stripe v3 for payments."
+  },
+  {
+    "id": "mem_0780",
+    "content": "Payments processed via Stripe API v3."
+  },
+  {
+    "id": "mem_0781",
+    "content": "Fact: SendGrid for email."
+  },
+  {
+    "id": "mem_0782",
+    "content": "Email sending: SendGrid."
+  },
+  {
+    "id": "mem_0783",
+    "content": "Fact: Elasticsearch 8 for search."
+  },
+  {
+    "id": "mem_0784",
+    "content": "Search service on Elasticsearch 8."
+  },
+  {
+    "id": "mem_0785",
+    "content": "Fact: S3 for file storage."
+  },
+  {
+    "id": "mem_0786",
+    "content": "Files stored in S3."
+  },
+  {
+    "id": "mem_0787",
+    "content": "Fact: Bull queue for background jobs."
+  },
+  {
+    "id": "mem_0788",
+    "content": "Background jobs on Bull/Redis."
+  },
+  {
+    "id": "mem_0789",
+    "content": "Fact: PgBouncer for connection pooling."
+  },
+  {
+    "id": "mem_0790",
+    "content": "DB connections pooled through PgBouncer."
+  },
+  {
+    "id": "mem_0791",
+    "content": "Fact: 99.9% SLA."
+  },
+  {
+    "id": "mem_0792",
+    "content": "Three-nines availability SLA."
+  },
+  {
+    "id": "mem_0793",
+    "content": "Fact: 2 PR approvals needed."
+  },
+  {
+    "id": "mem_0794",
+    "content": "Two approvals required to merge."
+  },
+  {
+    "id": "mem_0795",
+    "content": "Fact: on-call rotates weekly."
+  },
+  {
+    "id": "mem_0796",
+    "content": "On-call: weekly rotation, 4 seniors."
+  },
+  {
+    "id": "mem_0797",
+    "content": "Fact: 400M rows in events table."
+  },
+  {
+    "id": "mem_0798",
+    "content": "Events is the largest table at 400M rows."
+  },
+  {
+    "id": "mem_0799",
+    "content": "Fact: 280k lines of TypeScript."
+  },
+  {
+    "id": "mem_0800",
+    "content": "Codebase: ~280,000 TS lines."
+  },
+  {
+    "id": "mem_0801",
+    "content": "Fact: 23 tech-debt issues open."
+  },
+  {
+    "id": "mem_0802",
+    "content": "23 open GitHub issues tagged tech-debt."
+  },
+  {
+    "id": "mem_0803",
+    "content": "Fact: deployments 2-3x per week."
+  },
+  {
+    "id": "mem_0804",
+    "content": "2 to 3 production deploys per week."
+  },
+  {
+    "id": "mem_0805",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0806",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0807",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0808",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0809",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0810",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0811",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0812",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0813",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0814",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0815",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0816",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0817",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0818",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0819",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0820",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0821",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0822",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0823",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0824",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0825",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0826",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0827",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0828",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0829",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0830",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0831",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0832",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0833",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0834",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0835",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0836",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0837",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0838",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0839",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0840",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0841",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0842",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0843",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0844",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0845",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0846",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0847",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0848",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0849",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0850",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0851",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0852",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0853",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0854",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0855",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0856",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0857",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0858",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0859",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0860",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0861",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0862",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0863",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0864",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0865",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0866",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0867",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0868",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0869",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0870",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0871",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0872",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0873",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0874",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0875",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0876",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0877",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0878",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0879",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0880",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0881",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0882",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0883",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0884",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0885",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0886",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0887",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0888",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0889",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0890",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0891",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0892",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0893",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0894",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0895",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0896",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0897",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0898",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0899",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0900",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0901",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0902",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0903",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0904",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0905",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0906",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0907",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0908",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0909",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0910",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0911",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0912",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0913",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0914",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0915",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0916",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0917",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0918",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0919",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0920",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0921",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0922",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0923",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0924",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0925",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0926",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0927",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0928",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0929",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0930",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0931",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0932",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0933",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0934",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0935",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0936",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0937",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0938",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0939",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0940",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0941",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0942",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0943",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0944",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0945",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0946",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0947",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0948",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0949",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0950",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0951",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0952",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0953",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0954",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0955",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0956",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0957",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0958",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0959",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0960",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0961",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0962",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0963",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0964",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0965",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0966",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0967",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0968",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0969",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0970",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0971",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0972",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0973",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0974",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0975",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0976",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0977",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0978",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0979",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0980",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0981",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0982",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0983",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0984",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0985",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0986",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0987",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0988",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0989",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0990",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0991",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0992",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0993",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0994",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0995",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0996",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0997",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0998",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_0999",
+    "content": "User prefers TypeScript for all projects."
+  },
+  {
+    "id": "mem_1000",
+    "content": "User prefers TypeScript for all projects."
+  }
+]

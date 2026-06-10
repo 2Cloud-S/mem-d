@@ -1,0 +1,127 @@
+# Mem-D Analyze
+
+Local-first CLI for analyzing agent memory exports.
+
+Mem-D answers: **what is in memory, how redundant is it, and how much could be compressed?**
+
+This is an early V1 build — functional, but not polished. Feedback and contributions welcome.
+
+## Status
+
+- **Version:** 0.1.0 (V1 Aplha)
+- **Scope:** Read-only analysis via CLI
+- **Not included yet:** MCP, SDK, dashboard
+
+## Features
+
+- Parse memory exports: JSON, CSV, TXT
+- Heuristic categorization (Preference, Fact, Task, Goal, Relationship, Temporary, Unknown)
+- Semantic duplicate clustering (DBSCAN + cosine similarity)
+- Metrics: category distribution, duplicate %, compression opportunity
+- Output: terminal report, JSON, Markdown
+
+## Requirements
+
+- Python 3.10+
+- Windows, macOS, or Linux
+
+## Install
+
+```bash
+git clone <your-repo-url>
+cd mem-d
+
+python -m pip install -e ".[dev]"
+```
+
+Optional — better semantic duplicate detection with local embedding models:
+
+```bash
+python -m pip install -e ".[dev,embeddings]"
+```
+
+## Quick start
+
+```bash
+# Help
+python -m memd --help
+
+# Analyze a memory export (terminal report)
+python -m memd analyze tests/fixtures/memories.json
+
+# JSON output
+python -m memd analyze memory.json --format json
+
+# Markdown report to file
+python -m memd analyze memory.json --format markdown --output report.md
+
+# Lower similarity threshold
+python -m memd analyze memory.json --threshold 0.80
+
+# Use a local embedding model (requires [embeddings] extra)
+python -m memd analyze memory.json --model BAAI/bge-small-en-v1.5
+```
+
+## Input formats
+
+### JSON
+
+Array of objects, or an object with a `memories` / `items` / `records` key:
+
+```json
+[
+  { "id": "mem_1", "content": "User prefers dark mode" },
+  { "id": "mem_2", "content": "User likes dark themes" }
+]
+```
+
+### CSV
+
+Header row with at least a `content` column (also accepts `text`, `memory`, `message`).
+
+### TXT
+
+One memory per line.
+
+## Development
+
+```bash
+# Run tests
+python -m pytest
+
+# Lint
+python -m ruff check .
+
+# Benchmark (10k synthetic records)
+python scripts/benchmark_10k.py
+```
+
+## Project layout
+
+```
+memd/              Python package (CLI + analysis pipeline)
+tests/             Unit and CLI tests
+Docs/              Product & technical specifications
+scripts/           Benchmarks and utilities
+```
+
+## Documentation
+
+| Doc | Purpose |
+| --- | --- |
+| [Docs/prd.md](Docs/prd.md) | Product requirements |
+| [Docs/Arch.md](Docs/Arch.md) | Architecture |
+| [Docs/DATA_CONTRACTS.md](Docs/DATA_CONTRACTS.md) | Data contracts |
+| [Docs/DECISIONS.md](Docs/DECISIONS.md) | Architectural decisions |
+| [agents.md](agents.md) | Agent/contributor scope |
+
+## Design principles
+
+- **Local first** — runs on your machine, no cloud required
+- **Read only** — never modifies input files
+- **Provider independent** — no OpenAI/Anthropic/Gemini dependency for core features
+- **Explainable** — categories and clusters trace back to inputs
+
+## License
+
+MIT — see [LICENSE](LICENSE).

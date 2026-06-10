@@ -1,0 +1,17 @@
+[
+  {
+    "id": "mem_1",
+    "content": "User prefers dark mode",
+    "source": "fixture"
+  },
+  {
+    "id": "mem_2",
+    "content": "User likes dark themes",
+    "source": "fixture"
+  },
+  {
+    "id": "mem_3",
+    "content": "Follow up on the API review tomorrow",
+    "source": "fixture"
+  }
+]
