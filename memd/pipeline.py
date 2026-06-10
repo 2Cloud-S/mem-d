@@ -5,6 +5,7 @@ from pathlib import Path
 from memd.categorization import categorize_records
 from memd.clustering import cluster_duplicates
 from memd.contracts import AnalysisReport
+from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.embeddings import EmbeddingEngine
 from memd.inspection import build_validation_summary, enrich_clusters
 from memd.metrics import calculate_metrics
@@ -14,7 +15,7 @@ from memd.parser import load_memory_file
 
 def analyze_file(
     path: Path,
-    threshold: float = 0.85,
+    threshold: float = DEFAULT_SIMILARITY_THRESHOLD,
     model_name: str | None = None,
 ) -> AnalysisReport:
     parsed = load_memory_file(path)

@@ -54,8 +54,8 @@ python -m memd analyze memory.json --format json
 # Markdown report to file
 python -m memd analyze memory.json --format markdown --output report.md
 
-# Lower similarity threshold
-python -m memd analyze memory.json --threshold 0.80
+# Tune similarity threshold after evaluation
+python -m memd analyze memory.json --threshold 0.55
 
 # Use a local embedding model (requires [embeddings] extra)
 python -m memd analyze memory.json --model BAAI/bge-small-en-v1.5
@@ -72,6 +72,8 @@ python -m memd evaluate-clusters datasets/validation/clustering_quality.json --f
 ```
 
 The evaluation report includes precision, recall, F1, false positives, false negatives, cluster purity, cluster coverage, and examples of clustering mistakes.
+
+The default threshold is `0.55`, chosen from the labelled validation fixture to improve near-duplicate recall while preserving high precision. See [Docs/validation/clustering.md](Docs/validation/clustering.md) for the measured tradeoffs.
 
 ## Input formats
 

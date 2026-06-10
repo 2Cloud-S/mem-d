@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 from memd.categorization import categorize_records
 from memd.clustering import cluster_duplicates
 from memd.contracts import DuplicateCluster, EmbeddedMemory, MemoryRecord
+from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.embeddings import EmbeddingEngine
 from memd.inspection import enrich_clusters
 from memd.normalization import normalize_records
@@ -73,7 +74,7 @@ def load_evaluation_dataset(path: Path) -> EvaluationDataset:
 
 def evaluate_dataset(
     path: Path,
-    threshold: float = 0.85,
+    threshold: float = DEFAULT_SIMILARITY_THRESHOLD,
     model_name: str | None = None,
 ) -> ClusterEvaluation:
     dataset = load_evaluation_dataset(path)

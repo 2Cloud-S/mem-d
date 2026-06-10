@@ -10,6 +10,34 @@ import numpy as np
 from memd.contracts import EmbeddedMemory, MemoryRecord
 
 TOKEN_RE = re.compile(r"[a-z0-9]+")
+ALIASES = {
+    "cert": "certificate",
+    "cicd": "ci",
+    "cache": "caching",
+    "dev": "development",
+    "env": "environment",
+    "js": "javascript",
+    "k8s": "kubernetes",
+    "otel": "opentelemetry",
+    "pkg": "package",
+    "prefs": "preference",
+    "repos": "repository",
+    "repo": "repository",
+    "ts": "typescript",
+}
+STEMS = (
+    ("environments", "environment"),
+    ("development", "develop"),
+    ("projects", "project"),
+    ("sessions", "session"),
+    ("tracing", "trace"),
+    ("collection", "collect"),
+    ("caching", "cache"),
+    ("renewal", "renew"),
+    ("certificate", "cert"),
+    ("javascript", "js"),
+    ("typescript", "ts"),
+)
 
 
 class EmbeddingEngine:
@@ -46,14 +74,52 @@ class EmbeddingEngine:
 
 def hashing_embedding(text: str, dimensions: int = 384) -> list[float]:
     vector = [0.0] * dimensions
-    tokens = TOKEN_RE.findall(text.lower())
-    for token in tokens:
-        digest = hashlib.sha256(token.encode("utf-8")).digest()
-        index = int.from_bytes(digest[:4], "big") % dimensions
-        sign = 1.0 if digest[4] % 2 == 0 else -1.0
-        vector[index] += sign
+    for feature, weight in lexical_features(text):
+        add_feature(vector, feature, weight)
 
     norm = math.sqrt(sum(value * value for value in vector))
     if norm == 0:
         return vector
     return [value / norm for value in vector]
+
+
+def lexical_features(text: str) -> list[tuple[str, float]]:
+    tokens = normalize_tokens(TOKEN_RE.findall(text.lower()))
+    features: list[tuple[str, float]] = []
+
+    for token in tokens:
+        features.append((f"tok:{token}", 1.0))
+        for ngram in character_ngrams(token):
+            features.append((f"char:{ngram}", 0.2))
+
+    for left, right in zip(tokens, tokens[1:], strict=False):
+        features.append((f"bi:{left}_{right}", 0.6))
+
+    return features
+
+
+def normalize_tokens(tokens: Sequence[str]) -> list[str]:
+    normalized: list[str] = []
+    for token in tokens:
+        current = ALIASES.get(token, token)
+        for suffix, replacement in STEMS:
+            if current == suffix:
+                current = replacement
+                break
+        if len(current) > 4 and current.endswith("s"):
+            current = current[:-1]
+        normalized.append(current)
+    return normalized
+
+
+def character_ngrams(token: str, size: int = 4) -> list[str]:
+    if len(token) <= size:
+        return [token]
+    return [token[index : index + size] for index in range(len(token) - size + 1)]
+
+
+def add_feature(vector: list[float], feature: str, weight: float) -> None:
+    digest = hashlib.sha256(feature.encode("utf-8")).digest()
+    index = int.from_bytes(digest[:4], "big") % len(vector)
+    sign = 1.0 if digest[4] % 2 == 0 else -1.0
+    vector[index] += sign * weight

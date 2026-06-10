@@ -8,6 +8,7 @@ import typer
 from rich.console import Console
 
 from memd import __version__
+from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.evaluation import (
     ClusterEvaluation,
     evaluate_dataset,
@@ -58,7 +59,7 @@ def analyze(
     threshold: Annotated[
         float,
         typer.Option("--threshold", min=0.0, max=1.0, help="Duplicate similarity threshold."),
-    ] = 0.85,
+    ] = DEFAULT_SIMILARITY_THRESHOLD,
     model: Annotated[
         str | None,
         typer.Option(
@@ -111,7 +112,7 @@ def evaluate_clusters(
     threshold: Annotated[
         float,
         typer.Option("--threshold", min=0.0, max=1.0, help="Duplicate similarity threshold."),
-    ] = 0.85,
+    ] = DEFAULT_SIMILARITY_THRESHOLD,
     model: Annotated[
         str | None,
         typer.Option(

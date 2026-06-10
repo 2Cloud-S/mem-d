@@ -26,10 +26,23 @@ def test_evaluate_dataset_reports_objective_metrics() -> None:
 
     assert evaluation.totalMemories == 16
     assert evaluation.trueDuplicatePairs == 7
-    assert 0.0 <= evaluation.precision <= 1.0
-    assert 0.0 <= evaluation.recall <= 1.0
-    assert 0.0 <= evaluation.clusterPurity <= 1.0
-    assert 0.0 <= evaluation.clusterCoverage <= 1.0
+    assert evaluation.precision == 1.0
+    assert evaluation.recall == 0.5714
+    assert evaluation.f1 == 0.7272
+    assert evaluation.falsePositives == 0
+    assert evaluation.falseNegatives == 3
+    assert evaluation.clusterPurity == 1.0
+    assert evaluation.clusterCoverage == 0.7273
+
+
+def test_stricter_threshold_preserves_precision_but_reduces_recall() -> None:
+    baseline = evaluate_dataset(DATASET, threshold=0.85)
+    improved = evaluate_dataset(DATASET)
+
+    assert baseline.precision == 1.0
+    assert improved.precision == 1.0
+    assert improved.recall > baseline.recall
+    assert improved.clusterCoverage > baseline.clusterCoverage
 
 
 def test_evaluation_reports_include_mistakes_and_cluster_content() -> None:
