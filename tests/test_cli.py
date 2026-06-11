@@ -36,6 +36,9 @@ def test_cli_analyze_json_output() -> None:
     assert '"categoryAgreementRate"' in result.output
     assert '"reclassificationOpportunityCount"' in result.output
     assert '"categoryConsistency"' in result.output
+    assert '"actionSummary"' in result.output
+    assert '"actions"' in result.output
+    assert '"totalActions"' in result.output
 
 
 def test_cli_evaluate_clusters_json_output() -> None:

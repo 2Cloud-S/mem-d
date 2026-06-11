@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from memd.actions import plan_governance_actions
 from memd.categorization import categorize_records
 from memd.category_consistency import audit_category_consistency
 from memd.cluster_audit import audit_largest_clusters
@@ -40,6 +41,12 @@ def analyze_file(
         category_consistency,
     )
     insights = generate_analysis_insights(metrics, clusters, validation)
+    actions, action_summary = plan_governance_actions(
+        clusters,
+        categories,
+        validation,
+        insights,
+    )
     return AnalysisReport(
         metrics=metrics,
         clusters=tuple(clusters),
@@ -47,4 +54,6 @@ def analyze_file(
         categories=tuple(categories),
         validation=validation,
         insights=insights,
+        actions=actions,
+        actionSummary=action_summary,
     )

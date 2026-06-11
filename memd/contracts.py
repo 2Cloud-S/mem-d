@@ -30,6 +30,24 @@ class ClusterTrustLevel(StrEnum):
     LOW = "Low"
 
 
+class ActionType(StrEnum):
+    MERGE_CLUSTER = "merge_cluster"
+    REVIEW_CLUSTER = "review_cluster"
+    REVIEW_CATEGORY_CONFLICT = "review_category_conflict"
+    REVIEW_UNKNOWN_MEMORY = "review_unknown_memory"
+    CONSOLIDATE_PREFERENCES = "consolidate_preferences"
+    REVIEW_OVERCLUSTERED_GROUP = "review_overclustered_group"
+    IGNORE_LOW_VALUE_ISSUE = "ignore_low_value_issue"
+
+
+class ActionPriority(StrEnum):
+    CRITICAL = "critical"
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+    DEFERRED = "deferred"
+
+
 class FrozenModel(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -107,6 +125,30 @@ class Insight(FrozenModel):
     recommendedAction: str
 
 
+class GovernanceAction(FrozenModel):
+    actionId: str
+    actionType: ActionType
+    target: dict[str, Any]
+    title: str
+    rationale: str
+    supportingEvidence: tuple[str, ...]
+    trustLevel: ClusterTrustLevel | None = None
+    confidence: float = Field(ge=0.0, le=1.0)
+    estimatedImpact: str
+    requiresHumanApproval: bool
+    priority: ActionPriority
+    sourceSignals: tuple[str, ...]
+
+
+class ActionPlanSummary(FrozenModel):
+    totalActions: int = Field(ge=0)
+    safeActions: int = Field(ge=0)
+    reviewActions: int = Field(ge=0)
+    estimatedTrustedSavings: int = Field(ge=0)
+    estimatedUnverifiedSavings: int = Field(ge=0)
+    actionsByPriority: dict[ActionPriority, int]
+
+
 class AnalysisReport(FrozenModel):
     metrics: AnalysisMetrics
     clusters: tuple[DuplicateCluster, ...]
@@ -114,3 +156,14 @@ class AnalysisReport(FrozenModel):
     categories: tuple[CategorizedMemory, ...] = ()
     validation: dict[str, Any] = Field(default_factory=dict)
     insights: tuple[Insight, ...] = ()
+    actions: tuple[GovernanceAction, ...] = ()
+    actionSummary: ActionPlanSummary = Field(
+        default_factory=lambda: ActionPlanSummary(
+            totalActions=0,
+            safeActions=0,
+            reviewActions=0,
+            estimatedTrustedSavings=0,
+            estimatedUnverifiedSavings=0,
+            actionsByPriority={priority: 0 for priority in ActionPriority},
+        )
+    )

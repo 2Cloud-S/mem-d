@@ -1,12 +1,21 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Sequence
 from pathlib import Path
 
 from rich.console import Console
 from rich.table import Table
 
-from memd.contracts import AnalysisReport, CategorizedMemory, Insight, MemoryCategory, MemoryRecord
+from memd.contracts import (
+    ActionPriority,
+    AnalysisReport,
+    CategorizedMemory,
+    GovernanceAction,
+    Insight,
+    MemoryCategory,
+    MemoryRecord,
+)
 
 
 def report_to_dict(report: AnalysisReport) -> dict[str, object]:
@@ -32,6 +41,8 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
                 for category in MemoryCategory
             },
         },
+        "actionSummary": action_summary_to_dict(report),
+        "actions": [action_to_dict(action) for action in report.actions],
         "clusters": [
             {
                 "clusterId": cluster.clusterId,
@@ -90,6 +101,12 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
         "Reclassification Opportunities: "
         f"[bold]{metrics.reclassificationOpportunityCount}[/bold]"
     )
+    console.print(f"Governance Actions: [bold]{report.actionSummary.totalActions}[/bold]")
+    console.print(
+        "Safe / Review Actions: "
+        f"[bold]{report.actionSummary.safeActions}[/bold] / "
+        f"[bold]{report.actionSummary.reviewActions}[/bold]"
+    )
     for reason in metrics.compressionReasons:
         console.print(f"- {reason}")
 
@@ -105,6 +122,21 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
                 insight.recommendedAction,
             )
         console.print(insight_table)
+
+    if report.actions:
+        action_table = Table(title="Recommended Governance Actions")
+        action_table.add_column("Priority")
+        action_table.add_column("Type")
+        action_table.add_column("Title")
+        action_table.add_column("Approval")
+        for action in report.actions[:10]:
+            action_table.add_row(
+                action.priority.value,
+                action.actionType.value,
+                action.title,
+                "human" if action.requiresHumanApproval else "not required",
+            )
+        console.print(action_table)
 
     category_table = Table(title="Category Distribution")
     category_table.add_column("Category")
@@ -178,6 +210,11 @@ def render_markdown(report: AnalysisReport) -> str:
         f"- Unverified compression opportunity: {metrics.unverifiedCompressionOpportunity}%",
         f"- Category agreement rate: {metrics.categoryAgreementRate}%",
         f"- Reclassification opportunities: {metrics.reclassificationOpportunityCount}",
+        f"- Governance actions: {report.actionSummary.totalActions}",
+        f"- Safe actions: {report.actionSummary.safeActions}",
+        f"- Review actions: {report.actionSummary.reviewActions}",
+        f"- Estimated trusted savings: {report.actionSummary.estimatedTrustedSavings}",
+        f"- Estimated unverified savings: {report.actionSummary.estimatedUnverifiedSavings}",
         "",
         "## Ranked Insights",
         "",
@@ -200,6 +237,7 @@ def render_markdown(report: AnalysisReport) -> str:
                     "",
                 ]
             )
+    lines.extend(render_action_plan_markdown(report.actions))
     lines.extend(
         [
         "## Compression Explanation",
@@ -278,6 +316,97 @@ def insight_to_dict(insight: Insight) -> dict[str, object]:
         "estimatedImpact": insight.estimatedImpact,
         "recommendedAction": insight.recommendedAction,
     }
+
+
+def action_summary_to_dict(report: AnalysisReport) -> dict[str, object]:
+    summary = report.actionSummary
+    return {
+        "totalActions": summary.totalActions,
+        "safeActions": summary.safeActions,
+        "reviewActions": summary.reviewActions,
+        "estimatedTrustedSavings": summary.estimatedTrustedSavings,
+        "estimatedUnverifiedSavings": summary.estimatedUnverifiedSavings,
+        "actionsByPriority": {
+            priority.value: summary.actionsByPriority.get(priority, 0)
+            for priority in ActionPriority
+        },
+    }
+
+
+def action_to_dict(action: GovernanceAction) -> dict[str, object]:
+    return {
+        "actionId": action.actionId,
+        "actionType": action.actionType.value,
+        "target": action.target,
+        "title": action.title,
+        "rationale": action.rationale,
+        "supportingEvidence": list(action.supportingEvidence),
+        "trustLevel": action.trustLevel.value if action.trustLevel else None,
+        "confidence": action.confidence,
+        "estimatedImpact": action.estimatedImpact,
+        "requiresHumanApproval": action.requiresHumanApproval,
+        "priority": action.priority.value,
+        "sourceSignals": list(action.sourceSignals),
+    }
+
+
+def render_action_plan_markdown(actions: tuple[GovernanceAction, ...]) -> list[str]:
+    safe, review, deferred = grouped_actions(actions)
+    lines = ["", "## Action Plan", ""]
+    lines.extend(render_action_group("Recommended Safe Actions", safe))
+    lines.extend(render_action_group("Recommended Review Actions", review))
+    lines.extend(render_action_group("Deferred / Low-Priority Actions", deferred))
+    return lines
+
+
+def grouped_actions(
+    actions: tuple[GovernanceAction, ...],
+) -> tuple[list[GovernanceAction], list[GovernanceAction], list[GovernanceAction]]:
+    deferred_priorities = {ActionPriority.LOW, ActionPriority.DEFERRED}
+    safe = [
+        action
+        for action in actions
+        if not action.requiresHumanApproval and action.priority not in deferred_priorities
+    ]
+    review = [
+        action
+        for action in actions
+        if action.requiresHumanApproval and action.priority not in deferred_priorities
+    ]
+    deferred = [
+        action
+        for action in actions
+        if action.priority in deferred_priorities
+    ]
+    return safe, review, deferred
+
+
+def render_action_group(title: str, actions: Sequence[GovernanceAction]) -> list[str]:
+    lines = [f"### {title}", ""]
+    if not actions:
+        lines.append("No actions in this category.")
+        lines.append("")
+        return lines
+    for action in actions[:20]:
+        approval = "yes" if action.requiresHumanApproval else "no"
+        evidence = "; ".join(action.supportingEvidence[:3])
+        lines.extend(
+            [
+                f"#### {action.title}",
+                "",
+                f"- Action ID: `{action.actionId}`",
+                f"- Type: {action.actionType.value}",
+                f"- Priority: {action.priority.value}",
+                f"- Requires human approval: {approval}",
+                f"- Confidence: {action.confidence}",
+                f"- Estimated impact: {action.estimatedImpact}",
+                f"- Rationale: {action.rationale}",
+                f"- Source signals: {', '.join(action.sourceSignals)}",
+                f"- Evidence: {evidence}",
+                "",
+            ]
+        )
+    return lines
 
 
 def markdown_cluster_row(
