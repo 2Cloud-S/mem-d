@@ -33,6 +33,9 @@ def test_cli_analyze_json_output() -> None:
     assert '"unverifiedCompressionOpportunity"' in result.output
     assert '"clusterTrust"' in result.output
     assert '"highTrustClusters"' in result.output
+    assert '"categoryAgreementRate"' in result.output
+    assert '"reclassificationOpportunityCount"' in result.output
+    assert '"categoryConsistency"' in result.output
 
 
 def test_cli_evaluate_clusters_json_output() -> None:

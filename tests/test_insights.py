@@ -36,6 +36,25 @@ def test_generate_analysis_insights_prioritizes_actions() -> None:
             "unknownCount": 15,
             "unknownPercentage": 15,
             "unknownSamples": [{"memoryId": "mem_unknown", "content": "Unclear memory"}],
+            "categoryConsistency": {
+                "categoryAgreementRate": 76.0,
+                "conflictClusterCount": 4,
+                "reclassificationOpportunityCount": 8,
+                "recurringConflicts": [
+                    {
+                        "categories": ["Fact", "Preference"],
+                        "clusterCount": 3,
+                        "isPriorityConflict": True,
+                    }
+                ],
+                "priorityConflicts": [
+                    {
+                        "categories": ["Fact", "Preference"],
+                        "clusterCount": 3,
+                        "isPriorityConflict": True,
+                    }
+                ],
+            },
         },
         "clusterQuality": {
             "possibleFalsePositiveClusters": [],
@@ -56,6 +75,7 @@ def test_generate_analysis_insights_prioritizes_actions() -> None:
     assert any(insight.id == "compression-high" for insight in insights)
     assert any(insight.id == "compression-mostly-unverified" for insight in insights)
     assert any(insight.id == "unknown-category-review" for insight in insights)
+    assert any(insight.id == "category-consistency-conflicts" for insight in insights)
 
 
 def test_generate_evaluation_insights_reports_recall_gap() -> None:

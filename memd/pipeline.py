@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from memd.categorization import categorize_records
+from memd.category_consistency import audit_category_consistency
 from memd.cluster_audit import audit_largest_clusters
 from memd.cluster_trust import apply_cluster_trust_scores
 from memd.clustering import cluster_duplicates
@@ -29,8 +30,15 @@ def analyze_file(
     clusters = enrich_clusters(records, categories, raw_clusters)
     cluster_audit = audit_largest_clusters(records, categories, clusters, embeddings)
     clusters = apply_cluster_trust_scores(clusters, cluster_audit)
-    metrics = calculate_metrics(records, categories, clusters)
-    validation = build_validation_summary(records, categories, clusters, cluster_audit)
+    category_consistency = audit_category_consistency(records, categories, clusters)
+    metrics = calculate_metrics(records, categories, clusters, category_consistency)
+    validation = build_validation_summary(
+        records,
+        categories,
+        clusters,
+        cluster_audit,
+        category_consistency,
+    )
     insights = generate_analysis_insights(metrics, clusters, validation)
     return AnalysisReport(
         metrics=metrics,

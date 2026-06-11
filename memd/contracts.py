@@ -90,6 +90,8 @@ class AnalysisMetrics(FrozenModel):
     unverifiedDuplicateCount: int = Field(default=0, ge=0)
     trustedCompressionOpportunity: float = Field(default=0.0, ge=0.0, le=100.0)
     unverifiedCompressionOpportunity: float = Field(default=0.0, ge=0.0, le=100.0)
+    categoryAgreementRate: float = Field(default=100.0, ge=0.0, le=100.0)
+    reclassificationOpportunityCount: int = Field(default=0, ge=0)
     categoryBreakdown: dict[MemoryCategory, int]
     compressionReasons: tuple[str, ...] = ()
 

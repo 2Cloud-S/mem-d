@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 
 from memd.contracts import (
     AnalysisMetrics,
@@ -17,6 +17,7 @@ def calculate_metrics(
     records: Sequence[MemoryRecord],
     categories: Sequence[CategorizedMemory],
     clusters: Sequence[DuplicateCluster],
+    category_consistency: Mapping[str, object] | None = None,
 ) -> AnalysisMetrics:
     total = len(records)
     duplicate_members = {member for cluster in clusters for member in cluster.members}
@@ -49,6 +50,7 @@ def calculate_metrics(
         f"{unverified_duplicate_count} removable records require manual review",
         f"largest cluster contains {largest_cluster} records",
     )
+    consistency = category_consistency or {}
 
     return AnalysisMetrics(
         totalMemories=total,
@@ -59,6 +61,10 @@ def calculate_metrics(
         unverifiedDuplicateCount=unverified_duplicate_count,
         trustedCompressionOpportunity=trusted_percentage,
         unverifiedCompressionOpportunity=unverified_percentage,
+        categoryAgreementRate=number(consistency.get("categoryAgreementRate"), 100.0),
+        reclassificationOpportunityCount=integer(
+            consistency.get("reclassificationOpportunityCount")
+        ),
         categoryBreakdown={
             category: category_counts.get(category, 0)
             for category in MemoryCategory
@@ -71,3 +77,17 @@ def _percentage(part: int, whole: int) -> float:
     if whole == 0:
         return 0.0
     return round((part / whole) * 100, 2)
+
+
+def number(value: object, default: float = 0.0) -> float:
+    if isinstance(value, int | float):
+        return float(value)
+    return default
+
+
+def integer(value: object) -> int:
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    return 0

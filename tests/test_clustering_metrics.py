@@ -1,3 +1,4 @@
+from memd.category_consistency import audit_category_consistency
 from memd.clustering import cluster_duplicates
 from memd.contracts import (
     CategorizedMemory,
@@ -44,7 +45,8 @@ def test_cluster_duplicates_and_metrics() -> None:
         for cluster in clusters
     ]
 
-    metrics = calculate_metrics(records, categories, clusters)
+    consistency = audit_category_consistency(records, categories, clusters)
+    metrics = calculate_metrics(records, categories, clusters, consistency)
 
     assert clusters[0].sharedTerms
     assert clusters[0].reasons
@@ -55,12 +57,23 @@ def test_cluster_duplicates_and_metrics() -> None:
     assert metrics.unverifiedDuplicateCount == 0
     assert metrics.trustedCompressionOpportunity == 33.33
     assert metrics.unverifiedCompressionOpportunity == 0.0
+    assert metrics.categoryAgreementRate == 100.0
+    assert metrics.reclassificationOpportunityCount == 0
     assert metrics.categoryBreakdown[MemoryCategory.PREFERENCE] == 2
     assert metrics.compressionReasons
 
-    validation = build_validation_summary(records, categories, clusters)
+    validation = build_validation_summary(
+        records,
+        categories,
+        clusters,
+        category_consistency=consistency,
+    )
 
     assert validation["compressionDrivers"]["estimatedRemovableRecords"] == 1
     assert validation["compressionDrivers"]["trustedRemovableRecords"] == 1
+    assert (
+        validation["categoryQuality"]["categoryConsistency"]["categoryAgreementRate"]
+        == 100.0
+    )
     assert validation["clusterQuality"]["clusterTrust"]["highTrustClusters"] == 1
     assert validation["clusterQuality"]["largestClusters"][0]["records"][0]["content"]

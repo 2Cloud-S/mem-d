@@ -269,6 +269,7 @@ def category_insights(
 ) -> list[Insight]:
     insights: list[Insight] = []
     category_quality = nested(validation, "categoryQuality")
+    consistency = nested(category_quality, "categoryConsistency")
     unknown_count = integer(category_quality.get("unknownCount"))
     unknown_percentage = number(category_quality.get("unknownPercentage"))
     total = metrics.totalMemories
@@ -337,6 +338,47 @@ def category_insights(
                 recommendedAction=(
                     "Review whether this category should have tighter retention or "
                     "deduplication rules."
+                ),
+            )
+        )
+
+    conflict_count = integer(consistency.get("conflictClusterCount"))
+    reclassification_count = integer(consistency.get("reclassificationOpportunityCount"))
+    agreement_rate = number_or_default(consistency.get("categoryAgreementRate"), 100.0)
+    recurring = list_value(consistency.get("recurringConflicts"))
+    priority = list_value(consistency.get("priorityConflicts"))
+    if conflict_count:
+        first_conflict = recurring[0] if recurring and isinstance(recurring[0], dict) else {}
+        categories = first_conflict.get("categories", [])
+        category_label = " vs ".join(str(category) for category in categories)
+        severity = (
+            InsightSeverity.HIGH
+            if priority or agreement_rate < 80
+            else InsightSeverity.MEDIUM
+        )
+        insights.append(
+            Insight(
+                id="category-consistency-conflicts",
+                title="Review category disagreements inside duplicate clusters",
+                severity=severity,
+                explanation=(
+                    "Some highly similar memories disagree on category. This suggests taxonomy "
+                    "quality is less reliable than clustering evidence for those records."
+                ),
+                supportingEvidence=(
+                    f"category agreement rate={agreement_rate}%",
+                    f"conflict clusters={conflict_count}",
+                    f"reclassification opportunities={reclassification_count}",
+                    f"top recurring conflict={category_label}",
+                    f"priority conflicts={len(priority)}",
+                ),
+                confidence=0.88,
+                estimatedImpact=(
+                    f"{reclassification_count} memories may need taxonomy review."
+                ),
+                recommendedAction=(
+                    "Inspect reclassification candidates, especially Fact vs Preference vs "
+                    "Unknown conflicts; do not change labels automatically."
                 ),
             )
         )
@@ -418,6 +460,12 @@ def number(value: object) -> float:
     if isinstance(value, int | float):
         return float(value)
     return 0.0
+
+
+def number_or_default(value: object, default: float) -> float:
+    if isinstance(value, int | float):
+        return float(value)
+    return default
 
 
 def integer(value: object) -> int:

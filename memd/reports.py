@@ -22,6 +22,10 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
             "unverifiedDuplicateCount": report.metrics.unverifiedDuplicateCount,
             "trustedCompressionOpportunity": report.metrics.trustedCompressionOpportunity,
             "unverifiedCompressionOpportunity": report.metrics.unverifiedCompressionOpportunity,
+            "categoryAgreementRate": report.metrics.categoryAgreementRate,
+            "reclassificationOpportunityCount": (
+                report.metrics.reclassificationOpportunityCount
+            ),
             "compressionReasons": list(report.metrics.compressionReasons),
             "categoryBreakdown": {
                 category.value: report.metrics.categoryBreakdown.get(category, 0)
@@ -80,6 +84,11 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
     console.print(
         "Unverified Compression Opportunity: "
         f"[bold]{metrics.unverifiedCompressionOpportunity}%[/bold]"
+    )
+    console.print(f"Category Agreement Rate: [bold]{metrics.categoryAgreementRate}%[/bold]")
+    console.print(
+        "Reclassification Opportunities: "
+        f"[bold]{metrics.reclassificationOpportunityCount}[/bold]"
     )
     for reason in metrics.compressionReasons:
         console.print(f"- {reason}")
@@ -143,6 +152,13 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
             f"Unknown categories: [bold]{unknown_count}[/bold] "
             f"({unknown_percentage}%); inspect JSON/Markdown validation samples."
         )
+    consistency = category_quality.get("categoryConsistency", {})
+    if isinstance(consistency, dict) and consistency.get("conflictClusterCount"):
+        console.print(
+            "Category conflict clusters: "
+            f"[bold]{consistency.get('conflictClusterCount')}[/bold]; "
+            "inspect category consistency validation details."
+        )
 
 
 def render_json(report: AnalysisReport) -> str:
@@ -160,6 +176,8 @@ def render_markdown(report: AnalysisReport) -> str:
         f"- Compression opportunity: {metrics.compressionOpportunity}%",
         f"- Trusted compression opportunity: {metrics.trustedCompressionOpportunity}%",
         f"- Unverified compression opportunity: {metrics.unverifiedCompressionOpportunity}%",
+        f"- Category agreement rate: {metrics.categoryAgreementRate}%",
+        f"- Reclassification opportunities: {metrics.reclassificationOpportunityCount}",
         "",
         "## Ranked Insights",
         "",
@@ -297,6 +315,9 @@ def render_validation_markdown(report: AnalysisReport) -> list[str]:
                     f"- `{sample.get('memoryId')}`: {sample.get('content')} "
                     f"({sample.get('reason')})"
                 )
+        consistency = category_quality.get("categoryConsistency", {})
+        if isinstance(consistency, dict) and consistency:
+            lines.extend(render_category_consistency_markdown(consistency))
 
     if cluster_quality:
         false_positive_candidates = cluster_quality.get("possibleFalsePositiveClusters", [])
@@ -343,6 +364,77 @@ def render_validation_markdown(report: AnalysisReport) -> list[str]:
 
 def escape_markdown_table(value: str) -> str:
     return value.replace("|", "\\|").replace("\n", " ")
+
+
+def render_category_consistency_markdown(consistency: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Category Consistency Audit",
+        "",
+        f"- Category agreement rate: {consistency.get('categoryAgreementRate', 0)}%",
+        f"- Conflict clusters: {consistency.get('conflictClusterCount', 0)}",
+        (
+            "- Reclassification opportunities: "
+            f"{consistency.get('reclassificationOpportunityCount', 0)}"
+        ),
+        f"- Conflict rate: {consistency.get('conflictRate', 0)}%",
+    ]
+    recurring = consistency.get("recurringConflicts", [])
+    if isinstance(recurring, list) and recurring:
+        lines.extend(["", "Recurring conflicts:", ""])
+        for conflict in recurring[:10]:
+            if isinstance(conflict, dict):
+                categories = conflict.get("categories", [])
+                labels = " vs ".join(str(category) for category in categories)
+                priority = " priority" if conflict.get("isPriorityConflict") else ""
+                lines.append(
+                    f"- {labels}: {conflict.get('clusterCount', 0)} clusters{priority}"
+                )
+
+    conflict_clusters = consistency.get("conflictClusters", [])
+    if isinstance(conflict_clusters, list) and conflict_clusters:
+        lines.extend(["", "Conflict clusters:", ""])
+        for cluster in conflict_clusters[:10]:
+            if isinstance(cluster, dict):
+                lines.append(
+                    f"- `{cluster.get('clusterId')}` dominant "
+                    f"{cluster.get('dominantCategory')} "
+                    f"({cluster.get('dominantCategoryCount')}/{cluster.get('size')}), "
+                    f"minority categories: "
+                    f"{format_minority_categories(cluster.get('minorityCategories', []))}"
+                )
+
+    candidates = consistency.get("reclassificationCandidates", [])
+    if isinstance(candidates, list) and candidates:
+        lines.extend(
+            [
+                "",
+                "Potential reclassification candidates:",
+                "",
+                "| ID | Current | Suggested | Cluster | Content |",
+                "| --- | --- | --- | --- | --- |",
+            ]
+        )
+        for candidate in candidates[:20]:
+            if isinstance(candidate, dict):
+                lines.append(
+                    f"| `{candidate.get('memoryId')}` | "
+                    f"{candidate.get('currentCategory')} | "
+                    f"{candidate.get('suggestedCategory')} | "
+                    f"`{candidate.get('clusterId')}` | "
+                    f"{escape_markdown_table(str(candidate.get('content', '')))} |"
+                )
+    return lines
+
+
+def format_minority_categories(value: object) -> str:
+    if not isinstance(value, list) or not value:
+        return "none"
+    labels = []
+    for item in value:
+        if isinstance(item, dict):
+            labels.append(f"{item.get('category')} ({item.get('count')})")
+    return ", ".join(labels) if labels else "none"
 
 
 def render_cluster_audit_markdown(cluster_quality: dict[str, object]) -> list[str]:

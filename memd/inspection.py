@@ -91,6 +91,7 @@ def build_validation_summary(
     categories: Sequence[CategorizedMemory],
     clusters: Sequence[DuplicateCluster],
     cluster_audit: dict[str, object] | None = None,
+    category_consistency: dict[str, object] | None = None,
 ) -> dict[str, object]:
     records_by_id = {record.id: record for record in records}
     categories_by_id = {category.memoryId: category for category in categories}
@@ -121,6 +122,7 @@ def build_validation_summary(
                 for category in low_confidence
             ],
             "interpretation": unknown_interpretation(unknown, records_by_id),
+            "categoryConsistency": category_consistency or {},
         },
         "clusterQuality": {
             "largestClusters": [
