@@ -16,6 +16,14 @@ class MemoryCategory(StrEnum):
     UNKNOWN = "Unknown"
 
 
+class InsightSeverity(StrEnum):
+    CRITICAL = "critical"
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+    INFO = "info"
+
+
 class FrozenModel(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -72,9 +80,21 @@ class AnalysisMetrics(FrozenModel):
     compressionReasons: tuple[str, ...] = ()
 
 
+class Insight(FrozenModel):
+    id: str
+    title: str
+    severity: InsightSeverity
+    explanation: str
+    supportingEvidence: tuple[str, ...]
+    confidence: float = Field(ge=0.0, le=1.0)
+    estimatedImpact: str
+    recommendedAction: str
+
+
 class AnalysisReport(FrozenModel):
     metrics: AnalysisMetrics
     clusters: tuple[DuplicateCluster, ...]
     memories: tuple[MemoryRecord, ...] = ()
     categories: tuple[CategorizedMemory, ...] = ()
     validation: dict[str, Any] = Field(default_factory=dict)
+    insights: tuple[Insight, ...] = ()

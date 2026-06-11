@@ -6,15 +6,18 @@ from typing import Annotated
 
 import typer
 from rich.console import Console
+from rich.table import Table
 
 from memd import __version__
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.evaluation import (
     ClusterEvaluation,
     evaluate_dataset,
+    evaluation_metrics_dict,
     render_evaluation_json,
     render_evaluation_markdown,
 )
+from memd.insights import generate_evaluation_insights
 from memd.parser.loaders import ParserError
 from memd.pipeline import analyze_file
 from memd.reports import render_json, render_markdown, render_terminal, write_report
@@ -146,3 +149,16 @@ def render_evaluation_terminal(evaluation: ClusterEvaluation) -> None:
         console.print(f"{label}: [bold]{value}[/bold]")
     console.print(f"False positives: [bold]{evaluation.falsePositives}[/bold]")
     console.print(f"False negatives: [bold]{evaluation.falseNegatives}[/bold]")
+    insights = generate_evaluation_insights(evaluation_metrics_dict(evaluation))
+    if insights:
+        insight_table = Table(title="Evaluation Insights")
+        insight_table.add_column("Severity")
+        insight_table.add_column("Finding")
+        insight_table.add_column("Recommended Action")
+        for insight in insights:
+            insight_table.add_row(
+                insight.severity.value,
+                insight.title,
+                insight.recommendedAction,
+            )
+        console.print(insight_table)

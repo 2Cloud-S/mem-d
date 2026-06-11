@@ -84,6 +84,8 @@ report.md
 report.json
 *.analysis.json
 *.analysis.md
+*.insights.json
+*.insights.md
 *-eval.json
 *-eval.md
 clustering-eval.json

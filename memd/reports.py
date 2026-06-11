@@ -6,7 +6,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.table import Table
 
-from memd.contracts import AnalysisReport, CategorizedMemory, MemoryCategory, MemoryRecord
+from memd.contracts import AnalysisReport, CategorizedMemory, Insight, MemoryCategory, MemoryRecord
 
 
 def report_to_dict(report: AnalysisReport) -> dict[str, object]:
@@ -52,6 +52,7 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
             for category in report.categories
         ],
         "validation": report.validation,
+        "insights": [insight_to_dict(insight) for insight in report.insights],
     }
 
 
@@ -66,6 +67,19 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
     console.print(f"Compression Opportunity: [bold]{metrics.compressionOpportunity}%[/bold]")
     for reason in metrics.compressionReasons:
         console.print(f"- {reason}")
+
+    if report.insights:
+        insight_table = Table(title="Ranked Insights")
+        insight_table.add_column("Severity")
+        insight_table.add_column("Finding")
+        insight_table.add_column("Recommended Action")
+        for insight in report.insights[:5]:
+            insight_table.add_row(
+                insight.severity.value,
+                insight.title,
+                insight.recommendedAction,
+            )
+        console.print(insight_table)
 
     category_table = Table(title="Category Distribution")
     category_table.add_column("Category")
@@ -113,6 +127,29 @@ def render_markdown(report: AnalysisReport) -> str:
         f"- Duplicate memories: {metrics.duplicateCount}",
         f"- Compression opportunity: {metrics.compressionOpportunity}%",
         "",
+        "## Ranked Insights",
+        "",
+    ]
+    if not report.insights:
+        lines.append("No recommendations generated.")
+    else:
+        for insight in report.insights:
+            lines.extend(
+                [
+                    f"### {insight.title}",
+                    "",
+                    f"- Severity: {insight.severity.value}",
+                    f"- Confidence: {insight.confidence}",
+                    f"- Estimated impact: {insight.estimatedImpact}",
+                    f"- Recommended action: {insight.recommendedAction}",
+                    f"- Explanation: {insight.explanation}",
+                    "- Supporting evidence:",
+                    *[f"  - {evidence}" for evidence in insight.supportingEvidence],
+                    "",
+                ]
+            )
+    lines.extend(
+        [
         "## Compression Explanation",
         "",
         *[f"- {reason}" for reason in metrics.compressionReasons],
@@ -121,7 +158,8 @@ def render_markdown(report: AnalysisReport) -> str:
         "",
         "| Category | Count |",
         "| --- | ---: |",
-    ]
+        ]
+    )
     for category in MemoryCategory:
         lines.append(f"| {category.value} | {metrics.categoryBreakdown.get(category, 0)} |")
 
@@ -171,6 +209,19 @@ def cluster_record(
         "content": record.content if record else "",
         "category": category.category.value if category else "",
         "categoryReason": category.reason if category else "",
+    }
+
+
+def insight_to_dict(insight: Insight) -> dict[str, object]:
+    return {
+        "id": insight.id,
+        "title": insight.title,
+        "severity": insight.severity.value,
+        "explanation": insight.explanation,
+        "supportingEvidence": list(insight.supportingEvidence),
+        "confidence": insight.confidence,
+        "estimatedImpact": insight.estimatedImpact,
+        "recommendedAction": insight.recommendedAction,
     }
 
 

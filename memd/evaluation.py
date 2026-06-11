@@ -15,6 +15,7 @@ from memd.clustering import cluster_duplicates
 from memd.contracts import DuplicateCluster, EmbeddedMemory, MemoryRecord
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.embeddings import EmbeddingEngine
+from memd.insights import generate_evaluation_insights
 from memd.inspection import enrich_clusters
 from memd.normalization import normalize_records
 from memd.parser.loaders import detect_encoding
@@ -288,22 +289,11 @@ def cluster_summaries(
 
 
 def evaluation_to_dict(evaluation: ClusterEvaluation) -> dict[str, object]:
+    metrics = evaluation_metrics_dict(evaluation)
     return {
         "datasetName": evaluation.datasetName,
         "threshold": evaluation.threshold,
-        "metrics": {
-            "totalMemories": evaluation.totalMemories,
-            "trueDuplicatePairs": evaluation.trueDuplicatePairs,
-            "predictedDuplicatePairs": evaluation.predictedDuplicatePairs,
-            "truePositives": evaluation.truePositives,
-            "falsePositives": evaluation.falsePositives,
-            "falseNegatives": evaluation.falseNegatives,
-            "precision": evaluation.precision,
-            "recall": evaluation.recall,
-            "f1": evaluation.f1,
-            "clusterPurity": evaluation.clusterPurity,
-            "clusterCoverage": evaluation.clusterCoverage,
-        },
+        "metrics": metrics,
         "clusters": evaluation.clusterSummaries,
         "mistakes": {
             "falsePositives": [
@@ -315,6 +305,26 @@ def evaluation_to_dict(evaluation: ClusterEvaluation) -> dict[str, object]:
                 for example in evaluation.falseNegativeExamples
             ],
         },
+        "insights": [
+            insight_to_dict(insight)
+            for insight in generate_evaluation_insights(metrics)
+        ],
+    }
+
+
+def evaluation_metrics_dict(evaluation: ClusterEvaluation) -> dict[str, object]:
+    return {
+        "totalMemories": evaluation.totalMemories,
+        "trueDuplicatePairs": evaluation.trueDuplicatePairs,
+        "predictedDuplicatePairs": evaluation.predictedDuplicatePairs,
+        "truePositives": evaluation.truePositives,
+        "falsePositives": evaluation.falsePositives,
+        "falseNegatives": evaluation.falseNegatives,
+        "precision": evaluation.precision,
+        "recall": evaluation.recall,
+        "f1": evaluation.f1,
+        "clusterPurity": evaluation.clusterPurity,
+        "clusterCoverage": evaluation.clusterCoverage,
     }
 
 
@@ -323,7 +333,8 @@ def render_evaluation_json(evaluation: ClusterEvaluation) -> str:
 
 
 def render_evaluation_markdown(evaluation: ClusterEvaluation) -> str:
-    metrics = evaluation_to_dict(evaluation)["metrics"]
+    metrics = evaluation_metrics_dict(evaluation)
+    insights = generate_evaluation_insights(metrics)
     lines = [
         f"# Clustering Evaluation: {evaluation.datasetName}",
         "",
@@ -335,6 +346,26 @@ def render_evaluation_markdown(evaluation: ClusterEvaluation) -> str:
         f"- Cluster purity: {metrics['clusterPurity']}",
         f"- Cluster coverage: {metrics['clusterCoverage']}",
         "",
+        "## Ranked Insights",
+        "",
+    ]
+    for insight in insights:
+        lines.extend(
+            [
+                f"### {insight.title}",
+                "",
+                f"- Severity: {insight.severity.value}",
+                f"- Confidence: {insight.confidence}",
+                f"- Estimated impact: {insight.estimatedImpact}",
+                f"- Recommended action: {insight.recommendedAction}",
+                f"- Explanation: {insight.explanation}",
+                "- Supporting evidence:",
+                *[f"  - {evidence}" for evidence in insight.supportingEvidence],
+                "",
+            ]
+        )
+    lines.extend(
+        [
         "## Pair Metrics",
         "",
         "| Metric | Count |",
@@ -347,7 +378,8 @@ def render_evaluation_markdown(evaluation: ClusterEvaluation) -> str:
         "",
         "## Clusters",
         "",
-    ]
+        ]
+    )
     if not evaluation.clusterSummaries:
         lines.append("No clusters predicted.")
     for cluster in evaluation.clusterSummaries:
@@ -402,6 +434,19 @@ def pair_example_to_dict(example: PairExample) -> dict[str, object]:
         "contentB": example.contentB,
         "similarity": example.similarity,
         "reason": example.reason,
+    }
+
+
+def insight_to_dict(insight: object) -> dict[str, object]:
+    return {
+        "id": insight.id,
+        "title": insight.title,
+        "severity": insight.severity.value,
+        "explanation": insight.explanation,
+        "supportingEvidence": list(insight.supportingEvidence),
+        "confidence": insight.confidence,
+        "estimatedImpact": insight.estimatedImpact,
+        "recommendedAction": insight.recommendedAction,
     }
 
 

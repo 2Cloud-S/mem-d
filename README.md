@@ -17,6 +17,7 @@ This is an early V1 build — functional, but not polished. Feedback and contrib
 - Heuristic categorization (Preference, Fact, Task, Goal, Relationship, Temporary, Unknown)
 - Semantic duplicate clustering (DBSCAN + cosine similarity)
 - Metrics: category distribution, duplicate %, compression opportunity
+- Ranked, rule-based insights with recommended actions
 - Output: terminal report, JSON, Markdown
 
 ## Requirements
@@ -73,7 +74,7 @@ python -m memd evaluate-clusters datasets/validation/clustering_quality.json --f
 
 The evaluation report includes precision, recall, F1, false positives, false negatives, cluster purity, cluster coverage, and examples of clustering mistakes.
 
-The default threshold is `0.55`, chosen from the labelled validation fixture to improve near-duplicate recall while preserving high precision. See [Docs/validation/clustering.md](Docs/validation/clustering.md) for the measured tradeoffs.
+The default threshold is `0.55`, chosen from the labelled validation fixture to improve near-duplicate recall while preserving high precision. See [Docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) for the measured tradeoffs.
 
 ## Input formats
 
@@ -114,19 +115,23 @@ python scripts/benchmark_10k.py
 ```
 memd/              Python package (CLI + analysis pipeline)
 tests/             Unit and CLI tests
-Docs/              Product & technical specifications
+docs/              Product & technical specifications
 scripts/           Benchmarks and utilities
 ```
 
 ## Documentation
 
-| Doc | Purpose |
-| --- | --- |
-| [Docs/prd.md](Docs/prd.md) | Product requirements |
-| [Docs/Arch.md](Docs/Arch.md) | Architecture |
-| [Docs/DATA_CONTRACTS.md](Docs/DATA_CONTRACTS.md) | Data contracts |
-| [Docs/DECISIONS.md](Docs/DECISIONS.md) | Architectural decisions |
-| [agents.md](agents.md) | Agent/contributor scope |
+
+| Doc                                                            | Purpose                            |
+| -------------------------------------------------------------- | ---------------------------------- |
+| [docs/PRD.md](docs/PRD.md)                                     | Product requirements               |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)                           | Architecture                       |
+| [docs/DATA_CONTRACTS.md](docs/DATA_CONTRACTS.md)               | Data contracts                     |
+| [docs/DECISIONS.md](docs/DECISIONS.md)                         | Architectural decisions            |
+| [docs/INSIGHTS.md](docs/INSIGHTS.md)                           | Insight Engine rules and tradeoffs |
+| [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) | Clustering validation metrics      |
+| [AGENTS.md](AGENTS.md)                                         | Agent/contributor scope            |
+
 
 ## Design principles
 

@@ -7,6 +7,7 @@ from memd.clustering import cluster_duplicates
 from memd.contracts import AnalysisReport
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.embeddings import EmbeddingEngine
+from memd.insights import generate_analysis_insights
 from memd.inspection import build_validation_summary, enrich_clusters
 from memd.metrics import calculate_metrics
 from memd.normalization import normalize_records
@@ -25,10 +26,13 @@ def analyze_file(
     raw_clusters = cluster_duplicates(embeddings, threshold=threshold)
     clusters = enrich_clusters(records, categories, raw_clusters)
     metrics = calculate_metrics(records, categories, clusters)
+    validation = build_validation_summary(records, categories, clusters)
+    insights = generate_analysis_insights(metrics, clusters, validation)
     return AnalysisReport(
         metrics=metrics,
         clusters=tuple(clusters),
         memories=tuple(records),
         categories=tuple(categories),
-        validation=build_validation_summary(records, categories, clusters),
+        validation=validation,
+        insights=insights,
     )
