@@ -129,6 +129,7 @@ scripts/           Benchmarks and utilities
 | [docs/DATA_CONTRACTS.md](docs/DATA_CONTRACTS.md)               | Data contracts                     |
 | [docs/DECISIONS.md](docs/DECISIONS.md)                         | Architectural decisions            |
 | [docs/INSIGHTS.md](docs/INSIGHTS.md)                           | Insight Engine rules and tradeoffs |
+| [docs/validation/cluster-audit.md](docs/validation/cluster-audit.md) | Largest-cluster quality audit |
 | [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) | Clustering validation metrics      |
 | [AGENTS.md](AGENTS.md)                                         | Agent/contributor scope            |
 

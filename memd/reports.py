@@ -18,6 +18,10 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
             "duplicateCount": report.metrics.duplicateCount,
             "duplicatePercentage": report.metrics.duplicatePercentage,
             "compressionOpportunity": report.metrics.compressionOpportunity,
+            "trustedDuplicateCount": report.metrics.trustedDuplicateCount,
+            "unverifiedDuplicateCount": report.metrics.unverifiedDuplicateCount,
+            "trustedCompressionOpportunity": report.metrics.trustedCompressionOpportunity,
+            "unverifiedCompressionOpportunity": report.metrics.unverifiedCompressionOpportunity,
             "compressionReasons": list(report.metrics.compressionReasons),
             "categoryBreakdown": {
                 category.value: report.metrics.categoryBreakdown.get(category, 0)
@@ -31,6 +35,10 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
                 "averageSimilarity": cluster.averageSimilarity,
                 "sharedTerms": list(cluster.sharedTerms),
                 "reasons": list(cluster.reasons),
+                "trustScore": cluster.trustScore,
+                "trustLevel": cluster.trustLevel.value,
+                "trustReasons": list(cluster.trustReasons),
+                "recommendedAction": cluster.recommendedAction,
                 "records": [
                     cluster_record(member, records_by_id, categories_by_id)
                     for member in cluster.members
@@ -65,6 +73,14 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
     console.print(f"Duplicate Clusters: [bold]{len(report.clusters)}[/bold]")
     console.print(f"Duplicate Memories: [bold]{metrics.duplicateCount}[/bold]")
     console.print(f"Compression Opportunity: [bold]{metrics.compressionOpportunity}%[/bold]")
+    console.print(
+        "Trusted Compression Opportunity: "
+        f"[bold]{metrics.trustedCompressionOpportunity}%[/bold]"
+    )
+    console.print(
+        "Unverified Compression Opportunity: "
+        f"[bold]{metrics.unverifiedCompressionOpportunity}%[/bold]"
+    )
     for reason in metrics.compressionReasons:
         console.print(f"- {reason}")
 
@@ -92,16 +108,32 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
         cluster_table = Table(title="Duplicate Clusters")
         cluster_table.add_column("Cluster")
         cluster_table.add_column("Members")
+        cluster_table.add_column("Trust")
         cluster_table.add_column("Why grouped")
         cluster_table.add_column("Avg Similarity", justify="right")
         for cluster in report.clusters[:10]:
             cluster_table.add_row(
                 cluster.clusterId,
                 ", ".join(cluster.members),
+                f"{cluster.trustLevel.value} ({cluster.trustScore})",
                 "; ".join(cluster.reasons[:2]),
                 f"{cluster.averageSimilarity:.2f}",
             )
         console.print(cluster_table)
+
+    cluster_quality = report.validation.get("clusterQuality", {})
+    over_clustering = cluster_quality.get("overClusteringCandidates", [])
+    contamination = cluster_quality.get("clusterContamination", [])
+    if over_clustering:
+        console.print(
+            f"Possible over-clustering: [bold]{len(over_clustering)}[/bold] "
+            "largest clusters need semantic review."
+        )
+    if contamination:
+        console.print(
+            f"Cluster contamination candidates: [bold]{len(contamination)}[/bold] "
+            "clusters contain low-similarity outliers."
+        )
 
     category_quality = report.validation.get("categoryQuality", {})
     unknown_count = category_quality.get("unknownCount")
@@ -126,6 +158,8 @@ def render_markdown(report: AnalysisReport) -> str:
         f"- Duplicate clusters: {len(report.clusters)}",
         f"- Duplicate memories: {metrics.duplicateCount}",
         f"- Compression opportunity: {metrics.compressionOpportunity}%",
+        f"- Trusted compression opportunity: {metrics.trustedCompressionOpportunity}%",
+        f"- Unverified compression opportunity: {metrics.unverifiedCompressionOpportunity}%",
         "",
         "## Ranked Insights",
         "",
@@ -175,6 +209,9 @@ def render_markdown(report: AnalysisReport) -> str:
                     f"### {cluster.clusterId}",
                     "",
                     f"- Average similarity: {cluster.averageSimilarity:.2f}",
+                    f"- Trust: {cluster.trustLevel.value} ({cluster.trustScore})",
+                    f"- Recommended action: {cluster.recommendedAction}",
+                    f"- Trust reasons: {', '.join(cluster.trustReasons) or 'none'}",
                     f"- Members: {', '.join(cluster.members)}",
                     f"- Shared terms: {', '.join(cluster.sharedTerms) or 'none detected'}",
                     f"- Why grouped: {'; '.join(cluster.reasons) or 'embedding similarity'}",
@@ -263,25 +300,102 @@ def render_validation_markdown(report: AnalysisReport) -> list[str]:
 
     if cluster_quality:
         false_positive_candidates = cluster_quality.get("possibleFalsePositiveClusters", [])
+        over_clustering = cluster_quality.get("overClusteringCandidates", [])
+        contamination = cluster_quality.get("clusterContamination", [])
+        trust = cluster_quality.get("clusterTrust", {})
+        if not isinstance(trust, dict):
+            trust = {}
         lines.extend(
             [
                 "",
                 "### Cluster Quality",
                 "",
                 f"- Possible false-positive candidates: {len(false_positive_candidates)}",
+                f"- Possible over-clustering candidates: {len(over_clustering)}",
+                f"- Cluster contamination candidates: {len(contamination)}",
+                f"- High-trust clusters: {trust.get('highTrustClusters', 0)}",
+                f"- Medium-trust clusters: {trust.get('mediumTrustClusters', 0)}",
+                f"- Low-trust clusters: {trust.get('lowTrustClusters', 0)}",
             ]
         )
+        lines.extend(render_cluster_audit_markdown(cluster_quality))
 
     if compression:
         lines.extend(["", "### Compression Drivers", ""])
+        lines.extend(
+            [
+                f"- Trusted removable records: {compression.get('trustedRemovableRecords', 0)}",
+                (
+                    "- Unverified removable records: "
+                    f"{compression.get('unverifiedRemovableRecords', 0)}"
+                ),
+            ]
+        )
         for driver in compression.get("largestClusterDrivers", [])[:5]:
             if isinstance(driver, dict):
                 lines.append(
                     f"- `{driver.get('clusterId')}` size {driver.get('size')}: "
-                    f"{driver.get('removableRecords')} removable records"
+                    f"{driver.get('removableRecords')} removable records "
+                    f"({driver.get('trustLevel', 'Unknown')} trust)"
                 )
     return lines
 
 
 def escape_markdown_table(value: str) -> str:
     return value.replace("|", "\\|").replace("\n", " ")
+
+
+def render_cluster_audit_markdown(cluster_quality: dict[str, object]) -> list[str]:
+    audits = cluster_quality.get("largestClusterAudit", [])
+    if not isinstance(audits, list) or not audits:
+        return []
+
+    lines = ["", "### Largest Cluster Audit", ""]
+    for audit in audits[:10]:
+        if not isinstance(audit, dict):
+            continue
+        distribution = audit.get("similarityDistribution", {})
+        if not isinstance(distribution, dict):
+            distribution = {}
+        heterogeneity_reasons = ", ".join(audit.get("heterogeneityReasons", [])) or "none"
+        lines.extend(
+            [
+                f"#### {audit.get('clusterId')}",
+                "",
+                f"- Size: {audit.get('size')}",
+                f"- Average similarity: {audit.get('averageSimilarity')}",
+                f"- Concept assessment: {audit.get('conceptAssessment')}",
+                f"- Dominant themes: {', '.join(audit.get('dominantThemes', []))}",
+                (
+                    "- Similarity distribution: "
+                    f"min={distribution.get('min')}, "
+                    f"p25={distribution.get('p25')}, "
+                    f"median={distribution.get('median')}, "
+                    f"p75={distribution.get('p75')}, "
+                    f"max={distribution.get('max')}, "
+                    f"spread={distribution.get('spread')}"
+                ),
+                f"- Heterogeneity reasons: {heterogeneity_reasons}",
+                "",
+                "| Representative ID | Content |",
+                "| --- | --- |",
+            ]
+        )
+        for memory in audit.get("representativeMemories", []):
+            if isinstance(memory, dict):
+                lines.append(
+                    f"| `{memory.get('id')}` | "
+                    f"{escape_markdown_table(str(memory.get('content', '')))} |"
+                )
+        outliers = audit.get("outlierMemories", [])
+        if isinstance(outliers, list) and outliers:
+            lines.extend(["", "Outliers:", ""])
+            for outlier in outliers:
+                if isinstance(outlier, dict):
+                    lines.append(
+                        f"- `{outlier.get('id')}` "
+                        f"(avg similarity {outlier.get('averageSimilarityToCluster')}): "
+                        f"{outlier.get('content')}"
+                    )
+        lines.append("")
+    return lines

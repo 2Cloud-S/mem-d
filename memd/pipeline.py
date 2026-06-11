@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 
 from memd.categorization import categorize_records
+from memd.cluster_audit import audit_largest_clusters
+from memd.cluster_trust import apply_cluster_trust_scores
 from memd.clustering import cluster_duplicates
 from memd.contracts import AnalysisReport
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
@@ -25,8 +27,10 @@ def analyze_file(
     embeddings = EmbeddingEngine(model_name=model_name).embed(records)
     raw_clusters = cluster_duplicates(embeddings, threshold=threshold)
     clusters = enrich_clusters(records, categories, raw_clusters)
+    cluster_audit = audit_largest_clusters(records, categories, clusters, embeddings)
+    clusters = apply_cluster_trust_scores(clusters, cluster_audit)
     metrics = calculate_metrics(records, categories, clusters)
-    validation = build_validation_summary(records, categories, clusters)
+    validation = build_validation_summary(records, categories, clusters, cluster_audit)
     insights = generate_analysis_insights(metrics, clusters, validation)
     return AnalysisReport(
         metrics=metrics,

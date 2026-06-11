@@ -4,7 +4,13 @@ import re
 from collections import Counter, defaultdict
 from collections.abc import Iterable, Sequence
 
-from memd.contracts import CategorizedMemory, DuplicateCluster, MemoryCategory, MemoryRecord
+from memd.contracts import (
+    CategorizedMemory,
+    ClusterTrustLevel,
+    DuplicateCluster,
+    MemoryCategory,
+    MemoryRecord,
+)
 
 TOKEN_RE = re.compile(r"[a-z][a-z0-9+-]{2,}", re.IGNORECASE)
 STOPWORDS = {
@@ -84,6 +90,7 @@ def build_validation_summary(
     records: Sequence[MemoryRecord],
     categories: Sequence[CategorizedMemory],
     clusters: Sequence[DuplicateCluster],
+    cluster_audit: dict[str, object] | None = None,
 ) -> dict[str, object]:
     records_by_id = {record.id: record for record in records}
     categories_by_id = {category.memoryId: category for category in categories}
@@ -122,6 +129,22 @@ def build_validation_summary(
             ],
             "possibleFalsePositiveClusters": suspicious_clusters,
             "exactDuplicateGroups": exact_duplicate_groups[:10],
+            "largestClusterAudit": (
+                cluster_audit.get("largestClusterAudits", [])
+                if cluster_audit
+                else []
+            ),
+            "overClusteringCandidates": (
+                cluster_audit.get("overClusteringCandidates", [])
+                if cluster_audit
+                else []
+            ),
+            "clusterContamination": (
+                cluster_audit.get("clusterContamination", [])
+                if cluster_audit
+                else []
+            ),
+            "clusterTrust": cluster_trust_summary(clusters),
         },
         "compressionDrivers": compression_drivers(records, clusters, records_by_id),
     }
@@ -192,6 +215,10 @@ def cluster_quality(
             for record in records[:8]
         ],
         "reasons": list(cluster.reasons),
+        "trustScore": cluster.trustScore,
+        "trustLevel": cluster.trustLevel.value,
+        "trustReasons": list(cluster.trustReasons),
+        "recommendedAction": cluster.recommendedAction,
     }
 
 
@@ -233,6 +260,12 @@ def compression_drivers(
     largest = sorted(clusters, key=lambda cluster: len(cluster.members), reverse=True)[:5]
     duplicate_members = {member for cluster in clusters for member in cluster.members}
     removable = max(0, len(duplicate_members) - len(clusters))
+    trusted_removable = sum(
+        max(0, len(cluster.members) - 1)
+        for cluster in clusters
+        if cluster.trustLevel == ClusterTrustLevel.HIGH
+    )
+    unverified_removable = max(0, removable - trusted_removable)
     return {
         "formula": (
             "compressionOpportunity = "
@@ -241,6 +274,8 @@ def compression_drivers(
         "duplicateMembers": len(duplicate_members),
         "clusters": len(clusters),
         "estimatedRemovableRecords": removable,
+        "trustedRemovableRecords": trusted_removable,
+        "unverifiedRemovableRecords": unverified_removable,
         "totalMemories": len(records),
         "largestClusterDrivers": [
             {
@@ -248,6 +283,9 @@ def compression_drivers(
                 "size": len(cluster.members),
                 "removableRecords": max(0, len(cluster.members) - 1),
                 "sharedTerms": list(cluster.sharedTerms),
+                "trustScore": cluster.trustScore,
+                "trustLevel": cluster.trustLevel.value,
+                "recommendedAction": cluster.recommendedAction,
                 "sampleContents": [
                     records_by_id[member].content
                     for member in cluster.members[:5]
@@ -301,3 +339,22 @@ def percentage(part: int, whole: int) -> float:
     if whole == 0:
         return 0.0
     return round((part / whole) * 100, 2)
+
+
+def cluster_trust_summary(clusters: Sequence[DuplicateCluster]) -> dict[str, object]:
+    high = [cluster for cluster in clusters if cluster.trustLevel == ClusterTrustLevel.HIGH]
+    medium = [cluster for cluster in clusters if cluster.trustLevel == ClusterTrustLevel.MEDIUM]
+    low = [cluster for cluster in clusters if cluster.trustLevel == ClusterTrustLevel.LOW]
+    return {
+        "highTrustClusters": len(high),
+        "mediumTrustClusters": len(medium),
+        "lowTrustClusters": len(low),
+        "automaticConsolidationClusters": [
+            cluster.clusterId
+            for cluster in high
+        ],
+        "manualReviewClusters": [
+            cluster.clusterId
+            for cluster in [*medium, *low]
+        ],
+    }

@@ -8,6 +8,10 @@ def test_generate_analysis_insights_prioritizes_actions() -> None:
         duplicateCount=35,
         duplicatePercentage=35,
         compressionOpportunity=35,
+        trustedDuplicateCount=5,
+        unverifiedDuplicateCount=30,
+        trustedCompressionOpportunity=5,
+        unverifiedCompressionOpportunity=30,
         categoryBreakdown={
             MemoryCategory.PREFERENCE: 40,
             MemoryCategory.FACT: 20,
@@ -50,6 +54,7 @@ def test_generate_analysis_insights_prioritizes_actions() -> None:
     assert insights[0].severity in {InsightSeverity.HIGH, InsightSeverity.MEDIUM}
     assert all(insight.recommendedAction for insight in insights)
     assert any(insight.id == "compression-high" for insight in insights)
+    assert any(insight.id == "compression-mostly-unverified" for insight in insights)
     assert any(insight.id == "unknown-category-review" for insight in insights)
 
 

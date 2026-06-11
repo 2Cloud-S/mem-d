@@ -28,6 +28,11 @@ def test_cli_analyze_json_output() -> None:
     assert '"reason"' in result.output
     assert '"insights"' in result.output
     assert '"recommendedAction"' in result.output
+    assert '"largestClusterAudit"' in result.output
+    assert '"trustedCompressionOpportunity"' in result.output
+    assert '"unverifiedCompressionOpportunity"' in result.output
+    assert '"clusterTrust"' in result.output
+    assert '"highTrustClusters"' in result.output
 
 
 def test_cli_evaluate_clusters_json_output() -> None:

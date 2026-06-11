@@ -1,5 +1,11 @@
 from memd.clustering import cluster_duplicates
-from memd.contracts import CategorizedMemory, EmbeddedMemory, MemoryCategory, MemoryRecord
+from memd.contracts import (
+    CategorizedMemory,
+    ClusterTrustLevel,
+    EmbeddedMemory,
+    MemoryCategory,
+    MemoryRecord,
+)
 from memd.inspection import build_validation_summary, enrich_clusters
 from memd.metrics import calculate_metrics
 
@@ -27,6 +33,16 @@ def test_cluster_duplicates_and_metrics() -> None:
         CategorizedMemory(memoryId="mem_3", category=MemoryCategory.TASK, confidence=0.9),
     ]
     clusters = enrich_clusters(records, categories, raw_clusters)
+    clusters = [
+        cluster.model_copy(
+            update={
+                "trustLevel": ClusterTrustLevel.HIGH,
+                "trustScore": 1.0,
+                "recommendedAction": "Recommended for automatic consolidation",
+            }
+        )
+        for cluster in clusters
+    ]
 
     metrics = calculate_metrics(records, categories, clusters)
 
@@ -35,10 +51,16 @@ def test_cluster_duplicates_and_metrics() -> None:
     assert metrics.totalMemories == 3
     assert metrics.duplicateCount == 1
     assert metrics.compressionOpportunity == 33.33
+    assert metrics.trustedDuplicateCount == 1
+    assert metrics.unverifiedDuplicateCount == 0
+    assert metrics.trustedCompressionOpportunity == 33.33
+    assert metrics.unverifiedCompressionOpportunity == 0.0
     assert metrics.categoryBreakdown[MemoryCategory.PREFERENCE] == 2
     assert metrics.compressionReasons
 
     validation = build_validation_summary(records, categories, clusters)
 
     assert validation["compressionDrivers"]["estimatedRemovableRecords"] == 1
+    assert validation["compressionDrivers"]["trustedRemovableRecords"] == 1
+    assert validation["clusterQuality"]["clusterTrust"]["highTrustClusters"] == 1
     assert validation["clusterQuality"]["largestClusters"][0]["records"][0]["content"]

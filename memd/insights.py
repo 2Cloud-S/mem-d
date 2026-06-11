@@ -124,31 +124,37 @@ def compression_insights(
     largest_drivers = list_value(compression.get("largestClusterDrivers"))
     exact_groups = list_value(nested(validation, "clusterQuality").get("exactDuplicateGroups"))
     largest_cluster = max((len(cluster.members) for cluster in clusters), default=0)
+    trusted = metrics.trustedCompressionOpportunity
+    unverified = metrics.unverifiedCompressionOpportunity
 
     if metrics.compressionOpportunity >= 30:
         insights.append(
             Insight(
                 id="compression-high",
-                title="Prioritize duplicate cleanup",
+                title="Prioritize trusted duplicate cleanup",
                 severity=InsightSeverity.HIGH,
                 explanation=(
-                    "A large share of the memory store appears compressible. "
-                    "This is the clearest opportunity for immediate memory quality improvement."
+                    "A large share of the memory store appears compressible, but only "
+                    "high-trust clusters should be used for automatic consolidation."
                 ),
                 supportingEvidence=(
                     f"compression opportunity={metrics.compressionOpportunity}%",
+                    f"trusted compression opportunity={trusted}%",
+                    f"unverified compression opportunity={unverified}%",
                     f"duplicate count={metrics.duplicateCount}",
+                    f"trusted duplicate count={metrics.trustedDuplicateCount}",
+                    f"unverified duplicate count={metrics.unverifiedDuplicateCount}",
                     f"duplicate clusters={len(clusters)}",
                     *metrics.compressionReasons,
                 ),
                 confidence=0.9,
                 estimatedImpact=(
-                    f"Up to {metrics.duplicateCount} records may be removable if each duplicate "
-                    "cluster keeps one representative."
+                    f"{metrics.trustedDuplicateCount} records are high-trust consolidation "
+                    "candidates; the rest require review."
                 ),
                 recommendedAction=(
-                    "Start with the largest duplicate clusters and exact duplicate groups before "
-                    "changing categorization or clustering rules."
+                    "Auto-consolidate only High-trust clusters; manually review Medium and "
+                    "Low-trust clusters."
                 ),
             )
         )
@@ -161,15 +167,39 @@ def compression_insights(
                 explanation="There is meaningful redundancy, but cleanup should be targeted.",
                 supportingEvidence=(
                     f"compression opportunity={metrics.compressionOpportunity}%",
+                    f"trusted compression opportunity={trusted}%",
+                    f"unverified compression opportunity={unverified}%",
                     f"duplicate count={metrics.duplicateCount}",
                     f"duplicate clusters={len(clusters)}",
                 ),
                 confidence=0.85,
-                estimatedImpact=(
-                    f"Potentially reduce memory volume by {metrics.compressionOpportunity}%."
-                ),
+                estimatedImpact=(f"Safely reduce memory volume by up to {trusted}%."),
                 recommendedAction=(
-                    "Inspect cluster content and merge only high-confidence duplicates."
+                    "Consolidate High-trust clusters first, then inspect unverified clusters."
+                ),
+            )
+        )
+
+    if unverified > trusted and unverified >= 10:
+        insights.append(
+            Insight(
+                id="compression-mostly-unverified",
+                title="Most compression opportunity is unverified",
+                severity=InsightSeverity.HIGH,
+                explanation=(
+                    "The headline compression estimate depends more on Medium/Low-trust "
+                    "clusters than on High-trust duplicate groups."
+                ),
+                supportingEvidence=(
+                    f"trusted compression opportunity={trusted}%",
+                    f"unverified compression opportunity={unverified}%",
+                    f"trusted duplicate count={metrics.trustedDuplicateCount}",
+                    f"unverified duplicate count={metrics.unverifiedDuplicateCount}",
+                ),
+                confidence=0.9,
+                estimatedImpact="Prevents broad topical clusters from driving unsafe cleanup.",
+                recommendedAction=(
+                    "Treat unverified compression as a review queue, not an automatic action."
                 ),
             )
         )
@@ -318,27 +348,34 @@ def cluster_quality_insights(validation: Mapping[str, object]) -> list[Insight]:
     insights: list[Insight] = []
     cluster_quality = nested(validation, "clusterQuality")
     possible_false_positives = list_value(cluster_quality.get("possibleFalsePositiveClusters"))
+    over_clustering = list_value(cluster_quality.get("overClusteringCandidates"))
+    contamination = list_value(cluster_quality.get("clusterContamination"))
 
-    if possible_false_positives:
-        first = possible_false_positives[0] if isinstance(possible_false_positives[0], dict) else {}
+    if possible_false_positives or over_clustering or contamination:
+        candidates = possible_false_positives or over_clustering or contamination
+        first = candidates[0] if candidates and isinstance(candidates[0], dict) else {}
         insights.append(
             Insight(
                 id="cluster-quality-review",
-                title="Review possible false-positive clusters before acting",
+                title="Review cluster quality before trusting compression estimates",
                 severity=InsightSeverity.MEDIUM,
                 explanation=(
-                    "Some clusters have low similarity, mixed categories, or weak shared terms. "
-                    "They may still be valid, but should not drive automatic cleanup."
+                    "Some clusters may be broad topical groups rather than true duplicate "
+                    "sets. They may still be useful, but should not drive automatic cleanup."
                 ),
                 supportingEvidence=(
                     f"possible false-positive clusters={len(possible_false_positives)}",
+                    f"over-clustering candidates={len(over_clustering)}",
+                    f"contamination candidates={len(contamination)}",
                     f"first candidate={first.get('clusterId', '')}",
                     f"average similarity={first.get('averageSimilarity', '')}",
                 ),
                 confidence=0.8,
-                estimatedImpact="Manual review reduces the risk of merging unrelated memories.",
+                estimatedImpact=(
+                    "Manual review determines whether compression estimates are trustworthy."
+                ),
                 recommendedAction=(
-                    "Inspect candidate clusters and raise threshold if false positives are common."
+                    "Audit the largest heterogeneous clusters before using them for cleanup."
                 ),
             )
         )

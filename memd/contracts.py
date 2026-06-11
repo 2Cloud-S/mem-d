@@ -24,6 +24,12 @@ class InsightSeverity(StrEnum):
     INFO = "info"
 
 
+class ClusterTrustLevel(StrEnum):
+    HIGH = "High"
+    MEDIUM = "Medium"
+    LOW = "Low"
+
+
 class FrozenModel(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -69,6 +75,10 @@ class DuplicateCluster(FrozenModel):
     averageSimilarity: float = Field(ge=0.0, le=1.0)
     sharedTerms: tuple[str, ...] = ()
     reasons: tuple[str, ...] = ()
+    trustScore: float = Field(default=0.0, ge=0.0, le=1.0)
+    trustLevel: ClusterTrustLevel = ClusterTrustLevel.LOW
+    trustReasons: tuple[str, ...] = ()
+    recommendedAction: str = "Manual review required"
 
 
 class AnalysisMetrics(FrozenModel):
@@ -76,6 +86,10 @@ class AnalysisMetrics(FrozenModel):
     duplicateCount: int = Field(ge=0)
     duplicatePercentage: float = Field(ge=0.0, le=100.0)
     compressionOpportunity: float = Field(ge=0.0, le=100.0)
+    trustedDuplicateCount: int = Field(default=0, ge=0)
+    unverifiedDuplicateCount: int = Field(default=0, ge=0)
+    trustedCompressionOpportunity: float = Field(default=0.0, ge=0.0, le=100.0)
+    unverifiedCompressionOpportunity: float = Field(default=0.0, ge=0.0, le=100.0)
     categoryBreakdown: dict[MemoryCategory, int]
     compressionReasons: tuple[str, ...] = ()
 
