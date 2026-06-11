@@ -8,7 +8,7 @@ from memd.category_consistency import audit_category_consistency
 from memd.cluster_audit import audit_largest_clusters
 from memd.cluster_trust import apply_cluster_trust_scores
 from memd.clustering import cluster_duplicates
-from memd.contracts import AnalysisReport
+from memd.contracts import AnalysisReport, PolicyProfile
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.embeddings import EmbeddingEngine
 from memd.insights import generate_analysis_insights
@@ -16,12 +16,14 @@ from memd.inspection import build_validation_summary, enrich_clusters
 from memd.metrics import calculate_metrics
 from memd.normalization import normalize_records
 from memd.parser import load_memory_file
+from memd.policy import apply_policy
 
 
 def analyze_file(
     path: Path,
     threshold: float = DEFAULT_SIMILARITY_THRESHOLD,
     model_name: str | None = None,
+    policy_profile: PolicyProfile = PolicyProfile.BALANCED,
 ) -> AnalysisReport:
     parsed = load_memory_file(path)
     records = normalize_records(parsed)
@@ -47,6 +49,7 @@ def analyze_file(
         validation,
         insights,
     )
+    actions, policy_summary = apply_policy(actions, policy_profile)
     return AnalysisReport(
         metrics=metrics,
         clusters=tuple(clusters),
@@ -56,4 +59,5 @@ def analyze_file(
         insights=insights,
         actions=actions,
         actionSummary=action_summary,
+        policySummary=policy_summary,
     )

@@ -9,7 +9,9 @@ from memd.contracts import (
     Insight,
     InsightSeverity,
     MemoryCategory,
+    PolicyProfile,
 )
+from memd.policy import apply_policy
 from memd.reports import render_json, render_markdown
 
 
@@ -155,6 +157,7 @@ def test_actions_are_serialized_to_json_and_markdown_reports() -> None:
         validation={},
         insights=(compression_insight(),),
     )
+    actions, policy_summary = apply_policy(actions, PolicyProfile.BALANCED)
     report = AnalysisReport(
         metrics=AnalysisMetrics(
             totalMemories=2,
@@ -167,15 +170,20 @@ def test_actions_are_serialized_to_json_and_markdown_reports() -> None:
         insights=(compression_insight(),),
         actions=actions,
         actionSummary=summary,
+        policySummary=policy_summary,
     )
 
     json_report = render_json(report)
     markdown_report = render_markdown(report)
 
     assert '"actionSummary"' in json_report
+    assert '"policySummary"' in json_report
     assert '"actions"' in json_report
     assert '"actionType": "merge_cluster"' in json_report
+    assert '"policyDecision": "approved"' in json_report
+    assert '"policyExplanation"' in json_report
     assert "## Action Plan" in markdown_report
+    assert "## Policy Outcomes" in markdown_report
     assert "### Recommended Safe Actions" in markdown_report
     assert "### Recommended Review Actions" in markdown_report
     assert "### Deferred / Low-Priority Actions" in markdown_report

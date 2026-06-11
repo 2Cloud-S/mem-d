@@ -15,6 +15,7 @@ from memd.contracts import (
     Insight,
     MemoryCategory,
     MemoryRecord,
+    PolicyDecision,
 )
 
 
@@ -42,6 +43,7 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
             },
         },
         "actionSummary": action_summary_to_dict(report),
+        "policySummary": policy_summary_to_dict(report),
         "actions": [action_to_dict(action) for action in report.actions],
         "clusters": [
             {
@@ -107,6 +109,13 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
         f"[bold]{report.actionSummary.safeActions}[/bold] / "
         f"[bold]{report.actionSummary.reviewActions}[/bold]"
     )
+    console.print(f"Policy Profile: [bold]{report.policySummary.profile.value}[/bold]")
+    console.print(
+        "Policy Outcomes: "
+        f"[bold]{report.policySummary.approvedActions}[/bold] approved / "
+        f"[bold]{report.policySummary.reviewRequiredActions}[/bold] review / "
+        f"[bold]{report.policySummary.blockedActions}[/bold] blocked"
+    )
     for reason in metrics.compressionReasons:
         console.print(f"- {reason}")
 
@@ -129,12 +138,14 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
         action_table.add_column("Type")
         action_table.add_column("Title")
         action_table.add_column("Approval")
+        action_table.add_column("Policy")
         for action in report.actions[:10]:
             action_table.add_row(
                 action.priority.value,
                 action.actionType.value,
                 action.title,
                 "human" if action.requiresHumanApproval else "not required",
+                action.policyDecision.value if action.policyDecision else "",
             )
         console.print(action_table)
 
@@ -215,6 +226,10 @@ def render_markdown(report: AnalysisReport) -> str:
         f"- Review actions: {report.actionSummary.reviewActions}",
         f"- Estimated trusted savings: {report.actionSummary.estimatedTrustedSavings}",
         f"- Estimated unverified savings: {report.actionSummary.estimatedUnverifiedSavings}",
+        f"- Policy profile: {report.policySummary.profile.value}",
+        f"- Policy approved actions: {report.policySummary.approvedActions}",
+        f"- Policy review-required actions: {report.policySummary.reviewRequiredActions}",
+        f"- Policy blocked actions: {report.policySummary.blockedActions}",
         "",
         "## Ranked Insights",
         "",
@@ -237,6 +252,7 @@ def render_markdown(report: AnalysisReport) -> str:
                     "",
                 ]
             )
+    lines.extend(render_policy_summary_markdown(report))
     lines.extend(render_action_plan_markdown(report.actions))
     lines.extend(
         [
@@ -333,6 +349,22 @@ def action_summary_to_dict(report: AnalysisReport) -> dict[str, object]:
     }
 
 
+def policy_summary_to_dict(report: AnalysisReport) -> dict[str, object]:
+    summary = report.policySummary
+    return {
+        "profile": summary.profile.value,
+        "totalDecisions": summary.totalDecisions,
+        "approvedActions": summary.approvedActions,
+        "reviewRequiredActions": summary.reviewRequiredActions,
+        "blockedActions": summary.blockedActions,
+        "decisionsByType": {
+            decision.value: summary.decisionsByType.get(decision, 0)
+            for decision in PolicyDecision
+        },
+        "matchedRules": summary.matchedRules,
+    }
+
+
 def action_to_dict(action: GovernanceAction) -> dict[str, object]:
     return {
         "actionId": action.actionId,
@@ -347,7 +379,35 @@ def action_to_dict(action: GovernanceAction) -> dict[str, object]:
         "requiresHumanApproval": action.requiresHumanApproval,
         "priority": action.priority.value,
         "sourceSignals": list(action.sourceSignals),
+        "policyDecision": action.policyDecision.value if action.policyDecision else None,
+        "policyProfile": action.policyProfile.value if action.policyProfile else None,
+        "policyRuleId": action.policyRuleId,
+        "policyExplanation": action.policyExplanation,
     }
+
+
+def render_policy_summary_markdown(report: AnalysisReport) -> list[str]:
+    summary = report.policySummary
+    lines = [
+        "",
+        "## Policy Outcomes",
+        "",
+        f"- Profile: {summary.profile.value}",
+        f"- Total decisions: {summary.totalDecisions}",
+        f"- Approved actions: {summary.approvedActions}",
+        f"- Review-required actions: {summary.reviewRequiredActions}",
+        f"- Blocked actions: {summary.blockedActions}",
+        "",
+        "| Decision | Count |",
+        "| --- | ---: |",
+    ]
+    for decision in PolicyDecision:
+        lines.append(f"| {decision.value} | {summary.decisionsByType.get(decision, 0)} |")
+    if summary.matchedRules:
+        lines.extend(["", "Matched policy rules:", ""])
+        for rule_id, count in sorted(summary.matchedRules.items()):
+            lines.append(f"- `{rule_id}`: {count}")
+    return lines
 
 
 def render_action_plan_markdown(actions: tuple[GovernanceAction, ...]) -> list[str]:
@@ -398,6 +458,12 @@ def render_action_group(title: str, actions: Sequence[GovernanceAction]) -> list
                 f"- Type: {action.actionType.value}",
                 f"- Priority: {action.priority.value}",
                 f"- Requires human approval: {approval}",
+                (
+                    "- Policy decision: "
+                    f"{action.policyDecision.value if action.policyDecision else 'none'}"
+                ),
+                f"- Policy rule: {action.policyRuleId or 'none'}",
+                f"- Policy explanation: {action.policyExplanation or 'none'}",
                 f"- Confidence: {action.confidence}",
                 f"- Estimated impact: {action.estimatedImpact}",
                 f"- Rationale: {action.rationale}",

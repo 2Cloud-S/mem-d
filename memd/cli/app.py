@@ -9,6 +9,7 @@ from rich.console import Console
 from rich.table import Table
 
 from memd import __version__
+from memd.contracts import PolicyProfile
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.evaluation import (
     ClusterEvaluation,
@@ -70,10 +71,19 @@ def analyze(
             help="Optional local sentence-transformers model name. Falls back if unavailable.",
         ),
     ] = None,
+    policy: Annotated[
+        PolicyProfile,
+        typer.Option("--policy", help="Governance policy profile."),
+    ] = PolicyProfile.BALANCED,
 ) -> None:
     """Analyze a JSON, CSV, or TXT memory export."""
     try:
-        report = analyze_file(file, threshold=threshold, model_name=model)
+        report = analyze_file(
+            file,
+            threshold=threshold,
+            model_name=model,
+            policy_profile=policy,
+        )
     except ParserError as exc:
         console.print(f"[red]Input error:[/red] {exc}")
         raise typer.Exit(code=1) from exc

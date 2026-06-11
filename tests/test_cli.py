@@ -39,6 +39,26 @@ def test_cli_analyze_json_output() -> None:
     assert '"actionSummary"' in result.output
     assert '"actions"' in result.output
     assert '"totalActions"' in result.output
+    assert '"policySummary"' in result.output
+    assert '"policyDecision"' in result.output
+    assert '"policyExplanation"' in result.output
+
+
+def test_cli_analyze_accepts_policy_profile() -> None:
+    result = CliRunner().invoke(
+        app,
+        [
+            "analyze",
+            str(FIXTURES / "memories.json"),
+            "--format",
+            "json",
+            "--policy",
+            "conservative",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert '"profile": "conservative"' in result.output
 
 
 def test_cli_evaluate_clusters_json_output() -> None:

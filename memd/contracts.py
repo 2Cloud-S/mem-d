@@ -48,6 +48,18 @@ class ActionPriority(StrEnum):
     DEFERRED = "deferred"
 
 
+class PolicyProfile(StrEnum):
+    CONSERVATIVE = "conservative"
+    BALANCED = "balanced"
+    AGGRESSIVE = "aggressive"
+
+
+class PolicyDecision(StrEnum):
+    APPROVED = "approved"
+    REQUIRES_REVIEW = "requires_review"
+    BLOCKED = "blocked"
+
+
 class FrozenModel(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -138,6 +150,10 @@ class GovernanceAction(FrozenModel):
     requiresHumanApproval: bool
     priority: ActionPriority
     sourceSignals: tuple[str, ...]
+    policyDecision: PolicyDecision | None = None
+    policyProfile: PolicyProfile | None = None
+    policyRuleId: str = ""
+    policyExplanation: str = ""
 
 
 class ActionPlanSummary(FrozenModel):
@@ -147,6 +163,16 @@ class ActionPlanSummary(FrozenModel):
     estimatedTrustedSavings: int = Field(ge=0)
     estimatedUnverifiedSavings: int = Field(ge=0)
     actionsByPriority: dict[ActionPriority, int]
+
+
+class PolicySummary(FrozenModel):
+    profile: PolicyProfile = PolicyProfile.BALANCED
+    totalDecisions: int = Field(default=0, ge=0)
+    approvedActions: int = Field(default=0, ge=0)
+    reviewRequiredActions: int = Field(default=0, ge=0)
+    blockedActions: int = Field(default=0, ge=0)
+    decisionsByType: dict[PolicyDecision, int] = Field(default_factory=dict)
+    matchedRules: dict[str, int] = Field(default_factory=dict)
 
 
 class AnalysisReport(FrozenModel):
@@ -167,3 +193,4 @@ class AnalysisReport(FrozenModel):
             actionsByPriority={priority: 0 for priority in ActionPriority},
         )
     )
+    policySummary: PolicySummary = Field(default_factory=PolicySummary)

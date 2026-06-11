@@ -125,7 +125,7 @@ Unverified savings come from review actions where records may be removable only 
 
 Current V1 pipeline:
 
-Parser -> Normalizer -> Categorizer -> Embedder -> Similarity -> Clustering -> Metrics -> Validation -> Insights -> Action Planning -> Reporting
+Parser -> Normalizer -> Categorizer -> Embedder -> Similarity -> Clustering -> Metrics -> Validation -> Insights -> Action Planning -> Policy Engine -> Reporting
 
 The planner is intentionally downstream of validation and insights.
 
@@ -137,4 +137,4 @@ It bridges analysis and future memory lifecycle management while preserving the 
 - no cloud execution
 - no memory modification
 
-Future execution or policy engines can consume the action JSON, but execution is out of scope for V1.
+The Policy Engine can consume the action JSON, but execution is out of scope for V1.
