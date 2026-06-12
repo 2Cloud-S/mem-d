@@ -224,6 +224,19 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
             "inspect category consistency validation details."
         )
 
+    evolution = report.validation.get("memoryEvolutionAudit", {})
+    if isinstance(evolution, dict) and integer_value(evolution.get("totalEvolutionSignals")) > 0:
+        console.print(
+            "Memory evolution signals: "
+            f"[bold]{evolution.get('totalEvolutionSignals')}[/bold] "
+            f"(confidence {evolution.get('evolutionConfidence', 0)}); "
+            f"contradictions={evolution.get('contradictionCount', 0)}, "
+            f"preference changes={evolution.get('preferenceChangeCount', 0)}, "
+            f"superseded={evolution.get('supersededMemoryCount', 0)}, "
+            f"stale={evolution.get('staleMemoryCount', 0)}, "
+            f"status transitions={evolution.get('statusTransitionCount', 0)}."
+        )
+
 
 def render_json(report: AnalysisReport) -> str:
     return json.dumps(report_to_dict(report), indent=2)
@@ -578,6 +591,10 @@ def render_validation_markdown(report: AnalysisReport) -> list[str]:
                     f"{driver.get('removableRecords')} removable records "
                     f"({driver.get('trustLevel', 'Unknown')} trust)"
                 )
+
+    evolution = report.validation.get("memoryEvolutionAudit", {})
+    if isinstance(evolution, dict) and evolution:
+        lines.extend(render_memory_evolution_audit_markdown(evolution))
     return lines
 
 
@@ -853,6 +870,57 @@ def render_semantic_theme_analysis_markdown(analysis: dict[str, object]) -> list
                             lines.append(
                                 f"  - `{example.get('memoryId')}`: {example.get('content')}"
                             )
+    return lines
+
+
+def render_memory_evolution_audit_markdown(audit: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Memory Evolution Audit",
+        "",
+        str(audit.get("summary", "")),
+        "",
+        f"- Contradictions: {audit.get('contradictionCount', 0)}",
+        f"- Preference changes: {audit.get('preferenceChangeCount', 0)}",
+        f"- Superseded memories: {audit.get('supersededMemoryCount', 0)}",
+        f"- Stale memory candidates: {audit.get('staleMemoryCount', 0)}",
+        f"- Status transition candidates: {audit.get('statusTransitionCount', 0)}",
+        f"- Evolution confidence: {audit.get('evolutionConfidence', 0)}",
+    ]
+
+    for title, key in (
+        ("Contradictions", "contradictions"),
+        ("Preference changes", "preferenceChanges"),
+        ("Superseded memories", "supersededMemories"),
+        ("Status transitions", "statusTransitionCandidates"),
+    ):
+        cases = audit.get(key, [])
+        if isinstance(cases, list) and cases:
+            lines.extend(["", f"{title}:", ""])
+            for case in cases[:5]:
+                if isinstance(case, dict):
+                    lines.append(f"- {case.get('caseId')} (confidence {case.get('confidence')})")
+                    lines.append(f"  - {case.get('explanation')}")
+                    memories = case.get("involvedMemories", [])
+                    if isinstance(memories, list):
+                        for memory in memories[:2]:
+                            if isinstance(memory, dict):
+                                lines.append(
+                                    f"  - `{memory.get('memoryId')}`: {memory.get('content')}"
+                                )
+
+    stale = audit.get("staleMemoryCandidates", [])
+    if isinstance(stale, list) and stale:
+        lines.extend(["", "Stale memory candidates:", ""])
+        for case in stale[:5]:
+            if isinstance(case, dict):
+                lines.append(f"- {case.get('caseId')} (confidence {case.get('confidence')})")
+                lines.append(f"  - {case.get('explanation')}")
+                memories = case.get("involvedMemories", [])
+                if isinstance(memories, list) and memories:
+                    memory = memories[0]
+                    if isinstance(memory, dict):
+                        lines.append(f"  - `{memory.get('memoryId')}`: {memory.get('content')}")
     return lines
 
 

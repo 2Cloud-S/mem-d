@@ -47,6 +47,8 @@ def test_cli_analyze_json_output() -> None:
     assert '"unknownResolutionAudit"' in result.output
     assert '"classifierFailureCount"' in result.output
     assert '"taxonomyGapCount"' in result.output
+    assert '"memoryEvolutionAudit"' in result.output
+    assert '"evolutionConfidence"' in result.output
     assert '"actionSummary"' in result.output
     assert '"actions"' in result.output
     assert '"totalActions"' in result.output

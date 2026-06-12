@@ -14,6 +14,7 @@ from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.embeddings import EmbeddingEngine
 from memd.insights import generate_analysis_insights
 from memd.inspection import build_validation_summary, enrich_clusters
+from memd.memory_evolution import audit_memory_evolution
 from memd.metrics import calculate_metrics
 from memd.normalization import normalize_records
 from memd.parser import load_memory_file
@@ -36,6 +37,7 @@ def analyze_file(
     clusters = apply_cluster_trust_scores(clusters, cluster_audit)
     category_audit_v2 = audit_category_quality_v2(records, categories)
     category_consistency = audit_category_consistency(records, categories, clusters)
+    memory_evolution_audit = audit_memory_evolution(records, categories, embeddings)
     metrics = calculate_metrics(records, categories, clusters, category_consistency)
     validation = build_validation_summary(
         records,
@@ -44,6 +46,7 @@ def analyze_file(
         cluster_audit,
         category_consistency,
         category_audit_v2,
+        memory_evolution_audit,
     )
     insights = generate_analysis_insights(metrics, clusters, validation)
     actions, action_summary = plan_governance_actions(
