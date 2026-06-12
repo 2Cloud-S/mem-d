@@ -205,6 +205,17 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
                 f"[bold]{first_cause.get('cause', '')}[/bold] "
                 f"({first_cause.get('count', 0)} memories)."
             )
+        discovery = category_audit.get("taxonomyDiscovery", {})
+        if isinstance(discovery, dict):
+            candidates = discovery.get("candidateCategories", [])
+            if isinstance(candidates, list) and candidates:
+                top_candidate = candidates[0] if isinstance(candidates[0], dict) else {}
+                console.print(
+                    "Top taxonomy candidate: "
+                    f"[bold]{top_candidate.get('label', '')}[/bold] "
+                    f"({top_candidate.get('memoryCount', 0)} memories, "
+                    f"{top_candidate.get('issueType', '')})."
+                )
     consistency = category_quality.get("categoryConsistency", {})
     if isinstance(consistency, dict) and consistency.get("conflictClusterCount"):
         console.print(
@@ -708,6 +719,59 @@ def render_category_audit_v2_markdown(audit: dict[str, object]) -> list[str]:
                     f"{candidate.get('frequency')} | "
                     f"{candidate.get('cause')} | "
                     f"{escape_markdown_table(str(candidate.get('content', '')))} |"
+                )
+    discovery = audit.get("taxonomyDiscovery", {})
+    if isinstance(discovery, dict) and discovery:
+        lines.extend(render_taxonomy_expansion_markdown(discovery))
+    return lines
+
+
+def render_taxonomy_expansion_markdown(discovery: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Taxonomy Expansion",
+        "",
+        str(discovery.get("summary", "")),
+        "",
+    ]
+    candidates = discovery.get("candidateCategories", [])
+    if isinstance(candidates, list) and candidates:
+        lines.extend(
+            [
+                "| Candidate category | Type | Count | Unknown reduction | Confidence | Mapping |",
+                "| --- | --- | ---: | ---: | ---: | --- |",
+            ]
+        )
+        for candidate in candidates[:15]:
+            if isinstance(candidate, dict):
+                lines.append(
+                    f"| {candidate.get('label')} | "
+                    f"{candidate.get('issueType')} | "
+                    f"{candidate.get('memoryCount')} | "
+                    f"{candidate.get('estimatedUnknownRateReduction')}% | "
+                    f"{candidate.get('confidence')} | "
+                    f"{escape_markdown_table(str(candidate.get('suggestedMapping', '')))} |"
+                )
+
+    taxonomy_gaps = discovery.get("taxonomyGaps", [])
+    if isinstance(taxonomy_gaps, list) and taxonomy_gaps:
+        lines.extend(["", "Taxonomy gaps:", ""])
+        for candidate in taxonomy_gaps[:10]:
+            if isinstance(candidate, dict):
+                lines.append(
+                    f"- {candidate.get('label')}: {candidate.get('memoryCount')} memories; "
+                    f"remaining Unknown rate would be "
+                    f"{candidate.get('estimatedRemainingUnknownRate')}% if addressed."
+                )
+
+    classifier_failures = discovery.get("classifierFailures", [])
+    if isinstance(classifier_failures, list) and classifier_failures:
+        lines.extend(["", "Classifier failures:", ""])
+        for candidate in classifier_failures[:10]:
+            if isinstance(candidate, dict):
+                lines.append(
+                    f"- {candidate.get('label')}: {candidate.get('memoryCount')} memories; "
+                    f"{candidate.get('suggestedMapping')}"
                 )
     return lines
 

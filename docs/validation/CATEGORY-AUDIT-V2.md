@@ -21,6 +21,7 @@ Category Audit V2 adds:
 - Unknown pattern clusters
 - Suggested taxonomy gaps
 - Ranked reclassification candidates
+- Taxonomy discovery candidate categories
 
 ---
 
@@ -52,6 +53,29 @@ They are review candidates only. Mem-D does not automatically reclassify records
 
 ---
 
+## Taxonomy Discovery
+
+Taxonomy Discovery groups Unknown memories into semantic candidate categories.
+
+Each candidate includes:
+
+- label
+- memory count
+- representative examples
+- confidence
+- suggested mapping
+- issue type
+- estimated Unknown-rate reduction
+
+Issue types:
+
+- `classifier_failure`: the memory likely belongs to an existing category, but current heuristics do not capture the shape.
+- `taxonomy_gap`: the memory shape may need a new first-class category or explicit product decision.
+
+This section helps decide whether to expand the taxonomy based on repeated evidence from real datasets.
+
+---
+
 ## Success Criteria
 
 A human should be able to answer:
@@ -60,3 +84,4 @@ A human should be able to answer:
 - Which Unknown patterns repeat most often?
 - Which taxonomy gaps have the most evidence?
 - Which records should be inspected first before adding new rules?
+- Which candidate categories would reduce Unknown rate the most?

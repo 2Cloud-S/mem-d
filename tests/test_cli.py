@@ -40,6 +40,8 @@ def test_cli_analyze_json_output() -> None:
     assert '"topUnknownCauses"' in result.output
     assert '"suggestedTaxonomyGaps"' in result.output
     assert '"categoryConfidenceDistribution"' in result.output
+    assert '"taxonomyDiscovery"' in result.output
+    assert '"candidateCategories"' in result.output
     assert '"actionSummary"' in result.output
     assert '"actions"' in result.output
     assert '"totalActions"' in result.output

@@ -31,6 +31,63 @@ STOPWORDS = {
     "about",
 }
 
+CAUSE_METADATA = {
+    "derived_insight_or_inference": {
+        "label": "Derived Insight",
+        "issueType": "taxonomy_gap",
+        "suggestedMapping": "Consider a first-class Derived Insight category.",
+        "description": "Memories summarize conclusions, implications, or learned facts.",
+    },
+    "relationship_context_without_known_entities": {
+        "label": "Dependency / Context Link",
+        "issueType": "taxonomy_gap",
+        "suggestedMapping": "Consider a Context Link category or extend Relationship scope.",
+        "description": "Memories describe dependencies or context links without people.",
+    },
+    "tentative_planning_language": {
+        "label": "Tentative Plan",
+        "issueType": "classifier_failure",
+        "suggestedMapping": "Map to Goal after adding tentative planning heuristics.",
+        "description": "Memories describe possible future work without explicit goal markers.",
+    },
+    "implicit_task_without_task_marker": {
+        "label": "Implicit Task",
+        "issueType": "classifier_failure",
+        "suggestedMapping": "Map to Task after adding implicit review/check heuristics.",
+        "description": "Memories imply work to do without todo/reminder/task wording.",
+    },
+    "implicit_preference_without_preference_verb": {
+        "label": "Implicit Preference",
+        "issueType": "classifier_failure",
+        "suggestedMapping": "Map to Preference after adding preference-adjective heuristics.",
+        "description": "Memories express preference through comparative or acceptability language.",
+    },
+    "technical_fact_without_state_verb": {
+        "label": "Technical Fragment",
+        "issueType": "classifier_failure",
+        "suggestedMapping": "Map to Fact after adding technical noun-fragment heuristics.",
+        "description": "Memories are technical fact fragments without a clear state verb.",
+    },
+    "time_context_without_event_marker": {
+        "label": "Temporal Context",
+        "issueType": "classifier_failure",
+        "suggestedMapping": "Map to Temporary after adding time-context heuristics.",
+        "description": "Memories include time context without an event or calendar marker.",
+    },
+    "terse_or_fragmented_memory": {
+        "label": "Short Fragment",
+        "issueType": "taxonomy_gap",
+        "suggestedMapping": "Consider a Fragment/Note category or leave as Unknown.",
+        "description": "Memories are too short or fragmented for current taxonomy evidence.",
+    },
+    "no_recognized_category_signal": {
+        "label": "Unrecognized Memory Shape",
+        "issueType": "taxonomy_gap",
+        "suggestedMapping": "Inspect examples before creating or expanding taxonomy.",
+        "description": "Memories do not match current or diagnostic category signals.",
+    },
+}
+
 
 def audit_category_quality_v2(
     records: Sequence[MemoryRecord],
@@ -62,6 +119,11 @@ def audit_category_quality_v2(
         "unknownClusters": unknown_clusters,
         "suggestedTaxonomyGaps": suggested_taxonomy_gaps(unknown_clusters),
         "reclassificationCandidates": candidates,
+        "taxonomyDiscovery": taxonomy_discovery_report(
+            unknown_diagnostics,
+            total_memories=len(records),
+            unknown_count=len(unknown_categories),
+        ),
     }
 
 
@@ -91,8 +153,6 @@ def diagnose_unknown(
     token_list: Sequence[str],
 ) -> tuple[str, MemoryCategory, float]:
     lowered = content.lower()
-    if len(token_list) <= 4:
-        return "terse_or_fragmented_memory", MemoryCategory.UNKNOWN, 0.35
     if re.search(r"\b(because|therefore|means|implies|insight|learned|shows)\b", lowered):
         return "derived_insight_or_inference", MemoryCategory.RELATIONSHIP, 0.68
     if re.search(r"\b(depends on|blocked by|related|context|linked|reference)\b", lowered):
@@ -107,6 +167,8 @@ def diagnose_unknown(
         return "technical_fact_without_state_verb", MemoryCategory.FACT, 0.58
     if re.search(r"\b(today|tomorrow|temporary|later|soon|next)\b", lowered):
         return "time_context_without_event_marker", MemoryCategory.TEMPORARY, 0.6
+    if len(token_list) <= 4:
+        return "terse_or_fragmented_memory", MemoryCategory.UNKNOWN, 0.35
     return "no_recognized_category_signal", MemoryCategory.UNKNOWN, 0.25
 
 
@@ -218,6 +280,123 @@ def ranked_reclassification_candidates(
         candidates,
         key=lambda item: (-float_value(item["confidence"]), -integer(item["frequency"])),
     )[:50]
+
+
+def taxonomy_discovery_report(
+    diagnostics: Sequence[dict[str, object]],
+    total_memories: int,
+    unknown_count: int,
+) -> dict[str, object]:
+    candidate_categories = taxonomy_candidate_categories(
+        diagnostics,
+        total_memories=total_memories,
+        unknown_count=unknown_count,
+    )
+    classifier_failures = [
+        candidate
+        for candidate in candidate_categories
+        if candidate["issueType"] == "classifier_failure"
+    ]
+    taxonomy_gaps = [
+        candidate
+        for candidate in candidate_categories
+        if candidate["issueType"] == "taxonomy_gap"
+    ]
+    return {
+        "summary": (
+            "Taxonomy Discovery groups Unknown memories into candidate semantic types. "
+            "It does not create categories or change classifications."
+        ),
+        "candidateCategories": candidate_categories,
+        "classifierFailures": classifier_failures,
+        "taxonomyGaps": taxonomy_gaps,
+        "estimatedResolvableUnknownCount": sum(
+            integer(candidate["memoryCount"])
+            for candidate in candidate_categories
+            if candidate["issueType"] == "classifier_failure"
+        ),
+        "estimatedTaxonomyGapUnknownCount": sum(
+            integer(candidate["memoryCount"])
+            for candidate in taxonomy_gaps
+        ),
+    }
+
+
+def taxonomy_candidate_categories(
+    diagnostics: Sequence[dict[str, object]],
+    total_memories: int,
+    unknown_count: int,
+) -> list[dict[str, object]]:
+    grouped: defaultdict[str, list[dict[str, object]]] = defaultdict(list)
+    for diagnostic in diagnostics:
+        grouped[str(diagnostic.get("cause", ""))].append(diagnostic)
+
+    candidates = []
+    for cause, items in grouped.items():
+        metadata = cause_metadata(cause)
+        count = len(items)
+        confidence = round(
+            sum(float_value(item.get("mappingConfidence")) for item in items) / count,
+            4,
+        )
+        estimated_reduction = percentage(count, total_memories)
+        candidates.append(
+            {
+                "label": metadata["label"],
+                "cause": cause,
+                "issueType": metadata["issueType"],
+                "memoryCount": count,
+                "percentageOfUnknown": percentage(count, unknown_count),
+                "estimatedUnknownRateReduction": estimated_reduction,
+                "estimatedRemainingUnknownRate": max(
+                    0.0,
+                    round(percentage(unknown_count, total_memories) - estimated_reduction, 2),
+                ),
+                "representativeExamples": representative_examples(items),
+                "confidence": confidence,
+                "suggestedMapping": metadata["suggestedMapping"],
+                "description": metadata["description"],
+                "themeTerms": common_terms(
+                    (str(item.get("content", "")) for item in items),
+                    limit=8,
+                ),
+            }
+        )
+    return sorted(
+        candidates,
+        key=lambda item: (
+            -integer(item["memoryCount"]),
+            -float_value(item["confidence"]),
+            str(item["label"]),
+        ),
+    )
+
+
+def representative_examples(items: Sequence[dict[str, object]]) -> list[dict[str, object]]:
+    ranked = sorted(
+        items,
+        key=lambda item: (-float_value(item.get("mappingConfidence")), str(item.get("memoryId"))),
+    )
+    return [
+        {
+            "memoryId": item.get("memoryId"),
+            "content": item.get("content"),
+            "confidence": item.get("mappingConfidence"),
+        }
+        for item in ranked[:5]
+    ]
+
+
+def cause_metadata(cause: str) -> dict[str, str]:
+    return CAUSE_METADATA.get(
+        cause,
+        {
+            "label": taxonomy_gap_label(cause),
+            "issueType": "taxonomy_gap",
+            "suggestedMapping": "Inspect examples before changing taxonomy.",
+            "description": "Unknown cause does not have specific discovery metadata.",
+        },
+    )
 
 
 def confidence_distribution(categories: Sequence[CategorizedMemory]) -> dict[str, object]:

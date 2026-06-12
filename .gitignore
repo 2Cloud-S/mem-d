@@ -98,6 +98,7 @@ bge-*.json
 audit.json
 chatgpt_report.json
 memd_project_v2.json
+taxonomy_test.json
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/

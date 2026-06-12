@@ -29,6 +29,12 @@ def test_category_audit_v2_groups_unknown_causes_and_suggests_mappings() -> None
     assert audit["suggestedTaxonomyGaps"]
     assert audit["reclassificationCandidates"]
     assert audit["categoryConfidenceDistribution"]["buckets"]["low"] == 5
+    discovery = audit["taxonomyDiscovery"]
+    assert discovery["candidateCategories"]
+    assert discovery["taxonomyGaps"]
+    assert discovery["classifierFailures"]
+    assert discovery["candidateCategories"][0]["label"]
+    assert discovery["candidateCategories"][0]["estimatedUnknownRateReduction"] > 0
 
 
 def test_category_audit_v2_ranks_candidates_by_confidence_and_frequency() -> None:
@@ -52,3 +58,29 @@ def test_category_audit_v2_ranks_candidates_by_confidence_and_frequency() -> Non
     assert candidates[0]["suggestedCategory"] == MemoryCategory.PREFERENCE.value
     assert candidates[0]["confidence"] >= candidates[-1]["confidence"]
     assert all(candidate["frequency"] >= 1 for candidate in candidates)
+
+
+def test_taxonomy_discovery_distinguishes_gaps_from_classifier_failures() -> None:
+    records = [
+        MemoryRecord(id="mem_1", content="Billing insight shows retry loops"),
+        MemoryRecord(id="mem_2", content="Cache token config pipeline"),
+        MemoryRecord(id="mem_3", content="Project note"),
+    ]
+    categories = [
+        CategorizedMemory(
+            memoryId=record.id,
+            category=MemoryCategory.UNKNOWN,
+            confidence=0.2,
+        )
+        for record in records
+    ]
+
+    audit = audit_category_quality_v2(records, categories)
+    discovery = audit["taxonomyDiscovery"]
+    gap_labels = {candidate["label"] for candidate in discovery["taxonomyGaps"]}
+    failure_labels = {candidate["label"] for candidate in discovery["classifierFailures"]}
+
+    assert "Derived Insight" in gap_labels
+    assert "Technical Fragment" in failure_labels
+    assert discovery["estimatedTaxonomyGapUnknownCount"] >= 1
+    assert discovery["estimatedResolvableUnknownCount"] >= 1
