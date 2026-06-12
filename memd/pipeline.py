@@ -4,6 +4,7 @@ from pathlib import Path
 
 from memd.actions import plan_governance_actions
 from memd.categorization import categorize_records
+from memd.category_audit import audit_category_quality_v2
 from memd.category_consistency import audit_category_consistency
 from memd.cluster_audit import audit_largest_clusters
 from memd.cluster_trust import apply_cluster_trust_scores
@@ -33,6 +34,7 @@ def analyze_file(
     clusters = enrich_clusters(records, categories, raw_clusters)
     cluster_audit = audit_largest_clusters(records, categories, clusters, embeddings)
     clusters = apply_cluster_trust_scores(clusters, cluster_audit)
+    category_audit_v2 = audit_category_quality_v2(records, categories)
     category_consistency = audit_category_consistency(records, categories, clusters)
     metrics = calculate_metrics(records, categories, clusters, category_consistency)
     validation = build_validation_summary(
@@ -41,6 +43,7 @@ def analyze_file(
         clusters,
         cluster_audit,
         category_consistency,
+        category_audit_v2,
     )
     insights = generate_analysis_insights(metrics, clusters, validation)
     actions, action_summary = plan_governance_actions(

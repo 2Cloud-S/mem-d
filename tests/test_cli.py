@@ -36,6 +36,10 @@ def test_cli_analyze_json_output() -> None:
     assert '"categoryAgreementRate"' in result.output
     assert '"reclassificationOpportunityCount"' in result.output
     assert '"categoryConsistency"' in result.output
+    assert '"categoryAuditV2"' in result.output
+    assert '"topUnknownCauses"' in result.output
+    assert '"suggestedTaxonomyGaps"' in result.output
+    assert '"categoryConfidenceDistribution"' in result.output
     assert '"actionSummary"' in result.output
     assert '"actions"' in result.output
     assert '"totalActions"' in result.output

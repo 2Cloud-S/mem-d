@@ -131,6 +131,7 @@ scripts/           Benchmarks and utilities
 | [docs/INSIGHTS.md](docs/INSIGHTS.md)                           | Insight Engine rules and tradeoffs |
 | [docs/ACTION-PLANNING.md](docs/ACTION-PLANNING.md)             | Governance action planning         |
 | [docs/POLICY-ENGINE.md](docs/POLICY-ENGINE.md)                 | Governance policy decisions        |
+| [docs/validation/CATEGORY-AUDIT-V2.md](docs/validation/CATEGORY-AUDIT-V2.md) | Unknown category diagnostics |
 | [docs/validation/CLUSTER-AUDIT.md](docs/validation/CLUSTER-AUDIT.md) | Largest-cluster quality audit |
 | [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) | Clustering validation metrics      |
 | [AGENTS.md](AGENTS.md)                                         | Agent/contributor scope            |

@@ -195,6 +195,16 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
             f"Unknown categories: [bold]{unknown_count}[/bold] "
             f"({unknown_percentage}%); inspect JSON/Markdown validation samples."
         )
+    category_audit = category_quality.get("categoryAuditV2", {})
+    if isinstance(category_audit, dict):
+        top_causes = category_audit.get("topUnknownCauses", [])
+        if isinstance(top_causes, list) and top_causes:
+            first_cause = top_causes[0] if isinstance(top_causes[0], dict) else {}
+            console.print(
+                "Top Unknown cause: "
+                f"[bold]{first_cause.get('cause', '')}[/bold] "
+                f"({first_cause.get('count', 0)} memories)."
+            )
     consistency = category_quality.get("categoryConsistency", {})
     if isinstance(consistency, dict) and consistency.get("conflictClusterCount"):
         console.print(
@@ -513,6 +523,9 @@ def render_validation_markdown(report: AnalysisReport) -> list[str]:
         consistency = category_quality.get("categoryConsistency", {})
         if isinstance(consistency, dict) and consistency:
             lines.extend(render_category_consistency_markdown(consistency))
+        category_audit = category_quality.get("categoryAuditV2", {})
+        if isinstance(category_audit, dict) and category_audit:
+            lines.extend(render_category_audit_v2_markdown(category_audit))
 
     if cluster_quality:
         false_positive_candidates = cluster_quality.get("possibleFalsePositiveClusters", [])
@@ -617,6 +630,83 @@ def render_category_consistency_markdown(consistency: dict[str, object]) -> list
                     f"{candidate.get('currentCategory')} | "
                     f"{candidate.get('suggestedCategory')} | "
                     f"`{candidate.get('clusterId')}` | "
+                    f"{escape_markdown_table(str(candidate.get('content', '')))} |"
+                )
+    return lines
+
+
+def render_category_audit_v2_markdown(audit: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Category Audit V2",
+        "",
+        f"- Unknown rate: {audit.get('unknownRate', 0)}%",
+        f"- High-confidence Unknown rate: {audit.get('highConfidenceUnknownRate', 0)}%",
+    ]
+    distribution = audit.get("categoryConfidenceDistribution", {})
+    if isinstance(distribution, dict):
+        lines.append(f"- Average category confidence: {distribution.get('averageConfidence', 0)}")
+        buckets = distribution.get("buckets", {})
+        if isinstance(buckets, dict):
+            lines.append(
+                "- Confidence distribution: "
+                f"high={buckets.get('high', 0)}, "
+                f"medium={buckets.get('medium', 0)}, "
+                f"low={buckets.get('low', 0)}"
+            )
+
+    top_causes = audit.get("topUnknownCauses", [])
+    if isinstance(top_causes, list) and top_causes:
+        lines.extend(["", "Top Unknown causes:", ""])
+        for cause in top_causes[:10]:
+            if isinstance(cause, dict):
+                lines.append(
+                    f"- {cause.get('cause')}: {cause.get('count')} memories "
+                    f"({cause.get('percentageOfUnknown')}% of Unknown). "
+                    f"Example: {cause.get('example')}"
+                )
+
+    gaps = audit.get("suggestedTaxonomyGaps", [])
+    if isinstance(gaps, list) and gaps:
+        lines.extend(["", "Suggested taxonomy gaps:", ""])
+        for gap in gaps[:10]:
+            if isinstance(gap, dict):
+                lines.append(
+                    f"- {gap.get('gap')} -> {gap.get('suggestedCategory')} "
+                    f"({gap.get('evidenceCount')} examples, confidence {gap.get('confidence')})"
+                )
+
+    unknown_clusters = audit.get("unknownClusters", [])
+    if isinstance(unknown_clusters, list) and unknown_clusters:
+        lines.extend(["", "Unknown pattern clusters:", ""])
+        for cluster in unknown_clusters[:10]:
+            if isinstance(cluster, dict):
+                lines.append(
+                    f"- `{cluster.get('clusterId')}` {cluster.get('cause')}: "
+                    f"{cluster.get('count')} memories, suggested "
+                    f"{cluster.get('suggestedCategory')}, themes "
+                    f"{', '.join(str(term) for term in cluster.get('themeTerms', []))}"
+                )
+
+    candidates = audit.get("reclassificationCandidates", [])
+    if isinstance(candidates, list) and candidates:
+        lines.extend(
+            [
+                "",
+                "Ranked Unknown reclassification candidates:",
+                "",
+                "| ID | Suggested | Confidence | Frequency | Cause | Content |",
+                "| --- | --- | ---: | ---: | --- | --- |",
+            ]
+        )
+        for candidate in candidates[:20]:
+            if isinstance(candidate, dict):
+                lines.append(
+                    f"| `{candidate.get('memoryId')}` | "
+                    f"{candidate.get('suggestedCategory')} | "
+                    f"{candidate.get('confidence')} | "
+                    f"{candidate.get('frequency')} | "
+                    f"{candidate.get('cause')} | "
                     f"{escape_markdown_table(str(candidate.get('content', '')))} |"
                 )
     return lines

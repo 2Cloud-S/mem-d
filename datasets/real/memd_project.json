@@ -1,0 +1,2666 @@
+[
+  {
+    "id": "mem_4bd4ca280875",
+    "content": "Mem-D Analyze V1 goal is to help developers understand the composition and redundancy of agent memory.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_668e2d48645b",
+    "content": "The product is analysis-only: no memory modification, no memory storage, no memory management.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f704760efad2",
+    "content": "The primary user is an AI developer who already has an existing memory system.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d17b8d796c30",
+    "content": "Supported agent frameworks include LangGraph, CrewAI, AutoGen, OpenAI Agents, and custom agents.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_276aef97a10e",
+    "content": "Memory input formats accepted in V1 are JSON, TXT, and CSV.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_77cc96cb5e74",
+    "content": "Memory categorization assigns one of seven categories: Preference, Fact, Task, Goal, Temporary, Relationship, or Unknown.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7ab2d2692b5c",
+    "content": "Duplicate detection identifies semantically similar memories and outputs duplicate clusters.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_2d3101036ee6",
+    "content": "Compression estimation reports the percentage of memories that could potentially be merged.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_64bb25a2de1b",
+    "content": "Category distribution shows the composition breakdown of a memory store.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ea5a770ebe81",
+    "content": "An example distribution could be: Temporary 42%, Facts 18%, Preferences 9%.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_cf7f9701a461",
+    "content": "The interface for V1 is CLI-only; no dashboard or web UI is planned.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c4ff88e29022",
+    "content": "The CLI command is: memd analyze file.json",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c5bdd73befa5",
+    "content": "Output formats are terminal report and JSON report.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_651f3e577941",
+    "content": "V1 success requires at least 10 developers analyzing real memory stores.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_8fc78422485c",
+    "content": "At least 3 developers must report discovering unexpected redundancy for V1 to be considered successful.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_9b324523cd25",
+    "content": "At least 3 developers must request cleanup automation to proceed to V2.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_504dbb692eab",
+    "content": "If V1 success criteria are met, the project proceeds to V2.",
+    "source": "PRD.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_79a54d0b6eb7",
+    "content": "The TRD V1 pipeline order is: Memory File \u2192 Parser \u2192 Embedding Engine \u2192 Categorization Engine \u2192 Duplicate Detection Engine \u2192 Report Generator \u2192 CLI Output.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ff48e7e3a6bb",
+    "content": "The Parser takes JSON, TXT, or CSV input and outputs a unified MemoryRecord with id and content fields.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_eb41c34ca422",
+    "content": "The Embedding Engine provides semantic understanding; preferred models are BGE Small or Qwen Embedding.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9863ab608474",
+    "content": "Local inference is preferred for the Embedding Engine to avoid cloud dependency.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_87b5cd0aabb3",
+    "content": "The Categorization Engine uses prompt-based classification to assign one of seven memory categories.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ba3ed49e87a6",
+    "content": "Duplicate detection uses embedding similarity, cosine similarity, and threshold clustering.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_08151b4e5947",
+    "content": "Duplicate detection outputs duplicate groups, not individual similarity scores.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c19c8330ed27",
+    "content": "Report metrics include Total Memories, Duplicate Percentage, Category Distribution, and Compression Opportunity.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7d9a34edb0a2",
+    "content": "No storage is required; all analysis is performed in memory.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_630de1a051ea",
+    "content": "Optionally, a JSON report can be exported to disk.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d074b03e26d9",
+    "content": "V1 core dependencies: Python, Typer, Sentence Transformers, Pydantic, NumPy, Scikit-Learn.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7ce009083d5a",
+    "content": "V1 non-goals include MCP, SDK, Dashboard, Graph Database, Decay Engine, Reinforcement Learning, Memory Storage, and Enterprise Features.",
+    "source": "TRD.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d02825190933",
+    "content": "Mem-D V1 architecture version is V1, status is Implementation Architecture.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_279fffc4aad1",
+    "content": "The system is analysis-only; it does not modify, manage, or retrieve memory.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e879a028c6ed",
+    "content": "Architecture principle: Local First \u2014 all analysis must run locally with no cloud dependency required.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_52dd7508635b",
+    "content": "Architecture principle: Read Only \u2014 memory data must never be modified; input files remain untouched.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_3c742589ec86",
+    "content": "Architecture principle: Provider Independent \u2014 no dependency on OpenAI, Anthropic, or Gemini for core functionality.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_aa71df36ee13",
+    "content": "Architecture principle: Explainable \u2014 every result should be traceable so users understand why memories were grouped or flagged.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_531196b70589",
+    "content": "Module 1 is the Input Parser, responsible for reading memory exports from external systems.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_73cf557022d4",
+    "content": "Input Parser supports JSON, CSV, and TXT formats in V1; SQLite, LangGraph exports, and CrewAI exports are future targets.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fd764eaf75c2",
+    "content": "Input Parser responsibilities include: loading files, validating schema, handling malformed records, and converting to internal representation.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f64075df829c",
+    "content": "The internal MemoryRecord schema has fields: id (string), content (string), optional source, optional timestamp, optional metadata object.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0052f2b35ba1",
+    "content": "Module 2 is the Normalization Layer, which creates consistent memory representations.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6b3fa8179c61",
+    "content": "Normalization responsibilities: trim whitespace, normalize formatting, remove duplicates, clean malformed content, generate IDs.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_114dab58cf26",
+    "content": "Normalization example: input ' User likes dark mode ' becomes output 'user likes dark mode'.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d731db08d739",
+    "content": "Module 3 is the Categorization Engine, which determines memory category from seven possible values.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0ba97e273ec8",
+    "content": "CategorizedMemory output schema: memoryId (string), category (string), confidence (number).",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_caf4eebf7e11",
+    "content": "V1 categorization implementation is a prompt-based classifier or small local classifier.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e5d0633de7bf",
+    "content": "Future categorization plans include a fine-tuned model.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_6b158bdc6858",
+    "content": "Module 4 is the Embedding Engine, which generates semantic vector representations.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_21f4797d254a",
+    "content": "Recommended embedding models: BGE Small, Qwen Embedding, e5-small.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5bb07fd4492d",
+    "content": "Embedding Engine requirements: local inference, fast execution, low memory usage.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_e715fffcce26",
+    "content": "Module 5 is the Similarity Engine, which measures semantic similarity using cosine similarity and threshold matching.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_028c00de18d3",
+    "content": "Similarity Engine input is embeddings; output is a similarity matrix.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_72d847af84e9",
+    "content": "Example similarity: 'User likes dark mode' and 'User prefers dark themes' produce a similarity score of 0.94.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_42daae64665c",
+    "content": "Module 6 is the Clustering Engine, which detects duplicate groups from the similarity matrix.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_440486d9e8ce",
+    "content": "Recommended clustering algorithms: DBSCAN, Agglomerative Clustering, HDBSCAN.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9044ba9d3e7b",
+    "content": "Clustering output is a list of Cluster objects.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_49e8e1412ca8",
+    "content": "Example cluster: 'User likes dark mode', 'User prefers dark themes', 'User uses dark UI'.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6e42a727401d",
+    "content": "Module 7 is the Metrics Engine, which generates compression opportunity, category distribution, duplicate count, and average cluster size.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_da44985ee794",
+    "content": "Compression Opportunity formula: Duplicate Memories \u00f7 Total Memories.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c305b565b2ad",
+    "content": "Example: 1000 memories with 300 duplicates gives compression opportunity of 30%.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9f1d35f3fd63",
+    "content": "Module 8 is the Report Generator, which converts raw analysis into terminal, JSON, and Markdown outputs.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9849bf172647",
+    "content": "Terminal report example: 'Analyzed: 4,129 memories | Duplicate Clusters: 218 | Compression Opportunity: 41% | Top Category: Temporary'.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ed29ae99b6df",
+    "content": "CLI command is: memd analyze memory.json",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_af5b4f921608",
+    "content": "CLI optional flags: --format json, --format markdown, --output report.json, --threshold 0.85",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_130690da014e",
+    "content": "Directory structure: memd/ with subdirectories cli, parser, normalization, categorization, embeddings, similarity, clustering, metrics, reports, tests, docs, configs.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d9a27d630763",
+    "content": "Technology stack language is Python.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4fe9849f0b03",
+    "content": "CLI framework is Typer.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_65749c833982",
+    "content": "Validation framework is Pydantic.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8f351a833681",
+    "content": "Embedding library is Sentence Transformers.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a2f7683c541b",
+    "content": "Numerical processing uses NumPy.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_2be25717001d",
+    "content": "Clustering uses Scikit-Learn and HDBSCAN.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d46316187302",
+    "content": "Output formatting uses Rich.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_00b446b4f689",
+    "content": "Testing framework is Pytest.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_91b5cd7a4803",
+    "content": "Future architecture path: V2 adds Recommendation Engine, V3 adds Decay Engine, V4 adds Memory Runtime, V5 becomes Memory Operating System.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_eafd6cd74db7",
+    "content": "V1 non-goals: no MCP, SDK, Dashboard, Agent Runtime, Memory Modification, Decay Engine, Graph Memory, Reinforcement Learning, Enterprise Features, or Cloud Infrastructure.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5c8739f9ebb9",
+    "content": "V1 success criteria: analyze 10,000 memory records locally, complete analysis in under 15 seconds, generate understandable duplicate clusters, produce actionable memory insights, validate demand for memory intelligence tooling.",
+    "source": "ARCHITECTURE.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_1fadd13bb4fe",
+    "content": "Mem-D Analyze is a local-first CLI for analyzing agent memory exports.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_441e73bf9ee8",
+    "content": "Mem-D answers three questions: what is in memory, how redundant is it, and how much could be compressed.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_d1ae16940fa3",
+    "content": "Current version is 0.1.0 V1 Alpha; scope is read-only analysis via CLI.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0be3a0b38763",
+    "content": "Features include: parse JSON/CSV/TXT, heuristic categorization, DBSCAN semantic duplicate clustering, metrics, ranked insights, and terminal/JSON/Markdown output.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b767c70d782f",
+    "content": "Requirements: Python 3.10+ on Windows, macOS, or Linux.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b2a8920e0837",
+    "content": "Install command: git clone then python -m pip install -e '.[dev]'",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_bc356c2e4507",
+    "content": "Optional embeddings install adds better semantic duplicate detection with local models: pip install -e '.[dev,embeddings]'",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4058a8ad1174",
+    "content": "Basic analyze command: python -m memd analyze tests/fixtures/memories.json",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8f90bda9f4fe",
+    "content": "JSON output command: python -m memd analyze memory.json --format json",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a3e842e20fb7",
+    "content": "Markdown report command: python -m memd analyze memory.json --format markdown --output report.md",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4a3d4f526e82",
+    "content": "Threshold tuning command: python -m memd analyze memory.json --threshold 0.55",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9995e996f09f",
+    "content": "Local embedding model command: python -m memd analyze memory.json --model BAAI/bge-small-en-v1.5",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_325ce7dbac3f",
+    "content": "Cluster evaluation command: python -m memd evaluate-clusters datasets/validation/clustering_quality.json",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_40fb51f36b18",
+    "content": "Evaluation report includes precision, recall, F1, false positives, false negatives, cluster purity, cluster coverage, and clustering mistake examples.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_2cfacedc5bc8",
+    "content": "Default similarity threshold is 0.55, chosen from labelled validation fixture to improve near-duplicate recall while preserving high precision.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c72fd3937392",
+    "content": "JSON input format: array of objects or object with 'memories', 'items', or 'records' key; minimum required field is 'content'.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c65a9d76caf1",
+    "content": "CSV input requires a header row with at least a 'content' column; also accepts 'text', 'memory', or 'message'.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_1e98132f49f9",
+    "content": "TXT input uses one memory per line.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_88eef5d50106",
+    "content": "Development commands: python -m pytest to run tests, python -m ruff check . for lint, python scripts/benchmark_10k.py for 10k benchmark.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b8b55e9d2da1",
+    "content": "Design principle: local first \u2014 runs on your machine, no cloud required.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_d1f17bfedeb4",
+    "content": "Design principle: read only \u2014 never modifies input files.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_a227193e1326",
+    "content": "Design principle: provider independent \u2014 no OpenAI/Anthropic/Gemini dependency for core features.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_27811dd7745c",
+    "content": "Design principle: explainable \u2014 categories and clusters trace back to inputs.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_cccc748962bc",
+    "content": "License is MIT.",
+    "source": "README.md",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_1baea1ab5dc7",
+    "content": "Commit 31cc9c1: feat: add policy engine and governance decisions",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4d3baf74c8bf",
+    "content": "Commit 5baaeed: feat: add action planning layer and governance recommendations",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_de19238dacf6",
+    "content": "Commit af51e0e: feat: add category consistency audit",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a047b89de546",
+    "content": "Commit 45c9836: feat: add cluster trust scoring and compression validation",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6a4cbdb3b7c1",
+    "content": "Commit c1b47ca: feat: add deterministic insight engine",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6aa15aaa7ebb",
+    "content": "Commit e4fd5d6: feat: improve clustering recall with token normalization and n-grams",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e97dedb466ca",
+    "content": "Commit a90cf96: feat: add clustering quality evaluation and validation datasets",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_dd666df49dc7",
+    "content": "Commit 2bc5d43: initial commit: Mem-D foundation",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_74b0ab2c0670",
+    "content": "All commits in the project history were authored by Afnan K.",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b6e97c30d0cf",
+    "content": "The full Mem-D V1 was built and committed within approximately 26 hours from initial commit to policy engine.",
+    "source": "commit-history.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5ecb921d5795",
+    "content": "Many teams building AI agent products are creating feature-incomplete, second-class experiences that frustrate users, and they tend to fail in the same repeating pattern.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8161ea4934ab",
+    "content": "Most organizations start with a simplified mental model \u2014 front end plus back end \u2014 but mature applications have hundreds of API endpoints developed over years.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e7caf97b3df5",
+    "content": "The early AI agent product era is reminiscent of the early days of mobile app development before 'mobile first' became the standard approach.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0d92d08adbc5",
+    "content": "At Ramp, the AI assistant can access niche features like changing card branding by spinning up a browser with the user's credentials and navigating the frontend; the user only sees the result.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_1597ba87bf37",
+    "content": "By building heuristics and scaffolding on top of a frontend, teams can create more reliable agent experiences while focusing resources on fixing what is broken rather than rebuilding from scratch.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_850f50824b2d",
+    "content": "Having complete tool interfaces across your feature set will become increasingly important for AI agent reliability.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_50ff32ca95f5",
+    "content": "Recommended approach: before letting external agents computer-use your product, learn to computer-use it yourself first.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_0f74dbd460a2",
+    "content": "The three primary pain points for AI agent product customers are reliability, integration headaches, and lack of differentiation.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9992ad489ea6",
+    "content": "A customer review noted cases of getting partially processed information, with data scraped being unclean or hallucinatory.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f316aeb0c91e",
+    "content": "Customers report signing up for agent products that lacked integrations they needed.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a39d703c520a",
+    "content": "Where customers see real value from agent tools is when they support seamless data flow through existing tech stacks.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_694866ca1364",
+    "content": "More than half of private capital flowing into the AI agent space has gone to horizontal applications like customer support and coding, but these markets are becoming highly saturated.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3322c2d0d10f",
+    "content": "A finance deal team customer review noted that AI tools must speak the domain language and align to what users know and understand.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3bb373d20b61",
+    "content": "Almost all AI agents depend on GPT, Claude, or Gemini model families, creating structural dependencies across the ecosystem.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_28af1febad8d",
+    "content": "Most AI agent deployments fail, and they often fail spectacularly.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_244844ec248b",
+    "content": "Gartner forecasts that 40% of enterprise applications will embed task-specific AI agents by 2026, up from less than 5% in 2025.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_63ebe961c951",
+    "content": "A single 'small' workflow can cause cascading failures through infinite loops, bad API pagination bugs, webhook storms, stuck database connections, or 429 retry spirals that never back off.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3afc6f590858",
+    "content": "An example cascade failure: email agent crashes \u2192 retry loop starts \u2192 hits Gmail rate limit \u2192 Gmail bans IP \u2192 all Gmail workflows fail \u2192 customer support tickets pile up.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7f3b3cee2d83",
+    "content": "62% of analyzed agent failures involved authentication issues.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_813a5b8eb165",
+    "content": "Over 40% of agentic AI projects are at risk of cancellation by 2027 if governance, observability, and ROI clarity are not established.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ec0d3392ca5b",
+    "content": "For AI agent success, think less GPT-as-brain, more modular systems with memory, planner, critic, and actor components.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_085355dde3b0",
+    "content": "The ReAct agents framework is a relevant approach for building better AI agents.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d2cea4af99d9",
+    "content": "A key agent memory problem: agents store everything or lose everything, with no adaptive decay, causing 45% storage bloat from irrelevant information.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_40b5d787f17a",
+    "content": "Agent memory problem analogy: the context window is like a counter that fills with dirty dishes \u2014 old contexts and unneeded memories pile up.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_984f6550c5fc",
+    "content": "Potential product names inspired by memory decay: mem-d, mem decay, pro-cognitive.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6973400a4845",
+    "content": "An AI agent that learns all integrations and then makes integrations into any agent framework could address a major market pain point.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_5fb196c67c24",
+    "content": "V1 planning scope decision: CLI-only for V1; the website remains out of implementation scope.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6ef3fb1db0c0",
+    "content": "V1 categorization strategy decision: heuristic/rule-based classifier first, with confidence scoring; LLM/local model categorization is deferred.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_68083bbef25f",
+    "content": "The repo started docs-only; the full Python package was scaffolded from scratch during implementation.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c153eebf10c2",
+    "content": "V1 implementation added: package metadata, console entrypoint, CLI package, canonical data contracts, parser, and normalization.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4fff5a13d186",
+    "content": "The heuristic classifier was implemented with confidence scoring across all seven V1 categories.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ab81866b8f8e",
+    "content": "Embedding support includes both a local-model path and a no-network hashing fallback.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_15c396f78e5a",
+    "content": "Similarity and clustering are wired through cosine distance and DBSCAN.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9215ccfbc847",
+    "content": "Metrics and report renderers are implemented for terminal, JSON, and Markdown output formats.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ba39dd983140",
+    "content": "The CLI command 'memd analyze' runs the complete parser-to-report pipeline.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_508d81960002",
+    "content": "Test fixtures are in place for JSON, CSV, and TXT formats.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_35e34891444b",
+    "content": "Unit and CLI smoke tests were added, with clustering tests kept deterministic rather than depending on model semantic behavior.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7666b5993198",
+    "content": "Initial V1 test suite passed 13 tests with ruff lint clean.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0963585db56c",
+    "content": "The repo was made ready for a private GitHub push with .gitignore, README, MIT LICENSE, .gitattributes, and GitHub Actions CI workflow.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c197ef114225",
+    "content": "CI runs ruff lint and pytest on Python 3.10 through 3.12 on push and pull requests.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ec3d2fc56ebc",
+    "content": "node_modules and .obsidian editor state are excluded from git commits.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_12391c698589",
+    "content": "An Obsidian vault was created at Memd-ObsidianVault/ with Home.md as entry point.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3fab59e8ea70",
+    "content": "Obsidian vault sections: architecture (v1-pipeline, module-map, data-contracts), docs/decisions (ADR-001 to ADR-009), knowledge/learnings, research.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b6f945f86c62",
+    "content": "ADR-009 records the heuristic-first classifier choice and its reasoning.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d877041f1a90",
+    "content": "Clustering evaluation framework measures precision, recall, F1, false positives, false negatives, cluster purity, and cluster coverage.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fd36a2951dba",
+    "content": "Labelled validation dataset contains exact duplicates, near-duplicates, known non-duplicates, and explicit hard negative pairs.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_98b3c3aa4b5e",
+    "content": "Baseline hashing-backed clustering at threshold 0.85: precision 1.0, recall 0.1429, F1 0.2501, purity 1.0, coverage 0.1818.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_38a44a9b1197",
+    "content": "Root cause of low recall: the hashing fallback handled exact token overlap but missed near-duplicates when words changed form (dev/development, trace/tracing, cert/certificate).",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7f92f9830cb4",
+    "content": "Improved fallback uses token normalization, small alias mapping, character n-grams, and token bigrams with no external APIs.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_709ce150ff5b",
+    "content": "After improvement at threshold 0.55: precision 1.0, recall 0.5714, F1 0.7272, purity 1.0, coverage 0.7273, zero false positives.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_09fff379c04c",
+    "content": "Remaining near-duplicate misses after improvement: TypeScript preference paraphrase (similarity 0.4235) and Redis cache/session wording (similarity 0.512).",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9ef01a38c5bc",
+    "content": "Default threshold constant DEFAULT_SIMILARITY_THRESHOLD = 0.55 is centralized in memd/defaults.py.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6594a3d7d08a",
+    "content": "10k benchmark completed in 10.25 seconds after the fallback embedding improvement.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_92d77553de2b",
+    "content": "Insight Engine is a deterministic rule-based layer that converts analysis outputs into ranked findings answering 'What should I do?'",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_cc727b09a89e",
+    "content": "Each insight includes: severity, explanation, supporting evidence, confidence, estimated impact, and recommended action.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0a3b8596a6fa",
+    "content": "Insight Engine rules cover: high/moderate compression opportunity, exact duplicate cleanup, largest cluster review, Unknown category review, category imbalance, false-positive cluster review, recall/precision gaps.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9f99278ca411",
+    "content": "Insight Engine adds insights to terminal, JSON, and Markdown reports.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f6be60c53101",
+    "content": "Insights also appear in clustering evaluation reports with recommendations from precision/recall/F1/purity/coverage.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_104e2b4b763d",
+    "content": "Cluster audit audits the top 10 largest clusters after clustering completes.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c860b9198ea2",
+    "content": "Cluster audit diagnostics: cluster size, average similarity, pairwise similarity distribution (min/p25/median/p75/max/spread), dominant themes, representative memories, category mix, low-similarity outliers, concept assessment, contamination score.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_bec25414bb5e",
+    "content": "Cluster audit result on datasets/memories.json: 10 of 10 largest clusters flagged as possible over-clustering; 4 of 10 contain low-similarity outlier contamination.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8a0d5996bd48",
+    "content": "Largest cluster (cluster_1) has size 288, similarity spread 1.0, assessed as multiple-concepts \u2014 compression estimates from it should not be fully trusted.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_07da7cb9bd2c",
+    "content": "Cluster Trust Scoring assigns trustScore and trustLevel (High/Medium/Low) to every duplicate cluster.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_acaf796e19c8",
+    "content": "Trust scoring factors: cluster size, similarity distribution, contamination score, category diversity, low-similarity outliers, single-concept vs multiple-concepts assessment.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b8465e447357",
+    "content": "High trust clusters are automatic consolidation candidates; Medium and Low trust clusters require manual review.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c8b94af2ea05",
+    "content": "Compression metrics are split into trustedCompressionOpportunity and unverifiedCompressionOpportunity.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d6938252a2d1",
+    "content": "On datasets/memories.json: trusted compression was 9.9% and unverified compression was 39.6%.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_839bf6646e5a",
+    "content": "Category Consistency Audit detects category disagreement between memories that are highly similar or in the same cluster.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fca2270e6636",
+    "content": "Category audit outputs: category conflicts, dominant category per cluster, minority categories, potential reclassification candidates, category agreement rate, and reclassification opportunities.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d5f38b7a8f7d",
+    "content": "Category audit insights flag recurring classification inconsistencies, especially Fact vs Preference vs Unknown conflicts.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8368b6a391b5",
+    "content": "Category audit does not automatically change categories; it only measures taxonomy quality.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_26b88fc47c5f",
+    "content": "Action Planning Layer V1 is a pure planning system; it does not execute any actions.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_769eac873b59",
+    "content": "Action Planning contracts include: GovernanceAction, ActionType, ActionPriority, and ActionPlanSummary.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7266b02fae4a",
+    "content": "Action plan JSON fields: actionSummary and actions.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3b786122d5fe",
+    "content": "Action summary metrics: totalActions, safeActions, reviewActions, estimatedTrustedSavings, estimatedUnverifiedSavings, actionsByPriority.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_bca60bd47bf4",
+    "content": "Sample action plan on memories.json: 151 total actions, 78 safe actions, 73 review actions, estimatedTrustedSavings 99.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f2554a5d8eb2",
+    "content": "Policy Engine V1 evaluates planned actions and attaches deterministic policy decisions without executing anything.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_dcc3c54ea42a",
+    "content": "Policy Engine contracts: PolicyProfile (conservative/balanced/aggressive), PolicyDecision (approved/requires_review/blocked), PolicySummary.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_2c2d8244f99e",
+    "content": "Each action receives: policyDecision, policyProfile, policyRuleId, and policyExplanation fields.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d41e62e3cfc9",
+    "content": "CLI policy flag: memd analyze memory.json --policy balanced",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fc33a29b988d",
+    "content": "Built-in policy profiles are conservative, balanced (default), and aggressive.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4b5151832a3b",
+    "content": "Policy Engine adds policySummary to JSON, per-action decision fields, terminal policy outcome summary, and Markdown Policy Outcomes section.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b125548b49de",
+    "content": "Sample balanced policy on memories.json: 78 approved, 22 requires-review, 51 blocked actions.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_43eee85c1666",
+    "content": "Final test count after all features: 41 passing tests with ruff lint clean.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ca82007a4290",
+    "content": "Docs files added during development: DECISIONS.md, INSIGHTS.md, ACTION-PLANNING.md, POLICY-ENGINE.md, validation/CLUSTERING.md, validation/CLUSTER-AUDIT.md.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_2d0fede87a67",
+    "content": "Memd pipeline wiring order after refactors: Parser \u2192 Normalization \u2192 Categorization \u2192 Embedding \u2192 Similarity \u2192 Clustering \u2192 Cluster Audit \u2192 Cluster Trust \u2192 Category Consistency \u2192 Metrics \u2192 Insight Engine \u2192 Action Planning \u2192 Policy Engine \u2192 Report Generator.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9778f9d5701c",
+    "content": "Generated reports like clustering-eval.json, clustering-eval.md, *.audit.json, *.audit.md are added to .gitignore to avoid accidental commits.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9e2eb5e48ea5",
+    "content": "Insight Engine is documented in Docs/INSIGHTS.md and linked from README.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f4c212771475",
+    "content": "Docs/validation/CLUSTERING.md records the baseline, root cause, before/after metrics, and threshold tradeoff table.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_cc2471bd8a86",
+    "content": "Docs/validation/CLUSTER-AUDIT.md documents the largest-cluster quality audit format and findings.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f7b1e5c0b1e6",
+    "content": "To improve AI agents see arxiv paper: arxiv.org/pdf/2511.17332",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3bcce681a5ee",
+    "content": "To improve AI agents see arxiv paper: arxiv.org/pdf/2606.05405",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_01a578e30dc7",
+    "content": "CBInsights AI agent market map includes LangChain and CrewAI as key players.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_06d768e98faa",
+    "content": "CrewAI transcript shared as a research reference for agent product interviews.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_cc50444452a9",
+    "content": "Decagon transcript shared as a research reference on agent product value in data flow.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4e10b787ef48",
+    "content": "Mem-D exists because agents store everything or lose everything; there is no adaptive decay mechanism in most current agent frameworks.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e5066b3883cc",
+    "content": "The 45% storage bloat figure from irrelevant information motivates Mem-D's compression opportunity metric.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_42b422cdb91f",
+    "content": "The ultimate vision for Mem-D is a Memory Operating System (V5), but V1 scopes to read-only analysis only.",
+    "source": "derived",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_e549c1ba64a4",
+    "content": "V1 deliberately avoids modifying memory so that developers can trust the tool will not corrupt their agents.",
+    "source": "derived",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_119fe5d676bd",
+    "content": "The compression opportunity metric surfaces how much memory could theoretically be reduced without losing information.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_599cc3eca301",
+    "content": "The split between trusted compression and unverified compression makes downstream cleanup recommendations safer.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0797b361b177",
+    "content": "Cluster Trust Scoring prevents overconfident recommendations by flagging large, heterogeneous clusters as unverified.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_bead16f71f12",
+    "content": "The Policy Engine adds enterprise-ready governance by ensuring every recommended action has a deterministic approval, review, or block decision before any human acts.",
+    "source": "derived",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_f45840e42a2d",
+    "content": "The Insight Engine bridges the gap between raw metrics and actionable decisions for developers.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f7de21e5ad8f",
+    "content": "The local-first constraint means Mem-D can be used in air-gapped or privacy-sensitive environments.",
+    "source": "derived",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_db2c0149f586",
+    "content": "The hashing fallback embedding ensures the tool works even when sentence-transformers is not installed.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9b8932a8229e",
+    "content": "Sentence-transformers with BAAI/bge-small-en-v1.5 provides stronger semantic duplicate detection than the hashing fallback.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9687a7f6ddd5",
+    "content": "The DBSCAN algorithm was chosen for clustering because it does not require a predefined number of clusters.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7efa1a5e768d",
+    "content": "Cosine similarity is used rather than Euclidean distance because it measures directional similarity which is more appropriate for text embeddings.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fc54d49c6441",
+    "content": "Pydantic is used for data contracts to provide runtime type validation and clear schema documentation.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_da852c21826a",
+    "content": "Typer provides a modern CLI framework with automatic help text generation and type-annotated commands.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_cc1a673b27e0",
+    "content": "Rich provides terminal output formatting including colored tables and progress indicators.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_91c7fb690d6a",
+    "content": "The evaluation framework uses labelled pairs to give objective recall and precision measurements independent of cluster appearance.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_90dd6d001236",
+    "content": "Category agreement rate measures how consistently the categorization engine classifies similar memories.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_847b072b8308",
+    "content": "Reclassification opportunity surfaces memories where the assigned category likely disagrees with the cluster majority.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_1f2afbd95c12",
+    "content": "The Unknown category rate is a signal of categorizer health; high Unknown rates suggest the classifier needs improvement.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_61fa5703aa05",
+    "content": "Category imbalance insights flag when Temporary memories dominate, which may indicate agent memory is not being pruned.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ead89e40b652",
+    "content": "Governance readiness requires four elements: governance decisions, observability, ROI clarity, and explainability.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_50ae438e0210",
+    "content": "The conservative policy profile blocks more actions to minimize risk; the aggressive profile approves more to maximize throughput.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_bd6c25b729c4",
+    "content": "The balanced policy profile is the default because it provides a reasonable tradeoff between safety and automation.",
+    "source": "derived",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_9f31c7b8e841",
+    "content": "Action Planning is separated from Policy Engine so that plans are stable and only governance decisions change when the policy profile changes.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_99888a71828f",
+    "content": "Cluster contamination score measures the degree to which a cluster contains memories that don't belong together.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3149912c15ac",
+    "content": "Spread of 1.0 in a cluster's similarity distribution indicates the cluster contains both near-identical and entirely unrelated memories.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_744ac3a5c296",
+    "content": "A compression opportunity of 41% means roughly 4 in 10 memories in a store are candidates for deduplication.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_32bf67dff310",
+    "content": "The benchmark target of under 15 seconds for 10,000 records ensures Mem-D is practical for real agent memory stores.",
+    "source": "derived",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_40994f5ce825",
+    "content": "The V1 success metric of 10 developer users is intentionally small to validate demand before investing in V2.",
+    "source": "derived",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d97558c096a0",
+    "content": "V2 will add a Recommendation Engine that suggests specific memories for merging or deletion.",
+    "source": "derived",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_b05331fc33a3",
+    "content": "V3 will add a Decay Engine that applies time-based relevance decay to memory scores.",
+    "source": "derived",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_0f7d8bc614e3",
+    "content": "V4 will add a Memory Runtime that can actively manage memories for running agents.",
+    "source": "derived",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_914cb8f96b19",
+    "content": "Mem-D's architecture is designed so future modules can be added without breaking the existing pipeline.",
+    "source": "derived",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_95ba81441d3e",
+    "content": "The Normalization Layer ensures that equivalent memories like 'User likes dark mode' and 'user likes dark mode' are treated as the same record.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b98d1523094c",
+    "content": "The Categorization Engine assigns categories with a confidence score between 0 and 1 for each classification.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_22d66e7ed80b",
+    "content": "The Similarity Engine outputs a pairwise similarity matrix used by the Clustering Engine downstream.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0a1bc5249f62",
+    "content": "DBSCAN clustering labels memories that don't belong to any cluster as noise, preserving them as unclustered singletons.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_39de3cf079b7",
+    "content": "The Metrics Engine reads from the Clustering Engine output, not directly from raw memories.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0a24d537434e",
+    "content": "All pipeline modules communicate via typed Pydantic contracts, not raw dicts or strings.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_63929e354cc8",
+    "content": "The Report Generator is the only module that produces human-readable output; all other modules produce structured data.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_23d8b2e27e55",
+    "content": "The CLI layer is a thin wrapper over the pipeline; it handles argument parsing and delegates to the pipeline coordinator.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_827b4310de19",
+    "content": "The pipeline coordinator runs all modules in order and assembles the final AnalysisReport object.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8c70ff6cd9cd",
+    "content": "Optional embedding model is loaded lazily only when --model flag is provided, keeping cold start fast.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_248f83971623",
+    "content": "Test fixtures are small, deterministic JSON/CSV/TXT files with known duplicate pairs for reliable assertions.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_2bb6778fc1ee",
+    "content": "Clustering tests use hashing-based similarity to avoid non-deterministic model output in CI.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e74e55277204",
+    "content": "The labelled validation dataset is the source of truth for measuring clustering quality improvements.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9f9ce4ae2e87",
+    "content": "Regression tests encode before/after precision and recall to catch future regressions in duplicate detection.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8d0ac0dd30bd",
+    "content": "The evaluation command accepts --format json and --format markdown flags, mirroring the analyze command.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_4027a86a58d1",
+    "content": "Cluster purity measures what fraction of predicted pairs are true duplicates.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a259c089a69a",
+    "content": "Cluster coverage measures what fraction of true duplicate pairs were discovered by the engine.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a1f012a58143",
+    "content": "False positives in clustering are non-duplicate memories incorrectly grouped together.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_478b452876c6",
+    "content": "False negatives in clustering are true duplicate memories that were not grouped.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c148f95a0a74",
+    "content": "The benchmark script generates 10,000 synthetic records with controlled duplicate rates to test performance.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_183830fbe5e7",
+    "content": "The alias mapping in the improved fallback handles common abbreviations like dev\u2192development, cert\u2192certificate, auth\u2192authentication.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_566167368c20",
+    "content": "Character n-grams capture partial word overlaps that exact token matching misses.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b627dd3e58c3",
+    "content": "Token bigrams capture short phrase patterns like 'dark mode' and 'dark theme' as related units.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_798c7541e2ef",
+    "content": "The improved fallback still does not perform true semantic matching; sentence-transformers is needed for paraphrase detection.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_70d9d2b4fc23",
+    "content": "Threshold 0.4 achieves full recall on the validation fixture but causes over-clustering on larger real-world datasets.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_42358a354106",
+    "content": "Threshold 0.5 improves recall to 0.714 with no false positives on the validation fixture.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_36dbc1a47cca",
+    "content": "Threshold 0.55 was chosen as the production default as the best measured tradeoff between recall and precision.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_ac19fd1c60dd",
+    "content": "Threshold 0.85 was the original default and produced only 1 true positive out of 7 true duplicate pairs.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9e1b0198ad6b",
+    "content": "The threshold parameter can be tuned per-run using --threshold flag without rebuilding or reinstalling.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5802f281eae0",
+    "content": "Users should evaluate threshold changes on labelled data before applying them to production memory stores.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_6acceabb135c",
+    "content": "Insight severity levels help developers prioritize which findings to act on first.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fa99eb616c95",
+    "content": "Supporting evidence in each insight links back to specific metrics or cluster IDs so findings are traceable.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5a0754ffc4a9",
+    "content": "Confidence in insights reflects how strongly the evidence supports the recommendation.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6cbe719bf03a",
+    "content": "Estimated impact in insights quantifies how many memories could be affected by following the recommendation.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_50dcfdb55f29",
+    "content": "The 'high compression opportunity' insight fires when compression opportunity exceeds a configured threshold.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f93707914d9f",
+    "content": "The 'exact duplicate cleanup' insight identifies memories with similarity 1.0 as safe immediate deletion candidates.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_682a04822212",
+    "content": "The 'largest cluster review' insight warns when a single cluster dominates compression estimates.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_53735b710133",
+    "content": "The 'Unknown category review' insight fires when the Unknown category rate is high, suggesting classifier degradation.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5e3f2811b711",
+    "content": "The 'category imbalance' insight fires when a single category, especially Temporary, overwhelmingly dominates the distribution.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_59d0135d1251",
+    "content": "The 'possible false-positive cluster review' insight fires when cluster coherence is very low, suggesting over-clustering.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d5faf5662a41",
+    "content": "The 'recall gap' evaluation insight fires when recall is below a threshold, recommending threshold or model changes.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_03cd52862e30",
+    "content": "The 'precision gap' evaluation insight fires when precision drops, recommending raising the similarity threshold.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3a88cd09eda4",
+    "content": "Trust score starts at 1.0 and is penalized for each negative signal: large size, low median similarity, wide spread, contamination, category diversity, multiple-concept assessment.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_08ac96fbe1c6",
+    "content": "A High trust cluster has a trustScore above 0.7 and is considered safe for automatic consolidation.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_380b2af3c300",
+    "content": "A Medium trust cluster requires a human to review before consolidation.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f82d91123cbd",
+    "content": "A Low trust cluster should not be consolidated without detailed manual inspection.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c3672d356a8c",
+    "content": "The consolidation recommendation field on each cluster makes it easy for downstream tooling to filter safe actions.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_dda44b4519de",
+    "content": "trustedCompressionOpportunity is the fraction of memories in High-trust duplicate clusters.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3569cf817d14",
+    "content": "unverifiedCompressionOpportunity is the fraction of memories in Medium and Low-trust clusters.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_296adeffaae8",
+    "content": "Headline compression percentage without trust context can be misleading; always check the split.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_4a18b34bf77a",
+    "content": "Category disagreement within a cluster is evidence that the categorizer assigned different labels to semantically equivalent memories.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9a60437e2e2f",
+    "content": "The dominant category in a cluster is used as the reference label for identifying minority category outliers.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_fba4f78966ee",
+    "content": "Potential reclassification candidates are memories whose assigned category disagrees with the cluster's dominant category.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_c1531bdef33b",
+    "content": "Category agreement rate near 100% indicates a consistent and reliable categorizer.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3e85a645a40a",
+    "content": "Fact vs Preference conflicts are common because many memories describe both what a user does and what they like.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_12008cc81d41",
+    "content": "Unknown vs any-other-category conflicts indicate that the classifier gave up where a valid category was possible.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_188684885252",
+    "content": "Category audit results inform future fine-tuning of the categorization engine without requiring changes to V1.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_679352587716",
+    "content": "Governance actions are categorized by ActionType: merge, delete, reclassify, review, defer.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_45550655948e",
+    "content": "ActionPriority levels are: critical, high, medium, low.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0b8a36ea6c32",
+    "content": "Safe actions are those where trust is High and no governance flags are raised.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_379ea83ccc84",
+    "content": "Review actions are those where trust is Medium or where category conflicts exist.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e141814049d3",
+    "content": "The estimatedTrustedSavings field counts memories expected to be safely eliminated through High-trust merges.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_820c91fabe27",
+    "content": "The estimatedUnverifiedSavings field counts memories in unreviewed clusters that might be eliminated after human review.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_421e81bfebd0",
+    "content": "Action Planning documents what should be done; it does not write files or modify the memory store.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_eff67208d966",
+    "content": "Policy rules are identified by rule IDs so governance audits can trace each decision to its rule.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_9e74f67c6b57",
+    "content": "The conservative profile blocks all actions with any unverified signal to minimize automation risk.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_bf55d088eb78",
+    "content": "The aggressive profile approves all High and Medium trust actions, blocking only clear contamination.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_60681ba7d05d",
+    "content": "The policyExplanation field provides a human-readable reason for each approve/review/block decision.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_21e9cd217f3e",
+    "content": "The policySummary in JSON output gives aggregate counts of approved, review-required, and blocked decisions for the run.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_e4e8f46980e4",
+    "content": "Policy profiles can be swapped per-run without changing the underlying action plan.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_f617ba600710",
+    "content": "Enterprise teams can audit policy outcomes by exporting the full JSON report and filtering by policyDecision.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_a72987c02351",
+    "content": "AGENTS.md defines contributor scope for the project.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_727d93fd5be2",
+    "content": "DATA_CONTRACTS.md documents all Pydantic schemas used in the pipeline.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_3e6a757ce651",
+    "content": "DECISIONS.md records architectural decisions in ADR format with context, options considered, and consequences.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_8f7e39752694",
+    "content": "docs/validation/CLUSTERING.md documents the threshold tradeoff curve and before/after clustering quality measurements.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7dfc94b2e518",
+    "content": "docs/validation/CLUSTER-AUDIT.md documents the largest-cluster quality audit methodology and findings.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7edb549aa011",
+    "content": "INSIGHTS.md explains each insight rule, its threshold triggers, and the tradeoffs in choosing those thresholds.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_6fb4b1f89e64",
+    "content": "ACTION-PLANNING.md documents governance action types, priority levels, and planning methodology.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_1dfea2f64803",
+    "content": "POLICY-ENGINE.md documents the three built-in policy profiles, rule IDs, and how to interpret policy decisions.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_89f808cb299c",
+    "content": "Mem-D's core motivation aligns with research showing 45% storage bloat in agent memory from irrelevant information.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_28f50c667381",
+    "content": "Agent memory without decay leads to context window pollution, reducing model response quality over time.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_dc2729092e75",
+    "content": "Memory intelligence tooling is an underexplored niche compared to the heavily saturated agent orchestration market.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_7ccf95c000be",
+    "content": "The Mem-D roadmap from V1 to V5 mirrors the maturity path of agents from analysis to active runtime management.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_17be2ef3457b",
+    "content": "V1's read-only constraint lowers the barrier to adoption; developers can run it on production memory without risk.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_e9c323edaaba",
+    "content": "Compression opportunity data from V1 users will validate demand before building the automated cleanup tools in V2.",
+    "source": "cursor-session",
+    "metadata": {
+      "category": "Goal"
+    }
+  },
+  {
+    "id": "mem_f26d660e4a2c",
+    "content": "The AI agent market map shows LangChain and CrewAI as key horizontal agent platforms.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_5a1656648340",
+    "content": "Reliability, integration headaches, and lack of differentiation are the top three pain points cited by AI agent product customers.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_cd9e99942fba",
+    "content": "Authentication issues accounted for 62% of agent failures analyzed in research.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_b079b2ae04e6",
+    "content": "Agentic AI projects without governance and observability face over 40% cancellation risk by 2027.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_08f164cfa285",
+    "content": "Seamless data flow through existing tech stacks is where customers see the most value from agent tools.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_425d5aec925f",
+    "content": "The Ramp AI assistant uses browser automation to access frontend features on behalf of users.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_d01a7de92497",
+    "content": "Before exposing your product to external agent computer use, test it yourself as an agent first.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Preference"
+    }
+  },
+  {
+    "id": "mem_e2c752f58824",
+    "content": "A retry loop configured for 100 retries can cascade into IP bans and multi-workflow failures.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Fact"
+    }
+  },
+  {
+    "id": "mem_0fbd968973f2",
+    "content": "Modular agent systems with separate memory, planner, critic, and actor components outperform LLM-as-brain designs.",
+    "source": "TheGuide-AiAgents.txt",
+    "metadata": {
+      "category": "Preference"
+    }
+  }
+]

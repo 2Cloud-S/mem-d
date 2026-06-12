@@ -92,6 +92,7 @@ def build_validation_summary(
     clusters: Sequence[DuplicateCluster],
     cluster_audit: dict[str, object] | None = None,
     category_consistency: dict[str, object] | None = None,
+    category_audit_v2: dict[str, object] | None = None,
 ) -> dict[str, object]:
     records_by_id = {record.id: record for record in records}
     categories_by_id = {category.memoryId: category for category in categories}
@@ -108,11 +109,19 @@ def build_validation_summary(
         if is_suspicious_cluster(cluster, categories_by_id)
     ][:15]
     exact_duplicate_groups = exact_duplicate_summary(records)
+    audit_v2 = category_audit_v2 or {}
 
     return {
         "categoryQuality": {
             "unknownCount": len(unknown),
             "unknownPercentage": percentage(len(unknown), len(records)),
+            "unknownRate": audit_v2.get("unknownRate", percentage(len(unknown), len(records))),
+            "highConfidenceUnknownRate": audit_v2.get("highConfidenceUnknownRate", 0.0),
+            "categoryConfidenceDistribution": audit_v2.get(
+                "categoryConfidenceDistribution",
+                {},
+            ),
+            "suggestedTaxonomyGaps": audit_v2.get("suggestedTaxonomyGaps", []),
             "unknownSamples": [
                 sample_category(category, records_by_id)
                 for category in unknown[:20]
@@ -123,6 +132,7 @@ def build_validation_summary(
             ],
             "interpretation": unknown_interpretation(unknown, records_by_id),
             "categoryConsistency": category_consistency or {},
+            "categoryAuditV2": audit_v2,
         },
         "clusterQuality": {
             "largestClusters": [

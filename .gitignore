@@ -96,6 +96,8 @@ full-report.json
 threshold-*.json
 bge-*.json
 audit.json
+chatgpt_report.json
+memd_project_v2.json
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/
