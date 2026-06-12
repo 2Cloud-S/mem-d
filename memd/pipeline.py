@@ -15,6 +15,7 @@ from memd.embeddings import EmbeddingEngine
 from memd.insights import generate_analysis_insights
 from memd.inspection import build_validation_summary, enrich_clusters
 from memd.memory_evolution import audit_memory_evolution
+from memd.memory_lifecycle import infer_memory_lifecycle
 from memd.metrics import calculate_metrics
 from memd.normalization import normalize_records
 from memd.parser import load_memory_file
@@ -38,6 +39,7 @@ def analyze_file(
     category_audit_v2 = audit_category_quality_v2(records, categories)
     category_consistency = audit_category_consistency(records, categories, clusters)
     memory_evolution_audit = audit_memory_evolution(records, categories, embeddings)
+    memory_lifecycle = infer_memory_lifecycle(memory_evolution_audit)
     metrics = calculate_metrics(records, categories, clusters, category_consistency)
     validation = build_validation_summary(
         records,
@@ -47,6 +49,7 @@ def analyze_file(
         category_consistency,
         category_audit_v2,
         memory_evolution_audit,
+        memory_lifecycle,
     )
     insights = generate_analysis_insights(metrics, clusters, validation)
     actions, action_summary = plan_governance_actions(

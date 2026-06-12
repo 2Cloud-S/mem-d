@@ -101,6 +101,11 @@ memd_project_v2.json
 taxonomy_test.json
 semantic_report.json
 unknown_audit.json
+evolution_real.json
+evolution_synthetic.json
+lifecycle_project.json
+lifecycle_synthetic.json
+
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/

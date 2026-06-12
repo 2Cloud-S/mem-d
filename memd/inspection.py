@@ -94,6 +94,7 @@ def build_validation_summary(
     category_consistency: dict[str, object] | None = None,
     category_audit_v2: dict[str, object] | None = None,
     memory_evolution_audit: dict[str, object] | None = None,
+    memory_lifecycle: dict[str, object] | None = None,
 ) -> dict[str, object]:
     records_by_id = {record.id: record for record in records}
     categories_by_id = {category.memoryId: category for category in categories}
@@ -161,6 +162,7 @@ def build_validation_summary(
         },
         "compressionDrivers": compression_drivers(records, clusters, records_by_id),
         "memoryEvolutionAudit": memory_evolution_audit or {},
+        "memoryLifecycle": memory_lifecycle or {},
     }
 
 

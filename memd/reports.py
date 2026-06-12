@@ -237,6 +237,25 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
             f"status transitions={evolution.get('statusTransitionCount', 0)}."
         )
 
+    lifecycle = report.validation.get("memoryLifecycle", {})
+    if isinstance(lifecycle, dict):
+        assignments = lifecycle.get("memoryLifecycleAssignments", [])
+        if isinstance(assignments, list) and assignments:
+            counts = lifecycle.get("lifecycleCounts", {})
+            if not isinstance(counts, dict):
+                counts = {}
+            console.print(
+                "Memory lifecycle states: "
+                f"[bold]{len(assignments)}[/bold] assignments "
+                f"(confidence {lifecycle.get('lifecycleConfidence', 0)}); "
+                f"active={counts.get('Active', 0)}, "
+                f"historical={counts.get('Historical', 0)}, "
+                f"superseded={counts.get('Superseded', 0)}, "
+                f"deprecated={counts.get('Deprecated', 0)}, "
+                f"temporary={counts.get('Temporary', 0)}, "
+                f"completed={counts.get('Completed', 0)}."
+            )
+
 
 def render_json(report: AnalysisReport) -> str:
     return json.dumps(report_to_dict(report), indent=2)
@@ -595,6 +614,9 @@ def render_validation_markdown(report: AnalysisReport) -> list[str]:
     evolution = report.validation.get("memoryEvolutionAudit", {})
     if isinstance(evolution, dict) and evolution:
         lines.extend(render_memory_evolution_audit_markdown(evolution))
+    lifecycle = report.validation.get("memoryLifecycle", {})
+    if isinstance(lifecycle, dict) and lifecycle:
+        lines.extend(render_memory_lifecycle_markdown(lifecycle))
     return lines
 
 
@@ -870,6 +892,64 @@ def render_semantic_theme_analysis_markdown(analysis: dict[str, object]) -> list
                             lines.append(
                                 f"  - `{example.get('memoryId')}`: {example.get('content')}"
                             )
+    return lines
+
+
+def render_memory_lifecycle_markdown(lifecycle: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Memory Lifecycle",
+        "",
+        str(lifecycle.get("summary", "")),
+        "",
+        f"- Lifecycle confidence: {lifecycle.get('lifecycleConfidence', 0)}",
+    ]
+    counts = lifecycle.get("lifecycleCounts", {})
+    if isinstance(counts, dict):
+        lines.extend(
+            [
+                f"- Active: {counts.get('Active', 0)}",
+                f"- Historical: {counts.get('Historical', 0)}",
+                f"- Superseded: {counts.get('Superseded', 0)}",
+                f"- Deprecated: {counts.get('Deprecated', 0)}",
+                f"- Temporary: {counts.get('Temporary', 0)}",
+                f"- Completed: {counts.get('Completed', 0)}",
+            ]
+        )
+
+    transitions = lifecycle.get("lifecycleTransitions", [])
+    if isinstance(transitions, list) and transitions:
+        lines.extend(
+            [
+                "",
+                "Lifecycle transitions:",
+                "",
+                "| From | State | To | State | Confidence | Type |",
+                "| --- | --- | --- | --- | ---: | --- |",
+            ]
+        )
+        for transition in transitions[:10]:
+            if isinstance(transition, dict):
+                lines.append(
+                    f"| `{transition.get('fromMemoryId')}` | "
+                    f"{transition.get('fromState')} | "
+                    f"`{transition.get('toMemoryId') or ''}` | "
+                    f"{transition.get('toState') or ''} | "
+                    f"{transition.get('confidence')} | "
+                    f"{transition.get('evolutionType')} |"
+                )
+
+    assignments = lifecycle.get("memoryLifecycleAssignments", [])
+    if isinstance(assignments, list) and assignments:
+        lines.extend(["", "Lifecycle assignments:", ""])
+        for assignment in assignments[:15]:
+            if isinstance(assignment, dict):
+                lines.append(
+                    f"- `{assignment.get('memoryId')}` -> "
+                    f"{assignment.get('lifecycleState')} "
+                    f"(confidence {assignment.get('confidence')}): "
+                    f"{assignment.get('content')}"
+                )
     return lines
 
 
