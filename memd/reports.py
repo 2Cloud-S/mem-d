@@ -723,6 +723,12 @@ def render_category_audit_v2_markdown(audit: dict[str, object]) -> list[str]:
     discovery = audit.get("taxonomyDiscovery", {})
     if isinstance(discovery, dict) and discovery:
         lines.extend(render_taxonomy_expansion_markdown(discovery))
+    semantic = audit.get("semanticThemeAnalysis", {})
+    if isinstance(semantic, dict) and semantic:
+        lines.extend(render_semantic_theme_analysis_markdown(semantic))
+    resolution = audit.get("unknownResolutionAudit", {})
+    if isinstance(resolution, dict) and resolution:
+        lines.extend(render_unknown_resolution_audit_markdown(resolution))
     return lines
 
 
@@ -774,6 +780,158 @@ def render_taxonomy_expansion_markdown(discovery: dict[str, object]) -> list[str
                     f"{candidate.get('suggestedMapping')}"
                 )
     return lines
+
+
+def render_semantic_theme_analysis_markdown(analysis: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Semantic Theme Analysis",
+        "",
+        str(analysis.get("summary", "")),
+        "",
+        f"- Meaningful Unknown memories: {analysis.get('meaningfulUnknownCount', 0)}",
+        f"- Formatting issues: {analysis.get('formattingIssueCount', 0)}",
+    ]
+    formatting = analysis.get("formattingIssues", {})
+    if isinstance(formatting, dict) and integer_value(formatting.get("count")) > 0:
+        lines.extend(
+            [
+                "",
+                "Formatting issues (not semantic gaps):",
+                "",
+                f"- Count: {formatting.get('count')}",
+                f"- Purity: {formatting.get('categoryPurity')}",
+            ]
+        )
+        examples = formatting.get("representativeExamples", [])
+        if isinstance(examples, list) and examples:
+            lines.append("- Examples:")
+            for example in examples[:5]:
+                if isinstance(example, dict):
+                    lines.append(f"  - `{example.get('memoryId')}`: {example.get('content')}")
+
+    concepts = analysis.get("recurringConcepts", [])
+    if isinstance(concepts, list) and concepts:
+        lines.extend(["", "Recurring semantic concepts:", ""])
+        for concept in concepts[:10]:
+            if isinstance(concept, dict):
+                lines.append(
+                    f"- {concept.get('concept')}: {concept.get('evidenceCount')} memories "
+                    f"(purity {concept.get('categoryPurity')})"
+                )
+
+    candidates = analysis.get("candidateSemanticCategories", [])
+    if isinstance(candidates, list) and candidates:
+        lines.extend(
+            [
+                "",
+                "Candidate semantic categories:",
+                "",
+                "| Theme | Count | Purity | Confidence | Mapping |",
+                "| --- | ---: | ---: | ---: | --- |",
+            ]
+        )
+        for candidate in candidates[:15]:
+            if isinstance(candidate, dict):
+                lines.append(
+                    f"| {candidate.get('label')} | "
+                    f"{candidate.get('memoryCount')} | "
+                    f"{candidate.get('categoryPurity')} | "
+                    f"{candidate.get('confidence')} | "
+                    f"{escape_markdown_table(str(candidate.get('suggestedMapping', '')))} |"
+                )
+        lines.extend(["", "Representative examples by theme:", ""])
+        for candidate in candidates[:10]:
+            if isinstance(candidate, dict):
+                label = candidate.get("label")
+                count = candidate.get("memoryCount")
+                lines.append(f"- **{label}** ({count} memories)")
+                examples = candidate.get("representativeExamples", [])
+                if isinstance(examples, list):
+                    for example in examples[:3]:
+                        if isinstance(example, dict):
+                            lines.append(
+                                f"  - `{example.get('memoryId')}`: {example.get('content')}"
+                            )
+    return lines
+
+
+def render_unknown_resolution_audit_markdown(audit: dict[str, object]) -> list[str]:
+    lines = [
+        "",
+        "### Unknown Resolution Audit",
+        "",
+        str(audit.get("summary", "")),
+        "",
+        f"- Classifier failures: {audit.get('classifierFailureCount', 0)} "
+        f"({audit.get('classifierFailureRate', 0)}% of Unknown)",
+        f"- Taxonomy gaps: {audit.get('taxonomyGapCount', 0)} "
+        f"({audit.get('taxonomyGapRate', 0)}% of Unknown)",
+        f"- Unresolved: {audit.get('unresolvedCount', 0)} "
+        f"({audit.get('unresolvedRate', 0)}% of Unknown)",
+        f"- Estimated Unknown reduction: {audit.get('estimatedUnknownReduction', 0)}% "
+        "of total memories if classifier and taxonomy issues are addressed",
+        f"- Estimated classifier-only reduction: "
+        f"{audit.get('estimatedClassifierReduction', 0)}%",
+        f"- Estimated taxonomy-gap reduction: "
+        f"{audit.get('estimatedTaxonomyGapReduction', 0)}%",
+    ]
+
+    groups = audit.get("resolutionGroups", [])
+    if isinstance(groups, list) and groups:
+        lines.extend(["", "Resolution groups:", ""])
+        for group in groups:
+            if isinstance(group, dict):
+                lines.append(
+                    f"- {group.get('label')}: {group.get('count')} memories "
+                    f"({group.get('percentageOfUnknown')}% of Unknown)"
+                )
+                examples = group.get("representativeExamples", [])
+                if isinstance(examples, list):
+                    for example in examples[:3]:
+                        if isinstance(example, dict):
+                            lines.append(
+                                f"  - `{example.get('memoryId')}` "
+                                f"({example.get('confidence')}): {example.get('content')}"
+                            )
+
+    causes = audit.get("topRecurringCauses", [])
+    if isinstance(causes, list) and causes:
+        lines.extend(
+            [
+                "",
+                "Top recurring causes:",
+                "",
+                "| Cause | Count | Dominant resolution | Classifier | Gap | Unresolved |",
+                "| --- | ---: | --- | ---: | ---: | ---: |",
+            ]
+        )
+        for cause in causes[:10]:
+            if isinstance(cause, dict):
+                breakdown = cause.get("resolutionBreakdown", {})
+                classifier = 0
+                gap = 0
+                unresolved = 0
+                if isinstance(breakdown, dict):
+                    classifier = integer_value(breakdown.get("classifier_failure"))
+                    gap = integer_value(breakdown.get("taxonomy_gap"))
+                    unresolved = integer_value(breakdown.get("unresolved"))
+                lines.append(
+                    f"| {cause.get('label')} | {cause.get('count')} | "
+                    f"{cause.get('dominantResolutionType')} | {classifier} | {gap} | "
+                    f"{unresolved} |"
+                )
+    return lines
+
+
+def integer_value(value: object) -> int:
+    if isinstance(value, bool):
+        return int(value)
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    return 0
 
 
 def format_minority_categories(value: object) -> str:

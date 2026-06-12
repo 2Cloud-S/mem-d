@@ -42,6 +42,11 @@ def test_cli_analyze_json_output() -> None:
     assert '"categoryConfidenceDistribution"' in result.output
     assert '"taxonomyDiscovery"' in result.output
     assert '"candidateCategories"' in result.output
+    assert '"semanticThemeAnalysis"' in result.output
+    assert '"candidateSemanticCategories"' in result.output
+    assert '"unknownResolutionAudit"' in result.output
+    assert '"classifierFailureCount"' in result.output
+    assert '"taxonomyGapCount"' in result.output
     assert '"actionSummary"' in result.output
     assert '"actions"' in result.output
     assert '"totalActions"' in result.output

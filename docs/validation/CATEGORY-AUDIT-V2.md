@@ -22,6 +22,8 @@ Category Audit V2 adds:
 - Suggested taxonomy gaps
 - Ranked reclassification candidates
 - Taxonomy discovery candidate categories
+- Semantic theme analysis for Unknown memories
+- Unknown resolution audit
 
 ---
 
@@ -73,6 +75,64 @@ Issue types:
 - `taxonomy_gap`: the memory shape may need a new first-class category or explicit product decision.
 
 This section helps decide whether to expand the taxonomy based on repeated evidence from real datasets.
+
+---
+
+## Semantic Theme Analysis
+
+Semantic Theme Analysis groups Unknown memories by meaning rather than lexical structure.
+
+It separates:
+
+- **formatting issues**: terse or fragmented memories that are Unknown because of shape, not missing taxonomy coverage
+- **semantic themes**: recurring concepts such as Architecture, Constraint, Principle, Decision, Dependency, Workflow Rule, and Context
+
+Each candidate semantic category includes:
+
+- evidence count
+- representative examples
+- confidence
+- category purity
+- suggested mapping
+- recurring concepts within the theme
+
+Category purity estimates how consistently memories in a theme share the same primary semantic label and strong theme signals.
+
+This section is diagnostic only. It does not modify categorization or taxonomy.
+
+---
+
+## Unknown Resolution Audit
+
+Unknown Resolution Audit quantifies how much of the Unknown category is caused by classifier failure versus taxonomy gaps.
+
+Every Unknown memory receives:
+
+- a likely resolution type:
+  - `classifier_failure`
+  - `taxonomy_gap`
+  - `unresolved`
+- confidence
+- rationale
+- suggested category when applicable
+
+Aggregate metrics include:
+
+- `classifierFailureCount`
+- `taxonomyGapCount`
+- `unresolvedCount`
+- `estimatedUnknownReduction`
+
+The audit also surfaces:
+
+- top recurring causes with resolution breakdowns
+- resolution groups with representative examples
+
+This answers:
+
+"How much of Unknown can be fixed by improving categorization, and how much requires expanding the taxonomy?"
+
+Diagnostic only. It does not change categorization, memory types, clustering, trust scoring, governance, or actions.
 
 ---
 

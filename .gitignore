@@ -99,6 +99,8 @@ audit.json
 chatgpt_report.json
 memd_project_v2.json
 taxonomy_test.json
+semantic_report.json
+unknown_audit.json
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/
