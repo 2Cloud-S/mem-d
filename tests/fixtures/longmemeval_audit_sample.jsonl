@@ -1,0 +1,6 @@
+{"memory_id": "lme_user_fact", "source_dataset": "LongMemEval", "role": "user", "content": "I bought my Fitbit Inspire HR on February 15th and it has been motivating me to move more.", "timestamp": "2023-05-20T02:57:00"}
+{"memory_id": "lme_assistant_dump", "source_dataset": "LongMemEval", "role": "assistant", "content": "Sure, here are ten numbered topics on radiation therapy that could be used to lecture a class on that subject:\n\n1. Introduction to radiation therapy\n2. Types of radiation therapy\n3. Radiation sources", "timestamp": "2023-05-20T03:51:00"}
+{"memory_id": "lme_user_query", "source_dataset": "LongMemEval", "role": "user", "content": "Can you give me numbered topics on radiation therapy?", "timestamp": "2023-05-20T03:51:00"}
+{"memory_id": "lme_puzzle", "source_dataset": "LongMemEval", "role": "user", "content": "The farmer needs to transport a fox, a chicken, and some grain across a river using a boat.", "timestamp": "2023-05-20T02:21:00"}
+{"memory_id": "lme_duplicate_a", "source_dataset": "LongMemEval", "role": "user", "content": "I take yoga classes at Serenity Yoga.", "timestamp": "2023-05-20T04:00:00"}
+{"memory_id": "lme_duplicate_b", "source_dataset": "LongMemEval", "role": "user", "content": "I take yoga classes at Serenity Yoga.", "timestamp": "2023-05-20T05:00:00"}

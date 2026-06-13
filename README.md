@@ -13,7 +13,7 @@ This is an early V1 build — functional, but not polished. Feedback and contrib
 
 ## Features
 
-- Parse memory exports: JSON, CSV, TXT
+- Parse memory exports: JSON, JSONL, CSV, TXT
 - Heuristic categorization (Preference, Fact, Task, Goal, Relationship, Temporary, Unknown)
 - Semantic duplicate clustering (DBSCAN + cosine similarity)
 - Metrics: category distribution, duplicate %, compression opportunity
@@ -76,7 +76,28 @@ The evaluation report includes precision, recall, F1, false positives, false neg
 
 The default threshold is `0.55`, chosen from the labelled validation fixture to improve near-duplicate recall while preserving high precision. See [Docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) for the measured tradeoffs.
 
+## Dataset quality audit
+
+Before using external datasets such as LongMemEval as Mem-D benchmarks, audit memory usefulness:
+
+```bash
+python -m memd audit-dataset datasets/evaluation/longmemeval_sample.jsonl
+python -m memd audit-dataset datasets/evaluation --format json
+python -m memd audit-dataset datasets/evaluation/longmemeval_sample.jsonl --format markdown --output dataset-audit.md
+```
+
+The report estimates meaningful memories, conversational noise, Unknown rate, duplicate rate, and preprocessing needs. See [Docs/validation/DATASET-QUALITY-AUDIT.md](docs/validation/DATASET-QUALITY-AUDIT.md).
+
 ## Input formats
+
+### JSONL
+
+One JSON object per line. Blank lines are ignored. Lines with empty `content` are skipped.
+
+```jsonl
+{"memory_id": "mem_1", "content": "User prefers dark mode"}
+{"memory_id": "mem_2", "content": "User likes dark themes"}
+```
 
 ### JSON
 
@@ -132,6 +153,7 @@ scripts/           Benchmarks and utilities
 | [docs/ACTION-PLANNING.md](docs/ACTION-PLANNING.md)             | Governance action planning         |
 | [docs/POLICY-ENGINE.md](docs/POLICY-ENGINE.md)                 | Governance policy decisions        |
 | [docs/validation/CATEGORY-AUDIT-V2.md](docs/validation/CATEGORY-AUDIT-V2.md) | Unknown category diagnostics |
+| [docs/validation/DATASET-QUALITY-AUDIT.md](docs/validation/DATASET-QUALITY-AUDIT.md) | External dataset usefulness audit |
 | [docs/validation/CLUSTER-AUDIT.md](docs/validation/CLUSTER-AUDIT.md) | Largest-cluster quality audit |
 | [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) | Clustering validation metrics      |
 | [AGENTS.md](AGENTS.md)                                         | Agent/contributor scope            |

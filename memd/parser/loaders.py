@@ -21,6 +21,8 @@ def load_memory_file(path: Path) -> list[MemoryRecord]:
     suffix = path.suffix.lower()
     if suffix == ".json":
         return load_json(path)
+    if suffix == ".jsonl":
+        return load_jsonl(path)
     if suffix == ".csv":
         return load_csv(path)
     if suffix == ".txt":
@@ -36,6 +38,43 @@ def load_json(path: Path) -> list[MemoryRecord]:
 
     records = _coerce_json_collection(data)
     return _records_from_items(records, source=str(path))
+
+
+def load_jsonl(path: Path) -> list[MemoryRecord]:
+    records: list[MemoryRecord] = []
+    seen_ids: set[str] = set()
+    source = str(path)
+    encoding = detect_encoding(path)
+
+    with path.open("r", encoding=encoding) as handle:
+        for line_number, line in enumerate(handle, start=1):
+            stripped = line.strip()
+            if not stripped:
+                continue
+
+            try:
+                item = json.loads(stripped)
+            except json.JSONDecodeError as exc:
+                raise ParserError(f"Invalid JSONL on line {line_number}: {exc}") from exc
+
+            if not isinstance(item, dict):
+                raise ParserError(f"JSONL line {line_number} must be a JSON object")
+
+            content = _extract_content(item)
+            if content is None or not str(content).strip():
+                continue
+
+            record = _record_from_item(item, source=source, index=line_number)
+            if record.id in seen_ids:
+                record = record.model_copy(
+                    update={"id": stable_id(source, line_number, record.content)}
+                )
+            seen_ids.add(record.id)
+            records.append(record)
+
+    if not records:
+        raise ParserError("No memory records found")
+    return records
 
 
 def load_csv(path: Path) -> list[MemoryRecord]:
@@ -107,11 +146,16 @@ def _record_from_item(item: Any, source: str, index: int) -> MemoryRecord:
     if not content or not str(content).strip():
         raise ParserError(f"Record {index} has no content")
 
-    record_id = str(raw.get("id") or raw.get("memoryId") or stable_id(source, index, str(content)))
+    record_id = str(
+        raw.get("id")
+        or raw.get("memoryId")
+        or raw.get("memory_id")
+        or stable_id(source, index, str(content))
+    )
     metadata = {
         key: value
         for key, value in raw.items()
-        if key not in {"id", "memoryId", "source", "timestamp", *CONTENT_KEYS}
+        if key not in {"id", "memoryId", "memory_id", "source", "timestamp", *CONTENT_KEYS}
     }
     return MemoryRecord(
         id=record_id,

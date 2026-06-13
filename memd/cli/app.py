@@ -10,6 +10,13 @@ from rich.table import Table
 
 from memd import __version__
 from memd.contracts import PolicyProfile
+from memd.dataset_quality import (
+    audit_external_datasets,
+    collect_dataset_paths,
+    render_dataset_quality_json,
+    render_dataset_quality_markdown,
+    render_dataset_quality_terminal,
+)
 from memd.defaults import DEFAULT_SIMILARITY_THRESHOLD
 from memd.evaluation import (
     ClusterEvaluation,
@@ -143,6 +150,39 @@ def evaluate_clusters(
         _emit_or_write(render_evaluation_markdown(evaluation), output)
     else:
         render_evaluation_terminal(evaluation)
+
+
+@app.command("audit-dataset")
+def audit_dataset(
+    files: Annotated[
+        list[Path],
+        typer.Argument(exists=True, readable=True, help="Dataset file or directory to audit."),
+    ],
+    output_format: Annotated[
+        OutputFormat,
+        typer.Option("--format", "-f", help="Output format."),
+    ] = OutputFormat.terminal,
+    output: Annotated[
+        Path | None,
+        typer.Option("--output", "-o", help="Write dataset audit report to this path."),
+    ] = None,
+) -> None:
+    """Audit external datasets for memory usefulness and benchmark readiness."""
+    try:
+        paths = collect_dataset_paths(files)
+        report = audit_external_datasets(paths)
+    except ParserError as exc:
+        console.print(f"[red]Dataset error:[/red] {exc}")
+        raise typer.Exit(code=1) from exc
+
+    if output_format == OutputFormat.json:
+        _emit_or_write(render_dataset_quality_json(report), output)
+    elif output_format == OutputFormat.markdown:
+        _emit_or_write(render_dataset_quality_markdown(report), output)
+    else:
+        if output:
+            write_report(output, render_dataset_quality_markdown(report))
+        render_dataset_quality_terminal(report, console=console)
 
 
 def render_evaluation_terminal(evaluation: ClusterEvaluation) -> None:
