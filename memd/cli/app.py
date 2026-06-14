@@ -83,7 +83,7 @@ def analyze(
         typer.Option("--policy", help="Governance policy profile."),
     ] = PolicyProfile.BALANCED,
 ) -> None:
-    """Analyze a JSON, CSV, or TXT memory export."""
+    """Analyze a JSON, JSONL, CSV, or TXT memory export."""
     try:
         report = analyze_file(
             file,

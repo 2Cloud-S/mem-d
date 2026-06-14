@@ -105,7 +105,7 @@ evolution_real.json
 evolution_synthetic.json
 lifecycle_project.json
 lifecycle_synthetic.json
-
+*.jsonl
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/
