@@ -96,6 +96,20 @@ If the audit reports high conversational noise or assistant-turn share, filter a
 
 ---
 
+## Preprocessing
+
+Use the deterministic LongMemEval preprocessing script when the audit verdict is `requires_preprocessing`:
+
+```bash
+python scripts/preprocess_longmemeval.py datasets/evaluation/longmemeval_sample.jsonl \
+  --output examples/benchmarks/longmemeval_sample.cleaned.jsonl \
+  --report examples/benchmarks/longmemeval_sample.preprocess-report.json
+```
+
+The script removes assistant turns, conversational filler, puzzle/roleplay/creative content, and exact normalized duplicates. Example outputs live in `examples/benchmarks/`.
+
+---
+
 ## Success Criteria
 
 The audit should answer:

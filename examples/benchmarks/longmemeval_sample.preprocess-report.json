@@ -1,0 +1,11 @@
+{
+  "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\evaluation\\longmemeval_sample.jsonl",
+  "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\examples\\benchmarks\\longmemeval_sample.cleaned.jsonl",
+  "originalRecordCount": 2690,
+  "removedAssistantTurns": 1355,
+  "removedFillerRecords": 185,
+  "removedExcludedContent": 3,
+  "removedDuplicateRecords": 13,
+  "finalRecordCount": 1134,
+  "retentionPercentage": 42.16
+}

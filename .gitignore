@@ -106,6 +106,7 @@ evolution_synthetic.json
 lifecycle_project.json
 lifecycle_synthetic.json
 *.jsonl
+tmp-audit-compare.json
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/
@@ -113,6 +114,8 @@ Memd-ObsidianVault/
 
 # Cursor / local tooling
 .cursor/
+*.cursor
+.cursor-jsonl-analyze-test.json
 
 # Local benchmarks & scratch
 *.log
