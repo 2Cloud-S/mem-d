@@ -88,6 +88,16 @@ python -m memd audit-dataset datasets/evaluation/longmemeval_sample.jsonl --form
 
 The report estimates meaningful memories, conversational noise, Unknown rate, duplicate rate, and preprocessing needs. See [Docs/validation/DATASET-QUALITY-AUDIT.md](docs/validation/DATASET-QUALITY-AUDIT.md).
 
+## Benchmark workflow
+
+Run reproducible benchmark evidence on LongMemEval-style JSONL exports:
+
+```bash
+python scripts/run_longmemeval_benchmark.py datasets/evaluation/longmemeval_sample.jsonl
+```
+
+This orchestrates `audit-dataset` → preprocess → analyze and writes artifacts to `examples/benchmarks/`. Use [docs/validation/BENCHMARK-WORKFLOW.md](docs/validation/BENCHMARK-WORKFLOW.md) for the full pipeline including optional `evaluate-clusters` on the labelled fixture.
+
 ## Input formats
 
 ### JSONL
@@ -154,6 +164,7 @@ scripts/           Benchmarks and utilities
 | [docs/POLICY-ENGINE.md](docs/POLICY-ENGINE.md)                 | Governance policy decisions        |
 | [docs/validation/CATEGORY-AUDIT-V2.md](docs/validation/CATEGORY-AUDIT-V2.md) | Unknown category diagnostics |
 | [docs/validation/DATASET-QUALITY-AUDIT.md](docs/validation/DATASET-QUALITY-AUDIT.md) | External dataset usefulness audit |
+| [docs/validation/BENCHMARK-WORKFLOW.md](docs/validation/BENCHMARK-WORKFLOW.md) | Reproducible benchmark pipeline |
 | [docs/validation/CLUSTER-AUDIT.md](docs/validation/CLUSTER-AUDIT.md) | Largest-cluster quality audit |
 | [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) | Clustering validation metrics      |
 | [AGENTS.md](AGENTS.md)                                         | Agent/contributor scope            |
