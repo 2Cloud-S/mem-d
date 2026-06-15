@@ -84,12 +84,8 @@ report.md
 report.json
 *.analysis.json
 *.analysis.md
-*.audit.json
-*.audit.md
 *.insights.json
 *.insights.md
-*-eval.json
-*-eval.md
 clustering-eval.json
 clustering-eval.md
 full-report.json
@@ -105,8 +101,20 @@ evolution_real.json
 evolution_synthetic.json
 lifecycle_project.json
 lifecycle_synthetic.json
-*.jsonl
 tmp-audit-compare.json
+tmp-cluster-eval.json
+report.audit.json
+
+# Benchmark evidence — commit markdown summaries under examples/benchmarks/
+examples/benchmarks/*.cleaned.jsonl
+examples/benchmarks/*.analysis.json
+examples/benchmarks/*.analysis.md
+examples/benchmarks/*-eval.json
+examples/benchmarks/*-eval.md
+
+# Local evaluation datasets and large JSONL exports
+datasets/evaluation/
+*.jsonl
 
 # Obsidian (local knowledge vault — not published)
 Memd-ObsidianVault/
@@ -129,3 +137,7 @@ report.improved.json
 # Local logs
 build.log
 **/build.log
+
+# Local data
+perma
+

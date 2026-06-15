@@ -1,0 +1,235 @@
+{
+  "summary": "Dataset Quality Audit measures memory usefulness for external benchmark datasets. Diagnostic only; it does not modify ingestion or analysis behavior.",
+  "datasetCount": 1,
+  "datasets": [
+    {
+      "datasetPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\evaluation\\longmemeval_sample.jsonl",
+      "datasetName": "longmemeval_sample.jsonl",
+      "datasetKind": "memory_export",
+      "totalRecords": 2690,
+      "estimatedMeaningfulMemories": 955,
+      "estimatedConversationalNoise": 1391,
+      "estimatedMixedOrUncertain": 344,
+      "meaningfulMemoryRate": 35.5,
+      "conversationalNoiseRate": 51.71,
+      "averageMemoryLength": 909.12,
+      "categoryDistribution": {
+        "Task": 144,
+        "Fact": 839,
+        "Goal": 118,
+        "Preference": 967,
+        "Unknown": 545,
+        "Temporary": 23,
+        "Relationship": 54
+      },
+      "unknownRate": 20.26,
+      "duplicateRate": 2.27,
+      "topLowQualityCauses": [
+        {
+          "cause": "assistant_turn",
+          "label": "Assistant conversational turn",
+          "count": 1355,
+          "percentageOfRecords": 50.37
+        },
+        {
+          "cause": "unknown_category_signal",
+          "label": "No strong Mem-D category signal",
+          "count": 545,
+          "percentageOfRecords": 20.26
+        },
+        {
+          "cause": "assistant_generic_filler",
+          "label": "Assistant generic encouragement or filler",
+          "count": 340,
+          "percentageOfRecords": 12.64
+        },
+        {
+          "cause": "user_ephemeral_query",
+          "label": "Short user query without durable memory signal",
+          "count": 196,
+          "percentageOfRecords": 7.29
+        },
+        {
+          "cause": "terse_or_fragmented",
+          "label": "Terse or fragmented content",
+          "count": 82,
+          "percentageOfRecords": 3.05
+        },
+        {
+          "cause": "exact_duplicate_content",
+          "label": "Exact duplicate normalized content",
+          "count": 61,
+          "percentageOfRecords": 2.27
+        },
+        {
+          "cause": "assistant_instructional_dump",
+          "label": "Assistant instructional or list-style response",
+          "count": 17,
+          "percentageOfRecords": 0.63
+        },
+        {
+          "cause": "code_generation",
+          "label": "Code generation or programming artifact",
+          "count": 15,
+          "percentageOfRecords": 0.56
+        },
+        {
+          "cause": "puzzle_or_hypothetical",
+          "label": "Puzzle, riddle, or hypothetical scenario",
+          "count": 10,
+          "percentageOfRecords": 0.37
+        },
+        {
+          "cause": "roleplay_or_creative_writing",
+          "label": "Roleplay, script, or creative writing task",
+          "count": 2,
+          "percentageOfRecords": 0.07
+        }
+      ],
+      "benchmarkSuitability": {
+        "verdict": "requires_preprocessing",
+        "confidence": 0.66,
+        "summary": "Dataset has benchmark potential, but conversational noise or weak memory signals are high enough that filtering is required.",
+        "meaningfulMemoryRate": 35.5,
+        "conversationalNoiseRate": 51.71,
+        "unknownRate": 20.26,
+        "duplicateRate": 2.27,
+        "assistantTurnRate": 50.37,
+        "dominantLowQualityCause": "assistant_turn"
+      },
+      "preprocessingRecommendations": [
+        "Filter assistant turns before benchmarking durable user memory.",
+        "Remove long instructional assistant list responses.",
+        "Separate ephemeral user questions from durable memory facts.",
+        "Exclude puzzle, roleplay, and creative-writing sessions.",
+        "Exclude code-generation artifacts unless testing technical memory.",
+        "Deduplicate exact normalized content before clustering benchmarks."
+      ],
+      "roleDistribution": {
+        "user": 1335,
+        "assistant": 1355
+      },
+      "sampleLowQualityRecords": [
+        {
+          "memoryId": "lme_e47becba_0_1",
+          "content": "To solve this puzzle, the farmer can follow these steps: 1. First, the farmer should take the chicken across the river using the boat. 2. Next, the farmer should go back to the original side of the river and take the fox across the river us",
+          "role": "assistant",
+          "usefulnessScore": 0.0,
+          "causes": [
+            "assistant_turn",
+            "assistant_instructional_dump",
+            "assistant_generic_filler",
+            "puzzle_or_hypothetical"
+          ]
+        },
+        {
+          "memoryId": "lme_e47becba_2_3",
+          "content": "Sure, here's a sample lesson plan for teaching Topic 4: Radiation Delivery Systems in Radiation Therapy: Title: Radiation Delivery Systems in Radiation Therapy Objectives: * To introduce the different types of radiation delivery systems use",
+          "role": "assistant",
+          "usefulnessScore": 0.0,
+          "causes": [
+            "assistant_turn",
+            "assistant_instructional_dump",
+            "assistant_generic_filler"
+          ]
+        },
+        {
+          "memoryId": "lme_e47becba_2_7",
+          "content": "Sure, here's a sample lesson plan for teaching about the secondary effects of external radiation therapy: Title: Secondary Effects of External Radiation Therapy Objectives: * To introduce the concept of secondary effects of external radiati",
+          "role": "assistant",
+          "usefulnessScore": 0.0,
+          "causes": [
+            "assistant_turn",
+            "assistant_instructional_dump",
+            "assistant_generic_filler"
+          ]
+        },
+        {
+          "memoryId": "lme_e47becba_3_1",
+          "content": "Title: Heat's Dark Knight Characters: * Joker (previously Neil McCauley) * Chris Shiherlis * Michael Cheritto * Waingro * Lt. Vincent Hanna --- [INT. BANK - DAY] Joker, Chris, Michael, and Waingro, all wearing clown masks, storm into the ba",
+          "role": "assistant",
+          "usefulnessScore": 0.0,
+          "causes": [
+            "assistant_turn",
+            "roleplay_or_creative_writing"
+          ]
+        },
+        {
+          "memoryId": "lme_e47becba_3_5",
+          "content": "To generate a graph of the action intensity in a scene, you can use Python with the Matplotlib and Pandas libraries. First, you need to create a dataset containing the intensity of the action for each second. For simplicity, let's assume yo",
+          "role": "assistant",
+          "usefulnessScore": 0.0,
+          "causes": [
+            "assistant_turn",
+            "code_generation"
+          ]
+        }
+      ],
+      "sampleMeaningfulRecords": [
+        {
+          "memoryId": "lme_118b2229_17_0",
+          "content": "How do I file a claim for damages caused by a natural disaster in my area?",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_118b2229_30_4",
+          "content": "What's the best way to get around Melbourne without a car? I'm planning to rely on public transport and walk or bike whenever possible.",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_118b2229_44_8",
+          "content": "What's the best way to discover new music on Apple Music? I've been using their radio stations and playlists, but I'm looking for more personalized recommendations.",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_51a45a95_3_2",
+          "content": "What about LinkedIn? I also need to update my profile there. Can you walk me through the process?",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_51a45a95_21_6",
+          "content": "Do you think this lamp would help with my energy levels and mood during the winter months?",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        }
+      ]
+    }
+  ],
+  "benchmarkReadiness": {
+    "summary": "Compare memory exports by meaningful-memory rate, conversational noise, and Unknown rate before choosing a Mem-D benchmark dataset.",
+    "recommendedDataset": "longmemeval_sample.jsonl",
+    "recommendedVerdict": "requires_preprocessing",
+    "datasets": [
+      {
+        "datasetName": "longmemeval_sample.jsonl",
+        "verdict": "requires_preprocessing",
+        "meaningfulMemoryRate": 35.5,
+        "conversationalNoiseRate": 51.71
+      }
+    ]
+  }
+}

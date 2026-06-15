@@ -1,0 +1,132 @@
+{
+  "summary": "Dataset Quality Audit measures memory usefulness for external benchmark datasets. Diagnostic only; it does not modify ingestion or analysis behavior.",
+  "datasetCount": 1,
+  "datasets": [
+    {
+      "datasetPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\examples\\benchmarks\\longmemeval_sample.cleaned.jsonl",
+      "datasetName": "longmemeval_sample.cleaned.jsonl",
+      "datasetKind": "memory_export",
+      "totalRecords": 1134,
+      "estimatedMeaningfulMemories": 946,
+      "estimatedConversationalNoise": 0,
+      "estimatedMixedOrUncertain": 188,
+      "meaningfulMemoryRate": 83.42,
+      "conversationalNoiseRate": 0.0,
+      "averageMemoryLength": 245.73,
+      "categoryDistribution": {
+        "Goal": 48,
+        "Fact": 293,
+        "Unknown": 396,
+        "Temporary": 12,
+        "Preference": 308,
+        "Relationship": 20,
+        "Task": 57
+      },
+      "unknownRate": 34.92,
+      "duplicateRate": 0.0,
+      "topLowQualityCauses": [
+        {
+          "cause": "unknown_category_signal",
+          "label": "No strong Mem-D category signal",
+          "count": 396,
+          "percentageOfRecords": 34.92
+        },
+        {
+          "cause": "terse_or_fragmented",
+          "label": "Terse or fragmented content",
+          "count": 38,
+          "percentageOfRecords": 3.35
+        },
+        {
+          "cause": "user_ephemeral_query",
+          "label": "Short user query without durable memory signal",
+          "count": 21,
+          "percentageOfRecords": 1.85
+        }
+      ],
+      "benchmarkSuitability": {
+        "verdict": "suitable_with_filtering",
+        "confidence": 0.78,
+        "summary": "Dataset contains enough likely durable memories for Mem-D benchmarking, but preprocessing or filtering is recommended before analysis.",
+        "meaningfulMemoryRate": 83.42,
+        "conversationalNoiseRate": 0.0,
+        "unknownRate": 34.92,
+        "duplicateRate": 0.0,
+        "assistantTurnRate": 0.0,
+        "dominantLowQualityCause": "unknown_category_signal"
+      },
+      "preprocessingRecommendations": [
+        "Separate ephemeral user questions from durable memory facts."
+      ],
+      "roleDistribution": {
+        "user": 1134
+      },
+      "sampleLowQualityRecords": [],
+      "sampleMeaningfulRecords": [
+        {
+          "memoryId": "lme_118b2229_17_0",
+          "content": "How do I file a claim for damages caused by a natural disaster in my area?",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_118b2229_30_4",
+          "content": "What's the best way to get around Melbourne without a car? I'm planning to rely on public transport and walk or bike whenever possible.",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_118b2229_44_8",
+          "content": "What's the best way to discover new music on Apple Music? I've been using their radio stations and playlists, but I'm looking for more personalized recommendations.",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_51a45a95_3_2",
+          "content": "What about LinkedIn? I also need to update my profile there. Can you walk me through the process?",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        },
+        {
+          "memoryId": "lme_51a45a95_21_6",
+          "content": "Do you think this lamp would help with my energy levels and mood during the winter months?",
+          "role": "user",
+          "usefulnessScore": 0.65,
+          "causes": [
+            "user_ephemeral_query",
+            "unknown_category_signal"
+          ]
+        }
+      ]
+    }
+  ],
+  "benchmarkReadiness": {
+    "summary": "Compare memory exports by meaningful-memory rate, conversational noise, and Unknown rate before choosing a Mem-D benchmark dataset.",
+    "recommendedDataset": "longmemeval_sample.cleaned.jsonl",
+    "recommendedVerdict": "suitable_with_filtering",
+    "datasets": [
+      {
+        "datasetName": "longmemeval_sample.cleaned.jsonl",
+        "verdict": "suitable_with_filtering",
+        "meaningfulMemoryRate": 83.42,
+        "conversationalNoiseRate": 0.0
+      }
+    ]
+  }
+}
