@@ -26,6 +26,64 @@ class BenchmarkRunResult:
     paths: dict[str, Path]
 
 
+def run_dataset_benchmark(
+    input_path: Path,
+    output_dir: Path,
+    *,
+    stem: str | None = None,
+    threshold: float = DEFAULT_SIMILARITY_THRESHOLD,
+    model_name: str | None = None,
+    policy_profile: PolicyProfile = PolicyProfile.BALANCED,
+) -> BenchmarkRunResult:
+    """Run audit -> analyze for already-clean memory exports and write artifacts."""
+    input_path = input_path.resolve()
+    output_dir = output_dir.resolve()
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    dataset_stem = stem or input_path.stem
+    paths = benchmark_artifact_paths(output_dir, dataset_stem)
+
+    raw_audit = audit_external_datasets([input_path])
+    _write_json(paths["audit_raw_json"], raw_audit)
+    write_report(paths["audit_raw_markdown"], render_dataset_quality_markdown(raw_audit))
+
+    # Keep canonical artifact names without introducing dataset-specific preprocessing.
+    cleaned_audit = raw_audit
+    _write_json(paths["audit_cleaned_json"], cleaned_audit)
+    write_report(
+        paths["audit_cleaned_markdown"],
+        render_dataset_quality_markdown(cleaned_audit),
+    )
+
+    analysis_report = analyze_file(
+        input_path,
+        threshold=threshold,
+        model_name=model_name,
+        policy_profile=policy_profile,
+    )
+    write_report(paths["analysis_json"], render_json(analysis_report))
+    write_report(paths["analysis_markdown"], render_markdown(analysis_report))
+
+    analysis_dict = json.loads(render_json(analysis_report))
+    baseline = render_baseline_markdown(
+        dataset=dataset_stem,
+        input_path=str(input_path),
+        cleaned_path=str(input_path),
+        raw_audit=raw_audit,
+        cleaned_audit=cleaned_audit,
+        preprocess_report=None,
+        analysis=analysis_dict,
+    )
+    paths["baseline_markdown"].write_text(baseline, encoding="utf-8")
+
+    return BenchmarkRunResult(
+        input_path=input_path,
+        output_dir=output_dir,
+        stem=dataset_stem,
+        paths=paths,
+    )
+
+
 def run_longmemeval_benchmark(
     input_path: Path,
     output_dir: Path,

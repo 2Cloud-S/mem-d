@@ -86,7 +86,7 @@ def test_cli_audit_dataset_json_output() -> None:
 def test_cli_audit_dataset_directory_output() -> None:
     result = CliRunner().invoke(
         app,
-        ["audit-dataset", str(FIXTURES), "--format", "markdown"],
+        ["audit-dataset", str(SAMPLE), str(QUESTIONS), "--format", "markdown"],
     )
 
     assert result.exit_code == 0
