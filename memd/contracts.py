@@ -60,6 +60,14 @@ class PolicyDecision(StrEnum):
     BLOCKED = "blocked"
 
 
+class RecommendationAction(StrEnum):
+    MERGE = "merge"
+    ARCHIVE = "archive"
+    REVIEW = "review"
+    KEEP = "keep"
+    DEFER = "defer"
+
+
 class FrozenModel(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -194,3 +202,61 @@ class AnalysisReport(FrozenModel):
         )
     )
     policySummary: PolicySummary = Field(default_factory=PolicySummary)
+
+
+class RecommendationEvidence(FrozenModel):
+    source: str
+    signal: str
+    value: float | str | None = None
+    caseId: str = ""
+    ruleId: str = ""
+    actionId: str = ""
+    insightId: str = ""
+
+
+class AffectedMemory(FrozenModel):
+    memoryId: str
+    role: str
+    lifecycleState: str = ""
+
+
+class Recommendation(FrozenModel):
+    recommendationId: str
+    action: RecommendationAction
+    subtype: str = ""
+    confidence: float = Field(ge=0.0, le=1.0)
+    reason: str
+    affected_memories: tuple[AffectedMemory, ...]
+    evidence: tuple[RecommendationEvidence, ...]
+    estimatedImpact: dict[str, Any] = Field(default_factory=dict)
+    priority: ActionPriority
+    requiresHumanApproval: bool
+    sourceActionIds: tuple[str, ...] = ()
+    sourceInsightIds: tuple[str, ...] = ()
+    suppressedCandidates: tuple[dict[str, Any], ...] = ()
+    conflictDetected: bool = False
+
+
+class MemoryResolution(FrozenModel):
+    memoryId: str
+    resolvedAction: RecommendationAction
+    role: str = ""
+    confidence: float = Field(ge=0.0, le=1.0)
+    recommendationId: str
+    suppressedActions: tuple[RecommendationAction, ...] = ()
+    conflictDetected: bool = False
+
+
+class RecommendationSummary(FrozenModel):
+    totalRecommendations: int = Field(default=0, ge=0)
+    mergeCount: int = Field(default=0, ge=0)
+    archiveCount: int = Field(default=0, ge=0)
+    reviewCount: int = Field(default=0, ge=0)
+    keepCount: int = Field(default=0, ge=0)
+    deferredCount: int = Field(default=0, ge=0)
+    memoryResolutionCount: int = Field(default=0, ge=0)
+    estimatedTrustedRemovals: int = Field(default=0, ge=0)
+    estimatedArchivableRecords: int = Field(default=0, ge=0)
+    recommendationsByPriority: dict[ActionPriority, int] = Field(
+        default_factory=lambda: {priority: 0 for priority in ActionPriority}
+    )

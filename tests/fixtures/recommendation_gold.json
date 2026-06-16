@@ -1,0 +1,510 @@
+{
+  "cases": [
+    {
+      "id": "trusted_merge_1",
+      "memories": [
+        {"id": "tm_a", "content": "User prefers PostgreSQL for analytics.", "timestamp": "2026-02-01"},
+        {"id": "tm_b", "content": "User prefers PostgreSQL for analytics workloads.", "timestamp": "2026-02-02"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_tm",
+          "members": ["tm_a", "tm_b"],
+          "averageSimilarity": 0.96,
+          "trustScore": 0.93,
+          "trustLevel": "High"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "merge_cluster:cluster-tm",
+          "actionType": "merge_cluster",
+          "target": {"clusterId": "cluster_tm", "members": ["tm_a", "tm_b"], "removableRecords": 1},
+          "confidence": 0.93,
+          "trustLevel": "High",
+          "requiresHumanApproval": false,
+          "priority": "high",
+          "policyDecision": "approved",
+          "policyRuleId": "balanced.approve-high-trust-safe-action"
+        }
+      ],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "tm_a", "lifecycleState": "Active", "confidence": 0.97},
+            {"memoryId": "tm_b", "lifecycleState": "Active", "confidence": 0.96}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "tm_a": {"resolvedAction": "merge", "role": "removable"},
+        "tm_b": {"resolvedAction": "merge", "role": "keeper"}
+      }
+    },
+    {
+      "id": "archive_superseded_1",
+      "memories": [
+        {"id": "la_s1_old", "content": "Decided to use REST for billing APIs.", "timestamp": "2026-01-08"},
+        {"id": "la_s1_new", "content": "Adopted GraphQL instead of REST for billing APIs.", "timestamp": "2026-05-03"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "la_s1_old",
+              "lifecycleState": "Superseded",
+              "confidence": 0.89,
+              "sourceCaseId": "superseded_memory_la_s1_old_la_s1_new",
+              "sourceEvolutionType": "superseded_memory",
+              "explanation": "Superseded by newer API decision."
+            },
+            {"memoryId": "la_s1_new", "lifecycleState": "Active", "confidence": 0.91}
+          ],
+          "lifecycleTransitions": [
+            {
+              "fromMemoryId": "la_s1_old",
+              "toMemoryId": "la_s1_new",
+              "fromState": "Superseded",
+              "toState": "Active"
+            }
+          ]
+        },
+        "memoryEvolutionAudit": {
+          "supersededMemories": [
+            {
+              "caseId": "superseded_memory_la_s1_old_la_s1_new",
+              "confidence": 0.89,
+              "involvedMemories": [
+                {"memoryId": "la_s1_old"},
+                {"memoryId": "la_s1_new"}
+              ]
+            }
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "la_s1_old": {"resolvedAction": "archive"},
+        "la_s1_new": {"resolvedAction": "keep", "role": "retain"}
+      },
+      "includeKeep": true
+    },
+    {
+      "id": "archive_historical_1",
+      "memories": [
+        {"id": "la_t1_old", "content": "Billing migration is planned for Q2.", "timestamp": "2026-01-25"},
+        {"id": "la_t1_new", "content": "Billing migration completed.", "timestamp": "2026-04-01"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "la_t1_old",
+              "lifecycleState": "Historical",
+              "confidence": 0.86,
+              "sourceCaseId": "status_transition_la_t1_old_la_t1_new",
+              "sourceEvolutionType": "status_transition"
+            },
+            {"memoryId": "la_t1_new", "lifecycleState": "Completed", "confidence": 0.88}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "la_t1_old": {"resolvedAction": "archive"},
+        "la_t1_new": {"resolvedAction": "archive"}
+      }
+    },
+    {
+      "id": "archive_deprecated_1",
+      "memories": [
+        {"id": "la_c1_old", "content": "Uses PostgreSQL for billing storage.", "timestamp": "2026-01-01"},
+        {"id": "la_c1_new", "content": "Migrated to MySQL for billing storage.", "timestamp": "2026-03-01"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "la_c1_old",
+              "lifecycleState": "Deprecated",
+              "confidence": 0.91,
+              "sourceCaseId": "contradiction_la_c1_old_la_c1_new",
+              "sourceEvolutionType": "contradiction"
+            },
+            {"memoryId": "la_c1_new", "lifecycleState": "Active", "confidence": 0.92}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "la_c1_old": {"resolvedAction": "archive"},
+        "la_c1_new": {"resolvedAction": "keep", "role": "retain"}
+      },
+      "includeKeep": true
+    },
+    {
+      "id": "review_policy_blocked_merge",
+      "memories": [
+        {"id": "pb_a", "content": "Task goal template A", "timestamp": "2026-01-01"},
+        {"id": "pb_b", "content": "Task goal template B", "timestamp": "2026-01-02"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_pb",
+          "members": ["pb_a", "pb_b"],
+          "averageSimilarity": 0.45,
+          "trustScore": 0.48,
+          "trustLevel": "Low"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "review_overclustered_group:cluster-pb",
+          "actionType": "review_overclustered_group",
+          "target": {"clusterId": "cluster_pb", "members": ["pb_a", "pb_b"]},
+          "confidence": 0.48,
+          "trustLevel": "Low",
+          "requiresHumanApproval": true,
+          "priority": "high",
+          "policyDecision": "blocked",
+          "policyRuleId": "balanced.block-low-trust-or-overclustered"
+        }
+      ],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "pb_a", "lifecycleState": "Active", "confidence": 0.9},
+            {"memoryId": "pb_b", "lifecycleState": "Active", "confidence": 0.9}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "pb_a": {"resolvedAction": "review"},
+        "pb_b": {"resolvedAction": "review"}
+      }
+    },
+    {
+      "id": "review_low_trust_cluster",
+      "memories": [
+        {"id": "lt_1", "content": "Cluster member one", "timestamp": "2026-01-01"},
+        {"id": "lt_2", "content": "Cluster member two", "timestamp": "2026-01-02"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_lt",
+          "members": ["lt_1", "lt_2"],
+          "averageSimilarity": 0.52,
+          "trustScore": 0.42,
+          "trustLevel": "Low"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "review_cluster:cluster-lt",
+          "actionType": "review_cluster",
+          "target": {"clusterId": "cluster_lt", "members": ["lt_1", "lt_2"]},
+          "confidence": 0.42,
+          "trustLevel": "Low",
+          "requiresHumanApproval": true,
+          "priority": "high",
+          "policyDecision": "requires_review"
+        }
+      ],
+      "validation": {},
+      "expectedResolutions": {
+        "lt_1": {"resolvedAction": "review"},
+        "lt_2": {"resolvedAction": "review"}
+      }
+    },
+    {
+      "id": "review_unknown_category",
+      "memories": [
+        {"id": "lme_442", "content": "User user108 preference in Alarm: recurring = weekdays.", "timestamp": "2026-01-01"}
+      ],
+      "clusters": [],
+      "actions": [
+        {
+          "actionId": "review_unknown_memory:unknown-category-samples",
+          "actionType": "review_unknown_memory",
+          "target": {"memoryIds": ["lme_442"], "unknownCount": 1},
+          "confidence": 0.85,
+          "requiresHumanApproval": true,
+          "priority": "medium",
+          "policyDecision": "requires_review"
+        }
+      ],
+      "validation": {
+        "categoryQuality": {
+          "unknownSamples": [{"memoryId": "lme_442", "content": "User user108 preference in Alarm: recurring = weekdays."}]
+        },
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "lme_442", "lifecycleState": "Active", "confidence": 0.95}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "lme_442": {"resolvedAction": "review"}
+      },
+      "includeKeep": true
+    },
+    {
+      "id": "review_taxonomy_conflict",
+      "memories": [
+        {"id": "tx_1", "content": "Likes dark mode", "timestamp": "2026-01-01"},
+        {"id": "tx_2", "content": "Likes dark mode UI", "timestamp": "2026-01-02"},
+        {"id": "tx_3", "content": "Uses dark mode", "timestamp": "2026-01-03"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_tx",
+          "members": ["tx_1", "tx_2", "tx_3"],
+          "averageSimilarity": 0.88,
+          "trustScore": 0.75,
+          "trustLevel": "Medium"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "review_category_conflict:cluster-tx",
+          "actionType": "review_category_conflict",
+          "target": {
+            "clusterId": "cluster_tx",
+            "candidateMemoryIds": ["tx_3"]
+          },
+          "confidence": 0.88,
+          "requiresHumanApproval": true,
+          "priority": "high",
+          "policyDecision": "requires_review"
+        }
+      ],
+      "validation": {
+        "categoryQuality": {
+          "categoryConsistency": {
+            "conflictClusters": [
+              {
+                "clusterId": "cluster_tx",
+                "reclassificationCandidates": [{"memoryId": "tx_3"}]
+              }
+            ]
+          }
+        }
+      },
+      "expectedResolutions": {
+        "tx_3": {"resolvedAction": "review"}
+      }
+    },
+    {
+      "id": "keep_active_stable",
+      "memories": [
+        {"id": "mem_99", "content": "Stable project fact with no conflicts.", "timestamp": "2026-03-01"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "mem_99", "lifecycleState": "Active", "confidence": 0.97}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "mem_99": {"resolvedAction": "keep", "role": "retain"}
+      },
+      "includeKeep": true
+    },
+    {
+      "id": "conflict_archive_merge",
+      "memories": [
+        {"id": "la_p1_old", "content": "Prefers dark mode for the editor.", "timestamp": "2026-01-10"},
+        {"id": "la_p1_new", "content": "Stopped using dark mode and switched to light mode.", "timestamp": "2026-02-10"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_7",
+          "members": ["la_p1_old", "la_p1_new"],
+          "averageSimilarity": 0.94,
+          "trustScore": 0.92,
+          "trustLevel": "High"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "consolidate_preferences:cluster-7",
+          "actionType": "consolidate_preferences",
+          "target": {"clusterId": "cluster_7", "members": ["la_p1_old", "la_p1_new"], "removableRecords": 1},
+          "confidence": 0.92,
+          "trustLevel": "High",
+          "requiresHumanApproval": false,
+          "priority": "high",
+          "policyDecision": "approved",
+          "policyRuleId": "balanced.approve-high-trust-safe-action"
+        }
+      ],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "la_p1_old",
+              "lifecycleState": "Deprecated",
+              "confidence": 0.91,
+              "sourceCaseId": "preference_change_la_p1_old_la_p1_new",
+              "sourceEvolutionType": "preference_change"
+            },
+            {"memoryId": "la_p1_new", "lifecycleState": "Active", "confidence": 0.93}
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "la_p1_old": {"resolvedAction": "review", "conflictDetected": true},
+        "la_p1_new": {"resolvedAction": "merge", "role": "keeper"}
+      }
+    },
+    {
+      "id": "conflict_merge_review_blocked",
+      "memories": [
+        {"id": "mr_a", "content": "PERMA task intent one", "timestamp": "2026-01-01"},
+        {"id": "mr_b", "content": "PERMA task intent two", "timestamp": "2026-01-02"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_8",
+          "members": ["mr_a", "mr_b"],
+          "averageSimilarity": 0.44,
+          "trustScore": 0.48,
+          "trustLevel": "Low"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "merge_cluster:cluster-8",
+          "actionType": "merge_cluster",
+          "target": {"clusterId": "cluster_8", "members": ["mr_a", "mr_b"]},
+          "confidence": 0.48,
+          "trustLevel": "Low",
+          "requiresHumanApproval": false,
+          "priority": "high",
+          "policyDecision": "blocked",
+          "policyRuleId": "balanced.block-low-trust-or-overclustered"
+        },
+        {
+          "actionId": "review_overclustered_group:cluster-8",
+          "actionType": "review_overclustered_group",
+          "target": {"clusterId": "cluster_8", "members": ["mr_a", "mr_b"]},
+          "confidence": 0.48,
+          "trustLevel": "Low",
+          "requiresHumanApproval": true,
+          "priority": "high",
+          "policyDecision": "blocked",
+          "policyRuleId": "balanced.block-low-trust-or-overclustered"
+        }
+      ],
+      "validation": {},
+      "expectedResolutions": {
+        "mr_a": {"resolvedAction": "review"},
+        "mr_b": {"resolvedAction": "review"}
+      }
+    },
+    {
+      "id": "conflict_archive_keep",
+      "memories": [
+        {"id": "la_s2_old", "content": "Chose npm for frontend package management.", "timestamp": "2026-01-18"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "la_s2_old",
+              "lifecycleState": "Superseded",
+              "confidence": 0.89,
+              "sourceCaseId": "superseded_memory_la_s2_old_la_s2_new",
+              "sourceEvolutionType": "superseded_memory"
+            }
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "la_s2_old": {"resolvedAction": "archive"}
+      },
+      "includeKeep": true
+    },
+    {
+      "id": "review_multiple_signals",
+      "memories": [
+        {"id": "multi_1", "content": "Unknown preference slot", "timestamp": "2026-01-01"}
+      ],
+      "clusters": [],
+      "actions": [
+        {
+          "actionId": "review_unknown_memory:unknown-category-samples",
+          "actionType": "review_unknown_memory",
+          "target": {"memoryIds": ["multi_1"]},
+          "confidence": 0.85,
+          "requiresHumanApproval": true,
+          "priority": "medium",
+          "policyDecision": "requires_review"
+        },
+        {
+          "actionId": "review_cluster:cluster-x",
+          "actionType": "review_cluster",
+          "target": {"clusterId": "cluster_x", "members": ["multi_1"]},
+          "confidence": 0.55,
+          "trustLevel": "Medium",
+          "requiresHumanApproval": true,
+          "priority": "medium",
+          "policyDecision": "requires_review"
+        }
+      ],
+      "validation": {
+        "categoryQuality": {
+          "unknownSamples": [{"memoryId": "multi_1"}]
+        },
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "multi_1",
+              "lifecycleState": "Active",
+              "confidence": 0.8,
+              "alternateLifecycleSignals": [
+                {"lifecycleState": "Temporary", "confidence": 0.55}
+              ]
+            }
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "multi_1": {"resolvedAction": "review"}
+      }
+    },
+    {
+      "id": "review_mixed_lifecycle",
+      "memories": [
+        {"id": "mix_1", "content": "Ambiguous lifecycle memory", "timestamp": "2026-01-01"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "mix_1",
+              "lifecycleState": "Active",
+              "confidence": 0.72,
+              "alternateLifecycleSignals": [
+                {"lifecycleState": "Historical", "confidence": 0.68}
+              ]
+            }
+          ]
+        }
+      },
+      "expectedResolutions": {
+        "mix_1": {"resolvedAction": "review"}
+      }
+    }
+  ]
+}
