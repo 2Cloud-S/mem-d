@@ -1,0 +1,139 @@
+{
+  "cases": [
+    {
+      "id": "deprecated_active_contradiction_1",
+      "memories": [
+        {"id": "la_c1_old", "content": "Uses PostgreSQL for billing storage.", "timestamp": "2026-01-01", "category": "Fact"},
+        {"id": "la_c1_new", "content": "Migrated to MySQL for billing storage.", "timestamp": "2026-03-01", "category": "Fact"}
+      ],
+      "expectedLifecycle": {
+        "la_c1_old": "Deprecated",
+        "la_c1_new": "Active"
+      }
+    },
+    {
+      "id": "deprecated_active_preference_1",
+      "memories": [
+        {"id": "la_p1_old", "content": "Prefers dark mode for the editor.", "timestamp": "2026-01-10", "category": "Preference"},
+        {"id": "la_p1_new", "content": "Stopped using dark mode and switched to light mode.", "timestamp": "2026-02-10", "category": "Preference"}
+      ],
+      "expectedLifecycle": {
+        "la_p1_old": "Deprecated",
+        "la_p1_new": "Active"
+      }
+    },
+    {
+      "id": "deprecated_active_preference_2",
+      "memories": [
+        {"id": "la_p2_old", "content": "Preferred keyboard layout is QWERTY.", "timestamp": "2026-01-15", "category": "Preference"},
+        {"id": "la_p2_new", "content": "No longer uses QWERTY and migrated to Colemak.", "timestamp": "2026-04-20", "category": "Preference"}
+      ],
+      "expectedLifecycle": {
+        "la_p2_old": "Deprecated",
+        "la_p2_new": "Active"
+      }
+    },
+    {
+      "id": "superseded_active_1",
+      "memories": [
+        {"id": "la_s1_old", "content": "Decided to use REST for billing APIs.", "timestamp": "2026-01-08", "category": "Fact"},
+        {"id": "la_s1_new", "content": "Adopted GraphQL instead of REST for billing APIs.", "timestamp": "2026-05-03", "category": "Fact"}
+      ],
+      "expectedLifecycle": {
+        "la_s1_old": "Superseded",
+        "la_s1_new": "Active"
+      }
+    },
+    {
+      "id": "superseded_active_2",
+      "memories": [
+        {"id": "la_s2_old", "content": "Chose npm for frontend package management.", "timestamp": "2026-01-18", "category": "Fact"},
+        {"id": "la_s2_new", "content": "Selected pnpm and replaces npm for frontend package management.", "timestamp": "2026-03-14", "category": "Fact"}
+      ],
+      "expectedLifecycle": {
+        "la_s2_old": "Superseded",
+        "la_s2_new": "Active"
+      }
+    },
+    {
+      "id": "historical_completed_status_1",
+      "memories": [
+        {"id": "la_t1_old", "content": "Billing migration is planned for Q2.", "timestamp": "2026-01-25", "category": "Goal"},
+        {"id": "la_t1_new", "content": "Billing migration completed.", "timestamp": "2026-04-01", "category": "Task"}
+      ],
+      "expectedLifecycle": {
+        "la_t1_old": "Historical",
+        "la_t1_new": "Completed"
+      }
+    },
+    {
+      "id": "historical_completed_status_2",
+      "memories": [
+        {"id": "la_t2_old", "content": "Search index cleanup is planned for this sprint.", "timestamp": "2026-02-05", "category": "Goal"},
+        {"id": "la_t2_new", "content": "Search index cleanup finished and released.", "timestamp": "2026-03-12", "category": "Task"}
+      ],
+      "expectedLifecycle": {
+        "la_t2_old": "Historical",
+        "la_t2_new": "Completed"
+      }
+    },
+    {
+      "id": "historical_active_status_1",
+      "memories": [
+        {"id": "la_t3_old", "content": "Schema refactor is planned for next sprint.", "timestamp": "2026-01-09", "category": "Goal"},
+        {"id": "la_t3_new", "content": "Schema refactor is in progress.", "timestamp": "2026-02-08", "category": "Task"}
+      ],
+      "expectedLifecycle": {
+        "la_t3_old": "Historical",
+        "la_t3_new": "Active"
+      }
+    },
+    {
+      "id": "historical_active_status_2",
+      "memories": [
+        {"id": "la_t4_old", "content": "Data export automation is planned.", "timestamp": "2026-01-13", "category": "Goal"},
+        {"id": "la_t4_new", "content": "Data export automation started and is underway.", "timestamp": "2026-02-17", "category": "Task"}
+      ],
+      "expectedLifecycle": {
+        "la_t4_old": "Historical",
+        "la_t4_new": "Active"
+      }
+    },
+    {
+      "id": "temporary_stale_1",
+      "memories": [
+        {"id": "la_st1", "content": "Temporary pilot config for payment retry experiment.", "timestamp": "2024-01-03", "category": "Temporary"}
+      ],
+      "expectedLifecycle": {
+        "la_st1": "Temporary"
+      }
+    },
+    {
+      "id": "temporary_stale_2",
+      "memories": [
+        {"id": "la_st2", "content": "Interim workaround used for now until rollout.", "timestamp": "2024-06-21", "category": "Temporary"}
+      ],
+      "expectedLifecycle": {
+        "la_st2": "Temporary"
+      }
+    },
+    {
+      "id": "historical_stale_1",
+      "memories": [
+        {"id": "la_st3", "content": "Project phase note: fallback queue enabled during migration.", "timestamp": "2023-11-15", "category": "Fact"}
+      ],
+      "expectedLifecycle": {
+        "la_st3": "Historical"
+      }
+    },
+    {
+      "id": "historical_stale_2",
+      "memories": [
+        {"id": "la_st4", "content": "Pilot sprint config for rollout validation only.", "timestamp": "2024-03-09", "category": "Fact"}
+      ],
+      "expectedLifecycle": {
+        "la_st4": "Historical"
+      }
+    }
+  ]
+}

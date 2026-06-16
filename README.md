@@ -20,6 +20,26 @@ This is an early V1 build — functional, but not polished. Feedback and contrib
 - Ranked, rule-based insights with recommended actions
 - Output: terminal report, JSON, Markdown
 
+## Architecture
+
+```mermaid
+flowchart TD
+    A[Input] --> B[Parsing]
+    B --> C[Categorization]
+    C --> D[Duplicate Detection]
+    D --> E[Validation Layer]
+
+    E --> E1[Category Audit V2]
+    E --> E2[Taxonomy Discovery]
+    E --> E3[Semantic Theme Analysis]
+    E --> E4[Unknown Resolution Audit]
+    E --> E5[Memory Evolution Audit]
+    E --> E6[Memory Lifecycle Model]
+
+    E --> F[Governance Layer]
+    F --> G[Reporting]
+```
+
 ## Requirements
 
 - Python 3.10+

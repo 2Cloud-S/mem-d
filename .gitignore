@@ -104,6 +104,8 @@ lifecycle_synthetic.json
 tmp-audit-compare.json
 tmp-cluster-eval.json
 report.audit.json
+*.cleaned.jsonl
+*.analysis.json
 
 # Benchmark evidence — commit markdown summaries under examples/benchmarks/
 examples/benchmarks/*.cleaned.jsonl

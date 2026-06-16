@@ -1,0 +1,203 @@
+{
+  "cases": [
+    {
+      "id": "contradiction_1",
+      "expectedEvolutionType": "contradiction",
+      "memories": [
+        {"id": "c1_old", "content": "Uses PostgreSQL for billing data storage.", "timestamp": "2026-01-05", "category": "Fact"},
+        {"id": "c1_new", "content": "Migrated to MySQL for billing data storage.", "timestamp": "2026-03-12", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "contradiction_2",
+      "expectedEvolutionType": "contradiction",
+      "memories": [
+        {"id": "c2_old", "content": "Runs Docker for local development workflow.", "timestamp": "2026-02-01", "category": "Fact"},
+        {"id": "c2_new", "content": "No longer uses Docker for local development workflow.", "timestamp": "2026-04-01", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "contradiction_3",
+      "expectedEvolutionType": "contradiction",
+      "memories": [
+        {"id": "c3_old", "content": "Built with React for dashboard frontend.", "timestamp": "2026-01-11", "category": "Fact"},
+        {"id": "c3_new", "content": "Migrated to Vue for dashboard frontend.", "timestamp": "2026-05-02", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "contradiction_4",
+      "expectedEvolutionType": "contradiction",
+      "memories": [
+        {"id": "c4_old", "content": "Standard is Python for automation scripts.", "timestamp": "2026-01-20", "category": "Fact"},
+        {"id": "c4_new", "content": "Switched to TypeScript for automation scripts.", "timestamp": "2026-04-14", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "contradiction_5",
+      "expectedEvolutionType": "contradiction",
+      "memories": [
+        {"id": "c5_old", "content": "Uses Redis for session cache service.", "timestamp": "2026-02-08", "category": "Fact"},
+        {"id": "c5_new", "content": "Replaced Redis with MongoDB for session cache service.", "timestamp": "2026-05-10", "category": "Fact"}
+      ]
+    },
+
+    {
+      "id": "preference_change_1",
+      "expectedEvolutionType": "preference_change",
+      "memories": [
+        {"id": "p1_old", "content": "I prefer dark mode in the editor.", "timestamp": "2026-01-01", "category": "Preference"},
+        {"id": "p1_new", "content": "I stopped using dark mode and switched to light mode.", "timestamp": "2026-02-01", "category": "Preference"}
+      ]
+    },
+    {
+      "id": "preference_change_2",
+      "expectedEvolutionType": "preference_change",
+      "memories": [
+        {"id": "p2_old", "content": "I prefer coffee in the morning routine.", "timestamp": "2026-01-03", "category": "Preference"},
+        {"id": "p2_new", "content": "I no longer prefer coffee and switched to tea in the morning routine.", "timestamp": "2026-02-06", "category": "Preference"}
+      ]
+    },
+    {
+      "id": "preference_change_3",
+      "expectedEvolutionType": "preference_change",
+      "memories": [
+        {"id": "p3_old", "content": "Preferred keyboard layout is QWERTY for coding.", "timestamp": "2026-01-09", "category": "Preference"},
+        {"id": "p3_new", "content": "Migrated from QWERTY to Colemak for coding.", "timestamp": "2026-03-01", "category": "Preference"}
+      ]
+    },
+    {
+      "id": "preference_change_4",
+      "expectedEvolutionType": "preference_change",
+      "memories": [
+        {"id": "p4_old", "content": "Likes weekly planning every Sunday evening.", "timestamp": "2026-01-15", "category": "Preference"},
+        {"id": "p4_new", "content": "Stopped weekly planning and switched to daily planning every morning.", "timestamp": "2026-04-02", "category": "Preference"}
+      ]
+    },
+    {
+      "id": "preference_change_5",
+      "expectedEvolutionType": "preference_change",
+      "memories": [
+        {"id": "p5_old", "content": "Prefers remote work days on Fridays.", "timestamp": "2026-01-18", "category": "Preference"},
+        {"id": "p5_new", "content": "No longer prefers remote work on Fridays and switched to office days.", "timestamp": "2026-03-22", "category": "Preference"}
+      ]
+    },
+
+    {
+      "id": "superseded_1",
+      "expectedEvolutionType": "superseded_memory",
+      "memories": [
+        {"id": "s1_old", "content": "Decided to adopt REST APIs for billing service.", "timestamp": "2026-01-04", "category": "Fact"},
+        {"id": "s1_new", "content": "Adopted GraphQL instead of REST APIs for billing service.", "timestamp": "2026-06-01", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "superseded_2",
+      "expectedEvolutionType": "superseded_memory",
+      "memories": [
+        {"id": "s2_old", "content": "Chose weekly release cadence for mobile app.", "timestamp": "2026-01-12", "category": "Task"},
+        {"id": "s2_new", "content": "Selected biweekly release cadence and supersedes weekly release plan.", "timestamp": "2026-05-07", "category": "Task"}
+      ]
+    },
+    {
+      "id": "superseded_3",
+      "expectedEvolutionType": "superseded_memory",
+      "memories": [
+        {"id": "s3_old", "content": "Decision: use monorepo layout for web platform.", "timestamp": "2026-02-02", "category": "Fact"},
+        {"id": "s3_new", "content": "Decided to replace monorepo layout with polyrepo for web platform.", "timestamp": "2026-04-19", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "superseded_4",
+      "expectedEvolutionType": "superseded_memory",
+      "memories": [
+        {"id": "s4_old", "content": "Settled on npm as package manager for frontend.", "timestamp": "2026-01-25", "category": "Fact"},
+        {"id": "s4_new", "content": "Adopted pnpm and replaces npm for frontend package manager.", "timestamp": "2026-03-28", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "superseded_5",
+      "expectedEvolutionType": "superseded_memory",
+      "memories": [
+        {"id": "s5_old", "content": "Decided to use CSV export format for reports.", "timestamp": "2026-02-17", "category": "Task"},
+        {"id": "s5_new", "content": "Chose Parquet export format and supersedes CSV export format for reports.", "timestamp": "2026-05-30", "category": "Task"}
+      ]
+    },
+
+    {
+      "id": "stale_1",
+      "expectedEvolutionType": "stale_fact",
+      "memories": [
+        {"id": "st1", "content": "Temporary pilot config for payment retry project.", "timestamp": "2024-01-11", "category": "Temporary"}
+      ]
+    },
+    {
+      "id": "stale_2",
+      "expectedEvolutionType": "stale_fact",
+      "memories": [
+        {"id": "st2", "content": "Interim DNS fallback used during migration phase.", "timestamp": "2023-05-03", "category": "Temporary"}
+      ]
+    },
+    {
+      "id": "stale_3",
+      "expectedEvolutionType": "stale_fact",
+      "memories": [
+        {"id": "st3", "content": "Placeholder API key for short-term sandbox testing.", "timestamp": "2024-09-09", "category": "Temporary"}
+      ]
+    },
+    {
+      "id": "stale_4",
+      "expectedEvolutionType": "stale_fact",
+      "memories": [
+        {"id": "st4", "content": "Project sprint temporary rollback procedure note.", "timestamp": "2025-01-20", "category": "Fact"}
+      ]
+    },
+    {
+      "id": "stale_5",
+      "expectedEvolutionType": "stale_fact",
+      "memories": [
+        {"id": "st5", "content": "For now this interim workflow is used until launch.", "timestamp": "2024-07-15", "category": "Fact"}
+      ]
+    },
+
+    {
+      "id": "status_transition_1",
+      "expectedEvolutionType": "status_transition",
+      "memories": [
+        {"id": "t1_old", "content": "Billing migration is planned for Q3.", "timestamp": "2026-01-06", "category": "Goal"},
+        {"id": "t1_new", "content": "Billing migration is in progress.", "timestamp": "2026-02-10", "category": "Task"}
+      ]
+    },
+    {
+      "id": "status_transition_2",
+      "expectedEvolutionType": "status_transition",
+      "memories": [
+        {"id": "t2_old", "content": "Search index cleanup is in progress.", "timestamp": "2026-03-01", "category": "Task"},
+        {"id": "t2_new", "content": "Search index cleanup completed.", "timestamp": "2026-03-18", "category": "Task"}
+      ]
+    },
+    {
+      "id": "status_transition_3",
+      "expectedEvolutionType": "status_transition",
+      "memories": [
+        {"id": "t3_old", "content": "New alerting policy is planned this month.", "timestamp": "2026-02-04", "category": "Goal"},
+        {"id": "t3_new", "content": "New alerting policy completed and released.", "timestamp": "2026-04-11", "category": "Task"}
+      ]
+    },
+    {
+      "id": "status_transition_4",
+      "expectedEvolutionType": "status_transition",
+      "memories": [
+        {"id": "t4_old", "content": "Schema refactor work is underway.", "timestamp": "2026-01-19", "category": "Task"},
+        {"id": "t4_new", "content": "Schema refactor work finished.", "timestamp": "2026-02-27", "category": "Task"}
+      ]
+    },
+    {
+      "id": "status_transition_5",
+      "expectedEvolutionType": "status_transition",
+      "memories": [
+        {"id": "t5_old", "content": "Analytics export pipeline is planned for next sprint.", "timestamp": "2026-01-30", "category": "Goal"},
+        {"id": "t5_new", "content": "Analytics export pipeline started and is in progress.", "timestamp": "2026-02-14", "category": "Task"}
+      ]
+    }
+  ]
+}
