@@ -15,7 +15,12 @@ from memd.contracts import (
     Insight,
     MemoryCategory,
     MemoryRecord,
+    MemoryResolution,
     PolicyDecision,
+    Recommendation,
+    RecommendationAction,
+    RecommendationEvidence,
+    RecommendationSummary,
 )
 
 
@@ -78,6 +83,13 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
         ],
         "validation": report.validation,
         "insights": [insight_to_dict(insight) for insight in report.insights],
+        "recommendations": [
+            recommendation_to_dict(recommendation) for recommendation in report.recommendations
+        ],
+        "memoryResolutions": [
+            memory_resolution_to_dict(resolution) for resolution in report.memoryResolutions
+        ],
+        "recommendationSummary": recommendation_summary_to_dict(report.recommendationSummary),
     }
 
 
@@ -148,6 +160,29 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
                 action.policyDecision.value if action.policyDecision else "",
             )
         console.print(action_table)
+
+    displayable = displayable_recommendations(report.recommendations)
+    if displayable:
+        recommendation_table = Table(title="Governance Recommendations")
+        recommendation_table.add_column("Action")
+        recommendation_table.add_column("Confidence", justify="right")
+        recommendation_table.add_column("Reason")
+        recommendation_table.add_column("Evidence")
+        for recommendation in displayable[:5]:
+            recommendation_table.add_row(
+                recommendation.action.value,
+                f"{recommendation.confidence:.2f}",
+                recommendation.reason[:80],
+                format_evidence_summary(recommendation.evidence),
+            )
+        console.print(recommendation_table)
+        summary = report.recommendationSummary
+        console.print(
+            "Recommendation counts: "
+            f"[bold]{summary.mergeCount}[/bold] merge / "
+            f"[bold]{summary.archiveCount}[/bold] archive / "
+            f"[bold]{summary.reviewCount}[/bold] review"
+        )
 
     category_table = Table(title="Category Distribution")
     category_table.add_column("Category")
@@ -307,6 +342,7 @@ def render_markdown(report: AnalysisReport) -> str:
             )
     lines.extend(render_policy_summary_markdown(report))
     lines.extend(render_action_plan_markdown(report.actions))
+    lines.extend(render_recommendation_summary_markdown(report))
     lines.extend(
         [
         "## Compression Explanation",
@@ -437,6 +473,153 @@ def action_to_dict(action: GovernanceAction) -> dict[str, object]:
         "policyRuleId": action.policyRuleId,
         "policyExplanation": action.policyExplanation,
     }
+
+
+def recommendation_summary_to_dict(summary: RecommendationSummary) -> dict[str, object]:
+    return {
+        "totalRecommendations": summary.totalRecommendations,
+        "mergeCount": summary.mergeCount,
+        "archiveCount": summary.archiveCount,
+        "reviewCount": summary.reviewCount,
+        "keepCount": summary.keepCount,
+        "deferredCount": summary.deferredCount,
+        "memoryResolutionCount": summary.memoryResolutionCount,
+        "estimatedTrustedRemovals": summary.estimatedTrustedRemovals,
+        "estimatedArchivableRecords": summary.estimatedArchivableRecords,
+        "recommendationsByPriority": {
+            priority.value: summary.recommendationsByPriority.get(priority, 0)
+            for priority in ActionPriority
+        },
+    }
+
+
+def recommendation_to_dict(recommendation: Recommendation) -> dict[str, object]:
+    return {
+        "recommendationId": recommendation.recommendationId,
+        "action": recommendation.action.value,
+        "subtype": recommendation.subtype,
+        "confidence": recommendation.confidence,
+        "reason": recommendation.reason,
+        "affected_memories": [
+            {
+                "memoryId": memory.memoryId,
+                "role": memory.role,
+                "lifecycleState": memory.lifecycleState,
+            }
+            for memory in recommendation.affected_memories
+        ],
+        "evidence": [evidence_to_dict(item) for item in recommendation.evidence],
+        "estimatedImpact": recommendation.estimatedImpact,
+        "priority": recommendation.priority.value,
+        "requiresHumanApproval": recommendation.requiresHumanApproval,
+        "sourceActionIds": list(recommendation.sourceActionIds),
+        "sourceInsightIds": list(recommendation.sourceInsightIds),
+        "suppressedCandidates": list(recommendation.suppressedCandidates),
+        "conflictDetected": recommendation.conflictDetected,
+    }
+
+
+def memory_resolution_to_dict(resolution: MemoryResolution) -> dict[str, object]:
+    return {
+        "memoryId": resolution.memoryId,
+        "resolvedAction": resolution.resolvedAction.value,
+        "role": resolution.role,
+        "confidence": resolution.confidence,
+        "recommendationId": resolution.recommendationId,
+        "suppressedActions": [action.value for action in resolution.suppressedActions],
+        "conflictDetected": resolution.conflictDetected,
+    }
+
+
+def evidence_to_dict(evidence: RecommendationEvidence) -> dict[str, object]:
+    return {
+        "source": evidence.source,
+        "signal": evidence.signal,
+        "value": evidence.value,
+        "caseId": evidence.caseId,
+        "ruleId": evidence.ruleId,
+        "actionId": evidence.actionId,
+        "insightId": evidence.insightId,
+    }
+
+
+def displayable_recommendations(
+    recommendations: tuple[Recommendation, ...],
+) -> list[Recommendation]:
+    return [
+        recommendation
+        for recommendation in recommendations
+        if recommendation.evidence
+        and recommendation.action != RecommendationAction.KEEP
+    ]
+
+
+def format_evidence_summary(evidence: tuple[RecommendationEvidence, ...]) -> str:
+    return "; ".join(f"{item.source}:{item.signal}" for item in evidence[:3])
+
+
+def render_recommendation_summary_markdown(report: AnalysisReport) -> list[str]:
+    recommendations = displayable_recommendations(report.recommendations)
+    keep_recommendations = [
+        recommendation
+        for recommendation in report.recommendations
+        if recommendation.action == RecommendationAction.KEEP and recommendation.evidence
+    ]
+    summary = report.recommendationSummary
+    lines = [
+        "",
+        "## Recommendation Summary",
+        "",
+        f"- Total recommendations: {summary.totalRecommendations}",
+        f"- Merge: {summary.mergeCount}",
+        f"- Archive: {summary.archiveCount}",
+        f"- Review: {summary.reviewCount}",
+        f"- Memory resolutions: {summary.memoryResolutionCount}",
+        "",
+    ]
+    grouped = {
+        RecommendationAction.MERGE: [],
+        RecommendationAction.ARCHIVE: [],
+        RecommendationAction.REVIEW: [],
+    }
+    for recommendation in recommendations:
+        if recommendation.action in grouped:
+            grouped[recommendation.action].append(recommendation)
+
+    lines.extend(render_recommendation_group_markdown("Merge recommendations", grouped[RecommendationAction.MERGE]))
+    lines.extend(render_recommendation_group_markdown("Archive recommendations", grouped[RecommendationAction.ARCHIVE]))
+    lines.extend(render_recommendation_group_markdown("Review recommendations", grouped[RecommendationAction.REVIEW]))
+    if keep_recommendations:
+        lines.extend(render_recommendation_group_markdown("Keep recommendations", keep_recommendations))
+    return lines
+
+
+def render_recommendation_group_markdown(
+    title: str,
+    recommendations: Sequence[Recommendation],
+) -> list[str]:
+    lines = [f"### {title}", ""]
+    if not recommendations:
+        lines.extend(["No recommendations in this category.", ""])
+        return lines
+    for recommendation in recommendations[:20]:
+        lines.extend(
+            [
+                f"#### `{recommendation.recommendationId}`",
+                "",
+                f"- Action: {recommendation.action.value}",
+                f"- Confidence: {recommendation.confidence}",
+                f"- Reason: {recommendation.reason}",
+                "- Evidence:",
+                *[
+                    f"  - {item.source}: {item.signal}"
+                    + (f" ({item.value})" if item.value is not None else "")
+                    for item in recommendation.evidence
+                ],
+                "",
+            ]
+        )
+    return lines
 
 
 def render_policy_summary_markdown(report: AnalysisReport) -> list[str]:

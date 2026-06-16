@@ -8,6 +8,7 @@ from typing import Any
 from memd.contracts import (
     ActionPriority,
     ActionType,
+    AnalysisMetrics,
     AffectedMemory,
     ClusterTrustLevel,
     DuplicateCluster,
@@ -97,6 +98,7 @@ def plan_recommendations(
     insights: Sequence[Insight],
     actions: Sequence[GovernanceAction],
     *,
+    metrics: AnalysisMetrics | None = None,
     include_keep: bool = False,
     include_deferred: bool = False,
 ) -> tuple[tuple[Recommendation, ...], tuple[MemoryResolution, ...], RecommendationSummary]:
@@ -116,6 +118,7 @@ def plan_recommendations(
         validation=validation,
         actions=actions,
         insights=insights,
+        metrics=metrics,
         include_keep=include_keep,
     )
 
@@ -131,6 +134,11 @@ def plan_recommendations(
         context,
         include_keep=include_keep,
         include_deferred=include_deferred,
+    )
+    recommendations = tuple(
+        recommendation
+        for recommendation in recommendations
+        if recommendation_has_evidence(recommendation)
     )
     summary = summarize_recommendations(recommendations, resolutions)
     return tuple(recommendations), tuple(resolutions), summary
@@ -496,7 +504,7 @@ def build_review_recommendations(
                 confidence=min(item.confidence for item in group),
                 reason=review_reason(subtype, group, context),
                 affected_memories=affected,
-                evidence=review_evidence(group, context),
+                evidence=with_compression_evidence(review_evidence(group, context), context),
                 estimatedImpact={"recordsAtRisk": len(group), "trusted": False},
                 priority=ActionPriority.HIGH
                 if subtype in {"over_clustering", "conflict", "cluster_quality"}
@@ -633,6 +641,7 @@ class _RecommendationContext:
     validation: Mapping[str, object]
     actions: Sequence[GovernanceAction]
     insights: Sequence[Insight]
+    metrics: AnalysisMetrics | None
     include_keep: bool
 
 
@@ -952,6 +961,7 @@ def conflict_review_recommendation(
     context: _RecommendationContext,
 ) -> Recommendation:
     lifecycle = context.lifecycle_by_id.get(resolution.memoryId, {})
+    evidence = list(conflict_review_evidence(resolution, context))
     return Recommendation(
         recommendationId=f"rec:review:conflict:{resolution.memoryId}",
         action=RecommendationAction.REVIEW,
@@ -968,13 +978,79 @@ def conflict_review_recommendation(
                 lifecycleState=str(lifecycle.get("lifecycleState", "")),
             ),
         ),
-        evidence=archive_evidence(resolution.memoryId, context),
+        evidence=with_compression_evidence(tuple(evidence), context),
         estimatedImpact={"recordsAtRisk": 1, "trusted": False},
         priority=ActionPriority.HIGH,
         requiresHumanApproval=True,
         conflictDetected=True,
         suppressedCandidates=suppressed_payload(resolution),
     )
+
+
+def conflict_review_evidence(
+    resolution: MemoryResolution,
+    context: _RecommendationContext,
+) -> list[RecommendationEvidence]:
+    evidence = list(archive_evidence_candidates(resolution.memoryId, context))
+    cluster_id = context.cluster_by_member.get(resolution.memoryId, "")
+    cluster = context.clusters_by_id.get(cluster_id)
+    merge_action = merge_action_for_cluster(cluster_id, context) if cluster_id else None
+    if merge_action:
+        evidence.extend(governance_evidence(merge_action, cluster))
+    if cluster is not None:
+        evidence.extend(
+            [
+                RecommendationEvidence(
+                    source="cluster_trust",
+                    signal=f"trustLevel={cluster.trustLevel.value}",
+                    value=cluster.trustScore,
+                ),
+            ]
+        )
+    if resolution.suppressedActions:
+        evidence.append(
+            RecommendationEvidence(
+                source="conflict_resolution",
+                signal=(
+                    "suppressedCandidates="
+                    + ",".join(action.value for action in resolution.suppressedActions)
+                ),
+            )
+        )
+    return evidence
+
+
+def recommendation_has_evidence(recommendation: Recommendation) -> bool:
+    return bool(recommendation.evidence)
+
+
+def compression_metrics_evidence(context: _RecommendationContext) -> RecommendationEvidence | None:
+    if context.metrics is not None:
+        return RecommendationEvidence(
+            source="compression_metrics",
+            signal="trustedCompressionOpportunity",
+            value=context.metrics.trustedCompressionOpportunity,
+        )
+    compression = nested_dict(context.validation, "compressionDrivers")
+    trusted = compression.get("trustedRemovableRecords")
+    if isinstance(trusted, int | float):
+        return RecommendationEvidence(
+            source="compression_metrics",
+            signal="trustedRemovableRecords",
+            value=float(trusted),
+        )
+    return None
+
+
+def with_compression_evidence(
+    evidence: tuple[RecommendationEvidence, ...],
+    context: _RecommendationContext,
+) -> tuple[RecommendationEvidence, ...]:
+    items = list(evidence)
+    compression = compression_metrics_evidence(context)
+    if compression is not None and not any(item.source == "compression_metrics" for item in items):
+        items.append(compression)
+    return tuple(items) if items else (compression,) if compression else ()
 
 
 def pick_best_candidate(candidates: Sequence[RecommendationCandidate]) -> RecommendationCandidate:

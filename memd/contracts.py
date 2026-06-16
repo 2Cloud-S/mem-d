@@ -183,27 +183,6 @@ class PolicySummary(FrozenModel):
     matchedRules: dict[str, int] = Field(default_factory=dict)
 
 
-class AnalysisReport(FrozenModel):
-    metrics: AnalysisMetrics
-    clusters: tuple[DuplicateCluster, ...]
-    memories: tuple[MemoryRecord, ...] = ()
-    categories: tuple[CategorizedMemory, ...] = ()
-    validation: dict[str, Any] = Field(default_factory=dict)
-    insights: tuple[Insight, ...] = ()
-    actions: tuple[GovernanceAction, ...] = ()
-    actionSummary: ActionPlanSummary = Field(
-        default_factory=lambda: ActionPlanSummary(
-            totalActions=0,
-            safeActions=0,
-            reviewActions=0,
-            estimatedTrustedSavings=0,
-            estimatedUnverifiedSavings=0,
-            actionsByPriority={priority: 0 for priority in ActionPriority},
-        )
-    )
-    policySummary: PolicySummary = Field(default_factory=PolicySummary)
-
-
 class RecommendationEvidence(FrozenModel):
     source: str
     signal: str
@@ -260,3 +239,27 @@ class RecommendationSummary(FrozenModel):
     recommendationsByPriority: dict[ActionPriority, int] = Field(
         default_factory=lambda: {priority: 0 for priority in ActionPriority}
     )
+
+
+class AnalysisReport(FrozenModel):
+    metrics: AnalysisMetrics
+    clusters: tuple[DuplicateCluster, ...]
+    memories: tuple[MemoryRecord, ...] = ()
+    categories: tuple[CategorizedMemory, ...] = ()
+    validation: dict[str, Any] = Field(default_factory=dict)
+    insights: tuple[Insight, ...] = ()
+    actions: tuple[GovernanceAction, ...] = ()
+    actionSummary: ActionPlanSummary = Field(
+        default_factory=lambda: ActionPlanSummary(
+            totalActions=0,
+            safeActions=0,
+            reviewActions=0,
+            estimatedTrustedSavings=0,
+            estimatedUnverifiedSavings=0,
+            actionsByPriority={priority: 0 for priority in ActionPriority},
+        )
+    )
+    policySummary: PolicySummary = Field(default_factory=PolicySummary)
+    recommendations: tuple[Recommendation, ...] = ()
+    memoryResolutions: tuple[MemoryResolution, ...] = ()
+    recommendationSummary: RecommendationSummary = Field(default_factory=RecommendationSummary)

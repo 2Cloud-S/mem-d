@@ -20,6 +20,7 @@ from memd.metrics import calculate_metrics
 from memd.normalization import normalize_records
 from memd.parser import load_memory_file
 from memd.policy import apply_policy
+from memd.recommendations import plan_recommendations
 
 
 def analyze_file(
@@ -59,6 +60,14 @@ def analyze_file(
         insights,
     )
     actions, policy_summary = apply_policy(actions, policy_profile)
+    recommendations, memory_resolutions, recommendation_summary = plan_recommendations(
+        records,
+        clusters,
+        validation,
+        insights,
+        actions,
+        metrics=metrics,
+    )
     return AnalysisReport(
         metrics=metrics,
         clusters=tuple(clusters),
@@ -69,4 +78,7 @@ def analyze_file(
         actions=actions,
         actionSummary=action_summary,
         policySummary=policy_summary,
+        recommendations=recommendations,
+        memoryResolutions=memory_resolutions,
+        recommendationSummary=recommendation_summary,
     )
