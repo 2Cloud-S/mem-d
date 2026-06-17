@@ -1,44 +1,90 @@
-# Mem-D Analyze
+# Mem-D
 
-Local-first CLI for analyzing agent memory exports.
+Local-first CLI for evidence-based memory intelligence.
 
-Mem-D answers: **what is in memory, how redundant is it, and how much could be compressed?**
-
-This is an early V1 build — functional, but not polished. Feedback and contributions welcome.
+Mem-D answers: **what is in memory, which signals are trustworthy, and what governance recommendations should be considered next**.
 
 ## Status
 
-- **Version:** 0.1.0 (V1 Aplha)
-- **Scope:** Read-only analysis via CLI
+- **Version:** v0.6.0
+- **Scope:** Read-only CLI analysis, governance recommendations, and recommendation evaluation
+- **Execution boundary:** Mem-D does not mutate memory and does not run autonomous actions
 
 ## Features
 
 - Parse memory exports: JSON, JSONL, CSV, TXT
 - Heuristic categorization (Preference, Fact, Task, Goal, Relationship, Temporary, Unknown)
 - Semantic duplicate clustering (DBSCAN + cosine similarity)
-- Metrics: category distribution, duplicate %, compression opportunity
-- Ranked, rule-based insights with recommended actions
+- Metrics: category distribution, duplicate %, trusted vs unverified compression
+- Ranked, rule-based insights and governance action planning
+- Recommendation layer with deterministic memory-level resolution (`merge`, `archive`, `review`, `keep`)
+- Recommendation quality benchmarking against gold fixtures (ADR-002)
 - Output: terminal report, JSON, Markdown
+
+## Product progression
+
+Mem-D v0.6 progression:
+
+**Memory Analysis -> Governance -> Recommendations -> Evaluation -> Future Simulation / Workflows / Actions**
+
+Current implementation state:
+
+- Recommendations: implemented
+- Recommendation evaluation: implemented
+- Simulation layer: not implemented
+- Workflow automation: not implemented
+- Memory mutation/execution: not implemented
 
 ## Architecture
 
 ```mermaid
 flowchart TD
-    A[Input] --> B[Parsing]
-    B --> C[Categorization]
-    C --> D[Duplicate Detection]
-    D --> E[Validation Layer]
-
-    E --> E1[Category Audit V2]
-    E --> E2[Taxonomy Discovery]
-    E --> E3[Semantic Theme Analysis]
-    E --> E4[Unknown Resolution Audit]
-    E --> E5[Memory Evolution Audit]
-    E --> E6[Memory Lifecycle Model]
-
-    E --> F[Governance Layer]
+    A[Input] --> B[Audit]
+    B --> C[Analyze]
+    C --> D[Governance]
+    D --> E[Policy]
+    E --> F[Recommendations]
     F --> G[Reporting]
 ```
+
+The recommendation layer is read-only and evidence-driven. It is a foundation for future simulation/workflow/action layers, not an execution system.
+
+## Recommendation Engine
+
+Mem-D emits four recommendation actions:
+
+- **Merge**: consolidate trusted duplicate/preference clusters
+- **Archive**: retire superseded, deprecated, historical, temporary, or completed memories
+- **Review**: escalate ambiguity, low trust, policy blocks, or conflicts
+- **Keep**: retain stable active memories with no stronger remediation signal
+
+Recommendations are generated from existing pipeline evidence:
+
+- Governance actions
+- Lifecycle signals
+- Evolution signals
+- Trust analysis
+- Policy decisions
+
+Conflict handling is deterministic and safety-biased, with precedence and conflict resolution producing one authoritative `resolvedAction` per memory.
+
+## Recommendation Evaluation
+
+Recommendation quality is benchmarked under [ADR-002](docs/design/ADR-002-RECOMMENDATION-EVALUATION.md) using labeled gold cases (`tests/fixtures/recommendation_gold.json`).
+
+Current published results:
+
+- Overall accuracy: **1.0000 (22/22)**
+- Merge accuracy: **1.0000 (3/3)**
+- Archive accuracy: **1.0000 (5/5)**
+- Review accuracy: **1.0000 (11/11)**
+- Keep accuracy: **1.0000 (3/3)**
+- Conflict resolution accuracy: **1.0000 (3/3)**
+
+Artifacts:
+
+- `examples/benchmarks/recommendation_evaluation.md`
+- `examples/benchmarks/recommendation_evaluation.json`
 
 ## Requirements
 
@@ -96,53 +142,50 @@ The evaluation report includes precision, recall, F1, false positives, false neg
 
 The default threshold is `0.55`, chosen from the labelled validation fixture to improve near-duplicate recall while preserving high precision. See [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) for the measured tradeoffs.
 
-## Benchmark Results
+## Benchmarking
 
-Evidence from the first benchmark sprint on a local LongMemEval sample (`longmemeval_sample`, 2,690 raw records). Committed summaries live in [examples/benchmarks/](examples/benchmarks/). Full narrative: [docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md](docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md).
+Benchmark evidence lives in [examples/benchmarks/](examples/benchmarks/) and is summarized in [docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md](docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md).
 
-### LongMemEval (raw vs cleaned)
+Currently supported tracks:
 
-| Metric | Raw | Cleaned |
-| --- | --- | --- |
-| Records | 2,690 | 1,134 |
-| Meaningful memory rate | 35.5% | 83.42% |
-| Conversational noise | 51.71% | 0.0% |
-| Unknown rate | 20.26% | 34.92% |
-| Duplicate rate (audit) | 2.27% | 0.0% |
-| Benchmark verdict | `requires_preprocessing` | `suitable_with_filtering` |
-| Compression opportunity (analyze) | — | 26.72% |
-| Trusted compression (analyze) | — | 3.44% |
-| Duplicate clusters (analyze) | — | 58 |
+- LongMemEval benchmark workflow
+- Clustering evaluation
+- Lifecycle evaluation
+- Evolution evaluation
+- Recommendation evaluation
+- PERMA benchmark (user-level reproducible path, currently `user108`)
 
-Preprocessing retained **42.16%** of records (removed 1,355 assistant turns, 185 filler records, 3 excluded-content records, 13 exact duplicates). Analyze metrics apply to the cleaned export only.
+### Key benchmark highlights
 
-### Clustering evaluation (`clustering_quality.json`, threshold 0.55)
+- **LongMemEval (raw -> cleaned):** meaningful memory rate improved from `35.5%` to `83.42%`; cleaned analyze compression opportunity `26.72%`, trusted compression `3.44%`.
+- **PERMA (`user108` export path):** reproducible pipeline with audit verdict `poor_fit`; analyze duplicate/compression `59.21%`, trusted compression `8.77%`.
+- **Recommendation evaluation:** overall accuracy `1.0000 (22/22)` with conflict resolution accuracy `1.0000 (3/3)`.
 
-| Metric | Value |
-| --- | ---: |
-| Precision | 1.0 |
-| Recall | 0.5714 |
-| F1 | 0.7272 |
-| Cluster purity | 1.0 |
-| Cluster coverage | 0.7273 |
-| False positives | 0 |
-| False negatives | 3 |
-
-Labelled fixture evaluation is independent of LongMemEval. See [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) for threshold tradeoffs.
-
-### Workflow
-
-`audit-dataset` → preprocess → `audit-dataset` (cleaned) → `analyze` → baseline summary, with optional `evaluate-clusters` on the labelled fixture. Details: [docs/validation/BENCHMARK-WORKFLOW.md](docs/validation/BENCHMARK-WORKFLOW.md).
-
-## Reproducible Benchmark Workflow
-
-Run the full LongMemEval evidence pipeline (requires a local copy of the dataset):
+### Reproduce benchmark tracks
 
 ```bash
+# LongMemEval benchmark workflow
 python scripts/run_longmemeval_benchmark.py datasets/evaluation/longmemeval_sample.jsonl
+
+# PERMA benchmark (user-level)
+python scripts/run_perma_benchmark.py --user-id user108
+
+# Clustering evaluation
+python -m memd evaluate-clusters datasets/validation/clustering_quality.json
+
+# Lifecycle evaluation
+python -m pytest tests/test_lifecycle_evaluation.py -q
+
+# Evolution evaluation
+python -m pytest tests/test_evolution_evaluation.py -q
+
+# Recommendation evaluation
+python scripts/run_recommendation_evaluation.py
 ```
 
-Place the raw JSONL at `datasets/evaluation/longmemeval_sample.jsonl` (gitignored). The script writes artifacts to `examples/benchmarks/`:
+### LongMemEval benchmark artifacts
+
+The LongMemEval workflow writes artifacts to `examples/benchmarks/`:
 
 | Artifact | Committed to git | Description |
 | --- | --- | --- |
@@ -154,12 +197,6 @@ Place the raw JSONL at `datasets/evaluation/longmemeval_sample.jsonl` (gitignore
 | `{stem}.preprocess-report.json` | Yes | Machine-readable preprocess report |
 | `{stem}.cleaned.jsonl` | No | Cleaned memory export (large) |
 | `{stem}.analysis.json` / `.md` | No | Full analyze report (large) |
-
-Optional clustering evaluation:
-
-```bash
-python -m memd evaluate-clusters datasets/validation/clustering_quality.json --format markdown --output examples/benchmarks/clustering_quality.cluster-eval.md
-```
 
 ## Dataset quality audit
 
@@ -203,6 +240,21 @@ Header row with at least a `content` column (also accepts `text`, `memory`, `mes
 
 One memory per line.
 
+## Roadmap
+
+### Current (v0.6)
+
+- Recommendation generation is implemented (ADR-001).
+- Recommendation evaluation is implemented and benchmarked (ADR-002).
+
+### Next layers (future, not yet implemented)
+
+- Simulation layer (dry-run governance impact modeling)
+- Workflow layer (structured recommendation orchestration)
+- Action layer (external execution systems)
+
+These future layers are intentionally gated behind validated recommendation quality and remain out of current implementation scope.
+
 ## Development
 
 ```bash
@@ -240,7 +292,13 @@ scripts/           Benchmarks and utilities
 | [docs/validation/CATEGORY-AUDIT-V2.md](docs/validation/CATEGORY-AUDIT-V2.md) | Unknown category diagnostics |
 | [docs/validation/DATASET-QUALITY-AUDIT.md](docs/validation/DATASET-QUALITY-AUDIT.md) | External dataset usefulness audit |
 | [docs/validation/BENCHMARK-WORKFLOW.md](docs/validation/BENCHMARK-WORKFLOW.md) | Reproducible benchmark pipeline |
-| [docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md](docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md) | Sprint 1 benchmark findings |
+| [docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md](docs/validation/BENCHMARK-EVIDENCE-SUMMARY.md) | Current benchmark evidence and reproducibility status |
+| [docs/design/ADR-001-RECOMMENDATION-LAYER.md](docs/design/ADR-001-RECOMMENDATION-LAYER.md) | Recommendation layer architecture decision |
+| [docs/design/ADR-002-RECOMMENDATION-EVALUATION.md](docs/design/ADR-002-RECOMMENDATION-EVALUATION.md) | Recommendation evaluation decision and metrics |
+| [docs/validation/V0.6-PHASE1-IMPLEMENTATION.md](docs/validation/V0.6-PHASE1-IMPLEMENTATION.md) | Recommendation layer implementation status |
+| [docs/validation/V0.6-PHASE2-INTEGRATION.md](docs/validation/V0.6-PHASE2-INTEGRATION.md) | Recommendation pipeline/report integration status |
+| [docs/validation/V0.6-PHASE3-IMPLEMENTATION.md](docs/validation/V0.6-PHASE3-IMPLEMENTATION.md) | Recommendation evaluation implementation status |
+| [docs/validation/V0.6.1-RELEASE-HARDENING.md](docs/validation/V0.6.1-RELEASE-HARDENING.md) | Post-release hardening fixes and validation |
 | [docs/validation/CLUSTER-AUDIT.md](docs/validation/CLUSTER-AUDIT.md) | Largest-cluster quality audit |
 | [docs/validation/CLUSTERING.md](docs/validation/CLUSTERING.md) | Clustering validation metrics      |
 | [AGENTS.md](AGENTS.md)                                         | Agent/contributor scope            |
