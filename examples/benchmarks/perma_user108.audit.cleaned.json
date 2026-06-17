@@ -1,0 +1,84 @@
+{
+  "summary": "Dataset Quality Audit measures memory usefulness for external benchmark datasets. Diagnostic only; it does not modify ingestion or analysis behavior.",
+  "datasetCount": 1,
+  "datasets": [
+    {
+      "datasetPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\examples\\benchmarks\\perma_user108.input.jsonl",
+      "datasetName": "perma_user108.input.jsonl",
+      "datasetKind": "memory_export",
+      "totalRecords": 228,
+      "estimatedMeaningfulMemories": 0,
+      "estimatedConversationalNoise": 1,
+      "estimatedMixedOrUncertain": 227,
+      "meaningfulMemoryRate": 0.0,
+      "conversationalNoiseRate": 0.44,
+      "averageMemoryLength": 136.94,
+      "categoryDistribution": {
+        "Unknown": 71,
+        "Preference": 34,
+        "Fact": 5,
+        "Temporary": 1,
+        "Task": 117
+      },
+      "unknownRate": 31.14,
+      "duplicateRate": 0.0,
+      "topLowQualityCauses": [
+        {
+          "cause": "unknown_category_signal",
+          "label": "No strong Mem-D category signal",
+          "count": 71,
+          "percentageOfRecords": 31.14
+        },
+        {
+          "cause": "terse_or_fragmented",
+          "label": "Terse or fragmented content",
+          "count": 1,
+          "percentageOfRecords": 0.44
+        }
+      ],
+      "benchmarkSuitability": {
+        "verdict": "poor_fit",
+        "confidence": 0.72,
+        "summary": "Dataset appears dominated by conversational turns or low-usefulness content and is a weak direct fit for Mem-D memory analysis benchmarks.",
+        "meaningfulMemoryRate": 0.0,
+        "conversationalNoiseRate": 0.44,
+        "unknownRate": 31.14,
+        "duplicateRate": 0.0,
+        "assistantTurnRate": 0.0,
+        "dominantLowQualityCause": "unknown_category_signal"
+      },
+      "preprocessingRecommendations": [
+        "No major preprocessing blockers detected from usefulness signals."
+      ],
+      "roleDistribution": {
+        "unknown": 228
+      },
+      "sampleLowQualityRecords": [
+        {
+          "memoryId": "perma_user108_affinity_17",
+          "content": "User user108 preference in Calendar: Timezone = UTC+2.",
+          "role": null,
+          "usefulnessScore": 0.3,
+          "causes": [
+            "terse_or_fragmented",
+            "unknown_category_signal"
+          ]
+        }
+      ],
+      "sampleMeaningfulRecords": []
+    }
+  ],
+  "benchmarkReadiness": {
+    "summary": "Compare memory exports by meaningful-memory rate, conversational noise, and Unknown rate before choosing a Mem-D benchmark dataset.",
+    "recommendedDataset": "perma_user108.input.jsonl",
+    "recommendedVerdict": "poor_fit",
+    "datasets": [
+      {
+        "datasetName": "perma_user108.input.jsonl",
+        "verdict": "poor_fit",
+        "meaningfulMemoryRate": 0.0,
+        "conversationalNoiseRate": 0.44
+      }
+    ]
+  }
+}
