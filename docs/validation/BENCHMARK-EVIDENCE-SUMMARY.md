@@ -91,6 +91,25 @@ Implementation details: [PERMA-IMPLEMENTATION-STATUS.md](PERMA-IMPLEMENTATION-ST
 
 ---
 
+## Recommendation evaluation results
+
+**Fixture:** `tests/fixtures/recommendation_gold.json`
+
+| Metric | Value |
+| --- | ---: |
+| Overall accuracy | 1.0000 (22/22) |
+| Merge accuracy | 1.0000 (3/3) |
+| Archive accuracy | 1.0000 (5/5) |
+| Review accuracy | 1.0000 (11/11) |
+| Keep accuracy | 1.0000 (3/3) |
+| Conflict resolution accuracy | 1.0000 (3/3) |
+
+**Artifacts:**
+- [recommendation_evaluation.md](../../examples/benchmarks/recommendation_evaluation.md)
+- [recommendation_evaluation.json](../../examples/benchmarks/recommendation_evaluation.json)
+
+---
+
 ## Benchmark coverage status
 
 | Capability | Reproducible | Ground Truth | Report Exists | Status |
@@ -100,7 +119,7 @@ Implementation details: [PERMA-IMPLEMENTATION-STATUS.md](PERMA-IMPLEMENTATION-ST
 | Duplicate Detection | Yes | Yes | Yes | Complete |
 | Evolution | Yes | Yes | Yes | Complete |
 | Lifecycle | Yes | Yes | Yes | Complete |
-| Governance | Yes | No | Yes | Partial |
+| Governance recommendations | Yes | Yes | Yes | Complete |
 | Categorization | Yes | No | Partial | Partial |
 | PERMA | Yes (user-level benchmark run) | No | Yes | Partial |
 
@@ -109,7 +128,6 @@ Implementation details: [PERMA-IMPLEMENTATION-STATUS.md](PERMA-IMPLEMENTATION-ST
 ## Remaining benchmark gaps (v0.5.1 view)
 
 - No ground-truth accuracy benchmark yet for categorization quality.
-- No ground-truth benchmark yet for governance recommendation quality.
 - No trust-calibration benchmark labels for cluster trust scoring.
 - PERMA benchmark currently uses deterministic profile/task-derived export and should be treated as initial reproducible evidence, not final quality validation.
 
@@ -126,4 +144,13 @@ python scripts/run_perma_benchmark.py --user-id user108
 
 # Clustering evaluation
 python -m memd evaluate-clusters datasets/validation/clustering_quality.json
+
+# Lifecycle evaluation
+python -m pytest tests/test_lifecycle_evaluation.py -q
+
+# Evolution evaluation
+python -m pytest tests/test_evolution_evaluation.py -q
+
+# Recommendation evaluation
+python scripts/run_recommendation_evaluation.py
 ```

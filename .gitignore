@@ -105,10 +105,6 @@ tmp-audit-compare.json
 tmp-cluster-eval.json
 report.audit.json
 *.cleaned.jsonl
-*.analysis.json
-examples/benchmarks/*.analysis.json
-examples/benchmarks/*.audit.raw.json
-examples/benchmarks/*.audit.cleaned.json
 
 
 
@@ -146,5 +142,10 @@ build.log
 **/build.log
 
 # Local data
-perma
+datasets/perma/.cache/
+.DS_Store
 
+# PERMA dataset content not required for Mem-D benchmark reproducibility (user108)
+datasets/perma/tasks/
+datasets/perma/evaluation/
+datasets/perma/WildChat-1M/

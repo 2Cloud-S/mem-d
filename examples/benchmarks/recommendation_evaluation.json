@@ -1,0 +1,41 @@
+{
+  "benchmark": "recommendation_evaluation",
+  "caseCount": 14,
+  "conflictResolutionAccuracy": 1.0,
+  "correctResolutions": 22,
+  "distribution": {
+    "resolutions": {
+      "archive": 5,
+      "keep": 5,
+      "merge": 3,
+      "review": 11
+    }
+  },
+  "fixture": "tests\\fixtures\\recommendation_gold.json",
+  "overallAccuracy": 1.0,
+  "passedConflictCases": 3,
+  "perActionAccuracy": {
+    "archive": {
+      "accuracy": 1.0,
+      "correct": 5,
+      "total": 5
+    },
+    "keep": {
+      "accuracy": 1.0,
+      "correct": 3,
+      "total": 3
+    },
+    "merge": {
+      "accuracy": 1.0,
+      "correct": 3,
+      "total": 3
+    },
+    "review": {
+      "accuracy": 1.0,
+      "correct": 11,
+      "total": 11
+    }
+  },
+  "totalConflictCases": 3,
+  "totalResolutions": 22
+}
