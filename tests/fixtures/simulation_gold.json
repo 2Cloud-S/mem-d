@@ -1,0 +1,312 @@
+{
+  "cases": [
+    {
+      "id": "sim_merge_1",
+      "sourceCase": "trusted_merge_1",
+      "memories": [
+        {"id": "tm_a", "content": "User prefers PostgreSQL for analytics.", "timestamp": "2026-02-01"},
+        {"id": "tm_b", "content": "User prefers PostgreSQL for analytics workloads.", "timestamp": "2026-02-02"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_tm",
+          "members": ["tm_a", "tm_b"],
+          "averageSimilarity": 0.96,
+          "trustScore": 0.93,
+          "trustLevel": "High"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "merge_cluster:cluster-tm",
+          "actionType": "merge_cluster",
+          "target": {"clusterId": "cluster_tm", "members": ["tm_a", "tm_b"], "removableRecords": 1},
+          "confidence": 0.93,
+          "trustLevel": "High",
+          "requiresHumanApproval": false,
+          "priority": "high",
+          "policyDecision": "approved",
+          "policyRuleId": "balanced.approve-high-trust-safe-action"
+        }
+      ],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "tm_a", "lifecycleState": "Active", "confidence": 0.97},
+            {"memoryId": "tm_b", "lifecycleState": "Active", "confidence": 0.96}
+          ]
+        }
+      },
+      "expected": {
+        "memoryCountAfter": 1,
+        "activeMemoryIds": ["tm_b"],
+        "removedIds": ["tm_a"],
+        "estimatedDuplicateReduction": 1,
+        "mergeGroupsSimulated": 1,
+        "archivesSimulated": 0,
+        "unresolvedReviewCount": 0,
+        "simulationWarningCount": 0
+      }
+    },
+    {
+      "id": "sim_archive_1",
+      "sourceCase": "archive_superseded_1",
+      "memories": [
+        {"id": "la_s1_old", "content": "Decided to use REST for billing APIs.", "timestamp": "2026-01-08"},
+        {"id": "la_s1_new", "content": "Adopted GraphQL instead of REST for billing APIs.", "timestamp": "2026-05-03"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "la_s1_old",
+              "lifecycleState": "Superseded",
+              "confidence": 0.89,
+              "sourceCaseId": "superseded_memory_la_s1_old_la_s1_new"
+            },
+            {"memoryId": "la_s1_new", "lifecycleState": "Active", "confidence": 0.91}
+          ]
+        }
+      },
+      "expected": {
+        "memoryCountAfter": 1,
+        "activeMemoryIds": ["la_s1_new"],
+        "removedIds": ["la_s1_old"],
+        "archivesSimulated": 1,
+        "mergeGroupsSimulated": 0,
+        "unresolvedReviewCount": 0
+      }
+    },
+    {
+      "id": "sim_review_1",
+      "sourceCase": "review_unknown_category",
+      "memories": [
+        {"id": "lme_442", "content": "Template preference slot unknown.", "timestamp": "2026-03-01"}
+      ],
+      "clusters": [],
+      "actions": [
+        {
+          "actionId": "review_unknown_memory:unknown-category-samples",
+          "actionType": "review_unknown_memory",
+          "target": {"memoryIds": ["lme_442"]},
+          "confidence": 0.85,
+          "requiresHumanApproval": true,
+          "priority": "high",
+          "policyDecision": "requires_review"
+        }
+      ],
+      "validation": {
+        "categoryQuality": {
+          "unknownSamples": [{"memoryId": "lme_442", "reason": "unknown category"}]
+        },
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "lme_442", "lifecycleState": "Active", "confidence": 0.95}
+          ]
+        }
+      },
+      "expected": {
+        "memoryCountAfter": 1,
+        "activeMemoryIds": ["lme_442"],
+        "removedIds": [],
+        "unresolvedReviewCount": 1,
+        "reviewQueueSize": 1,
+        "mergeGroupsSimulated": 0,
+        "archivesSimulated": 0
+      }
+    },
+    {
+      "id": "sim_keep_1",
+      "sourceCase": "keep_active_stable",
+      "memories": [
+        {"id": "mem_stable", "content": "User office hours are Tuesday 2-4pm.", "timestamp": "2026-04-01"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "mem_stable", "lifecycleState": "Active", "confidence": 0.97}
+          ]
+        }
+      },
+      "includeKeep": false,
+      "expected": {
+        "memoryCountAfter": 1,
+        "activeMemoryIds": ["mem_stable"],
+        "removedIds": [],
+        "unresolvedReviewCount": 0,
+        "implicitKeepFallback": true
+      }
+    },
+    {
+      "id": "sim_conflict_archive_merge",
+      "sourceCase": "conflict_archive_merge",
+      "memories": [
+        {"id": "cm_old", "content": "Billing API uses REST.", "timestamp": "2026-01-01"},
+        {"id": "cm_new", "content": "Billing API uses REST v2.", "timestamp": "2026-02-01"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_cm",
+          "members": ["cm_old", "cm_new"],
+          "averageSimilarity": 0.92,
+          "trustScore": 0.91,
+          "trustLevel": "High"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "merge_cluster:cluster-cm",
+          "actionType": "merge_cluster",
+          "target": {"clusterId": "cluster_cm", "members": ["cm_old", "cm_new"], "removableRecords": 1},
+          "confidence": 0.91,
+          "trustLevel": "High",
+          "requiresHumanApproval": false,
+          "priority": "high",
+          "policyDecision": "approved"
+        }
+      ],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {
+              "memoryId": "cm_old",
+              "lifecycleState": "Deprecated",
+              "confidence": 0.91,
+              "sourceCaseId": "contradiction_cm_old_cm_new"
+            },
+            {"memoryId": "cm_new", "lifecycleState": "Active", "confidence": 0.93}
+          ]
+        }
+      },
+      "expected": {
+        "memoryCountAfter": 2,
+        "activeMemoryIds": ["cm_old", "cm_new"],
+        "removedIds": [],
+        "unresolvedReviewCount": 1,
+        "conflictReviewCount": 1,
+        "mergeGroupsSimulated": 0,
+        "archivesSimulated": 0
+      }
+    },
+    {
+      "id": "sim_orphan_merge_no_keeper",
+      "memories": [
+        {"id": "om_a", "content": "Duplicate candidate A.", "timestamp": "2026-01-01"},
+        {"id": "om_b", "content": "Duplicate candidate B.", "timestamp": "2026-01-02"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {},
+      "useExplicitResolutions": true,
+      "memoryResolutions": [
+        {
+          "memoryId": "om_a",
+          "resolvedAction": "merge",
+          "role": "removable",
+          "recommendationId": "rec:merge:orphan-group",
+          "confidence": 0.9
+        },
+        {
+          "memoryId": "om_b",
+          "resolvedAction": "merge",
+          "role": "removable",
+          "recommendationId": "rec:merge:orphan-group",
+          "confidence": 0.9
+        }
+      ],
+      "recommendations": [],
+      "expected": {
+        "memoryCountAfter": 2,
+        "activeMemoryIds": ["om_a", "om_b"],
+        "removedIds": [],
+        "warningCode": "ORPHAN_MERGE_NO_KEEPER",
+        "simulationWarningCount": 1,
+        "unresolvedReviewCount": 2,
+        "orphanMergeDowngrade": true,
+        "mergeGroupsSimulated": 0
+      }
+    },
+    {
+      "id": "sim_implicit_keep_fallback",
+      "memories": [
+        {"id": "ik_1", "content": "Stable fact about deployment region.", "timestamp": "2026-05-01"},
+        {"id": "ik_2", "content": "Another stable fact.", "timestamp": "2026-05-02"}
+      ],
+      "clusters": [],
+      "actions": [],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "ik_1", "lifecycleState": "Active", "confidence": 0.96},
+            {"memoryId": "ik_2", "lifecycleState": "Active", "confidence": 0.95}
+          ]
+        }
+      },
+      "includeKeep": false,
+      "expected": {
+        "memoryCountAfter": 2,
+        "removedIds": [],
+        "unresolvedReviewCount": 0,
+        "resolutionFallbackExplainability": true
+      }
+    },
+    {
+      "id": "sim_mixed_recommendation_set",
+      "memories": [
+        {"id": "mx_a", "content": "Prefers dark mode.", "timestamp": "2026-01-01"},
+        {"id": "mx_b", "content": "Likes dark mode UI.", "timestamp": "2026-01-02"},
+        {"id": "mx_old", "content": "Old API version v1.", "timestamp": "2026-01-03"},
+        {"id": "mx_new", "content": "API version v2 adopted.", "timestamp": "2026-06-01"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_mx",
+          "members": ["mx_a", "mx_b"],
+          "averageSimilarity": 0.95,
+          "trustScore": 0.92,
+          "trustLevel": "High"
+        }
+      ],
+      "actions": [
+        {
+          "actionId": "merge_cluster:cluster-mx",
+          "actionType": "merge_cluster",
+          "target": {"clusterId": "cluster_mx", "members": ["mx_a", "mx_b"], "removableRecords": 1},
+          "confidence": 0.92,
+          "trustLevel": "High",
+          "requiresHumanApproval": false,
+          "priority": "high",
+          "policyDecision": "approved"
+        }
+      ],
+      "validation": {
+        "memoryLifecycle": {
+          "memoryLifecycleAssignments": [
+            {"memoryId": "mx_a", "lifecycleState": "Active", "confidence": 0.97},
+            {"memoryId": "mx_b", "lifecycleState": "Active", "confidence": 0.96},
+            {
+              "memoryId": "mx_old",
+              "lifecycleState": "Superseded",
+              "confidence": 0.88,
+              "sourceCaseId": "superseded_mx_old_mx_new"
+            },
+            {"memoryId": "mx_new", "lifecycleState": "Active", "confidence": 0.9}
+          ]
+        }
+      },
+      "expected": {
+        "memoryCountAfter": 2,
+        "activeMemoryIds": ["mx_b", "mx_new"],
+        "removedIds": ["mx_a", "mx_old"],
+        "mergeGroupsSimulated": 1,
+        "archivesSimulated": 1,
+        "estimatedDuplicateReduction": 1,
+        "memoryCountDelta": -2
+      }
+    }
+  ]
+}

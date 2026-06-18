@@ -263,3 +263,106 @@ class AnalysisReport(FrozenModel):
     recommendations: tuple[Recommendation, ...] = ()
     memoryResolutions: tuple[MemoryResolution, ...] = ()
     recommendationSummary: RecommendationSummary = Field(default_factory=RecommendationSummary)
+
+
+class SimulatedExplainability(FrozenModel):
+    explainabilitySource: str
+    recommendationId: str
+    reason: str = ""
+    evidenceRefs: tuple[str, ...] = ()
+    resolutionSnapshot: dict[str, Any] = Field(default_factory=dict)
+
+
+class SimulatedMergeGroup(FrozenModel):
+    recommendationId: str
+    keeperId: str
+    removedIds: tuple[str, ...]
+    clusterId: str = ""
+    trustLevel: str = ""
+    trusted: bool = False
+    explainability: SimulatedExplainability
+
+
+class SimulatedArchiveEntry(FrozenModel):
+    memoryId: str
+    lifecycleState: str
+    recommendationId: str
+    archivedRecord: MemoryRecord
+    explainability: SimulatedExplainability
+
+
+class SimulatedReviewEntry(FrozenModel):
+    memoryId: str
+    recommendationId: str
+    reason: str = ""
+    conflictDetected: bool = False
+    suppressedActions: tuple[str, ...] = ()
+    explainability: SimulatedExplainability
+    orphanMergeDowngrade: bool = False
+
+
+class SimulationWarning(FrozenModel):
+    code: str
+    memoryId: str = ""
+    message: str
+    recommendationId: str = ""
+
+
+class SimulationMetrics(FrozenModel):
+    memoryCountBefore: int = Field(default=0, ge=0)
+    memoryCountAfter: int = Field(default=0, ge=0)
+    memoryCountDelta: int = 0
+    memoryReductionPercentage: float = Field(default=0.0, ge=0.0)
+
+    estimatedRemovableBefore: int = Field(default=0, ge=0)
+    estimatedRemovableAfter: int = Field(default=0, ge=0)
+    estimatedDuplicateReduction: int = Field(default=0, ge=0)
+    estimatedStructuralCompressionBefore: float = Field(default=0.0, ge=0.0)
+    estimatedStructuralCompressionAfter: float = Field(default=0.0, ge=0.0)
+    estimatedCompressionGain: float = 0.0
+    estimatedTrustedRemovableBefore: int = Field(default=0, ge=0)
+    estimatedTrustedRemovableAfter: int = Field(default=0, ge=0)
+    estimatedTrustedStructuralCompressionBefore: float = Field(default=0.0, ge=0.0)
+    estimatedTrustedStructuralCompressionAfter: float = Field(default=0.0, ge=0.0)
+    estimatedTrustedCompressionGain: float = 0.0
+
+    referenceCompressionOpportunity: float = Field(default=0.0, ge=0.0)
+    referenceTrustedCompressionOpportunity: float = Field(default=0.0, ge=0.0)
+
+    lifecycleDistributionBefore: dict[str, int] = Field(default_factory=dict)
+    lifecycleDistributionAfter: dict[str, int] = Field(default_factory=dict)
+    lifecycleDistributionChange: dict[str, int] = Field(default_factory=dict)
+    archivedByLifecycleState: dict[str, int] = Field(default_factory=dict)
+
+    totalResolutions: int = Field(default=0, ge=0)
+    resolutionsApplied: int = Field(default=0, ge=0)
+    resolutionsNoOp: int = Field(default=0, ge=0)
+    mergeGroupsSimulated: int = Field(default=0, ge=0)
+    archivesSimulated: int = Field(default=0, ge=0)
+    recommendationUtilizationRate: float = Field(default=0.0, ge=0.0)
+    recommendationsEligible: int = Field(default=0, ge=0)
+    recommendationsWithStructuralEffect: int = Field(default=0, ge=0)
+    recommendationOutcomeUtilizationRate: float = Field(default=0.0, ge=0.0)
+
+    unresolvedReviewCount: int = Field(default=0, ge=0)
+    conflictReviewCount: int = Field(default=0, ge=0)
+    suppressedActionCount: int = Field(default=0, ge=0)
+    simulationWarningCount: int = Field(default=0, ge=0)
+
+
+class SimulationReport(FrozenModel):
+    simulationId: str
+    sourceMemoryCount: int = Field(default=0, ge=0)
+    simulatedMemoryCount: int = Field(default=0, ge=0)
+    simulatedMemories: tuple[MemoryRecord, ...] = ()
+    simulatedMerges: tuple[SimulatedMergeGroup, ...] = ()
+    simulatedArchives: tuple[SimulatedArchiveEntry, ...] = ()
+    simulatedReviewQueue: tuple[SimulatedReviewEntry, ...] = ()
+    simulationWarnings: tuple[SimulationWarning, ...] = ()
+    metrics: SimulationMetrics
+    analysisReportRef: str = ""
+    policyProfile: str = ""
+    simulationMode: str = "full"
+    metricsDisclaimer: str = (
+        "Structural estimates only; not benchmark-equivalent compression."
+    )
