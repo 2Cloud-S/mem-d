@@ -263,6 +263,7 @@ class AnalysisReport(FrozenModel):
     recommendations: tuple[Recommendation, ...] = ()
     memoryResolutions: tuple[MemoryResolution, ...] = ()
     recommendationSummary: RecommendationSummary = Field(default_factory=RecommendationSummary)
+    simulationReport: SimulationReport | None = None
 
 
 class SimulatedExplainability(FrozenModel):
@@ -366,3 +367,6 @@ class SimulationReport(FrozenModel):
     metricsDisclaimer: str = (
         "Structural estimates only; not benchmark-equivalent compression."
     )
+
+
+AnalysisReport.model_rebuild()

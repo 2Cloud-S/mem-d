@@ -21,6 +21,7 @@ from memd.normalization import normalize_records
 from memd.parser import load_memory_file
 from memd.policy import apply_policy
 from memd.recommendations import plan_recommendations
+from memd.simulation import simulate_recommendations
 
 
 def analyze_file(
@@ -68,7 +69,7 @@ def analyze_file(
         actions,
         metrics=metrics,
     )
-    return AnalysisReport(
+    report = AnalysisReport(
         metrics=metrics,
         clusters=tuple(clusters),
         memories=tuple(records),
@@ -81,4 +82,7 @@ def analyze_file(
         recommendations=recommendations,
         memoryResolutions=memory_resolutions,
         recommendationSummary=recommendation_summary,
+    )
+    return report.model_copy(
+        update={"simulationReport": simulate_recommendations(report)}
     )

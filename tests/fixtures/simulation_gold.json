@@ -307,6 +307,57 @@
         "estimatedDuplicateReduction": 1,
         "memoryCountDelta": -2
       }
+    },
+    {
+      "id": "sim_duplicate_removal_skipped",
+      "memories": [
+        {"id": "dr_k", "content": "Keeper record.", "timestamp": "2026-01-01"},
+        {"id": "dr_x", "content": "Conflicting removable record.", "timestamp": "2026-01-02"}
+      ],
+      "clusters": [
+        {
+          "clusterId": "cluster_dr",
+          "members": ["dr_k", "dr_x"],
+          "averageSimilarity": 0.94,
+          "trustScore": 0.9,
+          "trustLevel": "High"
+        }
+      ],
+      "actions": [],
+      "validation": {},
+      "useExplicitResolutions": true,
+      "memoryResolutions": [
+        {
+          "memoryId": "dr_x",
+          "resolvedAction": "archive",
+          "role": "archive_candidate",
+          "recommendationId": "rec:archive:dr_x",
+          "confidence": 0.9
+        },
+        {
+          "memoryId": "dr_x",
+          "resolvedAction": "merge",
+          "role": "removable",
+          "recommendationId": "rec:merge:dr_group",
+          "confidence": 0.9
+        },
+        {
+          "memoryId": "dr_k",
+          "resolvedAction": "merge",
+          "role": "keeper",
+          "recommendationId": "rec:merge:dr_group",
+          "confidence": 0.9
+        }
+      ],
+      "expected": {
+        "memoryCountAfter": 1,
+        "activeMemoryIds": ["dr_k"],
+        "removedIds": ["dr_x"],
+        "warningCode": "DUPLICATE_REMOVAL_SKIPPED",
+        "simulationWarningCount": 1,
+        "mergeGroupsSimulated": 1,
+        "archivesSimulated": 0
+      }
     }
   ]
 }

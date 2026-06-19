@@ -323,7 +323,93 @@ def _build_evidence_refs(
         if isinstance(members, list) and resolution.memoryId in members:
             refs.append(f"governance_action:{action.actionId}")
 
+    if recommendation is None:
+        refs.extend(
+            _validation_fallback_evidence_refs(
+                resolution.memoryId,
+                report.validation,
+            )
+        )
+
     return tuple(dict.fromkeys(refs))
+
+
+def _validation_fallback_evidence_refs(
+    memory_id: str,
+    validation: Mapping[str, Any],
+) -> list[str]:
+    refs: list[str] = []
+
+    lifecycle = validation.get("memoryLifecycle", {})
+    if isinstance(lifecycle, dict):
+        assignments = lifecycle.get("memoryLifecycleAssignments", [])
+        if isinstance(assignments, list):
+            for item in assignments:
+                if isinstance(item, dict) and item.get("memoryId") == memory_id:
+                    case_id = str(item.get("sourceCaseId", ""))
+                    if case_id:
+                        refs.append(f"lifecycle:{case_id}")
+
+    evolution = validation.get("memoryEvolutionAudit", {})
+    if isinstance(evolution, dict):
+        for key in (
+            "contradictions",
+            "preferenceChanges",
+            "supersededMemories",
+            "staleMemoryCandidates",
+            "statusTransitionCandidates",
+        ):
+            cases = evolution.get(key, [])
+            if not isinstance(cases, list):
+                continue
+            for case in cases:
+                if not isinstance(case, dict):
+                    continue
+                case_id = str(case.get("caseId", ""))
+                if not case_id:
+                    continue
+                memories = case.get("involvedMemories", [])
+                if not isinstance(memories, list):
+                    continue
+                involved_ids = {
+                    str(memory.get("memoryId", ""))
+                    for memory in memories
+                    if isinstance(memory, dict) and memory.get("memoryId")
+                }
+                if memory_id in involved_ids:
+                    refs.append(f"lifecycle:{case_id}")
+
+    category_quality = validation.get("categoryQuality", {})
+    if isinstance(category_quality, dict):
+        unknown_samples = category_quality.get("unknownSamples", [])
+        if isinstance(unknown_samples, list):
+            for sample in unknown_samples:
+                if isinstance(sample, dict) and sample.get("memoryId") == memory_id:
+                    refs.append(f"category_quality:unknown:{memory_id}")
+
+        consistency = category_quality.get("categoryConsistency", {})
+        if isinstance(consistency, dict):
+            candidates = consistency.get("reclassificationCandidates", [])
+            if isinstance(candidates, list):
+                for candidate in candidates:
+                    if isinstance(candidate, dict) and candidate.get("memoryId") == memory_id:
+                        cluster_id = str(candidate.get("clusterId", ""))
+                        if cluster_id:
+                            refs.append(f"category_quality:reclassification:{cluster_id}")
+                        else:
+                            refs.append(f"category_quality:reclassification:{memory_id}")
+
+            conflict_clusters = consistency.get("conflictClusters", [])
+            if isinstance(conflict_clusters, list):
+                for cluster in conflict_clusters:
+                    if not isinstance(cluster, dict):
+                        continue
+                    cluster_id = str(cluster.get("clusterId", ""))
+                    members = cluster.get("members", [])
+                    if isinstance(members, list) and memory_id in members and cluster_id:
+                        refs.append(f"category_quality:conflict_cluster:{cluster_id}")
+
+    return refs
 
 
 def _fallback_reason(

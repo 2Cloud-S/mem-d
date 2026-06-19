@@ -21,13 +21,20 @@ from memd.contracts import (
     RecommendationAction,
     RecommendationEvidence,
     RecommendationSummary,
+    SimulatedArchiveEntry,
+    SimulatedExplainability,
+    SimulatedMergeGroup,
+    SimulatedReviewEntry,
+    SimulationMetrics,
+    SimulationReport,
+    SimulationWarning,
 )
 
 
 def report_to_dict(report: AnalysisReport) -> dict[str, object]:
     records_by_id = {record.id: record for record in report.memories}
     categories_by_id = {category.memoryId: category for category in report.categories}
-    return {
+    payload: dict[str, object] = {
         "metrics": {
             "totalMemories": report.metrics.totalMemories,
             "duplicateCount": report.metrics.duplicateCount,
@@ -91,6 +98,9 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
         ],
         "recommendationSummary": recommendation_summary_to_dict(report.recommendationSummary),
     }
+    if report.simulationReport is not None:
+        payload.update(simulation_report_sections(report.simulationReport))
+    return payload
 
 
 def render_terminal(report: AnalysisReport, console: Console | None = None) -> None:
@@ -291,6 +301,21 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
                 f"completed={counts.get('Completed', 0)}."
             )
 
+    if report.simulationReport is not None:
+        render_simulation_terminal(report.simulationReport, console)
+
+
+def render_simulation_terminal(simulation: SimulationReport, console: Console) -> None:
+    metrics = simulation.metrics
+    delta = metrics.memoryCountDelta
+    delta_label = f"{delta:+d}" if delta else "0"
+    console.print("[bold]Simulation:[/bold]")
+    console.print(f"  Store Delta: {delta_label} memories")
+    console.print(f"  Merge Effects: {metrics.mergeGroupsSimulated}")
+    console.print(f"  Archive Effects: {metrics.archivesSimulated}")
+    console.print(f"  Review Queue: {len(simulation.simulatedReviewQueue)}")
+    console.print(f"  Warnings: {metrics.simulationWarningCount}")
+
 
 def render_json(report: AnalysisReport) -> str:
     return json.dumps(report_to_dict(report), indent=2)
@@ -343,6 +368,8 @@ def render_markdown(report: AnalysisReport) -> str:
     lines.extend(render_policy_summary_markdown(report))
     lines.extend(render_action_plan_markdown(report.actions))
     lines.extend(render_recommendation_summary_markdown(report))
+    if report.simulationReport is not None:
+        lines.extend(render_simulation_summary_markdown(report))
     lines.extend(
         [
         "## Compression Explanation",
@@ -1328,4 +1355,205 @@ def render_cluster_audit_markdown(cluster_quality: dict[str, object]) -> list[st
                         f"{outlier.get('content')}"
                     )
         lines.append("")
+    return lines
+
+
+def simulation_report_sections(simulation: SimulationReport) -> dict[str, object]:
+    return {
+        "simulationReport": simulation_report_to_dict(simulation),
+        "simulationMetrics": simulation_metrics_to_dict(simulation.metrics),
+        "simulatedMergeGroups": [
+            simulated_merge_group_to_dict(group) for group in simulation.simulatedMerges
+        ],
+        "simulatedArchiveEntries": [
+            simulated_archive_entry_to_dict(entry) for entry in simulation.simulatedArchives
+        ],
+        "simulatedReviewEntries": [
+            simulated_review_entry_to_dict(entry) for entry in simulation.simulatedReviewQueue
+        ],
+        "simulationWarnings": [
+            simulation_warning_to_dict(warning) for warning in simulation.simulationWarnings
+        ],
+    }
+
+
+def simulation_report_to_dict(simulation: SimulationReport) -> dict[str, object]:
+    return {
+        "simulationId": simulation.simulationId,
+        "sourceMemoryCount": simulation.sourceMemoryCount,
+        "simulatedMemoryCount": simulation.simulatedMemoryCount,
+        "simulationMode": simulation.simulationMode,
+        "policyProfile": simulation.policyProfile,
+        "metricsDisclaimer": simulation.metricsDisclaimer,
+        "metrics": simulation_metrics_to_dict(simulation.metrics),
+        "simulatedMerges": [
+            simulated_merge_group_to_dict(group) for group in simulation.simulatedMerges
+        ],
+        "simulatedArchives": [
+            simulated_archive_entry_to_dict(entry) for entry in simulation.simulatedArchives
+        ],
+        "simulatedReviewQueue": [
+            simulated_review_entry_to_dict(entry) for entry in simulation.simulatedReviewQueue
+        ],
+        "simulationWarnings": [
+            simulation_warning_to_dict(warning) for warning in simulation.simulationWarnings
+        ],
+    }
+
+
+def simulation_metrics_to_dict(metrics: SimulationMetrics) -> dict[str, object]:
+    return {
+        "memoryCountBefore": metrics.memoryCountBefore,
+        "memoryCountAfter": metrics.memoryCountAfter,
+        "memoryCountDelta": metrics.memoryCountDelta,
+        "memoryReductionPercentage": metrics.memoryReductionPercentage,
+        "estimatedRemovableBefore": metrics.estimatedRemovableBefore,
+        "estimatedRemovableAfter": metrics.estimatedRemovableAfter,
+        "estimatedDuplicateReduction": metrics.estimatedDuplicateReduction,
+        "estimatedStructuralCompressionBefore": metrics.estimatedStructuralCompressionBefore,
+        "estimatedStructuralCompressionAfter": metrics.estimatedStructuralCompressionAfter,
+        "estimatedCompressionGain": metrics.estimatedCompressionGain,
+        "estimatedTrustedRemovableBefore": metrics.estimatedTrustedRemovableBefore,
+        "estimatedTrustedRemovableAfter": metrics.estimatedTrustedRemovableAfter,
+        "estimatedTrustedStructuralCompressionBefore": (
+            metrics.estimatedTrustedStructuralCompressionBefore
+        ),
+        "estimatedTrustedStructuralCompressionAfter": (
+            metrics.estimatedTrustedStructuralCompressionAfter
+        ),
+        "estimatedTrustedCompressionGain": metrics.estimatedTrustedCompressionGain,
+        "referenceCompressionOpportunity": metrics.referenceCompressionOpportunity,
+        "referenceTrustedCompressionOpportunity": metrics.referenceTrustedCompressionOpportunity,
+        "lifecycleDistributionBefore": metrics.lifecycleDistributionBefore,
+        "lifecycleDistributionAfter": metrics.lifecycleDistributionAfter,
+        "lifecycleDistributionChange": metrics.lifecycleDistributionChange,
+        "archivedByLifecycleState": metrics.archivedByLifecycleState,
+        "totalResolutions": metrics.totalResolutions,
+        "resolutionsApplied": metrics.resolutionsApplied,
+        "resolutionsNoOp": metrics.resolutionsNoOp,
+        "mergeGroupsSimulated": metrics.mergeGroupsSimulated,
+        "archivesSimulated": metrics.archivesSimulated,
+        "recommendationUtilizationRate": metrics.recommendationUtilizationRate,
+        "recommendationsEligible": metrics.recommendationsEligible,
+        "recommendationsWithStructuralEffect": metrics.recommendationsWithStructuralEffect,
+        "recommendationOutcomeUtilizationRate": metrics.recommendationOutcomeUtilizationRate,
+        "unresolvedReviewCount": metrics.unresolvedReviewCount,
+        "conflictReviewCount": metrics.conflictReviewCount,
+        "suppressedActionCount": metrics.suppressedActionCount,
+        "simulationWarningCount": metrics.simulationWarningCount,
+    }
+
+
+def simulated_explainability_to_dict(
+    explainability: SimulatedExplainability,
+) -> dict[str, object]:
+    return {
+        "explainabilitySource": explainability.explainabilitySource,
+        "recommendationId": explainability.recommendationId,
+        "reason": explainability.reason,
+        "evidenceRefs": list(explainability.evidenceRefs),
+        "resolutionSnapshot": explainability.resolutionSnapshot,
+    }
+
+
+def simulated_merge_group_to_dict(group: SimulatedMergeGroup) -> dict[str, object]:
+    return {
+        "recommendationId": group.recommendationId,
+        "keeperId": group.keeperId,
+        "removedIds": list(group.removedIds),
+        "clusterId": group.clusterId,
+        "trustLevel": group.trustLevel,
+        "trusted": group.trusted,
+        "explainability": simulated_explainability_to_dict(group.explainability),
+    }
+
+
+def memory_record_to_dict(record: MemoryRecord) -> dict[str, object]:
+    return {
+        "id": record.id,
+        "content": record.content,
+        "source": record.source,
+        "timestamp": record.timestamp,
+        "metadata": record.metadata,
+    }
+
+
+def simulated_archive_entry_to_dict(entry: SimulatedArchiveEntry) -> dict[str, object]:
+    return {
+        "memoryId": entry.memoryId,
+        "lifecycleState": entry.lifecycleState,
+        "recommendationId": entry.recommendationId,
+        "archivedRecord": memory_record_to_dict(entry.archivedRecord),
+        "explainability": simulated_explainability_to_dict(entry.explainability),
+    }
+
+
+def simulated_review_entry_to_dict(entry: SimulatedReviewEntry) -> dict[str, object]:
+    return {
+        "memoryId": entry.memoryId,
+        "recommendationId": entry.recommendationId,
+        "reason": entry.reason,
+        "conflictDetected": entry.conflictDetected,
+        "suppressedActions": list(entry.suppressedActions),
+        "orphanMergeDowngrade": entry.orphanMergeDowngrade,
+        "explainability": simulated_explainability_to_dict(entry.explainability),
+    }
+
+
+def simulation_warning_to_dict(warning: SimulationWarning) -> dict[str, object]:
+    return {
+        "code": warning.code,
+        "memoryId": warning.memoryId,
+        "message": warning.message,
+        "recommendationId": warning.recommendationId,
+    }
+
+
+def render_simulation_summary_markdown(report: AnalysisReport) -> list[str]:
+    simulation = report.simulationReport
+    if simulation is None:
+        return []
+
+    metrics = simulation.metrics
+    keep_count = sum(
+        1
+        for resolution in report.memoryResolutions
+        if resolution.resolvedAction == RecommendationAction.KEEP
+    )
+    lines = [
+        "",
+        "# Simulation Summary",
+        "",
+        "_Structural estimates only; not benchmark-equivalent compression._",
+        "",
+        "## Projected Store Impact",
+        "",
+        f"- Memory count before: {metrics.memoryCountBefore}",
+        f"- Memory count after: {metrics.memoryCountAfter}",
+        f"- Memory count delta: {metrics.memoryCountDelta}",
+        "",
+        "## Recommendation Outcomes",
+        "",
+        f"- Merges applied: {metrics.mergeGroupsSimulated}",
+        f"- Archives applied: {metrics.archivesSimulated}",
+        f"- Reviews remaining: {len(simulation.simulatedReviewQueue)}",
+        f"- Keeps retained: {keep_count}",
+        "",
+        "## Structural Estimates",
+        "",
+        f"- Estimated duplicate reduction: {metrics.estimatedDuplicateReduction}",
+        f"- Estimated compression gain: {metrics.estimatedCompressionGain}",
+        f"- Estimated trusted compression gain: {metrics.estimatedTrustedCompressionGain}",
+        "",
+        "## Warnings",
+        "",
+    ]
+    if simulation.simulationWarnings:
+        for warning in simulation.simulationWarnings:
+            lines.append(
+                f"- `{warning.code}` ({warning.memoryId}): {warning.message}"
+            )
+    else:
+        lines.append("No simulation warnings.")
+    lines.append("")
     return lines

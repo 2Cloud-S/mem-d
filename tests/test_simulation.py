@@ -337,3 +337,105 @@ def test_duplicate_removal_warning_when_already_removed() -> None:
         w for w in simulation.simulationWarnings if w.code == DUPLICATE_REMOVAL_CODE
     ]
     assert not duplicate_warnings
+
+
+def test_duplicate_removal_skipped_positive_path() -> None:
+    case = next(item for item in load_simulation_cases() if item["id"] == "sim_duplicate_removal_skipped")
+    report = build_report_from_case(case)
+    simulation = simulate_recommendations(report)
+    assert any(warning.code == DUPLICATE_REMOVAL_CODE for warning in simulation.simulationWarnings)
+    assert simulation.metrics.simulationWarningCount == 1
+    assert simulation.metrics.archivesSimulated == 0
+    assert simulation.metrics.mergeGroupsSimulated == 1
+    assert active_ids(simulation) == {"dr_k"}
+
+
+def test_copy_isolation_preserves_report_fields() -> None:
+    case = next(item for item in load_simulation_cases() if item["id"] == "sim_mixed_recommendation_set")
+    report = build_report_from_case(case)
+    memory_objects = list(report.memories)
+    recommendation_objects = list(report.recommendations)
+    resolution_objects = list(report.memoryResolutions)
+    snapshot = report.model_dump()
+
+    simulate_recommendations(report)
+
+    assert report.model_dump() == snapshot
+    assert list(report.memories) == memory_objects
+    assert list(report.recommendations) == recommendation_objects
+    assert list(report.memoryResolutions) == resolution_objects
+    for original, current in zip(memory_objects, report.memories, strict=True):
+        assert original is current
+
+
+@pytest.mark.parametrize("case", load_simulation_cases(), ids=lambda c: str(c["id"]))
+def test_monotonic_reduction_never_increases_store(case: dict[str, object]) -> None:
+    report = build_report_from_case(case)
+    simulation = simulate_recommendations(report)
+    assert simulation.metrics.memoryCountAfter <= simulation.metrics.memoryCountBefore
+
+
+@pytest.mark.parametrize("case", load_simulation_cases(), ids=lambda c: str(c["id"]))
+def test_no_orphan_removal_every_removed_id_is_logged(case: dict[str, object]) -> None:
+    report = build_report_from_case(case)
+    simulation = simulate_recommendations(report)
+    before = {memory.id for memory in report.memories}
+    after = active_ids(simulation)
+    removed = before - after
+    logged_removals = set()
+    for merge in simulation.simulatedMerges:
+        logged_removals.update(merge.removedIds)
+    logged_removals.update(entry.memoryId for entry in simulation.simulatedArchives)
+    assert removed == logged_removals
+
+
+def test_fallback_enrichment_from_validation_evidence() -> None:
+    from memd.simulation import (
+        _build_explainability,
+        _cluster_by_member,
+        _lifecycle_by_id,
+    )
+
+    case = next(item for item in load_simulation_cases() if item["id"] == "sim_implicit_keep_fallback")
+    report = build_report_from_case(case)
+    report = report.model_copy(
+        update={
+            "validation": {
+                **report.validation,
+                "memoryEvolutionAudit": {
+                    "supersededMemories": [
+                        {
+                            "caseId": "superseded_ik_1_ik_2",
+                            "involvedMemories": [
+                                {"memoryId": "ik_1", "content": "Stable fact about deployment region."}
+                            ],
+                        }
+                    ]
+                },
+                "categoryQuality": {
+                    "categoryConsistency": {
+                        "reclassificationCandidates": [
+                            {
+                                "memoryId": "ik_1",
+                                "clusterId": "cluster_ik",
+                                "currentCategory": "Fact",
+                                "suggestedCategory": "Preference",
+                            }
+                        ]
+                    }
+                },
+            }
+        }
+    )
+    resolution = next(r for r in report.memoryResolutions if r.memoryId == "ik_1")
+    assert resolution.recommendationId.startswith("rec:implicit:keep:")
+    explainability = _build_explainability(
+        resolution,
+        None,
+        report,
+        _lifecycle_by_id(report.validation),
+        _cluster_by_member(report.clusters),
+    )
+    assert explainability.explainabilitySource == "resolution_fallback"
+    assert any(ref.startswith("lifecycle:") for ref in explainability.evidenceRefs)
+    assert any(ref.startswith("category_quality:") for ref in explainability.evidenceRefs)

@@ -132,3 +132,76 @@ def test_memory_resolution_one_per_memory() -> None:
     memory_ids = [resolution.memoryId for resolution in report.memoryResolutions]
     assert len(memory_ids) == len(set(memory_ids))
     assert set(memory_ids) == {memory.id for memory in report.memories}
+
+
+def test_analyze_file_produces_simulation_report() -> None:
+    report = analyze_file(FIXTURES / "memories.json")
+    assert report.simulationReport is not None
+    assert report.simulationReport.simulationId
+    assert report.simulationReport.metrics.memoryCountBefore == report.metrics.totalMemories
+
+
+def test_json_report_includes_simulation_fields() -> None:
+    report = analyze_file(FIXTURES / "memories.json")
+    payload = json.loads(render_json(report))
+    assert "simulationReport" in payload
+    assert "simulationMetrics" in payload
+    assert "simulatedMergeGroups" in payload
+    assert "simulatedArchiveEntries" in payload
+    assert "simulatedReviewEntries" in payload
+    assert "simulationWarnings" in payload
+    assert "memoryCountDelta" in payload["simulationMetrics"]
+    assert payload["simulationReport"]["metricsDisclaimer"]
+
+
+def test_markdown_report_includes_simulation_summary() -> None:
+    report = analyze_file(FIXTURES / "memories.json")
+    markdown = render_markdown(report)
+    assert "# Simulation Summary" in markdown
+    assert "## Projected Store Impact" in markdown
+    assert "## Structural Estimates" in markdown
+    assert "## Warnings" in markdown
+
+
+def test_terminal_render_includes_simulation_summary() -> None:
+    from rich.console import Console
+
+    report = analyze_file(FIXTURES / "memories.json")
+    console = Console(record=True, width=120)
+    render_terminal(report, console=console)
+    output = console.export_text()
+    assert "Simulation:" in output
+    assert "Store Delta:" in output
+
+
+def test_backward_compatible_report_without_simulation_fields() -> None:
+    from memd.contracts import (
+        ActionPlanSummary,
+        ActionPriority,
+        AnalysisMetrics,
+        MemoryCategory,
+        PolicySummary,
+    )
+
+    report = AnalysisReport(
+        metrics=AnalysisMetrics(
+            totalMemories=0,
+            duplicateCount=0,
+            duplicatePercentage=0.0,
+            compressionOpportunity=0.0,
+            categoryBreakdown={category: 0 for category in MemoryCategory},
+        ),
+        clusters=(),
+        actionSummary=ActionPlanSummary(
+            totalActions=0,
+            safeActions=0,
+            reviewActions=0,
+            estimatedTrustedSavings=0,
+            estimatedUnverifiedSavings=0,
+            actionsByPriority={priority: 0 for priority in ActionPriority},
+        ),
+        policySummary=PolicySummary(),
+    )
+    payload = report_to_dict(report)
+    assert "simulationReport" not in payload
+    assert "simulationMetrics" not in payload
