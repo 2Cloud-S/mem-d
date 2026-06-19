@@ -110,6 +110,31 @@ Implementation details: [PERMA-IMPLEMENTATION-STATUS.md](PERMA-IMPLEMENTATION-ST
 
 ---
 
+## Simulation evaluation results
+
+**Fixture:** `tests/fixtures/simulation_gold.json`
+
+| Metric | Value |
+| --- | ---: |
+| Overall structural accuracy | 1.0000 (119/119) |
+| Merge projection accuracy | 1.0000 |
+| Archive projection accuracy | 1.0000 |
+| Review preservation accuracy | 1.0000 |
+| Warning accuracy | 1.0000 |
+| Orphan merge accuracy | 1.0000 |
+| Explainability accuracy | 1.0000 |
+| Metric consistency accuracy | 1.0000 |
+| Safety passed | Yes |
+| Gate passed | Yes |
+
+**Artifacts:**
+- [simulation_evaluation.md](../../examples/benchmarks/simulation_evaluation.md)
+- [simulation_evaluation.json](../../examples/benchmarks/simulation_evaluation.json)
+
+Implementation details: [V0.7-PHASE3-IMPLEMENTATION.md](V0.7-PHASE3-IMPLEMENTATION.md)
+
+---
+
 ## Benchmark coverage status
 
 | Capability | Reproducible | Ground Truth | Report Exists | Status |
@@ -120,6 +145,7 @@ Implementation details: [PERMA-IMPLEMENTATION-STATUS.md](PERMA-IMPLEMENTATION-ST
 | Evolution | Yes | Yes | Yes | Complete |
 | Lifecycle | Yes | Yes | Yes | Complete |
 | Governance recommendations | Yes | Yes | Yes | Complete |
+| Simulation projection | Yes | Yes | Yes | Complete |
 | Categorization | Yes | No | Partial | Partial |
 | PERMA | Yes (user-level benchmark run) | No | Yes | Partial |
 
@@ -153,4 +179,7 @@ python -m pytest tests/test_evolution_evaluation.py -q
 
 # Recommendation evaluation
 python scripts/run_recommendation_evaluation.py
+
+# Simulation evaluation
+python scripts/run_simulation_evaluation.py
 ```

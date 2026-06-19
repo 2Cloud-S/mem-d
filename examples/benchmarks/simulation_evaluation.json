@@ -1,0 +1,249 @@
+{
+  "archiveProjectionAccuracy": 1.0,
+  "benchmark": "simulation_evaluation",
+  "caseCount": 9,
+  "cases": [
+    {
+      "checkpointsPassed": 15,
+      "checkpointsTotal": 15,
+      "id": "sim_merge_1",
+      "passed": true,
+      "simulationId": "70545399de51085fa1874d91b0df93fdcd5614aa26bc2255e4485293385c5ccd"
+    },
+    {
+      "checkpointsPassed": 13,
+      "checkpointsTotal": 13,
+      "id": "sim_archive_1",
+      "passed": true,
+      "simulationId": "222dea0d5d1de731b6e9200c30d1be6ebd35b63ee44f6fee6d1ad27d9fa75b6f"
+    },
+    {
+      "checkpointsPassed": 15,
+      "checkpointsTotal": 15,
+      "id": "sim_review_1",
+      "passed": true,
+      "simulationId": "4ca078aff781cddf816adabf22cd175127a5bc2234df995389256d0b00b292d6"
+    },
+    {
+      "checkpointsPassed": 9,
+      "checkpointsTotal": 9,
+      "id": "sim_keep_1",
+      "passed": true,
+      "simulationId": "364b5b8b825ea810c3923da470f62c149b9f28d00c286056757f08b39e7dcaf8"
+    },
+    {
+      "checkpointsPassed": 15,
+      "checkpointsTotal": 15,
+      "id": "sim_conflict_archive_merge",
+      "passed": true,
+      "simulationId": "5a22f6e8c89bd4fd6fe599aaf2bcd45610b3058b2e758c4e05cfb060545bd0c1"
+    },
+    {
+      "checkpointsPassed": 15,
+      "checkpointsTotal": 15,
+      "id": "sim_orphan_merge_no_keeper",
+      "passed": true,
+      "simulationId": "eceae870b8bcee47ee48f3a312c383bbf4e4995c87592a670955d8f8abb6930b"
+    },
+    {
+      "checkpointsPassed": 8,
+      "checkpointsTotal": 8,
+      "id": "sim_implicit_keep_fallback",
+      "passed": true,
+      "simulationId": "886f5f9cad56e4c7c8fb93e1f5424419ada283290a87d1d0e9b55895ad3f9cef"
+    },
+    {
+      "checkpointsPassed": 16,
+      "checkpointsTotal": 16,
+      "id": "sim_mixed_recommendation_set",
+      "passed": true,
+      "simulationId": "c643d3e7e9a56a0ceeab3a0f43a5f1d0f1ba40d2956ab0f3b848c0f70374c503"
+    },
+    {
+      "checkpointsPassed": 13,
+      "checkpointsTotal": 13,
+      "id": "sim_duplicate_removal_skipped",
+      "passed": true,
+      "simulationId": "36a2f0ec4bbb56b2e0c426ea14266423e6d7658eefdb67cb3a0a067ac149261d"
+    }
+  ],
+  "diagnostic": {
+    "diagnosticOnly": true,
+    "projectedReductionDistribution": [
+      {
+        "caseId": "sim_merge_1",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 1,
+        "memoryCountDelta": -1
+      },
+      {
+        "caseId": "sim_archive_1",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 0,
+        "memoryCountDelta": -1
+      },
+      {
+        "caseId": "sim_review_1",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 0,
+        "memoryCountDelta": 0
+      },
+      {
+        "caseId": "sim_keep_1",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 0,
+        "memoryCountDelta": 0
+      },
+      {
+        "caseId": "sim_conflict_archive_merge",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 0,
+        "memoryCountDelta": 0
+      },
+      {
+        "caseId": "sim_orphan_merge_no_keeper",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 0,
+        "memoryCountDelta": 0
+      },
+      {
+        "caseId": "sim_implicit_keep_fallback",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 0,
+        "memoryCountDelta": 0
+      },
+      {
+        "caseId": "sim_mixed_recommendation_set",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 1,
+        "memoryCountDelta": -2
+      },
+      {
+        "caseId": "sim_duplicate_removal_skipped",
+        "diagnosticOnly": true,
+        "estimatedDuplicateReduction": 1,
+        "memoryCountDelta": -1
+      }
+    ],
+    "recommendationUtilizationDistribution": [
+      {
+        "caseId": "sim_merge_1",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 1.0,
+        "recommendationUtilizationRate": 0.5,
+        "simulationId": "70545399de51085fa1874d91b0df93fdcd5614aa26bc2255e4485293385c5ccd"
+      },
+      {
+        "caseId": "sim_archive_1",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 1.0,
+        "recommendationUtilizationRate": 0.5,
+        "simulationId": "222dea0d5d1de731b6e9200c30d1be6ebd35b63ee44f6fee6d1ad27d9fa75b6f"
+      },
+      {
+        "caseId": "sim_review_1",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 0.0,
+        "recommendationUtilizationRate": 0.0,
+        "simulationId": "4ca078aff781cddf816adabf22cd175127a5bc2234df995389256d0b00b292d6"
+      },
+      {
+        "caseId": "sim_keep_1",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 0.0,
+        "recommendationUtilizationRate": 0.0,
+        "simulationId": "364b5b8b825ea810c3923da470f62c149b9f28d00c286056757f08b39e7dcaf8"
+      },
+      {
+        "caseId": "sim_conflict_archive_merge",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 0.0,
+        "recommendationUtilizationRate": 0.0,
+        "simulationId": "5a22f6e8c89bd4fd6fe599aaf2bcd45610b3058b2e758c4e05cfb060545bd0c1"
+      },
+      {
+        "caseId": "sim_orphan_merge_no_keeper",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 0.0,
+        "recommendationUtilizationRate": 0.0,
+        "simulationId": "eceae870b8bcee47ee48f3a312c383bbf4e4995c87592a670955d8f8abb6930b"
+      },
+      {
+        "caseId": "sim_implicit_keep_fallback",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 0.0,
+        "recommendationUtilizationRate": 0.0,
+        "simulationId": "886f5f9cad56e4c7c8fb93e1f5424419ada283290a87d1d0e9b55895ad3f9cef"
+      },
+      {
+        "caseId": "sim_mixed_recommendation_set",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 1.0,
+        "recommendationUtilizationRate": 0.5,
+        "simulationId": "c643d3e7e9a56a0ceeab3a0f43a5f1d0f1ba40d2956ab0f3b848c0f70374c503"
+      },
+      {
+        "caseId": "sim_duplicate_removal_skipped",
+        "diagnosticOnly": true,
+        "recommendationOutcomeUtilizationRate": 0.5,
+        "recommendationUtilizationRate": 0.3333,
+        "simulationId": "36a2f0ec4bbb56b2e0c426ea14266423e6d7658eefdb67cb3a0a067ac149261d"
+      }
+    ],
+    "warningDistribution": {
+      "DUPLICATE_REMOVAL_SKIPPED": 1,
+      "ORPHAN_MERGE_NO_KEEPER": 1
+    }
+  },
+  "explainabilityAccuracy": 1.0,
+  "failures": [],
+  "fixture": "tests\\fixtures\\simulation_gold.json",
+  "gatePassed": true,
+  "mergeProjectionAccuracy": 1.0,
+  "metadata": {
+    "evaluatedAt": "2026-06-19T19:33:50.765043+00:00",
+    "memdVersion": "0.6.0",
+    "metricsDisclaimer": "Structural estimates only; not benchmark-equivalent compression."
+  },
+  "metricConsistencyAccuracy": 1.0,
+  "orphanMergeAccuracy": 1.0,
+  "overallStructuralAccuracy": 1.0,
+  "passedCheckpoints": 119,
+  "regressionGuards": {
+    "diagnosticOnly": true,
+    "longmemeval": {
+      "notes": "Not run; regression guard only",
+      "passed": null
+    },
+    "perma": {
+      "notes": "Not run; regression guard only",
+      "passed": null
+    }
+  },
+  "reviewPreservationAccuracy": 1.0,
+  "safety": {
+    "details": {
+      "duplicate_removal_safety": true,
+      "idempotency": true,
+      "monotonic_reduction": true,
+      "no_orphan_removal": true,
+      "orphan_safety": true,
+      "review_preservation": true,
+      "source_immutability": true
+    },
+    "passed": true,
+    "properties": [
+      "source_immutability",
+      "idempotency",
+      "monotonic_reduction",
+      "no_orphan_removal",
+      "orphan_safety",
+      "review_preservation",
+      "duplicate_removal_safety"
+    ]
+  },
+  "simulationMode": "full",
+  "totalCheckpoints": 119,
+  "version": "0.7.0",
+  "warningAccuracy": 1.0
+}
