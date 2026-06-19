@@ -6,7 +6,7 @@ Mem-D answers: **what is in memory, which signals are trustworthy, and what gove
 
 ## Status
 
-- **Version:** v0.6.0
+- **Version:** v0.7.0
 - **Scope:** Read-only CLI analysis, governance recommendations, and recommendation evaluation
 - **Execution boundary:** Mem-D does not mutate memory and does not run autonomous actions
 

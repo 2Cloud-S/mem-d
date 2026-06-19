@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "memd"
-version = "0.6.0"
+version = "0.7.0"
 description = "Local-first CLI analysis for agent memory exports."
 readme = "README.md"
 license = "MIT"

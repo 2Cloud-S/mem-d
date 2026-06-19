@@ -201,8 +201,8 @@
   "gatePassed": true,
   "mergeProjectionAccuracy": 1.0,
   "metadata": {
-    "evaluatedAt": "2026-06-19T19:33:50.765043+00:00",
-    "memdVersion": "0.6.0",
+    "evaluatedAt": "2026-06-19T20:32:47.511642+00:00",
+    "memdVersion": "0.7.0",
     "metricsDisclaimer": "Structural estimates only; not benchmark-equivalent compression."
   },
   "metricConsistencyAccuracy": 1.0,
