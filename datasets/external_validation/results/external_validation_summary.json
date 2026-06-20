@@ -25,8 +25,8 @@
   },
   "exports": {
     "longmemeval_oracle": {
-      "instances": 50,
-      "rawRecords": 1319
+      "instances": 100,
+      "rawRecords": 3094
     },
     "locomo10": {
       "conversations": 10,
@@ -40,85 +40,95 @@
   "observations": [
     {
       "dataset": "longmemeval_oracle",
-      "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.cleaned.jsonl",
-      "analysisSlicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.cleaned.analysis.jsonl",
-      "exportRecordCount": 1319,
-      "analysisRecordCount": 250,
-      "conversationOrInstanceCount": 50,
-      "memoryCount": 250,
+      "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle.raw.cleaned.jsonl",
+      "conversationOrInstanceCount": 100,
+      "memoryCount": 2471,
       "preprocess": {
-        "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.raw.jsonl",
-        "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.cleaned.jsonl",
-        "originalRecordCount": 1319,
+        "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle.raw.jsonl",
+        "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle.raw.cleaned.jsonl",
+        "originalRecordCount": 3094,
         "removedAssistantTurns": 0,
-        "removedFillerRecords": 209,
-        "removedExcludedContent": 1,
-        "removedDuplicateRecords": 1,
-        "finalRecordCount": 1108,
-        "retentionPercentage": 84.0
+        "removedFillerRecords": 496,
+        "removedExcludedContent": 10,
+        "removedDuplicateRecords": 117,
+        "finalRecordCount": 2471,
+        "retentionPercentage": 79.86
       },
       "metrics": {
-        "duplicatePercentage": 51.6,
-        "compressionOpportunity": 51.6,
-        "trustedCompressionOpportunity": 2.4,
-        "unknownRate": 0.2
+        "duplicatePercentage": 77.18,
+        "compressionOpportunity": 77.18,
+        "trustedCompressionOpportunity": 0.89,
+        "unknownRate": 0.1866
       },
       "recommendations": {
-        "totalRecommendations": 114,
+        "totalRecommendations": 568,
         "resolutionCounts": {
-          "review": 244,
-          "archive": 6
+          "review": 2458,
+          "archive": 2,
+          "keep": 11
         },
-        "conflictCount": 0,
-        "reviewRate": 0.976
+        "conflictCount": 2,
+        "reviewRate": 0.9947
       },
       "simulation": {
         "present": true,
         "metrics": {
-          "memoryCountBefore": 250,
-          "memoryCountAfter": 244,
-          "memoryCountDelta": -6,
-          "memoryReductionPercentage": 2.4,
-          "estimatedRemovableBefore": 129,
-          "estimatedRemovableAfter": 129,
+          "memoryCountBefore": 2471,
+          "memoryCountAfter": 2469,
+          "memoryCountDelta": -2,
+          "memoryReductionPercentage": 0.08,
+          "estimatedRemovableBefore": 1907,
+          "estimatedRemovableAfter": 1907,
           "estimatedDuplicateReduction": 0,
-          "estimatedStructuralCompressionBefore": 51.6,
-          "estimatedStructuralCompressionAfter": 52.87,
-          "estimatedCompressionGain": -1.269999999999996,
-          "estimatedTrustedRemovableBefore": 6,
-          "estimatedTrustedRemovableAfter": 6,
-          "estimatedTrustedStructuralCompressionBefore": 2.4,
-          "estimatedTrustedStructuralCompressionAfter": 2.46,
-          "estimatedTrustedCompressionGain": -0.06000000000000005,
-          "referenceCompressionOpportunity": 51.6,
-          "referenceTrustedCompressionOpportunity": 2.4,
+          "estimatedStructuralCompressionBefore": 77.18,
+          "estimatedStructuralCompressionAfter": 77.24,
+          "estimatedCompressionGain": -0.05999999999998806,
+          "estimatedTrustedRemovableBefore": 22,
+          "estimatedTrustedRemovableAfter": 22,
+          "estimatedTrustedStructuralCompressionBefore": 0.89,
+          "estimatedTrustedStructuralCompressionAfter": 0.89,
+          "estimatedTrustedCompressionGain": 0.0,
+          "referenceCompressionOpportunity": 77.18,
+          "referenceTrustedCompressionOpportunity": 0.89,
           "lifecycleDistributionBefore": {
-            "Deprecated": 249,
-            "Active": 1
+            "Temporary": 5,
+            "Deprecated": 2436,
+            "Active": 2,
+            "Historical": 7,
+            "Unknown": 16,
+            "Superseded": 5
           },
           "lifecycleDistributionAfter": {
-            "Deprecated": 243,
-            "Active": 1
+            "Temporary": 5,
+            "Deprecated": 2434,
+            "Active": 2,
+            "Historical": 7,
+            "Unknown": 16,
+            "Superseded": 5
           },
           "lifecycleDistributionChange": {
             "Active": 0,
-            "Deprecated": -6
+            "Deprecated": -2,
+            "Historical": 0,
+            "Superseded": 0,
+            "Temporary": 0,
+            "Unknown": 0
           },
           "archivedByLifecycleState": {
-            "Deprecated": 6
+            "Deprecated": 2
           },
-          "totalResolutions": 250,
-          "resolutionsApplied": 6,
-          "resolutionsNoOp": 244,
+          "totalResolutions": 2471,
+          "resolutionsApplied": 2,
+          "resolutionsNoOp": 2469,
           "mergeGroupsSimulated": 0,
-          "archivesSimulated": 6,
-          "recommendationUtilizationRate": 0.024,
-          "recommendationsEligible": 6,
-          "recommendationsWithStructuralEffect": 6,
+          "archivesSimulated": 2,
+          "recommendationUtilizationRate": 0.0008,
+          "recommendationsEligible": 2,
+          "recommendationsWithStructuralEffect": 2,
           "recommendationOutcomeUtilizationRate": 1.0,
-          "unresolvedReviewCount": 244,
-          "conflictReviewCount": 0,
-          "suppressedActionCount": 257,
+          "unresolvedReviewCount": 2458,
+          "conflictReviewCount": 2,
+          "suppressedActionCount": 3330,
           "simulationWarningCount": 0
         },
         "warningCodes": {},
@@ -127,13 +137,13 @@
       },
       "examples": {
         "highReviewRate": {
-          "reviewRate": 0.976,
+          "reviewRate": 0.9947389720760825,
           "sampleMemoryIds": [
-            "lme_08f4fc43_1",
-            "lme_08f4fc43_2",
-            "lme_08f4fc43_3",
-            "lme_08f4fc43_4",
-            "lme_08f4fc43_5"
+            "lme_00ca467f_1",
+            "lme_00ca467f_11",
+            "lme_00ca467f_13",
+            "lme_00ca467f_14",
+            "lme_00ca467f_15"
           ]
         },
         "unknownCategorySamples": [
@@ -146,24 +156,42 @@
             "matchedSignals": []
           },
           {
-            "memoryId": "lme_gpt4_2487a7cb_5",
-            "content": "Can you suggest some ways to minimize distractions while working, especially when I'm working on tasks that require a lot of concentration?",
+            "memoryId": "lme_gpt4_2655b836_9",
+            "content": "I've also been redeeming points from my credit card to get rewards. I recently redeemed 50,000 points to get a $500 gift card to a car accessories store. I used it to purchase a new car cover, floor mats, and a steering wheel cover, which I'm really happy with.",
             "category": "Unknown",
             "confidence": 0.2,
             "reason": "No V1 heuristic matched; inspect manually.",
             "matchedSignals": []
           },
           {
-            "memoryId": "lme_gpt4_2312f94c_5",
-            "content": "I'm also planning to use my portable power bank, Anker PowerCore 20000, that I bought from Amazon a week before I got my new phone, to ensure my devices stay charged during the trip.",
+            "memoryId": "lme_gpt4_2655b836_13",
+            "content": "I'm thinking of getting a car wax and detailing done soon. Can you give me some tips on what to look for when choosing a detailer?",
             "category": "Unknown",
             "confidence": 0.2,
             "reason": "No V1 heuristic matched; inspect manually.",
             "matchedSignals": []
           }
         ],
+        "conflictCases": [
+          {
+            "memoryId": "lme_f0853d11_16",
+            "resolvedAction": "review",
+            "suppressedActions": [
+              "archive",
+              "merge"
+            ]
+          },
+          {
+            "memoryId": "lme_f0853d11_20",
+            "resolvedAction": "review",
+            "suppressedActions": [
+              "archive",
+              "merge"
+            ]
+          }
+        ],
         "archiveDominance": {
-          "archive": 6,
+          "archive": 2,
           "merge": 0
         }
       }
@@ -171,84 +199,90 @@
     {
       "dataset": "locomo10",
       "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\locomo10.raw.jsonl",
-      "analysisSlicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\locomo10.raw.analysis.jsonl",
-      "exportRecordCount": 5882,
-      "analysisRecordCount": 250,
       "conversationOrInstanceCount": 10,
-      "memoryCount": 250,
+      "memoryCount": 5882,
       "preprocess": null,
       "metrics": {
-        "duplicatePercentage": 3.2,
-        "compressionOpportunity": 3.2,
-        "trustedCompressionOpportunity": 1.2,
-        "unknownRate": 0.468
+        "duplicatePercentage": 15.1,
+        "compressionOpportunity": 15.1,
+        "trustedCompressionOpportunity": 1.72,
+        "unknownRate": 0.4636
       },
       "recommendations": {
-        "totalRecommendations": 27,
+        "totalRecommendations": 1821,
         "resolutionCounts": {
-          "review": 50,
-          "keep": 199,
-          "archive": 1
+          "keep": 3187,
+          "archive": 758,
+          "review": 1935,
+          "merge": 2
         },
         "conflictCount": 0,
-        "reviewRate": 0.2
+        "reviewRate": 0.329
       },
       "simulation": {
         "present": true,
         "metrics": {
-          "memoryCountBefore": 250,
-          "memoryCountAfter": 249,
-          "memoryCountDelta": -1,
-          "memoryReductionPercentage": 0.4,
-          "estimatedRemovableBefore": 8,
-          "estimatedRemovableAfter": 8,
-          "estimatedDuplicateReduction": 0,
-          "estimatedStructuralCompressionBefore": 3.2,
-          "estimatedStructuralCompressionAfter": 3.21,
-          "estimatedCompressionGain": -0.009999999999999787,
-          "estimatedTrustedRemovableBefore": 3,
-          "estimatedTrustedRemovableAfter": 3,
-          "estimatedTrustedStructuralCompressionBefore": 1.2,
-          "estimatedTrustedStructuralCompressionAfter": 1.2,
-          "estimatedTrustedCompressionGain": 0.0,
-          "referenceCompressionOpportunity": 3.2,
-          "referenceTrustedCompressionOpportunity": 1.2,
+          "memoryCountBefore": 5882,
+          "memoryCountAfter": 5123,
+          "memoryCountDelta": -759,
+          "memoryReductionPercentage": 12.9,
+          "estimatedRemovableBefore": 888,
+          "estimatedRemovableAfter": 887,
+          "estimatedDuplicateReduction": 1,
+          "estimatedStructuralCompressionBefore": 15.1,
+          "estimatedStructuralCompressionAfter": 17.31,
+          "estimatedCompressionGain": -2.209999999999999,
+          "estimatedTrustedRemovableBefore": 101,
+          "estimatedTrustedRemovableAfter": 100,
+          "estimatedTrustedStructuralCompressionBefore": 1.72,
+          "estimatedTrustedStructuralCompressionAfter": 1.95,
+          "estimatedTrustedCompressionGain": -0.22999999999999998,
+          "referenceCompressionOpportunity": 15.1,
+          "referenceTrustedCompressionOpportunity": 1.72,
           "lifecycleDistributionBefore": {
-            "Unknown": 225,
-            "Active": 5,
-            "Temporary": 6,
-            "Historical": 9,
-            "Completed": 5
+            "Deprecated": 1558,
+            "Unknown": 3869,
+            "Completed": 43,
+            "Temporary": 122,
+            "Historical": 165,
+            "Active": 116,
+            "Superseded": 9
           },
           "lifecycleDistributionAfter": {
-            "Unknown": 225,
-            "Active": 5,
-            "Temporary": 6,
-            "Historical": 8,
-            "Completed": 5
+            "Deprecated": 812,
+            "Unknown": 3868,
+            "Completed": 43,
+            "Active": 116,
+            "Temporary": 117,
+            "Historical": 158,
+            "Superseded": 9
           },
           "lifecycleDistributionChange": {
             "Active": 0,
             "Completed": 0,
-            "Historical": -1,
-            "Temporary": 0,
-            "Unknown": 0
+            "Deprecated": -746,
+            "Historical": -7,
+            "Superseded": 0,
+            "Temporary": -5,
+            "Unknown": -1
           },
           "archivedByLifecycleState": {
-            "Historical": 1
+            "Deprecated": 746,
+            "Historical": 7,
+            "Temporary": 5
           },
-          "totalResolutions": 250,
-          "resolutionsApplied": 1,
-          "resolutionsNoOp": 249,
-          "mergeGroupsSimulated": 0,
-          "archivesSimulated": 1,
-          "recommendationUtilizationRate": 0.004,
-          "recommendationsEligible": 1,
-          "recommendationsWithStructuralEffect": 1,
+          "totalResolutions": 5882,
+          "resolutionsApplied": 759,
+          "resolutionsNoOp": 5123,
+          "mergeGroupsSimulated": 1,
+          "archivesSimulated": 758,
+          "recommendationUtilizationRate": 0.129,
+          "recommendationsEligible": 759,
+          "recommendationsWithStructuralEffect": 759,
           "recommendationOutcomeUtilizationRate": 1.0,
-          "unresolvedReviewCount": 50,
+          "unresolvedReviewCount": 1935,
           "conflictReviewCount": 0,
-          "suppressedActionCount": 5,
+          "suppressedActionCount": 1073,
           "simulationWarningCount": 0
         },
         "warningCodes": {},
@@ -283,78 +317,78 @@
           }
         ],
         "archiveDominance": {
-          "archive": 1,
-          "merge": 0
+          "archive": 758,
+          "merge": 2
         }
       }
     },
     {
       "dataset": "personalens_profiles",
       "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\personalens.raw.jsonl",
-      "analysisSlicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\personalens.raw.analysis.jsonl",
-      "exportRecordCount": 1098,
-      "analysisRecordCount": 246,
       "conversationOrInstanceCount": 5,
-      "memoryCount": 246,
+      "memoryCount": 1098,
       "preprocess": null,
       "metrics": {
-        "duplicatePercentage": 81.71,
-        "compressionOpportunity": 81.71,
-        "trustedCompressionOpportunity": 15.45,
-        "unknownRate": 0.752
+        "duplicatePercentage": 89.25,
+        "compressionOpportunity": 89.25,
+        "trustedCompressionOpportunity": 22.31,
+        "unknownRate": 0.3279
       },
       "recommendations": {
-        "totalRecommendations": 24,
+        "totalRecommendations": 107,
         "resolutionCounts": {
-          "review": 203,
-          "merge": 17,
+          "review": 810,
+          "merge": 262,
           "keep": 26
         },
         "conflictCount": 0,
-        "reviewRate": 0.8252
+        "reviewRate": 0.7377
       },
       "simulation": {
         "present": true,
         "metrics": {
-          "memoryCountBefore": 246,
-          "memoryCountAfter": 233,
-          "memoryCountDelta": -13,
-          "memoryReductionPercentage": 5.28,
-          "estimatedRemovableBefore": 201,
-          "estimatedRemovableAfter": 188,
-          "estimatedDuplicateReduction": 13,
-          "estimatedStructuralCompressionBefore": 81.71,
-          "estimatedStructuralCompressionAfter": 80.69,
-          "estimatedCompressionGain": 1.019999999999996,
-          "estimatedTrustedRemovableBefore": 38,
-          "estimatedTrustedRemovableAfter": 25,
-          "estimatedTrustedStructuralCompressionBefore": 15.45,
-          "estimatedTrustedStructuralCompressionAfter": 10.73,
-          "estimatedTrustedCompressionGain": 4.719999999999999,
-          "referenceCompressionOpportunity": 81.71,
-          "referenceTrustedCompressionOpportunity": 15.45,
+          "memoryCountBefore": 1098,
+          "memoryCountAfter": 898,
+          "memoryCountDelta": -200,
+          "memoryReductionPercentage": 18.21,
+          "estimatedRemovableBefore": 980,
+          "estimatedRemovableAfter": 780,
+          "estimatedDuplicateReduction": 200,
+          "estimatedStructuralCompressionBefore": 89.25,
+          "estimatedStructuralCompressionAfter": 86.86,
+          "estimatedCompressionGain": 2.3900000000000006,
+          "estimatedTrustedRemovableBefore": 245,
+          "estimatedTrustedRemovableAfter": 45,
+          "estimatedTrustedStructuralCompressionBefore": 22.31,
+          "estimatedTrustedStructuralCompressionAfter": 5.01,
+          "estimatedTrustedCompressionGain": 17.299999999999997,
+          "referenceCompressionOpportunity": 89.25,
+          "referenceTrustedCompressionOpportunity": 22.31,
           "lifecycleDistributionBefore": {
-            "Unknown": 246
+            "Unknown": 1081,
+            "Temporary": 17
           },
           "lifecycleDistributionAfter": {
-            "Unknown": 233
+            "Unknown": 881,
+            "Temporary": 17
           },
           "lifecycleDistributionChange": {
-            "Unknown": -13
+            "Temporary": 0,
+            "Unknown": -200
           },
           "archivedByLifecycleState": {},
-          "totalResolutions": 246,
-          "resolutionsApplied": 13,
-          "resolutionsNoOp": 233,
-          "mergeGroupsSimulated": 4,
+          "totalResolutions": 1098,
+          "resolutionsApplied": 200,
+          "resolutionsNoOp": 898,
+          "mergeGroupsSimulated": 62,
           "archivesSimulated": 0,
-          "recommendationUtilizationRate": 0.0528,
-          "recommendationsEligible": 4,
-          "recommendationsWithStructuralEffect": 4,
+          "recommendationUtilizationRate": 0.1821,
+          "recommendationsEligible": 62,
+          "recommendationsWithStructuralEffect": 62,
           "recommendationOutcomeUtilizationRate": 1.0,
-          "unresolvedReviewCount": 203,
+          "unresolvedReviewCount": 810,
           "conflictReviewCount": 0,
-          "suppressedActionCount": 0,
+          "suppressedActionCount": 5,
           "simulationWarningCount": 0
         },
         "warningCodes": {},
@@ -363,7 +397,7 @@
       },
       "examples": {
         "highReviewRate": {
-          "reviewRate": 0.8252032520325203,
+          "reviewRate": 0.7377049180327869,
           "sampleMemoryIds": [
             "pl_0_affinity_1",
             "pl_0_affinity_10",
