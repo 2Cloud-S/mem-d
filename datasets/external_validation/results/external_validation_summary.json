@@ -1,0 +1,404 @@
+{
+  "validation": "external_pre_v0.8",
+  "memdVersion": "0.7.0",
+  "datasets": [
+    {
+      "name": "longmemeval_oracle",
+      "license": "MIT (LongMemEval cleaned release)",
+      "source": "xiaowu0162/longmemeval-cleaned"
+    },
+    {
+      "name": "locomo10",
+      "license": "Research release (snap-research/locomo)",
+      "source": "snap-research/locomo (GitHub raw JSON)"
+    },
+    {
+      "name": "personalens_profiles",
+      "license": "CDLA-Permissive-2.0",
+      "source": "AmazonScience/PersonaLens (users 0-4)"
+    }
+  ],
+  "downloads": {
+    "longmemeval_oracle_bytes": 15388478,
+    "locomo10_bytes": 2805274,
+    "totalApproxMB": 17.35
+  },
+  "exports": {
+    "longmemeval_oracle": {
+      "instances": 50,
+      "rawRecords": 1319
+    },
+    "locomo10": {
+      "conversations": 10,
+      "records": 5882
+    },
+    "personalens_profiles": {
+      "users": 5,
+      "records": 1098
+    }
+  },
+  "observations": [
+    {
+      "dataset": "longmemeval_oracle",
+      "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.cleaned.jsonl",
+      "analysisSlicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.cleaned.analysis.jsonl",
+      "exportRecordCount": 1319,
+      "analysisRecordCount": 250,
+      "conversationOrInstanceCount": 50,
+      "memoryCount": 250,
+      "preprocess": {
+        "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.raw.jsonl",
+        "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\longmemeval_oracle_50.cleaned.jsonl",
+        "originalRecordCount": 1319,
+        "removedAssistantTurns": 0,
+        "removedFillerRecords": 209,
+        "removedExcludedContent": 1,
+        "removedDuplicateRecords": 1,
+        "finalRecordCount": 1108,
+        "retentionPercentage": 84.0
+      },
+      "metrics": {
+        "duplicatePercentage": 51.6,
+        "compressionOpportunity": 51.6,
+        "trustedCompressionOpportunity": 2.4,
+        "unknownRate": 0.2
+      },
+      "recommendations": {
+        "totalRecommendations": 114,
+        "resolutionCounts": {
+          "review": 244,
+          "archive": 6
+        },
+        "conflictCount": 0,
+        "reviewRate": 0.976
+      },
+      "simulation": {
+        "present": true,
+        "metrics": {
+          "memoryCountBefore": 250,
+          "memoryCountAfter": 244,
+          "memoryCountDelta": -6,
+          "memoryReductionPercentage": 2.4,
+          "estimatedRemovableBefore": 129,
+          "estimatedRemovableAfter": 129,
+          "estimatedDuplicateReduction": 0,
+          "estimatedStructuralCompressionBefore": 51.6,
+          "estimatedStructuralCompressionAfter": 52.87,
+          "estimatedCompressionGain": -1.269999999999996,
+          "estimatedTrustedRemovableBefore": 6,
+          "estimatedTrustedRemovableAfter": 6,
+          "estimatedTrustedStructuralCompressionBefore": 2.4,
+          "estimatedTrustedStructuralCompressionAfter": 2.46,
+          "estimatedTrustedCompressionGain": -0.06000000000000005,
+          "referenceCompressionOpportunity": 51.6,
+          "referenceTrustedCompressionOpportunity": 2.4,
+          "lifecycleDistributionBefore": {
+            "Deprecated": 249,
+            "Active": 1
+          },
+          "lifecycleDistributionAfter": {
+            "Deprecated": 243,
+            "Active": 1
+          },
+          "lifecycleDistributionChange": {
+            "Active": 0,
+            "Deprecated": -6
+          },
+          "archivedByLifecycleState": {
+            "Deprecated": 6
+          },
+          "totalResolutions": 250,
+          "resolutionsApplied": 6,
+          "resolutionsNoOp": 244,
+          "mergeGroupsSimulated": 0,
+          "archivesSimulated": 6,
+          "recommendationUtilizationRate": 0.024,
+          "recommendationsEligible": 6,
+          "recommendationsWithStructuralEffect": 6,
+          "recommendationOutcomeUtilizationRate": 1.0,
+          "unresolvedReviewCount": 244,
+          "conflictReviewCount": 0,
+          "suppressedActionCount": 257,
+          "simulationWarningCount": 0
+        },
+        "warningCodes": {},
+        "orphanMergeWarnings": 0,
+        "explainabilityGaps": 0
+      },
+      "examples": {
+        "highReviewRate": {
+          "reviewRate": 0.976,
+          "sampleMemoryIds": [
+            "lme_08f4fc43_1",
+            "lme_08f4fc43_2",
+            "lme_08f4fc43_3",
+            "lme_08f4fc43_4",
+            "lme_08f4fc43_5"
+          ]
+        },
+        "unknownCategorySamples": [
+          {
+            "memoryId": "lme_gpt4_2655b836_7",
+            "content": "I've also been using the rewards program at the Shell gas station near my office to earn points. Do you think it's worth it to focus on earning points at one gas station or to try to earn points across multiple stations?",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          },
+          {
+            "memoryId": "lme_gpt4_2487a7cb_5",
+            "content": "Can you suggest some ways to minimize distractions while working, especially when I'm working on tasks that require a lot of concentration?",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          },
+          {
+            "memoryId": "lme_gpt4_2312f94c_5",
+            "content": "I'm also planning to use my portable power bank, Anker PowerCore 20000, that I bought from Amazon a week before I got my new phone, to ensure my devices stay charged during the trip.",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          }
+        ],
+        "archiveDominance": {
+          "archive": 6,
+          "merge": 0
+        }
+      }
+    },
+    {
+      "dataset": "locomo10",
+      "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\locomo10.raw.jsonl",
+      "analysisSlicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\locomo10.raw.analysis.jsonl",
+      "exportRecordCount": 5882,
+      "analysisRecordCount": 250,
+      "conversationOrInstanceCount": 10,
+      "memoryCount": 250,
+      "preprocess": null,
+      "metrics": {
+        "duplicatePercentage": 3.2,
+        "compressionOpportunity": 3.2,
+        "trustedCompressionOpportunity": 1.2,
+        "unknownRate": 0.468
+      },
+      "recommendations": {
+        "totalRecommendations": 27,
+        "resolutionCounts": {
+          "review": 50,
+          "keep": 199,
+          "archive": 1
+        },
+        "conflictCount": 0,
+        "reviewRate": 0.2
+      },
+      "simulation": {
+        "present": true,
+        "metrics": {
+          "memoryCountBefore": 250,
+          "memoryCountAfter": 249,
+          "memoryCountDelta": -1,
+          "memoryReductionPercentage": 0.4,
+          "estimatedRemovableBefore": 8,
+          "estimatedRemovableAfter": 8,
+          "estimatedDuplicateReduction": 0,
+          "estimatedStructuralCompressionBefore": 3.2,
+          "estimatedStructuralCompressionAfter": 3.21,
+          "estimatedCompressionGain": -0.009999999999999787,
+          "estimatedTrustedRemovableBefore": 3,
+          "estimatedTrustedRemovableAfter": 3,
+          "estimatedTrustedStructuralCompressionBefore": 1.2,
+          "estimatedTrustedStructuralCompressionAfter": 1.2,
+          "estimatedTrustedCompressionGain": 0.0,
+          "referenceCompressionOpportunity": 3.2,
+          "referenceTrustedCompressionOpportunity": 1.2,
+          "lifecycleDistributionBefore": {
+            "Unknown": 225,
+            "Active": 5,
+            "Temporary": 6,
+            "Historical": 9,
+            "Completed": 5
+          },
+          "lifecycleDistributionAfter": {
+            "Unknown": 225,
+            "Active": 5,
+            "Temporary": 6,
+            "Historical": 8,
+            "Completed": 5
+          },
+          "lifecycleDistributionChange": {
+            "Active": 0,
+            "Completed": 0,
+            "Historical": -1,
+            "Temporary": 0,
+            "Unknown": 0
+          },
+          "archivedByLifecycleState": {
+            "Historical": 1
+          },
+          "totalResolutions": 250,
+          "resolutionsApplied": 1,
+          "resolutionsNoOp": 249,
+          "mergeGroupsSimulated": 0,
+          "archivesSimulated": 1,
+          "recommendationUtilizationRate": 0.004,
+          "recommendationsEligible": 1,
+          "recommendationsWithStructuralEffect": 1,
+          "recommendationOutcomeUtilizationRate": 1.0,
+          "unresolvedReviewCount": 50,
+          "conflictReviewCount": 0,
+          "suppressedActionCount": 5,
+          "simulationWarningCount": 0
+        },
+        "warningCodes": {},
+        "orphanMergeWarnings": 0,
+        "explainabilityGaps": 0
+      },
+      "examples": {
+        "unknownCategorySamples": [
+          {
+            "memoryId": "locomo_conv-26_D1:1",
+            "content": "Hey Mel! Good to see you! How have you been?",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          },
+          {
+            "memoryId": "locomo_conv-26_D1:2",
+            "content": "Hey Caroline! Good to see you! I'm swamped with the kids & work. What's up with you? Anything new?",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          },
+          {
+            "memoryId": "locomo_conv-26_D1:6",
+            "content": "Wow, love that painting! So cool you found such a helpful group. What's it done for you?",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          }
+        ],
+        "archiveDominance": {
+          "archive": 1,
+          "merge": 0
+        }
+      }
+    },
+    {
+      "dataset": "personalens_profiles",
+      "inputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\personalens.raw.jsonl",
+      "analysisSlicePath": "C:\\Users\\hp\\OneDrive\\Desktop\\Dev-work\\mem-d\\datasets\\external_validation\\personalens.raw.analysis.jsonl",
+      "exportRecordCount": 1098,
+      "analysisRecordCount": 246,
+      "conversationOrInstanceCount": 5,
+      "memoryCount": 246,
+      "preprocess": null,
+      "metrics": {
+        "duplicatePercentage": 81.71,
+        "compressionOpportunity": 81.71,
+        "trustedCompressionOpportunity": 15.45,
+        "unknownRate": 0.752
+      },
+      "recommendations": {
+        "totalRecommendations": 24,
+        "resolutionCounts": {
+          "review": 203,
+          "merge": 17,
+          "keep": 26
+        },
+        "conflictCount": 0,
+        "reviewRate": 0.8252
+      },
+      "simulation": {
+        "present": true,
+        "metrics": {
+          "memoryCountBefore": 246,
+          "memoryCountAfter": 233,
+          "memoryCountDelta": -13,
+          "memoryReductionPercentage": 5.28,
+          "estimatedRemovableBefore": 201,
+          "estimatedRemovableAfter": 188,
+          "estimatedDuplicateReduction": 13,
+          "estimatedStructuralCompressionBefore": 81.71,
+          "estimatedStructuralCompressionAfter": 80.69,
+          "estimatedCompressionGain": 1.019999999999996,
+          "estimatedTrustedRemovableBefore": 38,
+          "estimatedTrustedRemovableAfter": 25,
+          "estimatedTrustedStructuralCompressionBefore": 15.45,
+          "estimatedTrustedStructuralCompressionAfter": 10.73,
+          "estimatedTrustedCompressionGain": 4.719999999999999,
+          "referenceCompressionOpportunity": 81.71,
+          "referenceTrustedCompressionOpportunity": 15.45,
+          "lifecycleDistributionBefore": {
+            "Unknown": 246
+          },
+          "lifecycleDistributionAfter": {
+            "Unknown": 233
+          },
+          "lifecycleDistributionChange": {
+            "Unknown": -13
+          },
+          "archivedByLifecycleState": {},
+          "totalResolutions": 246,
+          "resolutionsApplied": 13,
+          "resolutionsNoOp": 233,
+          "mergeGroupsSimulated": 4,
+          "archivesSimulated": 0,
+          "recommendationUtilizationRate": 0.0528,
+          "recommendationsEligible": 4,
+          "recommendationsWithStructuralEffect": 4,
+          "recommendationOutcomeUtilizationRate": 1.0,
+          "unresolvedReviewCount": 203,
+          "conflictReviewCount": 0,
+          "suppressedActionCount": 0,
+          "simulationWarningCount": 0
+        },
+        "warningCodes": {},
+        "orphanMergeWarnings": 0,
+        "explainabilityGaps": 0
+      },
+      "examples": {
+        "highReviewRate": {
+          "reviewRate": 0.8252032520325203,
+          "sampleMemoryIds": [
+            "pl_0_affinity_1",
+            "pl_0_affinity_10",
+            "pl_0_affinity_11",
+            "pl_0_affinity_12",
+            "pl_0_affinity_13"
+          ]
+        },
+        "unknownCategorySamples": [
+          {
+            "memoryId": "pl_0_affinity_1",
+            "content": "User 0 preference in Alarm: Alarm Recurring Preference = weekdays.",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          },
+          {
+            "memoryId": "pl_0_affinity_2",
+            "content": "User 0 preference in Alarm: Alarm Sound Preference = upbeat music.",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          },
+          {
+            "memoryId": "pl_0_affinity_3",
+            "content": "User 0 preference in Alarm: Alarm Time Preference = 7:00 AM.",
+            "category": "Unknown",
+            "confidence": 0.2,
+            "reason": "No V1 heuristic matched; inspect manually.",
+            "matchedSignals": []
+          }
+        ]
+      }
+    }
+  ]
+}
