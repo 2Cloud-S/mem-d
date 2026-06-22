@@ -22,6 +22,7 @@ from memd.parser import load_memory_file
 from memd.policy import apply_policy
 from memd.recommendations import plan_recommendations
 from memd.simulation import simulate_recommendations
+from memd.workflows import plan_workflows
 
 
 def analyze_file(
@@ -83,6 +84,7 @@ def analyze_file(
         memoryResolutions=memory_resolutions,
         recommendationSummary=recommendation_summary,
     )
-    return report.model_copy(
+    report = report.model_copy(
         update={"simulationReport": simulate_recommendations(report)}
     )
+    return report.model_copy(update={"workflowPlan": plan_workflows(report)})

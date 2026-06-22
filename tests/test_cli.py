@@ -58,6 +58,51 @@ def test_cli_analyze_json_output() -> None:
     assert '"policySummary"' in result.output
     assert '"policyDecision"' in result.output
     assert '"policyExplanation"' in result.output
+    assert '"workflowPlan"' in result.output
+    assert '"plannerVersion": "2"' in result.output
+
+
+def test_cli_analyze_terminal_includes_workflow_summary_and_notice() -> None:
+    result = CliRunner().invoke(
+        app,
+        ["analyze", str(FIXTURES / "memories.json"), "--format", "terminal"],
+    )
+
+    assert result.exit_code == 0
+    assert "Workflow Plan:" in result.output
+    assert "Planner state: initial" in result.output
+    assert "Planning only — operator decisions have not been applied." in result.output
+
+
+def test_cli_analyze_terminal_has_no_approval_prompt() -> None:
+    result = CliRunner().invoke(
+        app,
+        ["analyze", str(FIXTURES / "memories.json"), "--format", "terminal"],
+    )
+
+    assert result.exit_code == 0
+    workflow_section = result.output.split("Workflow Plan:", maxsplit=1)[-1].lower()
+    assert "approve item" not in workflow_section
+    assert "interactive" not in workflow_section
+
+
+def test_cli_analyze_markdown_includes_workflow_plan_hierarchy() -> None:
+    result = CliRunner().invoke(
+        app,
+        ["analyze", str(FIXTURES / "memories.json"), "--format", "markdown"],
+    )
+
+    assert result.exit_code == 0
+    assert "# Mem-D Analysis Report" in result.output
+    simulation = result.output.index("## Simulation Summary")
+    workflow = result.output.index("## Workflow Plan")
+    compression = result.output.index("## Compression Explanation")
+    assert simulation < workflow < compression
+    assert "Planning only" in result.output
+    workflow_section = result.output[workflow:compression].lower()
+    assert "approve item" not in workflow_section
+    assert "interactive" not in workflow_section
+    assert "executed" not in workflow_section
 
 
 def test_cli_analyze_accepts_policy_profile() -> None:

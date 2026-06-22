@@ -157,10 +157,10 @@ def test_json_report_includes_simulation_fields() -> None:
 def test_markdown_report_includes_simulation_summary() -> None:
     report = analyze_file(FIXTURES / "memories.json")
     markdown = render_markdown(report)
-    assert "# Simulation Summary" in markdown
-    assert "## Projected Store Impact" in markdown
-    assert "## Structural Estimates" in markdown
-    assert "## Warnings" in markdown
+    assert "## Simulation Summary" in markdown
+    assert "### Projected Store Impact" in markdown
+    assert "### Structural Estimates" in markdown
+    assert "### Warnings" in markdown
 
 
 def test_terminal_render_includes_simulation_summary() -> None:

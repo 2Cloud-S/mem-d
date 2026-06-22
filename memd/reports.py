@@ -16,6 +16,7 @@ from memd.contracts import (
     MemoryCategory,
     MemoryRecord,
     MemoryResolution,
+    PlanAggregateStatus,
     PolicyDecision,
     Recommendation,
     RecommendationAction,
@@ -28,7 +29,18 @@ from memd.contracts import (
     SimulationMetrics,
     SimulationReport,
     SimulationWarning,
+    WorkflowBlockerCode,
+    WorkflowPlan,
+    WorkflowStep,
+    WorkflowStepType,
 )
+
+_WORKFLOW_MD_STEP_LIMIT = 20
+_WORKFLOW_MD_ITEM_LIMIT = 20
+_WORKFLOW_MD_OVERRIDABLE_BLOCKER_LIMIT = 20
+_WORKFLOW_MD_EVIDENCE_REF_LIMIT = 20
+_TERMINAL_QUEUE_LIMIT = 3
+_TERMINAL_BLOCKER_LIMIT = 3
 
 
 def report_to_dict(report: AnalysisReport) -> dict[str, object]:
@@ -100,7 +112,13 @@ def report_to_dict(report: AnalysisReport) -> dict[str, object]:
     }
     if report.simulationReport is not None:
         payload.update(simulation_report_sections(report.simulationReport))
+    if report.workflowPlan is not None:
+        payload["workflowPlan"] = workflow_plan_to_dict(report.workflowPlan)
     return payload
+
+
+def workflow_plan_to_dict(plan: WorkflowPlan) -> dict[str, object]:
+    return plan.model_dump(mode="json", exclude_none=False)
 
 
 def render_terminal(report: AnalysisReport, console: Console | None = None) -> None:
@@ -304,6 +322,9 @@ def render_terminal(report: AnalysisReport, console: Console | None = None) -> N
     if report.simulationReport is not None:
         render_simulation_terminal(report.simulationReport, console)
 
+    if report.workflowPlan is not None:
+        render_workflow_terminal(report, console)
+
 
 def render_simulation_terminal(simulation: SimulationReport, console: Console) -> None:
     metrics = simulation.metrics
@@ -370,6 +391,8 @@ def render_markdown(report: AnalysisReport) -> str:
     lines.extend(render_recommendation_summary_markdown(report))
     if report.simulationReport is not None:
         lines.extend(render_simulation_summary_markdown(report))
+    if report.workflowPlan is not None:
+        lines.extend(render_workflow_plan_markdown(report))
     lines.extend(
         [
         "## Compression Explanation",
@@ -1509,6 +1532,318 @@ def simulation_warning_to_dict(warning: SimulationWarning) -> dict[str, object]:
     }
 
 
+def _workflow_truncation_notice(omitted_count: int) -> str:
+    return (
+        f"... {omitted_count} additional entries omitted; "
+        "use JSON output for the complete plan."
+    )
+
+
+def _truncate_workflow_sequence(
+    items: Sequence[object],
+    limit: int,
+) -> tuple[tuple[object, ...], int]:
+    if len(items) <= limit:
+        return tuple(items), 0
+    return tuple(items[:limit]), len(items) - limit
+
+
+def _split_validation_refs(
+    validation_refs: Sequence[str],
+) -> tuple[tuple[str, ...], tuple[str, ...]]:
+    integrity_refs: list[str] = []
+    other_refs: list[str] = []
+    for ref in validation_refs:
+        if ref.startswith("integrity:") or ref.startswith("duplicate_variant:"):
+            integrity_refs.append(ref)
+        else:
+            other_refs.append(ref)
+    return tuple(integrity_refs), tuple(other_refs)
+
+
+def _format_step_operation_markdown(step: WorkflowStep) -> list[str]:
+    operation = step.operation
+    lines = [f"- Planner step status: {step.plannerStepStatus.value}"]
+    if step.workflowItemIds:
+        lines.append(f"- Workflow item IDs: {', '.join(step.workflowItemIds)}")
+    if step.stepType == WorkflowStepType.MERGE:
+        lines.append(f"- Keeper ID: {operation.keeperId}")
+        if operation.removableIds:
+            lines.append(f"- Removable IDs: {', '.join(operation.removableIds)}")
+        if operation.recommendationIds:
+            lines.append(
+                f"- Recommendation IDs: {', '.join(operation.recommendationIds)}"
+            )
+    elif step.stepType == WorkflowStepType.ARCHIVE:
+        if operation.archiveTargetIds:
+            lines.append(
+                f"- Archive target IDs: {', '.join(operation.archiveTargetIds)}"
+            )
+    elif step.stepType == WorkflowStepType.REVIEW:
+        if operation.reviewTargetIds:
+            lines.append(f"- Review target IDs: {', '.join(operation.reviewTargetIds)}")
+    elif step.stepType == WorkflowStepType.RETAIN:
+        if operation.recommendationIds:
+            lines.append(
+                f"- Retain recommendation IDs: {', '.join(operation.recommendationIds)}"
+            )
+    return lines
+
+
+def render_workflow_plan_markdown(report: AnalysisReport) -> list[str]:
+    plan = report.workflowPlan
+    if plan is None:
+        return []
+
+    summary = plan.summary
+    lines = [
+        "",
+        "## Workflow Plan",
+        "",
+        "_Planning only — no memory changes performed. "
+        "Operator decisions are not applied by Mem-D analysis._",
+        "",
+        f"- Planner version: {plan.plannerVersion}",
+        f"- Planning mode: {plan.planningMode.value}",
+        f"- Planner status: {plan.plannerStatus.value}",
+        f"- Aggregate status: {plan.aggregateStatus.value}",
+        f"- Policy profile: {plan.policyProfile.value}",
+        f"- Total items: {summary.totalItems}",
+        f"- Blocker count: {summary.blockerCount}",
+        f"- Estimated structural delta: {summary.estimatedStructuralDelta}",
+        f"- Keep count: {summary.keepCount}",
+        "",
+    ]
+
+    if plan.aggregateStatus == PlanAggregateStatus.INTEGRITY_BLOCKED:
+        lines.extend(
+            [
+                "**Workflow integrity blocked** — review blockers and validation "
+                "references before any manual action.",
+                "",
+            ]
+        )
+
+    if summary.itemsByAction:
+        lines.append("### Items by action")
+        lines.append("")
+        for action, count in sorted(
+            summary.itemsByAction.items(),
+            key=lambda item: item[0].value,
+        ):
+            if count:
+                lines.append(f"- {action.value}: {count}")
+        lines.append("")
+
+    if summary.itemsByPlannerStatus:
+        lines.append("### Items by planner status")
+        lines.append("")
+        for status, count in sorted(
+            summary.itemsByPlannerStatus.items(),
+            key=lambda item: item[0].value,
+        ):
+            if count:
+                lines.append(f"- {status.value}: {count}")
+        lines.append("")
+
+    if plan.reviewQueues or summary.reviewQueueCounts:
+        lines.extend(["### Review queues", ""])
+        for queue in plan.reviewQueues:
+            count = summary.reviewQueueCounts.get(queue, 0)
+            lines.append(f"- {queue.value}: {count}")
+        for queue, count in sorted(
+            summary.reviewQueueCounts.items(),
+            key=lambda item: (item[0].value, item[1]),
+        ):
+            if queue not in plan.reviewQueues and count:
+                lines.append(f"- {queue.value}: {count}")
+        lines.append("")
+
+    non_overridable = [blocker for blocker in plan.blockers if not blocker.overridable]
+    overridable = [blocker for blocker in plan.blockers if blocker.overridable]
+    shown_overridable, omitted_overridable = _truncate_workflow_sequence(
+        overridable,
+        _WORKFLOW_MD_OVERRIDABLE_BLOCKER_LIMIT,
+    )
+    if non_overridable or shown_overridable:
+        lines.extend(["### Blockers", ""])
+        for blocker in non_overridable:
+            lines.append(
+                f"- `{blocker.code.value}` ({blocker.sourceLayer}): {blocker.message}"
+            )
+        for blocker in shown_overridable:
+            lines.append(
+                f"- `{blocker.code.value}` ({blocker.sourceLayer}): {blocker.message}"
+            )
+        if omitted_overridable:
+            lines.append(_workflow_truncation_notice(omitted_overridable))
+        lines.append("")
+
+    sorted_items = sorted(plan.items, key=lambda item: (item.queueRank, item.orderingKey))
+    shown_items, omitted_items = _truncate_workflow_sequence(
+        sorted_items,
+        _WORKFLOW_MD_ITEM_LIMIT,
+    )
+    if shown_items:
+        lines.extend(["### Workflow items", ""])
+        for item in shown_items:
+            primary_queue = (
+                item.reviewRequirement.primaryQueueId.value
+                if item.reviewRequirement.primaryQueueId is not None
+                else "none"
+            )
+            lines.extend(
+                [
+                    f"#### `{item.recommendationId}`",
+                    "",
+                    f"- Action: {item.action.value}",
+                    f"- Planner item status: {item.plannerItemStatus.value}",
+                    f"- Operator item status: {item.operatorItemStatus.value}",
+                    f"- Primary queue: {primary_queue}",
+                    f"- Affected memory IDs: {', '.join(item.affectedMemoryIds) or 'none'}",
+                    "",
+                ]
+            )
+        if omitted_items:
+            lines.append(_workflow_truncation_notice(omitted_items))
+            lines.append("")
+
+    shown_steps, omitted_steps = _truncate_workflow_sequence(
+        plan.steps,
+        _WORKFLOW_MD_STEP_LIMIT,
+    )
+    if shown_steps:
+        lines.extend(["### Planned steps", ""])
+        for step in shown_steps:
+            lines.extend(
+                [
+                    f"#### Step {step.sequence}: {step.stepType.value}",
+                    "",
+                    *_format_step_operation_markdown(step),
+                    "",
+                ]
+            )
+        if omitted_steps:
+            lines.append(_workflow_truncation_notice(omitted_steps))
+            lines.append("")
+
+    evidence = plan.evidence
+    integrity_refs, other_validation_refs = _split_validation_refs(evidence.validationRefs)
+    shown_other_refs, omitted_other_refs = _truncate_workflow_sequence(
+        other_validation_refs,
+        _WORKFLOW_MD_EVIDENCE_REF_LIMIT,
+    )
+    shown_simulation_refs, omitted_simulation_refs = _truncate_workflow_sequence(
+        evidence.simulationEventIds,
+        _WORKFLOW_MD_EVIDENCE_REF_LIMIT,
+    )
+    shown_warnings, omitted_warnings = _truncate_workflow_sequence(
+        evidence.warnings,
+        _WORKFLOW_MD_EVIDENCE_REF_LIMIT,
+    )
+    if (
+        integrity_refs
+        or shown_other_refs
+        or shown_simulation_refs
+        or shown_warnings
+        or evidence.recommendationIds
+        or evidence.memoryIds
+    ):
+        lines.extend(["### Evidence", ""])
+        if evidence.recommendationIds:
+            lines.append(
+                f"- Recommendation IDs: {', '.join(evidence.recommendationIds)}"
+            )
+        if evidence.memoryIds:
+            lines.append(f"- Memory IDs: {', '.join(evidence.memoryIds)}")
+        for ref in integrity_refs:
+            lines.append(f"- Validation ref: `{ref}`")
+        for ref in shown_other_refs:
+            lines.append(f"- Validation ref: `{ref}`")
+        if omitted_other_refs:
+            lines.append(_workflow_truncation_notice(omitted_other_refs))
+        for ref in shown_simulation_refs:
+            lines.append(f"- Simulation event ref: `{ref}`")
+        if omitted_simulation_refs:
+            lines.append(_workflow_truncation_notice(omitted_simulation_refs))
+        if shown_warnings:
+            lines.append(
+                "- Warning codes (may be incomplete): "
+                + ", ".join(f"`{warning}`" for warning in shown_warnings)
+            )
+        if omitted_warnings:
+            lines.append(_workflow_truncation_notice(omitted_warnings))
+        lines.append("")
+
+    if summary.totalItems == 0 and plan.aggregateStatus in {
+        PlanAggregateStatus.EMPTY,
+        PlanAggregateStatus.ALL_KEEP,
+    }:
+        lines.extend(
+            [
+                "No actionable workflow items proposed with the current planning options.",
+                "",
+            ]
+        )
+
+    return lines
+
+
+def render_workflow_terminal(report: AnalysisReport, console: Console) -> None:
+    plan = report.workflowPlan
+    if plan is None:
+        return
+
+    summary = plan.summary
+    review_required_count = sum(
+        1 for item in plan.items if item.reviewRequirement.required
+    )
+
+    console.print("[bold]Workflow Plan:[/bold]")
+    console.print(f"  Aggregate status: {plan.aggregateStatus.value}")
+    console.print("  Planner state: initial")
+    console.print(f"  Items: {summary.totalItems}")
+    console.print(f"  Review required: {review_required_count}")
+    console.print(f"  Blockers: {summary.blockerCount}")
+    console.print(f"  Structural delta: {summary.estimatedStructuralDelta}")
+
+    if summary.reviewQueueCounts:
+        ranked_queues = sorted(
+            summary.reviewQueueCounts.items(),
+            key=lambda item: (-item[1], item[0].value),
+        )
+        shown_queues = ranked_queues[:_TERMINAL_QUEUE_LIMIT]
+        queue_parts = [f"{queue.value} ({count})" for queue, count in shown_queues]
+        console.print(f"  Top queues: {', '.join(queue_parts)}")
+
+    if plan.aggregateStatus == PlanAggregateStatus.INTEGRITY_BLOCKED:
+        console.print(
+            "[bold red]Workflow integrity blocked[/] — review blockers before manual action."
+        )
+
+    integrity_blockers = [
+        blocker
+        for blocker in plan.blockers
+        if blocker.code == WorkflowBlockerCode.INPUT_INTEGRITY
+    ]
+    other_blockers = [
+        blocker
+        for blocker in plan.blockers
+        if blocker.code != WorkflowBlockerCode.INPUT_INTEGRITY
+    ]
+    ordered_blockers = [*integrity_blockers, *other_blockers]
+    shown_blockers = ordered_blockers[:_TERMINAL_BLOCKER_LIMIT]
+    omitted_blockers = max(len(ordered_blockers) - len(shown_blockers), 0)
+    for blocker in shown_blockers:
+        console.print(f"  Blocker: {blocker.code.value} — {blocker.message}")
+    if omitted_blockers:
+        console.print(f"  {_workflow_truncation_notice(omitted_blockers)}")
+
+    console.print(
+        "  Planning only — operator decisions have not been applied."
+    )
+
+
 def render_simulation_summary_markdown(report: AnalysisReport) -> list[str]:
     simulation = report.simulationReport
     if simulation is None:
@@ -1522,30 +1857,30 @@ def render_simulation_summary_markdown(report: AnalysisReport) -> list[str]:
     )
     lines = [
         "",
-        "# Simulation Summary",
+        "## Simulation Summary",
         "",
         "_Structural estimates only; not benchmark-equivalent compression._",
         "",
-        "## Projected Store Impact",
+        "### Projected Store Impact",
         "",
         f"- Memory count before: {metrics.memoryCountBefore}",
         f"- Memory count after: {metrics.memoryCountAfter}",
         f"- Memory count delta: {metrics.memoryCountDelta}",
         "",
-        "## Recommendation Outcomes",
+        "### Recommendation Outcomes",
         "",
         f"- Merges applied: {metrics.mergeGroupsSimulated}",
         f"- Archives applied: {metrics.archivesSimulated}",
         f"- Reviews remaining: {len(simulation.simulatedReviewQueue)}",
         f"- Keeps retained: {keep_count}",
         "",
-        "## Structural Estimates",
+        "### Structural Estimates",
         "",
         f"- Estimated duplicate reduction: {metrics.estimatedDuplicateReduction}",
         f"- Estimated compression gain: {metrics.estimatedCompressionGain}",
         f"- Estimated trusted compression gain: {metrics.estimatedTrustedCompressionGain}",
         "",
-        "## Warnings",
+        "### Warnings",
         "",
     ]
     if simulation.simulationWarnings:
