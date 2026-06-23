@@ -100,7 +100,7 @@ Implementation details: [PERMA-IMPLEMENTATION-STATUS.md](PERMA-IMPLEMENTATION-ST
 | Overall accuracy | 1.0000 (22/22) |
 | Merge accuracy | 1.0000 (3/3) |
 | Archive accuracy | 1.0000 (5/5) |
-| Review accuracy | 1.0000 (11/11) |
+| Review accuracy | 1.0000 (13/13) |
 | Keep accuracy | 1.0000 (3/3) |
 | Conflict resolution accuracy | 1.0000 (3/3) |
 
@@ -135,6 +135,34 @@ Implementation details: [V0.7-PHASE3-IMPLEMENTATION.md](V0.7-PHASE3-IMPLEMENTATI
 
 ---
 
+## Workflow evaluation results
+
+**Fixture:** `tests/fixtures/workflow_gold.json`
+
+| Metric | Value |
+| --- | ---: |
+| Overall workflow accuracy | 1.0000 (117/117) |
+| Item construction accuracy | 1.0000 (9/9) |
+| Review routing accuracy | 1.0000 (11/11) |
+| Blocker accuracy | 1.0000 (12/12) |
+| Operation accuracy | 1.0000 (6/6) |
+| Step ordering accuracy | 1.0000 (4/4) |
+| Aggregate status accuracy | 1.0000 (44/44) |
+| Summary consistency accuracy | 1.0000 (4/4) |
+| Provenance accuracy | 1.0000 (2/2) |
+| Decision transition accuracy | 1.0000 (14/14) |
+| Identity determinism accuracy | 1.0000 (11/11) |
+| Safety passed | Yes |
+| Gate passed | Yes |
+
+**Artifacts:**
+- [workflow_evaluation.md](../../examples/benchmarks/workflow_evaluation.md)
+- [workflow_evaluation.json](../../examples/benchmarks/workflow_evaluation.json)
+
+Implementation details: [V0.8-PHASE4-WORKFLOW-EVALUATION-IMPLEMENTATION.md](V0.8-PHASE4-WORKFLOW-EVALUATION-IMPLEMENTATION.md)
+
+---
+
 ## Benchmark coverage status
 
 | Capability | Reproducible | Ground Truth | Report Exists | Status |
@@ -146,6 +174,7 @@ Implementation details: [V0.7-PHASE3-IMPLEMENTATION.md](V0.7-PHASE3-IMPLEMENTATI
 | Lifecycle | Yes | Yes | Yes | Complete |
 | Governance recommendations | Yes | Yes | Yes | Complete |
 | Simulation projection | Yes | Yes | Yes | Complete |
+| Workflow planning | Yes | Yes | Yes | Complete |
 | Categorization | Yes | No | Partial | Partial |
 | PERMA | Yes (user-level benchmark run) | No | Yes | Partial |
 
@@ -182,4 +211,7 @@ python scripts/run_recommendation_evaluation.py
 
 # Simulation evaluation
 python scripts/run_simulation_evaluation.py
+
+# Workflow evaluation
+python scripts/run_workflow_evaluation.py
 ```

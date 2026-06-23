@@ -1,0 +1,427 @@
+{
+  "fixtureVersion": "0.8.0",
+  "plannerVersion": "2",
+  "groundTruthAuthority": "tests/fixtures/workflow_gold.json",
+  "description": "V0.8 workflow evaluation architecture-compliance fixture.",
+  "reviewSubtypeDispositions": {
+    "reservedNotEmittedByPlannerVersion": ["policy_blocked"]
+  },
+  "cases": [
+    {
+      "caseId": "empty_plan",
+      "builder": "empty_plan",
+      "coverageTags": ["empty", "zero_structural"],
+      "expected": {
+        "aggregateStatuses": [{"status": "empty"}],
+        "summaries": [{"totalItems": 0, "keepCount": 0, "blockerCount": 0}],
+        "safety": ["source_report_immutability", "initial_never_ready", "zero_structural_never_ready", "no_effects"],
+        "identityAssertions": [
+          {"semanticKey": "shape", "relation": "lowercaseSha256"},
+          {"semanticKey": "repeat", "relation": "repeatedPlanEqual"}
+        ]
+      }
+    },
+    {
+      "caseId": "all_keep_summary_only",
+      "builder": "all_keep_summary_only",
+      "coverageTags": ["all_keep", "zero_structural"],
+      "expected": {
+        "aggregateStatuses": [{"status": "all_keep"}],
+        "summaries": [{"totalItems": 0, "keepCount": 2, "blockerCount": 0}],
+        "operations": [{"semanticKey": "no-merge", "stepType": "merge", "present": false}],
+        "steps": [{"semanticKey": "none", "count": 0}],
+        "safety": ["initial_never_ready", "zero_structural_never_ready", "keep_never_removes"]
+      }
+    },
+    {
+      "caseId": "all_keep_items",
+      "builder": "all_keep_items",
+      "planningOptions": {"includeKeep": true},
+      "coverageTags": ["all_keep", "zero_structural"],
+      "expected": {
+        "items": [{"recommendationId": "rec:keep:1", "action": "keep", "plannerItemStatus": "proposed", "operatorItemStatus": "none"}],
+        "aggregateStatuses": [{"status": "all_keep"}],
+        "summaries": [{"totalItems": 1, "keepCount": 1, "blockerCount": 0}],
+        "operations": [{"semanticKey": "retain", "stepType": "retain", "recommendationIds": ["rec:keep:1"]}],
+        "steps": [{"semanticKey": "retain", "stepTypes": ["retain"]}],
+        "decisionStages": [
+          {"stageId": "keep_rejected", "expectError": true, "decisions": [{"recommendationId": "rec:keep:1", "decision": "approved"}]}
+        ],
+        "safety": ["initial_never_ready", "zero_structural_never_ready", "keep_never_removes", "blocked_decisions_atomic", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "safe_merge",
+      "builder": "safe_merge",
+      "coverageTags": ["ready_for_execution"],
+      "expected": {
+        "items": [{"recommendationId": "rec:merge:1", "action": "merge", "plannerItemStatus": "proposed", "operatorItemStatus": "none", "policyDecision": "approved", "affectedMemoryIds": ["m1", "m2"]}],
+        "operations": [{"semanticKey": "merge", "stepType": "merge", "recommendationIds": ["rec:merge:1"], "keeperId": ["m1"], "removableIds": ["m2"]}],
+        "steps": [{"semanticKey": "merge-order", "stepTypes": ["merge"]}],
+        "aggregateStatuses": [{"status": "proposed"}, {"phase": "approve_merge", "status": "ready_for_execution"}],
+        "summaries": [{"totalItems": 1, "keepCount": 0, "blockerCount": 0, "estimatedStructuralDelta": -1}],
+        "provenance": [{"matchMode": "partial", "contains": {"recommendationIds": ["rec:merge:1"], "memoryIds": ["m1", "m2"], "actionIds": ["act-merge"]}}],
+        "decisionStages": [
+          {"stageId": "approve_merge", "aggregateStatus": "ready_for_execution", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:merge:1": "approved"}, "decisions": [{"recommendationId": "rec:merge:1", "decision": "approved"}]}
+        ],
+        "identityAssertions": [
+          {"semanticKey": "plan-id-stable", "relation": "planIdStableAcrossDecisions", "stageId": "approve_merge"},
+          {"semanticKey": "fingerprint", "relation": "fingerprintNonEmpty", "stageId": "approve_merge"},
+          {"semanticKey": "mutation", "relation": "mutationChangesPlanId"}
+        ],
+        "safety": ["initial_never_ready", "merge_keeper_removable_safety", "decision_preserves_steps_operations", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "safe_archive",
+      "builder": "safe_archive",
+      "coverageTags": ["ready_for_execution"],
+      "expected": {
+        "items": [{"recommendationId": "rec:archive:1", "action": "archive", "plannerItemStatus": "proposed", "operatorItemStatus": "none", "policyDecision": "approved"}],
+        "operations": [{"semanticKey": "archive", "stepType": "archive", "recommendationIds": ["rec:archive:1"], "archiveTargetIds": ["m1"]}],
+        "steps": [{"semanticKey": "archive-order", "stepTypes": ["archive"]}],
+        "aggregateStatuses": [{"status": "proposed"}, {"phase": "approve_archive", "status": "ready_for_execution"}],
+        "decisionStages": [
+          {"stageId": "approve_archive", "aggregateStatus": "ready_for_execution", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:archive:1": "approved"}, "decisions": [{"recommendationId": "rec:archive:1", "decision": "approved"}]}
+        ],
+        "safety": ["initial_never_ready", "decision_preserves_steps_operations", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "review_only",
+      "builder": "review_only",
+      "coverageTags": ["review_only", "zero_structural"],
+      "expected": {
+        "items": [{"recommendationId": "rec:review:1", "action": "review", "plannerItemStatus": "requires_review", "operatorItemStatus": "none"}],
+        "reviewRoutes": [{"recommendationId": "rec:review:1", "required": true, "subtypes": ["general"], "primaryQueueId": "review:general", "queueRefs": ["review:general"]}],
+        "operations": [{"semanticKey": "review", "stepType": "review", "recommendationIds": ["rec:review:1"], "reviewTargetIds": ["m1"]}],
+        "aggregateStatuses": [{"status": "requires_review"}, {"phase": "ack_review", "status": "approved"}],
+        "decisionStages": [
+          {"stageId": "ack_review", "aggregateStatus": "approved", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:review:1": "approved"}, "decisions": [{"recommendationId": "rec:review:1", "decision": "approved"}]}
+        ],
+        "safety": ["initial_never_ready", "zero_structural_never_ready"]
+      }
+    },
+    {
+      "caseId": "policy_requires_review",
+      "builder": "policy_requires_review",
+      "coverageTags": ["unresolved_policy_action"],
+      "expected": {
+        "items": [{"recommendationId": "rec:policy:review", "action": "merge", "plannerItemStatus": "requires_review", "policyDecision": "requires_review"}],
+        "reviewRoutes": [{"recommendationId": "rec:policy:review", "required": true, "subtypes": ["policy"], "primaryQueueId": "review:policy", "queueRefs": ["review:policy"]}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "safety": ["initial_never_ready", "unresolved_policy_requires_review"]
+      }
+    },
+    {
+      "caseId": "policy_blocked",
+      "builder": "policy_blocked",
+      "coverageTags": ["mixed_blocked"],
+      "expected": {
+        "items": [{"recommendationId": "rec:policy:blocked", "action": "merge", "plannerItemStatus": "blocked", "policyDecision": "blocked"}],
+        "reviewRoutes": [{"recommendationId": "rec:policy:blocked", "required": false, "subtypes": [], "primaryQueueId": null, "queueRefs": []}],
+        "blockers": [{"code": "POLICY_BLOCKED", "recommendationId": "rec:policy:blocked", "overridable": false}],
+        "aggregateStatuses": [{"status": "all_blocked"}],
+        "decisionStages": [
+          {"stageId": "blocked_approval", "expectError": true, "decisions": [{"recommendationId": "rec:policy:blocked", "decision": "approved"}]}
+        ],
+        "safety": ["initial_never_ready", "policy_blocked_remains_blocked", "blocked_decisions_atomic", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "all_deferred",
+      "builder": "defer_item",
+      "coverageTags": ["all_deferred", "zero_structural"],
+      "expected": {
+        "items": [{"recommendationId": "rec:defer:1", "action": "defer", "plannerItemStatus": "deferred"}],
+        "aggregateStatuses": [{"status": "proposed"}, {"phase": "defer_all", "status": "deferred"}],
+        "decisionStages": [
+          {"stageId": "defer_all", "aggregateStatus": "deferred", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:defer:1": "deferred"}, "decisions": [{"recommendationId": "rec:defer:1", "decision": "deferred"}]}
+        ],
+        "safety": ["initial_never_ready", "zero_structural_never_ready", "decision_preserves_steps_operations", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "all_rejected",
+      "builder": "review_only",
+      "coverageTags": ["all_rejected", "zero_structural"],
+      "expected": {
+        "aggregateStatuses": [{"status": "requires_review"}, {"phase": "reject_all", "status": "rejected"}],
+        "decisionStages": [
+          {"stageId": "reject_all", "aggregateStatus": "rejected", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:review:1": "rejected"}, "decisions": [{"recommendationId": "rec:review:1", "decision": "rejected"}]}
+        ],
+        "safety": ["initial_never_ready", "zero_structural_never_ready", "decision_preserves_steps_operations", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "mixed_blocked",
+      "builder": "mixed_blocked",
+      "coverageTags": ["mixed_blocked"],
+      "expected": {
+        "blockers": [{"code": "POLICY_BLOCKED", "recommendationId": "rec:blocked", "overridable": false}],
+        "aggregateStatuses": [{"status": "mixed_blocked"}],
+        "safety": ["initial_never_ready", "policy_blocked_remains_blocked"]
+      }
+    },
+    {
+      "caseId": "mixed_blocked_review",
+      "builder": "mixed_blocked_review",
+      "coverageTags": ["mixed_blocked_review"],
+      "expected": {
+        "reviewRoutes": [{"recommendationId": "rec:review:1", "required": true, "subtypes": ["general"], "primaryQueueId": "review:general", "queueRefs": ["review:general"]}],
+        "blockers": [{"code": "POLICY_BLOCKED", "recommendationId": "rec:blocked", "overridable": false}],
+        "aggregateStatuses": [{"status": "mixed_blocked_review"}],
+        "safety": ["initial_never_ready", "policy_blocked_remains_blocked"]
+      }
+    },
+    {
+      "caseId": "missing_source_action",
+      "builder": "missing_source_action",
+      "coverageTags": ["missing_action", "integrity_blocked"],
+      "expected": {
+        "blockers": [{"code": "INPUT_INTEGRITY", "overridable": false}],
+        "aggregateStatuses": [{"status": "integrity_blocked"}],
+        "safety": ["initial_never_ready", "missing_source_action_fails_closed", "integrity_suppresses_readiness"]
+      }
+    },
+    {
+      "caseId": "unresolved_policy_action",
+      "builder": "unresolved_policy_action",
+      "coverageTags": ["unresolved_policy_action"],
+      "expected": {
+        "items": [{"recommendationId": "rec:unresolved-action", "plannerItemStatus": "requires_review", "policyDecision": "requires_review"}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "safety": ["initial_never_ready", "unresolved_policy_requires_review"]
+      }
+    },
+    {
+      "caseId": "structural_overlap_conflict",
+      "builder": "structural_overlap_conflict",
+      "coverageTags": ["structural_overlap_conflict"],
+      "expected": {
+        "reviewRoutes": [
+          {"recommendationId": "rec:archive:overlap", "required": true, "subtypes": ["conflict"], "primaryQueueId": "review:conflict", "queueRefs": ["review:conflict"]},
+          {"recommendationId": "rec:merge:overlap", "required": true, "subtypes": ["conflict"], "primaryQueueId": "review:conflict", "queueRefs": ["review:conflict"]}
+        ],
+        "operations": [{"semanticKey": "overlap-no-merge", "stepType": "merge", "recommendationIds": ["rec:merge:overlap"], "present": false}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "safety": ["initial_never_ready", "structural_overlap_conflict_review"]
+      }
+    },
+    {
+      "caseId": "scoped_simulation_warning",
+      "builder": "scoped_warning",
+      "coverageTags": ["scoped_warning"],
+      "expected": {
+        "reviewRoutes": [{"recommendationId": "rec:merge:warn", "required": true, "subtypes": ["simulation_safety"], "primaryQueueId": "review:simulation_safety", "queueRefs": ["review:simulation_safety"]}],
+        "blockers": [{"code": "DUPLICATE_REMOVAL_SKIPPED", "recommendationId": "rec:merge:warn", "overridable": false}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "provenance": [{"matchMode": "partial", "contains": {"warnings": ["DUPLICATE_REMOVAL_SKIPPED"]}}],
+        "safety": ["initial_never_ready", "simulation_warnings_visible_scoped"]
+      }
+    },
+    {
+      "caseId": "unscoped_simulation_warning",
+      "builder": "unscoped_warning",
+      "coverageTags": ["unscoped_warning", "integrity_blocked"],
+      "expected": {
+        "blockers": [{"code": "INPUT_INTEGRITY", "overridable": false}],
+        "aggregateStatuses": [{"status": "integrity_blocked"}],
+        "safety": ["initial_never_ready", "simulation_warnings_visible_scoped", "integrity_suppresses_readiness"]
+      }
+    },
+    {
+      "caseId": "duplicate_recommendation_normalization",
+      "builder": "duplicate_normalization",
+      "coverageTags": ["duplicate_normalization"],
+      "expected": {
+        "items": [{"recommendationId": "rec:dup", "action": "review", "plannerItemStatus": "requires_review"}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "identityAssertions": [{"semanticKey": "repeat", "relation": "repeatedPlanEqual"}],
+        "safety": ["initial_never_ready", "deterministic_planning"]
+      }
+    },
+    {
+      "caseId": "conflicting_duplicate_integrity",
+      "builder": "conflicting_duplicate_integrity",
+      "coverageTags": ["conflicting_duplicate_integrity", "integrity_blocked"],
+      "expected": {
+        "blockers": [{"code": "INPUT_INTEGRITY", "overridable": false}],
+        "aggregateStatuses": [{"status": "integrity_blocked"}],
+        "safety": ["initial_never_ready", "integrity_suppresses_readiness"]
+      }
+    },
+    {
+      "caseId": "review_subtype_matrix_unknown",
+      "builder": "unknown_category_review",
+      "coverageTags": ["review_only"],
+      "expected": {
+        "reviewRoutes": [{"recommendationId": "rec:unknown", "required": true, "subtypes": ["unknown_category"], "primaryQueueId": "review:unknown_category", "queueRefs": ["review:unknown_category"]}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "review_subtype_matrix_lifecycle_lowtrust",
+      "builder": "lifecycle_lowtrust_review",
+      "coverageTags": ["review_only"],
+      "expected": {
+        "reviewRoutes": [{"recommendationId": "rec:lifecycle", "required": true, "subtypes": ["lifecycle_alternate", "lifecycle_mixed", "low_trust"], "primaryQueueId": "review:lifecycle", "queueRefs": ["review:lifecycle", "review:low_trust"]}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "review_subtype_matrix_lifecycle_plain",
+      "builder": "lifecycle_plain_review",
+      "coverageTags": ["review_only"],
+      "expected": {
+        "reviewRoutes": [{"recommendationId": "rec:lifecycle:plain", "required": true, "subtypes": ["lifecycle"], "primaryQueueId": "review:lifecycle", "queueRefs": ["review:lifecycle"]}],
+        "aggregateStatuses": [{"status": "requires_review"}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "orphan_merge_missing_keeper",
+      "builder": "orphan_merge",
+      "coverageTags": ["integrity_blocked"],
+      "expected": {
+        "blockers": [
+          {"code": "MISSING_KEEPER", "recommendationId": "rec:orphan", "overridable": false},
+          {"code": "ORPHAN_MERGE_NO_KEEPER", "recommendationId": "rec:orphan", "overridable": false}
+        ],
+        "reviewRoutes": [{"recommendationId": "rec:orphan", "required": true, "subtypes": ["orphan_merge_downgrade"], "primaryQueueId": "review:simulation_safety", "queueRefs": ["review:simulation_safety"]}],
+        "aggregateStatuses": [{"status": "integrity_blocked"}],
+        "decisionStages": [
+          {"stageId": "non_policy_blocked_approval", "expectError": true, "decisions": [{"recommendationId": "rec:orphan", "decision": "approved"}]}
+        ],
+        "safety": ["initial_never_ready", "integrity_suppresses_readiness", "blocked_decisions_atomic", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "missing_simulation",
+      "builder": "missing_simulation",
+      "coverageTags": ["integrity_blocked"],
+      "expected": {
+        "blockers": [{"code": "MISSING_SIMULATION", "recommendationId": "rec:merge:no-sim", "overridable": false}],
+        "aggregateStatuses": [{"status": "proposed"}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "h1_no_structural_negative",
+      "builder": "review_only",
+      "coverageTags": ["zero_structural"],
+      "expected": {
+        "hGates": ["H1"],
+        "aggregateStatuses": [{"status": "requires_review"}, {"phase": "resolve_review", "status": "approved"}],
+        "decisionStages": [{"stageId": "resolve_review", "aggregateStatus": "approved", "operatorStatuses": {"rec:review:1": "approved"}, "decisions": [{"recommendationId": "rec:review:1", "decision": "approved"}]}],
+        "safety": ["initial_never_ready", "zero_structural_never_ready"]
+      }
+    },
+    {
+      "caseId": "h2_unapproved_structural_negative",
+      "builder": "safe_merge",
+      "coverageTags": [],
+      "expected": {
+        "hGates": ["H2"],
+        "aggregateStatuses": [{"status": "proposed"}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "h3_unresolved_non_structural_negative",
+      "builder": "structural_plus_review",
+      "coverageTags": [],
+      "expected": {
+        "hGates": ["H3"],
+        "aggregateStatuses": [{"status": "requires_review"}, {"phase": "approve_structural", "status": "partially_approved"}],
+        "decisionStages": [{"stageId": "approve_structural", "aggregateStatus": "partially_approved", "operatorStatuses": {"rec:merge:1": "approved"}, "decisions": [{"recommendationId": "rec:merge:1", "decision": "approved"}]}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "h4_unresolved_review_negative",
+      "builder": "structural_plus_review",
+      "coverageTags": [],
+      "expected": {
+        "hGates": ["H4"],
+        "aggregateStatuses": [{"status": "requires_review"}, {"phase": "approve_structural", "status": "partially_approved"}],
+        "decisionStages": [{"stageId": "approve_structural", "aggregateStatus": "partially_approved", "operatorStatuses": {"rec:merge:1": "approved"}, "decisions": [{"recommendationId": "rec:merge:1", "decision": "approved"}]}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "h5_blocked_item_negative",
+      "builder": "policy_blocked",
+      "coverageTags": [],
+      "expected": {
+        "hGates": ["H5"],
+        "aggregateStatuses": [{"status": "all_blocked"}],
+        "safety": ["initial_never_ready", "policy_blocked_remains_blocked"]
+      }
+    },
+    {
+      "caseId": "h6_plan_blocker_negative",
+      "builder": "missing_source_action",
+      "coverageTags": ["integrity_blocked"],
+      "expected": {
+        "hGates": ["H6"],
+        "aggregateStatuses": [{"status": "integrity_blocked"}],
+        "safety": ["initial_never_ready", "integrity_suppresses_readiness"]
+      }
+    },
+    {
+      "caseId": "h7_recommendations_only_negative",
+      "builder": "missing_simulation",
+      "coverageTags": [],
+      "expected": {
+        "hGates": ["H7"],
+        "aggregateStatuses": [{"status": "proposed"}],
+        "safety": ["initial_never_ready"]
+      }
+    },
+    {
+      "caseId": "invalid_decision_atomicity",
+      "builder": "safe_merge",
+      "coverageTags": [],
+      "expected": {
+        "aggregateStatuses": [{"status": "proposed"}],
+        "decisionStages": [
+          {"stageId": "unknown_target", "expectError": true, "decisions": [{"targetId": "missing-workflow-item", "decision": "approved"}]}
+        ],
+        "identityAssertions": [{"semanticKey": "plan-id-stable-error", "relation": "planIdStableAcrossDecisions", "stageId": "unknown_target"}],
+        "safety": ["initial_never_ready", "blocked_decisions_atomic", "decision_preserves_steps_operations", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "multi_call_decision_fingerprint",
+      "builder": "mixed_blocked_review",
+      "coverageTags": ["multi_call_fingerprint"],
+      "expected": {
+        "aggregateStatuses": [{"status": "mixed_blocked_review"}, {"phase": "approve_review", "status": "mixed_blocked"}, {"phase": "defer_review", "status": "mixed_blocked"}],
+        "decisionStages": [
+          {"stageId": "approve_review", "aggregateStatus": "mixed_blocked", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:review:1": "approved"}, "decisions": [{"recommendationId": "rec:review:1", "decision": "approved"}]},
+          {"stageId": "defer_review", "aggregateStatus": "mixed_blocked", "fingerprintNonEmpty": true, "operatorStatuses": {"rec:review:1": "deferred"}, "decisions": [{"recommendationId": "rec:review:1", "decision": "deferred"}]}
+        ],
+        "identityAssertions": [{"semanticKey": "multi-call", "relation": "multiCallFingerprintChanges", "firstStageId": "approve_review", "secondStageId": "defer_review"}],
+        "safety": ["initial_never_ready", "cumulative_decision_fingerprint", "decision_preserves_steps_operations", "plan_id_stable_across_decisions"]
+      }
+    },
+    {
+      "caseId": "identity_repeated_run",
+      "builder": "safe_archive",
+      "coverageTags": [],
+      "expected": {
+        "aggregateStatuses": [{"status": "proposed"}],
+        "identityAssertions": [
+          {"semanticKey": "repeat", "relation": "repeatedPlanEqual"},
+          {"semanticKey": "shape", "relation": "lowercaseSha256"},
+          {"semanticKey": "mutation", "relation": "mutationChangesPlanId"}
+        ],
+        "requiredAbsentBlockerCodes": ["UNSUPPORTED_ACTION", "STALE_EVIDENCE"],
+        "safety": ["initial_never_ready", "deterministic_planning", "idempotent_repeated_planning"]
+      }
+    }
+  ]
+}

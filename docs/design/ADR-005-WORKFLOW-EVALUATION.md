@@ -2,7 +2,8 @@
 
 ## Status
 
-Status: Accepted: 2026-06-23
+Status: Accepted
+Accepted: 2026-06-23
 Target: V0.8 Phase 4
 Date: 2026-06-23
 
@@ -25,7 +26,7 @@ findings and three low findings. This revision resolves them as follows:
 | L2: provenance partial versus complete mode was implicit | Adds explicit `matchMode: "partial" | "complete"` for provenance expectations. |
 | L3: JSON/Markdown semantic equivalence was unspecified | Requires both artifacts to render from one normalized result object; Markdown checks compare required rendered sections against that source object rather than treating Markdown as ground truth. |
 
-ADR-005 remains Proposed until a new independent architecture audit approves the
+ADR-005 was accepted after independent architecture verification approved the
 hardened text.
 
 ## Context
@@ -947,7 +948,7 @@ exports. It establishes exact architectural conformance for V0.8 planning.
 
 ## Acceptance Criteria
 
-ADR-005 may move from Proposed to Accepted when:
+ADR-005 was accepted when:
 
 - every metric formula, denominator, numerator, zero-denominator behavior, and
   phase boundary is unambiguous;

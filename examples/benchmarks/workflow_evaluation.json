@@ -1,0 +1,503 @@
+{
+  "benchmark": "workflow_evaluation",
+  "caseCount": 34,
+  "cases": [
+    {
+      "caseId": "empty_plan",
+      "checkpointsPassed": 4,
+      "checkpointsTotal": 4,
+      "finalAggregateStatus": "empty",
+      "initialAggregateStatus": "empty",
+      "passed": true
+    },
+    {
+      "caseId": "all_keep_summary_only",
+      "checkpointsPassed": 4,
+      "checkpointsTotal": 4,
+      "finalAggregateStatus": "all_keep",
+      "initialAggregateStatus": "all_keep",
+      "passed": true
+    },
+    {
+      "caseId": "all_keep_items",
+      "checkpointsPassed": 6,
+      "checkpointsTotal": 6,
+      "finalAggregateStatus": "all_keep",
+      "initialAggregateStatus": "all_keep",
+      "passed": true
+    },
+    {
+      "caseId": "safe_merge",
+      "checkpointsPassed": 11,
+      "checkpointsTotal": 11,
+      "finalAggregateStatus": "ready_for_execution",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "safe_archive",
+      "checkpointsPassed": 6,
+      "checkpointsTotal": 6,
+      "finalAggregateStatus": "ready_for_execution",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "review_only",
+      "checkpointsPassed": 6,
+      "checkpointsTotal": 6,
+      "finalAggregateStatus": "approved",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "policy_requires_review",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "policy_blocked",
+      "checkpointsPassed": 5,
+      "checkpointsTotal": 5,
+      "finalAggregateStatus": "all_blocked",
+      "initialAggregateStatus": "all_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "all_deferred",
+      "checkpointsPassed": 4,
+      "checkpointsTotal": 4,
+      "finalAggregateStatus": "deferred",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "all_rejected",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "rejected",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "mixed_blocked",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "mixed_blocked",
+      "initialAggregateStatus": "mixed_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "mixed_blocked_review",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "mixed_blocked_review",
+      "initialAggregateStatus": "mixed_blocked_review",
+      "passed": true
+    },
+    {
+      "caseId": "missing_source_action",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "integrity_blocked",
+      "initialAggregateStatus": "integrity_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "unresolved_policy_action",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "structural_overlap_conflict",
+      "checkpointsPassed": 4,
+      "checkpointsTotal": 4,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "scoped_simulation_warning",
+      "checkpointsPassed": 4,
+      "checkpointsTotal": 4,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "unscoped_simulation_warning",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "integrity_blocked",
+      "initialAggregateStatus": "integrity_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "duplicate_recommendation_normalization",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "conflicting_duplicate_integrity",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "integrity_blocked",
+      "initialAggregateStatus": "integrity_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "review_subtype_matrix_unknown",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "review_subtype_matrix_lifecycle_lowtrust",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "review_subtype_matrix_lifecycle_plain",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "requires_review",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "orphan_merge_missing_keeper",
+      "checkpointsPassed": 5,
+      "checkpointsTotal": 5,
+      "finalAggregateStatus": "integrity_blocked",
+      "initialAggregateStatus": "integrity_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "missing_simulation",
+      "checkpointsPassed": 2,
+      "checkpointsTotal": 2,
+      "finalAggregateStatus": "proposed",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "h1_no_structural_negative",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "approved",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "h2_unapproved_structural_negative",
+      "checkpointsPassed": 1,
+      "checkpointsTotal": 1,
+      "finalAggregateStatus": "proposed",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "h3_unresolved_non_structural_negative",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "partially_approved",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "h4_unresolved_review_negative",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "partially_approved",
+      "initialAggregateStatus": "requires_review",
+      "passed": true
+    },
+    {
+      "caseId": "h5_blocked_item_negative",
+      "checkpointsPassed": 1,
+      "checkpointsTotal": 1,
+      "finalAggregateStatus": "all_blocked",
+      "initialAggregateStatus": "all_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "h6_plan_blocker_negative",
+      "checkpointsPassed": 1,
+      "checkpointsTotal": 1,
+      "finalAggregateStatus": "integrity_blocked",
+      "initialAggregateStatus": "integrity_blocked",
+      "passed": true
+    },
+    {
+      "caseId": "h7_recommendations_only_negative",
+      "checkpointsPassed": 1,
+      "checkpointsTotal": 1,
+      "finalAggregateStatus": "proposed",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "invalid_decision_atomicity",
+      "checkpointsPassed": 3,
+      "checkpointsTotal": 3,
+      "finalAggregateStatus": "proposed",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    },
+    {
+      "caseId": "multi_call_decision_fingerprint",
+      "checkpointsPassed": 6,
+      "checkpointsTotal": 6,
+      "finalAggregateStatus": "mixed_blocked",
+      "initialAggregateStatus": "mixed_blocked_review",
+      "passed": true
+    },
+    {
+      "caseId": "identity_repeated_run",
+      "checkpointsPassed": 6,
+      "checkpointsTotal": 6,
+      "finalAggregateStatus": "proposed",
+      "initialAggregateStatus": "proposed",
+      "passed": true
+    }
+  ],
+  "checkpointCount": 117,
+  "diagnosticMetrics": {
+    "averageStepsPerCase": 0.8529411764705882,
+    "averageWorkflowItemsPerCase": 1.1470588235294117,
+    "blockerDistribution": {
+      "DUPLICATE_REMOVAL_SKIPPED": 1,
+      "INPUT_INTEGRITY": 5,
+      "MISSING_KEEPER": 1,
+      "MISSING_SIMULATION": 12,
+      "ORPHAN_MERGE_NO_KEEPER": 1,
+      "POLICY_BLOCKED": 5
+    },
+    "diagnosticOnly": true,
+    "integrityBlockedCaseCount": 5,
+    "planningModeDistribution": {
+      "full": 11,
+      "recommendations_only": 23
+    },
+    "reviewQueueDistribution": {
+      "review:conflict": 1,
+      "review:general": 8,
+      "review:lifecycle": 2,
+      "review:low_trust": 1,
+      "review:policy": 2,
+      "review:simulation_safety": 3,
+      "review:unknown_category": 1
+    },
+    "reviewToStructuralRatio": 1.8,
+    "structuralOperationDistribution": {
+      "archive": 3,
+      "merge": 7,
+      "retain": 1,
+      "review": 18
+    },
+    "workflowStatusDistribution": {
+      "all_blocked": 2,
+      "all_keep": 2,
+      "empty": 1,
+      "integrity_blocked": 5,
+      "mixed_blocked": 1,
+      "mixed_blocked_review": 2,
+      "proposed": 8,
+      "requires_review": 13
+    }
+  },
+  "diagnosticOnly": false,
+  "evaluationStatus": "scored",
+  "failures": [],
+  "fixtureVersion": "0.8.0",
+  "gatePassed": true,
+  "groundTruthAuthority": "tests/fixtures/workflow_gold.json",
+  "plannerVersion": "2",
+  "planningOnlyDisclaimer": "Workflow evaluation plans and decision transitions only; no workflow action is executed, persisted, scheduled, or externally applied.",
+  "qualityMetrics": {
+    "aggregateStatusAccuracy": {
+      "accuracy": 1.0,
+      "passed": 44,
+      "total": 44
+    },
+    "blockerAccuracy": {
+      "accuracy": 1.0,
+      "passed": 12,
+      "total": 12
+    },
+    "decisionTransitionAccuracy": {
+      "accuracy": 1.0,
+      "passed": 14,
+      "total": 14
+    },
+    "identityDeterminismAccuracy": {
+      "accuracy": 1.0,
+      "passed": 11,
+      "total": 11
+    },
+    "itemConstructionAccuracy": {
+      "accuracy": 1.0,
+      "passed": 9,
+      "total": 9
+    },
+    "operationAccuracy": {
+      "accuracy": 1.0,
+      "passed": 6,
+      "total": 6
+    },
+    "overallWorkflowAccuracy": {
+      "accuracy": 1.0,
+      "passed": 117,
+      "total": 117
+    },
+    "provenanceAccuracy": {
+      "accuracy": 1.0,
+      "passed": 2,
+      "total": 2
+    },
+    "reviewRoutingAccuracy": {
+      "accuracy": 1.0,
+      "passed": 11,
+      "total": 11
+    },
+    "stepOrderingAccuracy": {
+      "accuracy": 1.0,
+      "passed": 4,
+      "total": 4
+    },
+    "summaryConsistencyAccuracy": {
+      "accuracy": 1.0,
+      "passed": 4,
+      "total": 4
+    }
+  },
+  "reproductionCommand": "python scripts/run_workflow_evaluation.py",
+  "safetyResults": {
+    "failures": [],
+    "passed": true,
+    "properties": {
+      "blocked_decisions_atomic": {
+        "checksPassed": 4,
+        "checksTotal": 4,
+        "failures": [],
+        "passed": true
+      },
+      "cumulative_decision_fingerprint": {
+        "checksPassed": 1,
+        "checksTotal": 1,
+        "failures": [],
+        "passed": true
+      },
+      "decision_preserves_steps_operations": {
+        "checksPassed": 6,
+        "checksTotal": 6,
+        "failures": [],
+        "passed": true
+      },
+      "deterministic_planning": {
+        "checksPassed": 3,
+        "checksTotal": 3,
+        "failures": [],
+        "passed": true
+      },
+      "idempotent_repeated_planning": {
+        "checksPassed": 3,
+        "checksTotal": 3,
+        "failures": [],
+        "passed": true
+      },
+      "initial_never_ready": {
+        "checksPassed": 34,
+        "checksTotal": 34,
+        "failures": [],
+        "passed": true
+      },
+      "integrity_suppresses_readiness": {
+        "checksPassed": 5,
+        "checksTotal": 5,
+        "failures": [],
+        "passed": true
+      },
+      "keep_never_removes": {
+        "checksPassed": 2,
+        "checksTotal": 2,
+        "failures": [],
+        "passed": true
+      },
+      "merge_keeper_removable_safety": {
+        "checksPassed": 1,
+        "checksTotal": 1,
+        "failures": [],
+        "passed": true
+      },
+      "missing_source_action_fails_closed": {
+        "checksPassed": 1,
+        "checksTotal": 1,
+        "failures": [],
+        "passed": true
+      },
+      "no_effects": {
+        "checksPassed": 48,
+        "checksTotal": 48,
+        "failures": [],
+        "passed": true
+      },
+      "plan_id_stable_across_decisions": {
+        "checksPassed": 9,
+        "checksTotal": 9,
+        "failures": [],
+        "passed": true
+      },
+      "policy_blocked_remains_blocked": {
+        "checksPassed": 4,
+        "checksTotal": 4,
+        "failures": [],
+        "passed": true
+      },
+      "simulation_warnings_visible_scoped": {
+        "checksPassed": 2,
+        "checksTotal": 2,
+        "failures": [],
+        "passed": true
+      },
+      "source_report_immutability": {
+        "checksPassed": 34,
+        "checksTotal": 34,
+        "failures": [],
+        "passed": true
+      },
+      "structural_overlap_conflict_review": {
+        "checksPassed": 1,
+        "checksTotal": 1,
+        "failures": [],
+        "passed": true
+      },
+      "unresolved_policy_requires_review": {
+        "checksPassed": 2,
+        "checksTotal": 2,
+        "failures": [],
+        "passed": true
+      },
+      "zero_structural_never_ready": {
+        "checksPassed": 7,
+        "checksTotal": 7,
+        "failures": [],
+        "passed": true
+      }
+    }
+  }
+}
