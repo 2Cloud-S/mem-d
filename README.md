@@ -72,6 +72,12 @@ Conflict handling is deterministic and safety-biased, with precedence and confli
 
 Recommendation quality is benchmarked under [ADR-002](docs/design/ADR-002-RECOMMENDATION-EVALUATION.md) using labeled gold cases (`tests/fixtures/recommendation_gold.json`).
 
+The [AI × Epistemics Research Sprint](research/ai_epistemics_2026/README.md)
+adds a Phase 1 research protocol and 20 synthetic development cases for evaluating
+decision-preserving deduplication. No downstream experiment has run. Existing
+recommendation-fixture accuracy measures internal rule conformity, not improved
+downstream AI decisions. Production memory behavior is unchanged.
+
 Current published results:
 
 - Overall accuracy: **1.0000 (22/22)**
