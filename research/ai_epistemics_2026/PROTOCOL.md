@@ -311,3 +311,52 @@ erasure. Preserve original records and provenance, limit claims to evaluated
 tasks, and keep human review reversible. High review burden can cause fatigue;
 report it rather than equate abstention with a usable system. This sprint grants
 no permission to modify production memories or deploy autonomous consolidation.
+
+## Phase 2 implementation clarifications (2026-11-14, before feasibility)
+
+These choices resolve underspecified interfaces before producing any Phase 2
+feasibility artifacts or solver responses. They do not change labels, gate rules,
+thresholds, or hypotheses. No downstream solver experiment has run.
+
+- Serialize displayed memories as compact JSON with sorted object keys,
+  `ensure_ascii=False`, no trailing newline, preserving record order. Count this
+  exact array with `add_special_tokens=False`, without truncation. It appears
+  verbatim inside the solver's user JSON. Standalone-section tokenization is a
+  reproducible memory-budget measure; boundary effects mean it is not a billed
+  whole-prompt token delta.
+- Use a common prefix cap k across cases: take each case's first min(k, number
+  of candidates) groups, with k from zero through the largest case's group count.
+  This makes the family-wide operating-point grid explicit without label-driven
+  selection of separate budgets for individual cases. Original/exact remain
+  fixed anchors, paired separately at each operating point, never pooled as
+  extra observations. Freeze compression matches before scoring responses.
+- Phase 2 uses the pinned Qwen2.5-0.5B-Instruct **tokenizer only** to check actual
+  token feasibility; no Qwen solver or model-family comparison is run. This
+  tokenizer choice is not selection of a downstream model for later experiments.
+  Missing tokenizers yield null counts, not a character-based proxy.
+- Freeze transformation/request files and their SHA-256 digests before permitting
+  scoring or gold-bearing audit exports. Keep model payloads separate from
+  routing IDs and evaluation metadata. A later transport must return structured
+  status metadata (ok, truncated, refusal, context overflow, infrastructure)
+  rather than let the scorer guess transport failures from text.
+- The research adapter observes the genuine `analyze_file` embedding engine via
+  a scoped instrumented subclass. It verifies a pinned local snapshot and that
+  the sentence-transformer path actually returned the vectors used by mem-d.
+  It does not substitute vectors or alter any upstream evidence, policy,
+  recommendation, simulation, or workflow functions. A caught optional-backend
+  exception followed by hashing is a fatal invalid run, not a valid condition.
+
+### Post-recommendation pipeline failure (before retrying feasibility)
+
+The first real-embedding preparation attempt stopped without a valid run:
+inherited workflow planning raised a `WorkflowItem` validation error after the
+genuine recommendation stage had completed. Workflow planning is downstream of
+recommendations and has no feedback into the tested gate. The adapter will
+observe the genuine report passed into simulation, still attempt the unchanged
+simulation/workflow functions, and record any exception raised specifically in
+those downstream functions. It may use the captured upstream report for this
+recommendation-gate experiment, explicitly marking pipeline completion false.
+Embedding, parsing, clustering, trust, policy, or recommendation failures remain
+fatal. This isolates the intended intervention without repairing or hiding the
+inherited workflow defect. This clarification precedes the retry and any valid
+feasibility finding; the aborted attempt is retained as a blocker artifact.

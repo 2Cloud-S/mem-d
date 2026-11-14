@@ -1,0 +1,5 @@
+{
+  "reason": "ValidationError: 1 validation error for WorkflowItem\n  Value error, reviewRequirement.required must be true when action is review, requiresHumanApproval is true, plannerItemStatus is requires_review, or policyDecision is requires_review [type=value_error, input_value={'workflowItemId': 'ff2b5...'suppressedActions': ()}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+  "solver_calls": 0,
+  "status": "invalid_or_blocked"
+}
