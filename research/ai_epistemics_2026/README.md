@@ -1,4 +1,4 @@
-# AI × Epistemics Research Sprint — Phases 1–2
+# AI × Epistemics Research Sprint — Phases 1–2B
 
 **Working title:** “When AI Forgets the Caveat: Evaluating Decision-Preserving
 Memory Deduplication.”
@@ -423,3 +423,165 @@ Then pin distinct downstream model families and matching tokenizers, integrate
 real transports, and freeze a new development run before collecting responses.
 This phase ends with no solver calls, paid APIs, held-out generation, new
 safeguard, or decision-benefit claim.
+
+## Phase 2B: corpus budgets, incremental value, and pending audits
+
+Phase 2B continues from `489e3ddeb97afa2ed250d83ba3a2a8c3adb3ef8d`. Read the
+[decision memo](PHASE2B_MEMO.md) for the five conclusions and next decisions.
+The prospective [protocol amendment](PROTOCOL.md#phase-2b-amendment--corpus-budgets-and-blinded-audits)
+was recorded before generating these comparisons. It is informed by development
+feasibility, not an independent preregistration. The Phase 2 grid/findings above
+and its archived artifacts are preserved as historical results.
+
+Diagnosis: the frozen candidate-count histogram has only zero/one groups per
+case at every threshold. Consequently the historical shared cap 0 selects none
+and cap 1 selects every available group across stores before gating. Its lack
+of nonzero compression matches was partly a coarse-grid limitation. The gate's
+refusals and limited savings remain separate observations.
+
+New modules, without changing the existing gate/transform/prompt implementation:
+
+- `harness/budgets.py`: global similarity ordering, all corpus prefixes, actual
+  token matching, byte identity, and review-burden accounting. Ranking uses only
+  frozen group similarities and original IDs; matching uses only actual token
+  sums and prefix length. No categories, gold, audit judgments, or answers enter
+  either choice. This is an **offline corpus-level budget control**, not a
+  deployable query-blind per-store policy. No cross-case clustering is performed.
+- `harness/blind_audits.py`: unique fixed-medoid proposals, neutral record aliases
+  and audit IDs, a reviewer-only packet/template, and separate evaluator mapping.
+- `harness/phase2b.py`: verifies the historical freezes, data and committed code
+  hashes; checks unchanged candidates, medoids, gate outputs and payloads; then
+  runs tokenization locally. It reuses genuine frozen pipeline evidence and
+  does not rerun embeddings or alter recommendations. Selection freezes before
+  identity checks and audit export. The inherited workflow failures remain in
+  source provenance; nothing repairs or suppresses them.
+
+For each threshold the gate's full-prefix output is matched to the nearest
+similarity-first global prefix at that same threshold, minimizing the absolute
+token-savings gap and then shorter prefix length. Every prefix, including zero,
+is retained. Integer sums over three order seeds avoid rounding ties. The
+inclusive tolerance is two percentage points of the original corpus token budget;
+missing counts make matching unavailable, and unmatched points remain unmatched.
+Identity, safety, categories, and answers do not break matching ties. No random
+budget control, interpolation, or cross-threshold selection is introduced.
+
+All six matches are nonzero, but five have **identical** transformed payloads:
+
+| Threshold | Candidates | Gate groups / records / cases; tokens saved | Similarity prefix; groups / records / cases; tokens saved | Absolute token gap | Gate identical to exact / selected control | Review / approval groups |
+| --- | ---: | ---: | ---: | ---: | --- | ---: |
+| 0.45 | 20 | 2 / 2 / 2; 136 | 2; 2 / 2 / 2; 136 | 0 | yes / yes | 18 / 18 |
+| 0.55 | 19 | 2 / 2 / 2; 136 | 2; 2 / 2 / 2; 136 | 0 | yes / yes | 17 / 17 |
+| 0.65 | 19 | 2 / 2 / 2; 136 | 2; 2 / 2 / 2; 136 | 0 | yes / yes | 17 / 17 |
+| 0.75 | 17 | 2 / 2 / 2; 136 | 2; 2 / 2 / 2; 136 | 0 | yes / yes | 15 / 15 |
+| 0.85 | 9 | 2 / 2 / 2; 136 | 2; 2 / 2 / 2; 136 | 0 | yes / yes | 7 / 7 |
+| 0.95 | 6 | 3 / 3 / 3; 194 | 3; 3 / 3 / 3; 192 | 2 | no / no | 3 / 3 |
+
+Exact deduplication is a primary anchor at **every threshold**: two groups, two
+records, two cases affected, and 136 memory tokens saved. Original saves zero.
+All identity statements compare complete survivor bytes and all 60 case/seed
+solver-message payloads, not merely token totals. At 0.55 the gate adds no
+transformation beyond exact matching or similarity prefix 2. Higher review burden
+does not establish better discrimination; these controls have no review mechanism.
+Vetoed groups equal the review counts here, with zero explicit conflict flags;
+nonexclusive reason counts are preserved in `comparisons.json` and source evidence.
+Review recommendations also apply to memories outside selected candidate groups:
+the reviewed-memory counts are **48, 46, 43, 36, 27, 23 out of 52**, respectively,
+over the six increasing thresholds. These are recommendation frequencies, not
+observed human review time, and are reported separately from candidate-group rates.
+
+At 0.95, mem-d adds only the `m005_1`/`m005_3` paraphrase merge over exact matching,
+removing `m005_3` for **58 incremental tokens**. The selected simple control instead
+merges `m016_1`/`m016_2`, keeping `m016_1`. Both remove three records across three
+cases overall, but their payloads differ in `dev_005` and `dev_016`. The control
+saves 56 tokens over exact deduplication. Its signed residual relative to mem-d is
+−2 tokens: an absolute 2/3,290 = **0.06079 percentage points**, or 2/194 = **1.03%**
+of the gate savings. The allowed 0.02 × 3,290 = **65.8-token** gap would have been
+permissive at this scale; the actual selected gap is reported rather than hidden
+behind the tolerance. No same-threshold global prefix reproduces the gate at 0.95.
+All 114 operating points (96 global prefixes plus 18 anchors) are published,
+including their token totals, groups, records, affected cases, and payload hashes.
+These development points are not independent observations and establish no
+downstream decision improvement or independent semantic safety result.
+
+### Reproduce Phase 2B without embeddings or solvers
+
+Use the Phase 2 archive extraction instructions above to obtain an intact
+`phase2-run` directory. Install the same dependencies and pinned tokenizer cache
+as Phase 2, then run:
+
+```bash
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.phase2b \
+  --source /tmp/memd-phase2-inspect/phase2-run \
+  --cache /tmp/memd-research-cache --output /tmp/memd-phase2b-run
+```
+
+The cache needs the pinned Qwen tokenizer, whose asset hashes must match Phase 2.
+There is no model-download option in this replay command. Missing/mismatched
+assets fail explicitly. The output directory must be new. No embeddings, source
+memories, prior artifacts, labels, recommendations, or solver responses are generated
+or changed. Actual tokenization uses the unchanged display serialization and seeds.
+
+The new run is archived at
+[artifacts/phase2b-development-2026-11-14/](artifacts/phase2b-development-2026-11-14/).
+It includes readable `comparisons.json`, `operating-points.json`, `matching.json`,
+`rankings.json`, `manifest.json`, audit directories, `SHA256SUMS`, and `run.tar.gz`.
+The archive includes the complete `points.jsonl` survivor payloads and selection/
+analysis freezes. Source hashes record the Phase 2 parent plus new worktree code,
+protocol, and rubric. Preserve the historical source freeze separately.
+
+Run `sha256sum -c SHA256SUMS` in that artifact directory. After extracting the new
+archive, verify `selection.freeze.json` and `analysis.freeze.json` in its root,
+then the default `freeze.json` separately in `reviewer/` and `evaluator-only/`,
+using `harness.artifacts.verify`. `child-freezes.json` records the audit-directory
+freeze digests. These checks detect artifact edits, not reviewer agreement.
+
+### Blinded semantic audit handoff — human review pending
+
+Share **only `reviewer/`**, not this README/memo, source dataset, comparisons,
+rankings, or `evaluator-only/`. Its files are:
+
+- `packets.json`: 29 unique actual proposals from 90 threshold/group occurrences,
+  with originals, proposed survivors, question/criteria, fixed query time, and
+  neutral audit IDs. Original record IDs become local aliases. Identical reviewer
+  content is deduplicated before presentation is shuffled with seed 20262.
+- `rubric.md`: the [neutral rubric](AUDIT_RUBRIC.md) asks for relevance loss,
+  scope/negation/certainty/attribution/time changes, justified-decision changes,
+  ambiguity/unscorability, and a short evidence-based rationale. It explicitly
+  distinguishes meaningful loss from removal of redundant copies.
+- `response-template.json`: every judgment and rationale is null; reviewer ID
+  and review type are also null. Status is pending. Nothing is assistant-prefilled.
+- `freeze.json`: hashes of those three reviewer files before review.
+
+The separate `evaluator-only/audit-map.json` links neutral audit IDs to original
+IDs, thresholds, candidate medoids/similarities, and gate provenance. It includes
+accepted and vetoed proposals; three unique proposals have accepted provenance
+and 26 have vetoed provenance. No such metadata appears in reviewer files.
+The 29 proposals come from 20 cases in ten families; do not treat them as 29
+independent scenarios. Identical proposals are not sent repeatedly, while distinct
+medoids/groupings of one case remain reviewable variants. Public fictional content
+can still permit recognition, so blinding is procedural and reviewers should avoid
+the source repository. Two actual people must review independently before
+adjudication; no human review has yet been completed or solicited by the harness.
+Assistant inspection checked packet completeness and fixed-survivor fidelity,
+without filling responses or claiming independent semantic judgments.
+
+### Phase 2B validation and next task
+
+Research checks: **55 tests pass** (40 inherited research validity tests plus
+15 Phase 2B tests), including actual pinned-tokenizer integration. Tests cover
+ranking/ties, label-independent matching, inclusive token tolerance and residuals,
+unmatched/missing-token cases, unchanged frozen candidates/medoids/gate outputs,
+full-byte identity, and deduplicated blinded exports. Two fresh preparations
+reproduce the same point, matching, identity, and audit files byte-for-byte.
+Research lint, unchanged dataset validation, freeze/checksum checks, and diff
+checks pass. Combined repository/research suite: **498 passed, 2 skipped, 2 failed**.
+The same two inherited parser failures concern missing TXT/JSONL fixtures.
+Repository lint still has **86 preexisting findings** in thirteen unchanged files.
+Baseline fixtures and workflow behavior are not repaired or suppressed in this phase.
+
+Next obtain two independent blinded semantic reviews. Only then consider the
+non-identical 0.95 gate/control contrast and the incremental gate/exact comparison,
+with full-original anchors and frozen paired execution settings. Separate solver
+calls for identical 0.45–0.85 prompts cannot establish a gating contribution.
+Safety, decision benefit, and generalization remain unmeasured. No downstream
+solver calls, paid APIs, held-out cases, safeguards, or production changes occur.

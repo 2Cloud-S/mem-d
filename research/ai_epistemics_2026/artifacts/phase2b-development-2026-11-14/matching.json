@@ -1,0 +1,80 @@
+[
+  {
+    "absolute_token_gap_mean_orders": 0.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.45:similarity_first:2",
+    "gap_relative_to_target_savings": 0.0,
+    "nearest_control": "0.45:similarity_first:2",
+    "residual_compression_percentage_points": 0.0,
+    "residual_tokens_mean_orders": 0.0,
+    "residual_tokens_seed_sum": 0,
+    "status": "matched",
+    "target": "0.45:gated"
+  },
+  {
+    "absolute_token_gap_mean_orders": 0.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.55:similarity_first:2",
+    "gap_relative_to_target_savings": 0.0,
+    "nearest_control": "0.55:similarity_first:2",
+    "residual_compression_percentage_points": 0.0,
+    "residual_tokens_mean_orders": 0.0,
+    "residual_tokens_seed_sum": 0,
+    "status": "matched",
+    "target": "0.55:gated"
+  },
+  {
+    "absolute_token_gap_mean_orders": 0.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.65:similarity_first:2",
+    "gap_relative_to_target_savings": 0.0,
+    "nearest_control": "0.65:similarity_first:2",
+    "residual_compression_percentage_points": 0.0,
+    "residual_tokens_mean_orders": 0.0,
+    "residual_tokens_seed_sum": 0,
+    "status": "matched",
+    "target": "0.65:gated"
+  },
+  {
+    "absolute_token_gap_mean_orders": 0.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.75:similarity_first:2",
+    "gap_relative_to_target_savings": 0.0,
+    "nearest_control": "0.75:similarity_first:2",
+    "residual_compression_percentage_points": 0.0,
+    "residual_tokens_mean_orders": 0.0,
+    "residual_tokens_seed_sum": 0,
+    "status": "matched",
+    "target": "0.75:gated"
+  },
+  {
+    "absolute_token_gap_mean_orders": 0.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.85:similarity_first:2",
+    "gap_relative_to_target_savings": 0.0,
+    "nearest_control": "0.85:similarity_first:2",
+    "residual_compression_percentage_points": 0.0,
+    "residual_tokens_mean_orders": 0.0,
+    "residual_tokens_seed_sum": 0,
+    "status": "matched",
+    "target": "0.85:gated"
+  },
+  {
+    "absolute_token_gap_mean_orders": 2.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.95:similarity_first:3",
+    "gap_relative_to_target_savings": 0.010309278350515464,
+    "nearest_control": "0.95:similarity_first:3",
+    "residual_compression_percentage_points": -0.060790273556231005,
+    "residual_tokens_mean_orders": -2.0,
+    "residual_tokens_seed_sum": -6,
+    "status": "matched",
+    "target": "0.95:gated"
+  }
+]

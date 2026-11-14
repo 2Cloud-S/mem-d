@@ -1,0 +1,1012 @@
+[
+  {
+    "audit_id": "audit-001",
+    "decision_criteria": "Proceed only on uncontested active purchasing approval; do_not_proceed on uncontested active denial. Opposed active decisions of equal authority require insufficient_evidence. Authorization numbers and log times are identifiers, not precedence rules.",
+    "original_records": [
+      {
+        "content": "Purchasing authorization P31 approves the 44-credit amber desk lamp order.",
+        "id": "R1",
+        "source": "Lamp purchasing officer Orin",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Purchasing authorization P32 denies the same 44-credit amber desk lamp order.",
+        "id": "R2",
+        "source": "Lamp purchasing officer Sena",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Orin and Sena have equal authority for this order. P31 and P32 remain active; neither has been revoked or designated the correction.",
+        "id": "R3",
+        "source": "Lamp authority register",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The lamp carton measures 30 centimetres tall.",
+        "id": "R4",
+        "source": "Lamp packing note",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Purchasing authorization P31 approves the 44-credit amber desk lamp order.",
+        "id": "R1",
+        "source": "Lamp purchasing officer Orin",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we place this 44-credit amber desk lamp order?"
+  },
+  {
+    "audit_id": "audit-002",
+    "decision_criteria": "Proceed with publisher Eda's explicit approval of K2 version 3. An explicit Eda denial means do_not_proceed; unresolved Eda approval means insufficient_evidence. A suspicion about a separate generic template does not override K2 approval.",
+    "original_records": [
+      {
+        "content": "Publisher Eda explicitly approves kiosk bulletin K2, version 3, for publication; the generic template is a separate document.",
+        "id": "R1",
+        "source": "Eda publication approval",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Editor Sol wonders whether the generic release template has a typo; Sol has not checked it and makes no claim about the kiosk bulletin.",
+        "id": "R2",
+        "source": "Sol editorial notebook",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Sol's unchecked suspicion concerns a possible typo in the generic release template, not an asserted defect in the kiosk bulletin.",
+        "id": "R3",
+        "source": "Sol editorial notebook",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Sol's unchecked suspicion concerns a possible typo in the generic release template, not an asserted defect in the kiosk bulletin.",
+        "id": "R3",
+        "source": "Sol editorial notebook",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish kiosk bulletin K2 version 3?"
+  },
+  {
+    "audit_id": "audit-003",
+    "decision_criteria": "Production release requires explicit production approval. An explicit production prohibition means do_not_proceed even if the package is ready. With neither approval nor prohibition, answer insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Aster 1.5 release preparation is complete; the release package is ready.",
+        "id": "R1",
+        "source": "Aster release register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Aster 1.5 is NOT approved for production. Sandbox readiness does not authorize production release.",
+        "id": "R2",
+        "source": "Aster release authority",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Aster 1.5 uses the usual blue release icon.",
+        "id": "R3",
+        "source": "Aster artwork notes",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Aster 1.5 uses the usual blue release icon.",
+        "id": "R3",
+        "source": "Aster artwork notes",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we release Aster 1.5 to production now?"
+  },
+  {
+    "audit_id": "audit-004",
+    "decision_criteria": "Use the recorded sample exception for sample orders. Proceed if the delivered quote is within the applicable cap. Exceeding that cap means do_not_proceed; missing classification or price means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Lumen cable orders normally have a 50-credit purchasing cap; orders above that cap are disallowed.",
+        "id": "R1",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Purchasing exception for cable samples: a sample order may total up to 100 credits including delivery, overriding the normal cap for samples only.",
+        "id": "R2",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "This is a cable sample order. Its delivered quote is 80 credits.",
+        "id": "R3",
+        "source": "Lumen sample quote",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Lumen cable orders normally have a 50-credit purchasing cap; orders above that cap are disallowed.",
+        "id": "R1",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Purchasing exception for cable samples: a sample order may total up to 100 credits including delivery, overriding the normal cap for samples only.",
+        "id": "R2",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we place this 80-credit cable sample order?"
+  },
+  {
+    "audit_id": "audit-005",
+    "decision_criteria": "The two verifiers have equal authority. Proceed on an uncontested signed pass/approval; do_not_proceed on an uncontested signed fail/denial. Opposed signed results without a designated correction require insufficient_evidence; do not invent a fail-wins rule.",
+    "original_records": [
+      {
+        "content": "Signed QA result for Aster preview build B7: test passed and publication approved.",
+        "id": "R1",
+        "source": "Aster verifier Neri",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Signed QA result for Aster preview build B7: test failed and publication denied.",
+        "id": "R2",
+        "source": "Aster verifier Lio",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Both signed results identify build B7; neither is a rerun, and no correction or authority ranking is recorded.",
+        "id": "R3",
+        "source": "Aster QA audit note",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Signed QA result for Aster preview build B7: test passed and publication approved.",
+        "id": "R1",
+        "source": "Aster verifier Neri",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Both signed results identify build B7; neither is a rerun, and no correction or authority ranking is recorded.",
+        "id": "R3",
+        "source": "Aster QA audit note",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish Aster preview build B7?"
+  },
+  {
+    "audit_id": "audit-006",
+    "decision_criteria": "Proceed on an uncontested Eda approval; do_not_proceed on an uncontested Eda hold. Incompatible instructions about the same version without correction or precedence require insufficient_evidence. Do not treat record order as an update or automatically privilege negation.",
+    "original_records": [
+      {
+        "content": "Publisher Eda approves kiosk bulletin K3 version 2 for publication.",
+        "id": "R1",
+        "source": "Eda bulletin register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Publisher Eda does not approve kiosk bulletin K3 version 2 for publication; hold it.",
+        "id": "R2",
+        "source": "Eda bulletin register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The two K3 version 2 instructions carry the same issue time. There is no recorded withdrawal, correction, or ordering between them.",
+        "id": "R3",
+        "source": "Kiosk register audit",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Publisher Eda approves kiosk bulletin K3 version 2 for publication.",
+        "id": "R1",
+        "source": "Eda bulletin register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The two K3 version 2 instructions carry the same issue time. There is no recorded withdrawal, correction, or ordering between them.",
+        "id": "R3",
+        "source": "Kiosk register audit",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish kiosk bulletin K3 version 2?"
+  },
+  {
+    "audit_id": "audit-007",
+    "decision_criteria": "Proceed if the ledger authorizes the requested room and time. An explicit room/time ban means do_not_proceed; missing or conflicting authorization means insufficient_evidence. The cupboard is not needed.",
+    "original_records": [
+      {
+        "content": "Cedar room can be booked from 10:00 to 12:00 on 10 December, except the locked supply cupboard is excluded.",
+        "id": "R1",
+        "source": "Cedar booking ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Cedar room can be booked from 10:00 to 12:00 on 10 December, except the locked supply cupboard is excluded.",
+        "id": "R2",
+        "source": "Cedar booking ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Cedar room can be booked from 10:00 to 12:00 on 10 December, except the locked supply cupboard is excluded.",
+        "id": "R1",
+        "source": "Cedar booking ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T09:00:00Z",
+    "question": "Can we book Cedar room at 11:00 on 10 December without using its cupboard?"
+  },
+  {
+    "audit_id": "audit-008",
+    "decision_criteria": "Use the recorded sample exception for sample orders. Proceed if the delivered quote is within the applicable cap. Exceeding that cap means do_not_proceed; missing classification or price means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Lumen cable orders normally have a 50-credit purchasing cap; orders above that cap are disallowed.",
+        "id": "R1",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Purchasing exception for cable samples: a sample order may total up to 100 credits including delivery, overriding the normal cap for samples only.",
+        "id": "R2",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "This is a cable sample order. Its delivered quote is 80 credits.",
+        "id": "R3",
+        "source": "Lumen sample quote",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Purchasing exception for cable samples: a sample order may total up to 100 credits including delivery, overriding the normal cap for samples only.",
+        "id": "R2",
+        "source": "Lumen purchasing policy",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we place this 80-credit cable sample order?"
+  },
+  {
+    "audit_id": "audit-009",
+    "decision_criteria": "Only the authorized verifier's signed QA result determines preview publication. Proceed on a signed pass with approval; do_not_proceed on a signed fail or denial. Observer guesses have no veto authority. Unresolved signed results mean insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Signed QA result from authorized verifier Neri: the Aster preview test passed; preview publication is approved.",
+        "id": "R1",
+        "source": "Neri signed QA register",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Observer Ivo suspects the Aster preview test failed; Ivo did not run the test and is reporting a guess.",
+        "id": "R2",
+        "source": "Ivo observer note",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Signed QA result from authorized verifier Neri: the Aster preview test passed; preview publication is approved.",
+        "id": "R1",
+        "source": "Neri signed QA register",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish the Aster preview?"
+  },
+  {
+    "audit_id": "audit-010",
+    "decision_criteria": "Proceed only with explicit public-demo enablement permission. An explicit instruction to keep export disabled means do_not_proceed. Missing or unresolved permission means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Mica export is disabled in the public demo. Do not enable it for today's demonstration.",
+        "id": "R1",
+        "source": "Mica feature register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "For today's public demonstration, Mica export must stay off; the public-demo export feature is disabled.",
+        "id": "R2",
+        "source": "Mica feature register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Mica export is disabled in the public demo. Do not enable it for today's demonstration.",
+        "id": "R1",
+        "source": "Mica feature register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T09:00:00Z",
+    "question": "Should we enable Mica export for today's public demo?"
+  },
+  {
+    "audit_id": "audit-011",
+    "decision_criteria": "Proceed only on uncontested active purchasing approval; do_not_proceed on uncontested active denial. Opposed active decisions of equal authority require insufficient_evidence. Authorization numbers and log times are identifiers, not precedence rules.",
+    "original_records": [
+      {
+        "content": "Purchasing authorization P31 approves the 44-credit amber desk lamp order.",
+        "id": "R1",
+        "source": "Lamp purchasing officer Orin",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Purchasing authorization P32 denies the same 44-credit amber desk lamp order.",
+        "id": "R2",
+        "source": "Lamp purchasing officer Sena",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Orin and Sena have equal authority for this order. P31 and P32 remain active; neither has been revoked or designated the correction.",
+        "id": "R3",
+        "source": "Lamp authority register",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The lamp carton measures 30 centimetres tall.",
+        "id": "R4",
+        "source": "Lamp packing note",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Purchasing authorization P31 approves the 44-credit amber desk lamp order.",
+        "id": "R1",
+        "source": "Lamp purchasing officer Orin",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Orin and Sena have equal authority for this order. P31 and P32 remain active; neither has been revoked or designated the correction.",
+        "id": "R3",
+        "source": "Lamp authority register",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The lamp carton measures 30 centimetres tall.",
+        "id": "R4",
+        "source": "Lamp packing note",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we place this 44-credit amber desk lamp order?"
+  },
+  {
+    "audit_id": "audit-012",
+    "decision_criteria": "Use the signed approved booking, not draft proposals. Proceed if it authorizes 11:00; do_not_proceed if it authorizes another time. Missing or conflicting signed bookings mean insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Draft sketch for the Pebble club: perhaps start the room session at 10:00; no booking has been approved in this draft.",
+        "id": "R1",
+        "source": "Pebble draft planner",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Approved booking for the Pebble club room session: start at 11:00. This signed booking is the schedule authority.",
+        "id": "R2",
+        "source": "Pebble signed booking",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The room door will display a green paper sign.",
+        "id": "R3",
+        "source": "Pebble sign checklist",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Draft sketch for the Pebble club: perhaps start the room session at 10:00; no booking has been approved in this draft.",
+        "id": "R1",
+        "source": "Pebble draft planner",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The room door will display a green paper sign.",
+        "id": "R3",
+        "source": "Pebble sign checklist",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May the invitation announce an 11:00 start for the room session?"
+  },
+  {
+    "audit_id": "audit-013",
+    "decision_criteria": "A signed feature-owner environment exception overrides the default only in its named environment. Proceed if the planned environment is explicitly enabled; an applicable disabled state means do_not_proceed; unresolved environment means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Signed environment exception: Mica export is enabled for the staging demo only; this overrides the default there and leaves public-demo export disabled.",
+        "id": "R1",
+        "source": "Mica feature owner",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Mica export remains disabled in every environment by default.",
+        "id": "R2",
+        "source": "Mica feature register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The next demonstration will run in staging, not the public demo.",
+        "id": "R3",
+        "source": "Mica demo plan",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Signed environment exception: Mica export is enabled for the staging demo only; this overrides the default there and leaves public-demo export disabled.",
+        "id": "R1",
+        "source": "Mica feature owner",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The next demonstration will run in staging, not the public demo.",
+        "id": "R3",
+        "source": "Mica demo plan",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we use Mica export during the planned staging demonstration?"
+  },
+  {
+    "audit_id": "audit-014",
+    "decision_criteria": "Proceed when purchasing approval and a delivered total at or below 50 credits are recorded. A recorded total above the cap or purchasing denial means do_not_proceed; otherwise insufficient_evidence. Folder stock is irrelevant.",
+    "original_records": [
+      {
+        "content": "Purchasing approved the Lumen cable order at 48 credits, including delivery, under the 50-credit cap.",
+        "id": "R1",
+        "source": "Lumen purchase register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The stationery shelf holds six empty folders.",
+        "id": "R2",
+        "source": "Lumen inventory",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The Lumen cable order has purchasing approval: delivered total 48 credits; spending cap 50 credits.",
+        "id": "R3",
+        "source": "Lumen purchase register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Purchasing approved the Lumen cable order at 48 credits, including delivery, under the 50-credit cap.",
+        "id": "R1",
+        "source": "Lumen purchase register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The stationery shelf holds six empty folders.",
+        "id": "R2",
+        "source": "Lumen inventory",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we place the Lumen cable order at the quoted total?"
+  },
+  {
+    "audit_id": "audit-015",
+    "decision_criteria": "Proceed only after completed successful restore validation for S9. An explicit pending test or pruning prohibition means do_not_proceed. Unknown validation means insufficient_evidence; storage pressure grants no exception.",
+    "original_records": [
+      {
+        "content": "Do not prune Birch sandbox snapshot S9: its restore validation has not completed.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Birch sandbox snapshots can be pruned after restore validation.",
+        "id": "R2",
+        "source": "Birch backup policy",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The sandbox storage meter reads 80 percent used.",
+        "id": "R3",
+        "source": "Birch storage meter",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Birch sandbox snapshots can be pruned after restore validation.",
+        "id": "R2",
+        "source": "Birch backup policy",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we prune Birch sandbox snapshot S9 now?"
+  },
+  {
+    "audit_id": "audit-016",
+    "decision_criteria": "Proceed with publisher Eda's explicit approval of K2 version 3. An explicit Eda denial means do_not_proceed; unresolved Eda approval means insufficient_evidence. A suspicion about a separate generic template does not override K2 approval.",
+    "original_records": [
+      {
+        "content": "Publisher Eda explicitly approves kiosk bulletin K2, version 3, for publication; the generic template is a separate document.",
+        "id": "R1",
+        "source": "Eda publication approval",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Editor Sol wonders whether the generic release template has a typo; Sol has not checked it and makes no claim about the kiosk bulletin.",
+        "id": "R2",
+        "source": "Sol editorial notebook",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Sol's unchecked suspicion concerns a possible typo in the generic release template, not an asserted defect in the kiosk bulletin.",
+        "id": "R3",
+        "source": "Sol editorial notebook",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Publisher Eda explicitly approves kiosk bulletin K2, version 3, for publication; the generic template is a separate document.",
+        "id": "R1",
+        "source": "Eda publication approval",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Editor Sol wonders whether the generic release template has a typo; Sol has not checked it and makes no claim about the kiosk bulletin.",
+        "id": "R2",
+        "source": "Sol editorial notebook",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish kiosk bulletin K2 version 3?"
+  },
+  {
+    "audit_id": "audit-017",
+    "decision_criteria": "Proceed only after completed successful restore validation for S9. An explicit pending test or pruning prohibition means do_not_proceed. Unknown validation means insufficient_evidence; storage pressure grants no exception.",
+    "original_records": [
+      {
+        "content": "Do not prune Birch sandbox snapshot S9: its restore validation has not completed.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Birch sandbox snapshots can be pruned after restore validation.",
+        "id": "R2",
+        "source": "Birch backup policy",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The sandbox storage meter reads 80 percent used.",
+        "id": "R3",
+        "source": "Birch storage meter",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Do not prune Birch sandbox snapshot S9: its restore validation has not completed.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The sandbox storage meter reads 80 percent used.",
+        "id": "R3",
+        "source": "Birch storage meter",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we prune Birch sandbox snapshot S9 now?"
+  },
+  {
+    "audit_id": "audit-018",
+    "decision_criteria": "Apply the manager's explicitly scoped exception over the general ledger closure. Proceed if it covers the requested club, date, and time. An applicable unexcepted closure means do_not_proceed; unresolved scope means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Manager's scoped exception: Cedar room reopens on 10 December from 10:00 to 12:00 for the map club, overriding the exhibition-day closure for that booking only.",
+        "id": "R1",
+        "source": "Cedar booking manager",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Cedar room is closed to bookings on exhibition days, including 10 December.",
+        "id": "R2",
+        "source": "Cedar booking ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Manager's scoped exception: Cedar room reopens on 10 December from 10:00 to 12:00 for the map club, overriding the exhibition-day closure for that booking only.",
+        "id": "R1",
+        "source": "Cedar booking manager",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "Can the map club book Cedar room at 11:00 on 10 December?"
+  },
+  {
+    "audit_id": "audit-019",
+    "decision_criteria": "Proceed only with explicit sandbox approval for Aster 1.4. An explicit sandbox prohibition means do_not_proceed; absent or unresolved approval means insufficient_evidence. Production approval is not required for this question.",
+    "original_records": [
+      {
+        "content": "Aster 1.4 is approved for the sandbox release. Production approval is outside this notice.",
+        "id": "R1",
+        "source": "Aster release register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Aster 1.4 is approved for the sandbox release. Production approval is outside this notice.",
+        "id": "R2",
+        "source": "Aster release register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Aster 1.4 is approved for the sandbox release. Production approval is outside this notice.",
+        "id": "R1",
+        "source": "Aster release register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T09:00:00Z",
+    "question": "May we release Aster 1.4 to the sandbox?"
+  },
+  {
+    "audit_id": "audit-020",
+    "decision_criteria": "Proceed only if both a successful restore test and pruning clearance are recorded for S8. An explicit failed/pending test or pruning prohibition means do_not_proceed; otherwise insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Birch sandbox snapshot S8 passed its restore test and is cleared for pruning.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Restore validation for sandbox snapshot S8 succeeded; Birch operations authorizes pruning S8.",
+        "id": "R2",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Snapshot S8 in the Birch sandbox has pruning clearance after a successful restore test.",
+        "id": "R3",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Birch sandbox snapshot S8 passed its restore test and is cleared for pruning.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T09:00:00Z",
+    "question": "May Birch sandbox snapshot S8 be pruned?"
+  },
+  {
+    "audit_id": "audit-021",
+    "decision_criteria": "A signed feature-owner environment exception overrides the default only in its named environment. Proceed if the planned environment is explicitly enabled; an applicable disabled state means do_not_proceed; unresolved environment means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Signed environment exception: Mica export is enabled for the staging demo only; this overrides the default there and leaves public-demo export disabled.",
+        "id": "R1",
+        "source": "Mica feature owner",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Mica export remains disabled in every environment by default.",
+        "id": "R2",
+        "source": "Mica feature register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The next demonstration will run in staging, not the public demo.",
+        "id": "R3",
+        "source": "Mica demo plan",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Signed environment exception: Mica export is enabled for the staging demo only; this overrides the default there and leaves public-demo export disabled.",
+        "id": "R1",
+        "source": "Mica feature owner",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we use Mica export during the planned staging demonstration?"
+  },
+  {
+    "audit_id": "audit-022",
+    "decision_criteria": "Use the signed approved booking, not draft proposals. Proceed if it authorizes 11:00; do_not_proceed if it authorizes another time. Missing or conflicting signed bookings mean insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Draft sketch for the Pebble club: perhaps start the room session at 10:00; no booking has been approved in this draft.",
+        "id": "R1",
+        "source": "Pebble draft planner",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Approved booking for the Pebble club room session: start at 11:00. This signed booking is the schedule authority.",
+        "id": "R2",
+        "source": "Pebble signed booking",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "The room door will display a green paper sign.",
+        "id": "R3",
+        "source": "Pebble sign checklist",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Approved booking for the Pebble club room session: start at 11:00. This signed booking is the schedule authority.",
+        "id": "R2",
+        "source": "Pebble signed booking",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May the invitation announce an 11:00 start for the room session?"
+  },
+  {
+    "audit_id": "audit-023",
+    "decision_criteria": "Proceed only with a confirmed arrival commitment on or before 12 December. A confirmed later date means do_not_proceed. Estimates, stock confirmation alone, or unresolved dates mean insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Pollen supplier estimate, not a commitment: the ribbon parcel might arrive by 12 December.",
+        "id": "R1",
+        "source": "Pollen supplier estimate",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Pollen warehouse confirms the ribbon parcel is in stock; it has not confirmed any arrival date.",
+        "id": "R2",
+        "source": "Pollen warehouse",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Pollen supplier estimate, not a commitment: the ribbon parcel might arrive by 12 December.",
+        "id": "R1",
+        "source": "Pollen supplier estimate",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "Can we promise arrival of the ribbon parcel by 12 December?"
+  },
+  {
+    "audit_id": "audit-024",
+    "decision_criteria": "Proceed with an uncontested confirmed commitment by 12 December; do_not_proceed with an uncontested confirmed later commitment. Both dispatch desks have equal authority. Conflicting commitments require insufficient_evidence; timestamps show logging times and do not supersede commitments.",
+    "original_records": [
+      {
+        "content": "Confirmed Pollen ribbon delivery commitment: arrival on 12 December.",
+        "id": "R1",
+        "source": "Pollen dispatch desk A",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Confirmed Pollen ribbon delivery commitment: arrival on 14 December.",
+        "id": "R2",
+        "source": "Pollen dispatch desk B",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Confirmed Pollen ribbon delivery commitment: arrival on 12 December.",
+        "id": "R1",
+        "source": "Pollen dispatch desk A",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "Can we promise ribbon arrival by 12 December?"
+  },
+  {
+    "audit_id": "audit-025",
+    "decision_criteria": "Both desks have equal booking authority. Proceed if the uncontested approved start is 11:00; do_not_proceed if it is another time. Incompatible approved starts require insufficient_evidence. A later log timestamp does not cancel another approval.",
+    "original_records": [
+      {
+        "content": "Approved Pebble club room booking starts at 11:00 on 15 December.",
+        "id": "R1",
+        "source": "Pebble booking desk B",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Approved Pebble club room booking starts at 10:00 on 15 December.",
+        "id": "R2",
+        "source": "Pebble booking desk A",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Approved Pebble club room booking starts at 11:00 on 15 December.",
+        "id": "R1",
+        "source": "Pebble booking desk B",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May the invitation announce an 11:00 start on 15 December?"
+  },
+  {
+    "audit_id": "audit-026",
+    "decision_criteria": "The two verifiers have equal authority. Proceed on an uncontested signed pass/approval; do_not_proceed on an uncontested signed fail/denial. Opposed signed results without a designated correction require insufficient_evidence; do not invent a fail-wins rule.",
+    "original_records": [
+      {
+        "content": "Signed QA result for Aster preview build B7: test passed and publication approved.",
+        "id": "R1",
+        "source": "Aster verifier Neri",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Signed QA result for Aster preview build B7: test failed and publication denied.",
+        "id": "R2",
+        "source": "Aster verifier Lio",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Both signed results identify build B7; neither is a rerun, and no correction or authority ranking is recorded.",
+        "id": "R3",
+        "source": "Aster QA audit note",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Signed QA result for Aster preview build B7: test failed and publication denied.",
+        "id": "R2",
+        "source": "Aster verifier Lio",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish Aster preview build B7?"
+  },
+  {
+    "audit_id": "audit-027",
+    "decision_criteria": "Proceed on an uncontested Eda approval; do_not_proceed on an uncontested Eda hold. Incompatible instructions about the same version without correction or precedence require insufficient_evidence. Do not treat record order as an update or automatically privilege negation.",
+    "original_records": [
+      {
+        "content": "Publisher Eda approves kiosk bulletin K3 version 2 for publication.",
+        "id": "R1",
+        "source": "Eda bulletin register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Publisher Eda does not approve kiosk bulletin K3 version 2 for publication; hold it.",
+        "id": "R2",
+        "source": "Eda bulletin register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "The two K3 version 2 instructions carry the same issue time. There is no recorded withdrawal, correction, or ordering between them.",
+        "id": "R3",
+        "source": "Kiosk register audit",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Publisher Eda does not approve kiosk bulletin K3 version 2 for publication; hold it.",
+        "id": "R2",
+        "source": "Eda bulletin register",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we publish kiosk bulletin K3 version 2?"
+  },
+  {
+    "audit_id": "audit-028",
+    "decision_criteria": "Proceed only if both a successful restore test and pruning clearance are recorded for S8. An explicit failed/pending test or pruning prohibition means do_not_proceed; otherwise insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Birch sandbox snapshot S8 passed its restore test and is cleared for pruning.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Restore validation for sandbox snapshot S8 succeeded; Birch operations authorizes pruning S8.",
+        "id": "R2",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Snapshot S8 in the Birch sandbox has pruning clearance after a successful restore test.",
+        "id": "R3",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Birch sandbox snapshot S8 passed its restore test and is cleared for pruning.",
+        "id": "R1",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      },
+      {
+        "content": "Restore validation for sandbox snapshot S8 succeeded; Birch operations authorizes pruning S8.",
+        "id": "R2",
+        "source": "Birch backup ledger",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T09:00:00Z",
+    "question": "May Birch sandbox snapshot S8 be pruned?"
+  },
+  {
+    "audit_id": "audit-029",
+    "decision_criteria": "Only purchasing officer Orin can authorize this order. An explicit denial means do_not_proceed. An approval within Orin's stated budget means proceed. Personal preference is not authorization; unresolved purchasing status means insufficient_evidence.",
+    "original_records": [
+      {
+        "content": "Purchasing officer Orin denies the 44-credit amber desk lamp order because the authorized lamp budget is 40 credits.",
+        "id": "R1",
+        "source": "Orin purchasing decision",
+        "timestamp": "2026-12-01T10:00:00Z"
+      },
+      {
+        "content": "Designer Vela would like to buy the amber desk lamp for 44 credits; this is Vela's personal preference, not purchasing authorization.",
+        "id": "R2",
+        "source": "Vela design note",
+        "timestamp": "2026-12-01T09:00:00Z"
+      }
+    ],
+    "proposed_survivor_records": [
+      {
+        "content": "Purchasing officer Orin denies the 44-credit amber desk lamp order because the authorized lamp budget is 40 credits.",
+        "id": "R1",
+        "source": "Orin purchasing decision",
+        "timestamp": "2026-12-01T10:00:00Z"
+      }
+    ],
+    "query_time": "2026-12-01T10:00:00Z",
+    "question": "May we place the amber desk lamp order at 44 credits?"
+  }
+]

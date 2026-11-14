@@ -1,0 +1,1506 @@
+{
+  "0.45": [
+    {
+      "case_id": "dev_002",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 1.0,
+        "medoid": "m002_1",
+        "medoid_scores": {
+          "m002_1": 1.0,
+          "m002_2": 1.0
+        },
+        "members": [
+          "m002_1",
+          "m002_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_001",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9999999999999996,
+        "medoid": "m001_1",
+        "medoid_scores": {
+          "m001_1": 0.9999999999999996,
+          "m001_2": 0.9999999999999996
+        },
+        "members": [
+          "m001_1",
+          "m001_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_016",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9931168597422395,
+        "medoid": "m016_1",
+        "medoid_scores": {
+          "m016_1": 0.9931168597422395,
+          "m016_2": 0.9931168597422395
+        },
+        "members": [
+          "m016_1",
+          "m016_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_018",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9689608726915655,
+        "medoid": "m018_1",
+        "medoid_scores": {
+          "m018_1": 0.9689608726915655,
+          "m018_2": 0.9689608726915655
+        },
+        "members": [
+          "m018_1",
+          "m018_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_003",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9670663839706625,
+        "medoid": "m003_1",
+        "medoid_scores": {
+          "m003_1": 0.9670663839706625,
+          "m003_3": 0.9670663839706625
+        },
+        "members": [
+          "m003_1",
+          "m003_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_005",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9259036980443739,
+        "medoid": "m005_1",
+        "medoid_scores": {
+          "m005_1": 0.9328931568926004,
+          "m005_2": 0.9125743011888687,
+          "m005_3": 0.9322436360516526
+        },
+        "members": [
+          "m005_1",
+          "m005_2",
+          "m005_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_007",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8370066333003087,
+        "medoid": "m007_1",
+        "medoid_scores": {
+          "m007_1": 0.8370066333003087,
+          "m007_2": 0.8370066333003087
+        },
+        "members": [
+          "m007_1",
+          "m007_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_004",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.831897959087386,
+        "medoid": "m004_1",
+        "medoid_scores": {
+          "m004_1": 0.831897959087386,
+          "m004_2": 0.831897959087386
+        },
+        "members": [
+          "m004_1",
+          "m004_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_011",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8073146674057345,
+        "medoid": "m011_1",
+        "medoid_scores": {
+          "m011_1": 0.8073146674057345,
+          "m011_2": 0.8073146674057345
+        },
+        "members": [
+          "m011_1",
+          "m011_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_008",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.726935601675959,
+        "medoid": "m008_2",
+        "medoid_scores": {
+          "m008_1": 0.682187586937941,
+          "m008_2": 0.7559411235359261,
+          "m008_3": 0.7426780945540101
+        },
+        "members": [
+          "m008_1",
+          "m008_2",
+          "m008_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_014",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7208010436716317,
+        "medoid": "m014_1",
+        "medoid_scores": {
+          "m014_1": 0.7208010436716317,
+          "m014_2": 0.7208010436716317
+        },
+        "members": [
+          "m014_1",
+          "m014_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_017",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7140762359068726,
+        "medoid": "m017_2",
+        "medoid_scores": {
+          "m017_1": 0.7563584777326335,
+          "m017_2": 0.7669115557390334,
+          "m017_3": 0.618958674248951
+        },
+        "members": [
+          "m017_1",
+          "m017_2",
+          "m017_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_006",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7115439112115286,
+        "medoid": "m006_3",
+        "medoid_scores": {
+          "m006_1": 0.710883012705303,
+          "m006_2": 0.6982660265474974,
+          "m006_3": 0.7254826943817853
+        },
+        "members": [
+          "m006_1",
+          "m006_2",
+          "m006_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_020",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.703194124545086,
+        "medoid": "m020_2",
+        "medoid_scores": {
+          "m020_1": 0.7187837392807137,
+          "m020_2": 0.7467870386427307,
+          "m020_3": 0.6440115957118135
+        },
+        "members": [
+          "m020_1",
+          "m020_2",
+          "m020_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_015",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7020069208919827,
+        "medoid": "m015_3",
+        "medoid_scores": {
+          "m015_1": 0.6226126378178773,
+          "m015_2": 0.7354876622391864,
+          "m015_3": 0.7479204626188841
+        },
+        "members": [
+          "m015_1",
+          "m015_2",
+          "m015_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_010",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.6475851667938255,
+        "medoid": "m010_2",
+        "medoid_scores": {
+          "m010_1": 0.6787013997473069,
+          "m010_2": 0.7274802737473587,
+          "m010_3": 0.536573826886811
+        },
+        "members": [
+          "m010_1",
+          "m010_2",
+          "m010_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_013",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.6228899544641058,
+        "medoid": "m013_2",
+        "medoid_scores": {
+          "m013_1": 0.6680643744201062,
+          "m013_2": 0.6778099429902347,
+          "m013_3": 0.5227955459819763
+        },
+        "members": [
+          "m013_1",
+          "m013_2",
+          "m013_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_019",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.5803085731119334,
+        "medoid": "m019_1",
+        "medoid_scores": {
+          "m019_1": 0.6478231234732666,
+          "m019_2": 0.6350102819030916,
+          "m019_3": 0.5335185356039336,
+          "m019_4": 0.5048823514674414
+        },
+        "members": [
+          "m019_1",
+          "m019_2",
+          "m019_3",
+          "m019_4"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_009",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.5679303263722061,
+        "medoid": "m009_1",
+        "medoid_scores": {
+          "m009_1": 0.6712677100841948,
+          "m009_2": 0.5983203915601828,
+          "m009_3": 0.43420287747224073
+        },
+        "members": [
+          "m009_1",
+          "m009_2",
+          "m009_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_012",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.5345359328777349,
+        "medoid": "m012_1",
+        "medoid_scores": {
+          "m012_1": 0.5345359328777349,
+          "m012_2": 0.5345359328777349
+        },
+        "members": [
+          "m012_1",
+          "m012_2"
+        ]
+      }
+    }
+  ],
+  "0.55": [
+    {
+      "case_id": "dev_002",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 1.0,
+        "medoid": "m002_1",
+        "medoid_scores": {
+          "m002_1": 1.0,
+          "m002_2": 1.0
+        },
+        "members": [
+          "m002_1",
+          "m002_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_001",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9999999999999996,
+        "medoid": "m001_1",
+        "medoid_scores": {
+          "m001_1": 0.9999999999999996,
+          "m001_2": 0.9999999999999996
+        },
+        "members": [
+          "m001_1",
+          "m001_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_016",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9931168597422395,
+        "medoid": "m016_1",
+        "medoid_scores": {
+          "m016_1": 0.9931168597422395,
+          "m016_2": 0.9931168597422395
+        },
+        "members": [
+          "m016_1",
+          "m016_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_018",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9689608726915655,
+        "medoid": "m018_1",
+        "medoid_scores": {
+          "m018_1": 0.9689608726915655,
+          "m018_2": 0.9689608726915655
+        },
+        "members": [
+          "m018_1",
+          "m018_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_003",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9670663839706625,
+        "medoid": "m003_1",
+        "medoid_scores": {
+          "m003_1": 0.9670663839706625,
+          "m003_3": 0.9670663839706625
+        },
+        "members": [
+          "m003_1",
+          "m003_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_005",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9259036980443739,
+        "medoid": "m005_1",
+        "medoid_scores": {
+          "m005_1": 0.9328931568926004,
+          "m005_2": 0.9125743011888687,
+          "m005_3": 0.9322436360516526
+        },
+        "members": [
+          "m005_1",
+          "m005_2",
+          "m005_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_007",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8370066333003087,
+        "medoid": "m007_1",
+        "medoid_scores": {
+          "m007_1": 0.8370066333003087,
+          "m007_2": 0.8370066333003087
+        },
+        "members": [
+          "m007_1",
+          "m007_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_009",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.835385224172137,
+        "medoid": "m009_1",
+        "medoid_scores": {
+          "m009_1": 0.835385224172137,
+          "m009_2": 0.835385224172137
+        },
+        "members": [
+          "m009_1",
+          "m009_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_004",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.831897959087386,
+        "medoid": "m004_1",
+        "medoid_scores": {
+          "m004_1": 0.831897959087386,
+          "m004_2": 0.831897959087386
+        },
+        "members": [
+          "m004_1",
+          "m004_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_013",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8230787714283646,
+        "medoid": "m013_1",
+        "medoid_scores": {
+          "m013_1": 0.8230787714283646,
+          "m013_2": 0.8230787714283646
+        },
+        "members": [
+          "m013_1",
+          "m013_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_011",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8073146674057345,
+        "medoid": "m011_1",
+        "medoid_scores": {
+          "m011_1": 0.8073146674057345,
+          "m011_2": 0.8073146674057345
+        },
+        "members": [
+          "m011_1",
+          "m011_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_008",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.726935601675959,
+        "medoid": "m008_2",
+        "medoid_scores": {
+          "m008_1": 0.682187586937941,
+          "m008_2": 0.7559411235359261,
+          "m008_3": 0.7426780945540101
+        },
+        "members": [
+          "m008_1",
+          "m008_2",
+          "m008_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_014",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7208010436716317,
+        "medoid": "m014_1",
+        "medoid_scores": {
+          "m014_1": 0.7208010436716317,
+          "m014_2": 0.7208010436716317
+        },
+        "members": [
+          "m014_1",
+          "m014_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_017",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7140762359068726,
+        "medoid": "m017_2",
+        "medoid_scores": {
+          "m017_1": 0.7563584777326335,
+          "m017_2": 0.7669115557390334,
+          "m017_3": 0.618958674248951
+        },
+        "members": [
+          "m017_1",
+          "m017_2",
+          "m017_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_006",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7115439112115286,
+        "medoid": "m006_3",
+        "medoid_scores": {
+          "m006_1": 0.710883012705303,
+          "m006_2": 0.6982660265474974,
+          "m006_3": 0.7254826943817853
+        },
+        "members": [
+          "m006_1",
+          "m006_2",
+          "m006_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_020",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.703194124545086,
+        "medoid": "m020_2",
+        "medoid_scores": {
+          "m020_1": 0.7187837392807137,
+          "m020_2": 0.7467870386427307,
+          "m020_3": 0.6440115957118135
+        },
+        "members": [
+          "m020_1",
+          "m020_2",
+          "m020_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_015",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7020069208919827,
+        "medoid": "m015_3",
+        "medoid_scores": {
+          "m015_1": 0.6226126378178773,
+          "m015_2": 0.7354876622391864,
+          "m015_3": 0.7479204626188841
+        },
+        "members": [
+          "m015_1",
+          "m015_2",
+          "m015_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_010",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.6475851667938255,
+        "medoid": "m010_2",
+        "medoid_scores": {
+          "m010_1": 0.6787013997473069,
+          "m010_2": 0.7274802737473587,
+          "m010_3": 0.536573826886811
+        },
+        "members": [
+          "m010_1",
+          "m010_2",
+          "m010_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_019",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.5803085731119334,
+        "medoid": "m019_1",
+        "medoid_scores": {
+          "m019_1": 0.6478231234732666,
+          "m019_2": 0.6350102819030916,
+          "m019_3": 0.5335185356039336,
+          "m019_4": 0.5048823514674414
+        },
+        "members": [
+          "m019_1",
+          "m019_2",
+          "m019_3",
+          "m019_4"
+        ]
+      }
+    }
+  ],
+  "0.65": [
+    {
+      "case_id": "dev_002",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 1.0,
+        "medoid": "m002_1",
+        "medoid_scores": {
+          "m002_1": 1.0,
+          "m002_2": 1.0
+        },
+        "members": [
+          "m002_1",
+          "m002_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_001",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9999999999999996,
+        "medoid": "m001_1",
+        "medoid_scores": {
+          "m001_1": 0.9999999999999996,
+          "m001_2": 0.9999999999999996
+        },
+        "members": [
+          "m001_1",
+          "m001_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_016",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9931168597422395,
+        "medoid": "m016_1",
+        "medoid_scores": {
+          "m016_1": 0.9931168597422395,
+          "m016_2": 0.9931168597422395
+        },
+        "members": [
+          "m016_1",
+          "m016_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_018",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9689608726915655,
+        "medoid": "m018_1",
+        "medoid_scores": {
+          "m018_1": 0.9689608726915655,
+          "m018_2": 0.9689608726915655
+        },
+        "members": [
+          "m018_1",
+          "m018_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_003",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9670663839706625,
+        "medoid": "m003_1",
+        "medoid_scores": {
+          "m003_1": 0.9670663839706625,
+          "m003_3": 0.9670663839706625
+        },
+        "members": [
+          "m003_1",
+          "m003_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_005",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9259036980443739,
+        "medoid": "m005_1",
+        "medoid_scores": {
+          "m005_1": 0.9328931568926004,
+          "m005_2": 0.9125743011888687,
+          "m005_3": 0.9322436360516526
+        },
+        "members": [
+          "m005_1",
+          "m005_2",
+          "m005_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_017",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9043113592227159,
+        "medoid": "m017_1",
+        "medoid_scores": {
+          "m017_1": 0.9043113592227159,
+          "m017_2": 0.9043113592227159
+        },
+        "members": [
+          "m017_1",
+          "m017_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_010",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8696078466078546,
+        "medoid": "m010_1",
+        "medoid_scores": {
+          "m010_1": 0.8696078466078546,
+          "m010_2": 0.8696078466078546
+        },
+        "members": [
+          "m010_1",
+          "m010_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_015",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8607954870401933,
+        "medoid": "m015_2",
+        "medoid_scores": {
+          "m015_2": 0.8607954870401933,
+          "m015_3": 0.8607954870401933
+        },
+        "members": [
+          "m015_2",
+          "m015_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_007",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8370066333003087,
+        "medoid": "m007_1",
+        "medoid_scores": {
+          "m007_1": 0.8370066333003087,
+          "m007_2": 0.8370066333003087
+        },
+        "members": [
+          "m007_1",
+          "m007_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_009",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.835385224172137,
+        "medoid": "m009_1",
+        "medoid_scores": {
+          "m009_1": 0.835385224172137,
+          "m009_2": 0.835385224172137
+        },
+        "members": [
+          "m009_1",
+          "m009_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_004",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.831897959087386,
+        "medoid": "m004_1",
+        "medoid_scores": {
+          "m004_1": 0.831897959087386,
+          "m004_2": 0.831897959087386
+        },
+        "members": [
+          "m004_1",
+          "m004_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_013",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8230787714283646,
+        "medoid": "m013_1",
+        "medoid_scores": {
+          "m013_1": 0.8230787714283646,
+          "m013_2": 0.8230787714283646
+        },
+        "members": [
+          "m013_1",
+          "m013_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_011",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8073146674057345,
+        "medoid": "m011_1",
+        "medoid_scores": {
+          "m011_1": 0.8073146674057345,
+          "m011_2": 0.8073146674057345
+        },
+        "members": [
+          "m011_1",
+          "m011_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_019",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7872223678728378,
+        "medoid": "m019_1",
+        "medoid_scores": {
+          "m019_1": 0.7872223678728378,
+          "m019_2": 0.7872223678728378
+        },
+        "members": [
+          "m019_1",
+          "m019_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_008",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.726935601675959,
+        "medoid": "m008_2",
+        "medoid_scores": {
+          "m008_1": 0.682187586937941,
+          "m008_2": 0.7559411235359261,
+          "m008_3": 0.7426780945540101
+        },
+        "members": [
+          "m008_1",
+          "m008_2",
+          "m008_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_014",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7208010436716317,
+        "medoid": "m014_1",
+        "medoid_scores": {
+          "m014_1": 0.7208010436716317,
+          "m014_2": 0.7208010436716317
+        },
+        "members": [
+          "m014_1",
+          "m014_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_006",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7115439112115286,
+        "medoid": "m006_3",
+        "medoid_scores": {
+          "m006_1": 0.710883012705303,
+          "m006_2": 0.6982660265474974,
+          "m006_3": 0.7254826943817853
+        },
+        "members": [
+          "m006_1",
+          "m006_2",
+          "m006_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_020",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.703194124545086,
+        "medoid": "m020_2",
+        "medoid_scores": {
+          "m020_1": 0.7187837392807137,
+          "m020_2": 0.7467870386427307,
+          "m020_3": 0.6440115957118135
+        },
+        "members": [
+          "m020_1",
+          "m020_2",
+          "m020_3"
+        ]
+      }
+    }
+  ],
+  "0.75": [
+    {
+      "case_id": "dev_002",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 1.0,
+        "medoid": "m002_1",
+        "medoid_scores": {
+          "m002_1": 1.0,
+          "m002_2": 1.0
+        },
+        "members": [
+          "m002_1",
+          "m002_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_001",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9999999999999996,
+        "medoid": "m001_1",
+        "medoid_scores": {
+          "m001_1": 0.9999999999999996,
+          "m001_2": 0.9999999999999996
+        },
+        "members": [
+          "m001_1",
+          "m001_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_016",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9931168597422395,
+        "medoid": "m016_1",
+        "medoid_scores": {
+          "m016_1": 0.9931168597422395,
+          "m016_2": 0.9931168597422395
+        },
+        "members": [
+          "m016_1",
+          "m016_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_018",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9689608726915655,
+        "medoid": "m018_1",
+        "medoid_scores": {
+          "m018_1": 0.9689608726915655,
+          "m018_2": 0.9689608726915655
+        },
+        "members": [
+          "m018_1",
+          "m018_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_003",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9670663839706625,
+        "medoid": "m003_1",
+        "medoid_scores": {
+          "m003_1": 0.9670663839706625,
+          "m003_3": 0.9670663839706625
+        },
+        "members": [
+          "m003_1",
+          "m003_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_005",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9259036980443739,
+        "medoid": "m005_1",
+        "medoid_scores": {
+          "m005_1": 0.9328931568926004,
+          "m005_2": 0.9125743011888687,
+          "m005_3": 0.9322436360516526
+        },
+        "members": [
+          "m005_1",
+          "m005_2",
+          "m005_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_017",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9043113592227159,
+        "medoid": "m017_1",
+        "medoid_scores": {
+          "m017_1": 0.9043113592227159,
+          "m017_2": 0.9043113592227159
+        },
+        "members": [
+          "m017_1",
+          "m017_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_010",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8696078466078546,
+        "medoid": "m010_1",
+        "medoid_scores": {
+          "m010_1": 0.8696078466078546,
+          "m010_2": 0.8696078466078546
+        },
+        "members": [
+          "m010_1",
+          "m010_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_015",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8607954870401933,
+        "medoid": "m015_2",
+        "medoid_scores": {
+          "m015_2": 0.8607954870401933,
+          "m015_3": 0.8607954870401933
+        },
+        "members": [
+          "m015_2",
+          "m015_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_007",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8370066333003087,
+        "medoid": "m007_1",
+        "medoid_scores": {
+          "m007_1": 0.8370066333003087,
+          "m007_2": 0.8370066333003087
+        },
+        "members": [
+          "m007_1",
+          "m007_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_009",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.835385224172137,
+        "medoid": "m009_1",
+        "medoid_scores": {
+          "m009_1": 0.835385224172137,
+          "m009_2": 0.835385224172137
+        },
+        "members": [
+          "m009_1",
+          "m009_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_004",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.831897959087386,
+        "medoid": "m004_1",
+        "medoid_scores": {
+          "m004_1": 0.831897959087386,
+          "m004_2": 0.831897959087386
+        },
+        "members": [
+          "m004_1",
+          "m004_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_013",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8230787714283646,
+        "medoid": "m013_1",
+        "medoid_scores": {
+          "m013_1": 0.8230787714283646,
+          "m013_2": 0.8230787714283646
+        },
+        "members": [
+          "m013_1",
+          "m013_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_020",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8215591822116308,
+        "medoid": "m020_1",
+        "medoid_scores": {
+          "m020_1": 0.8215591822116308,
+          "m020_2": 0.8215591822116308
+        },
+        "members": [
+          "m020_1",
+          "m020_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_008",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8164316311519954,
+        "medoid": "m008_2",
+        "medoid_scores": {
+          "m008_2": 0.8164316311519954,
+          "m008_3": 0.8164316311519954
+        },
+        "members": [
+          "m008_2",
+          "m008_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_011",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8073146674057345,
+        "medoid": "m011_1",
+        "medoid_scores": {
+          "m011_1": 0.8073146674057345,
+          "m011_2": 0.8073146674057345
+        },
+        "members": [
+          "m011_1",
+          "m011_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_019",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.7872223678728378,
+        "medoid": "m019_1",
+        "medoid_scores": {
+          "m019_1": 0.7872223678728378,
+          "m019_2": 0.7872223678728378
+        },
+        "members": [
+          "m019_1",
+          "m019_2"
+        ]
+      }
+    }
+  ],
+  "0.85": [
+    {
+      "case_id": "dev_002",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 1.0,
+        "medoid": "m002_1",
+        "medoid_scores": {
+          "m002_1": 1.0,
+          "m002_2": 1.0
+        },
+        "members": [
+          "m002_1",
+          "m002_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_001",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9999999999999996,
+        "medoid": "m001_1",
+        "medoid_scores": {
+          "m001_1": 0.9999999999999996,
+          "m001_2": 0.9999999999999996
+        },
+        "members": [
+          "m001_1",
+          "m001_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_016",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9931168597422395,
+        "medoid": "m016_1",
+        "medoid_scores": {
+          "m016_1": 0.9931168597422395,
+          "m016_2": 0.9931168597422395
+        },
+        "members": [
+          "m016_1",
+          "m016_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_018",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9689608726915655,
+        "medoid": "m018_1",
+        "medoid_scores": {
+          "m018_1": 0.9689608726915655,
+          "m018_2": 0.9689608726915655
+        },
+        "members": [
+          "m018_1",
+          "m018_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_003",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9670663839706625,
+        "medoid": "m003_1",
+        "medoid_scores": {
+          "m003_1": 0.9670663839706625,
+          "m003_3": 0.9670663839706625
+        },
+        "members": [
+          "m003_1",
+          "m003_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_005",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9259036980443739,
+        "medoid": "m005_1",
+        "medoid_scores": {
+          "m005_1": 0.9328931568926004,
+          "m005_2": 0.9125743011888687,
+          "m005_3": 0.9322436360516526
+        },
+        "members": [
+          "m005_1",
+          "m005_2",
+          "m005_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_017",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9043113592227159,
+        "medoid": "m017_1",
+        "medoid_scores": {
+          "m017_1": 0.9043113592227159,
+          "m017_2": 0.9043113592227159
+        },
+        "members": [
+          "m017_1",
+          "m017_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_010",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8696078466078546,
+        "medoid": "m010_1",
+        "medoid_scores": {
+          "m010_1": 0.8696078466078546,
+          "m010_2": 0.8696078466078546
+        },
+        "members": [
+          "m010_1",
+          "m010_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_015",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.8607954870401933,
+        "medoid": "m015_2",
+        "medoid_scores": {
+          "m015_2": 0.8607954870401933,
+          "m015_3": 0.8607954870401933
+        },
+        "members": [
+          "m015_2",
+          "m015_3"
+        ]
+      }
+    }
+  ],
+  "0.95": [
+    {
+      "case_id": "dev_002",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 1.0,
+        "medoid": "m002_1",
+        "medoid_scores": {
+          "m002_1": 1.0,
+          "m002_2": 1.0
+        },
+        "members": [
+          "m002_1",
+          "m002_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_001",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9999999999999996,
+        "medoid": "m001_1",
+        "medoid_scores": {
+          "m001_1": 0.9999999999999996,
+          "m001_2": 0.9999999999999996
+        },
+        "members": [
+          "m001_1",
+          "m001_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_016",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9931168597422395,
+        "medoid": "m016_1",
+        "medoid_scores": {
+          "m016_1": 0.9931168597422395,
+          "m016_2": 0.9931168597422395
+        },
+        "members": [
+          "m016_1",
+          "m016_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_018",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9689608726915655,
+        "medoid": "m018_1",
+        "medoid_scores": {
+          "m018_1": 0.9689608726915655,
+          "m018_2": 0.9689608726915655
+        },
+        "members": [
+          "m018_1",
+          "m018_2"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_003",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9670663839706625,
+        "medoid": "m003_1",
+        "medoid_scores": {
+          "m003_1": 0.9670663839706625,
+          "m003_3": 0.9670663839706625
+        },
+        "members": [
+          "m003_1",
+          "m003_3"
+        ]
+      }
+    },
+    {
+      "case_id": "dev_005",
+      "group": {
+        "cluster_id": "cluster_1",
+        "mean_similarity": 0.9525624917553844,
+        "medoid": "m005_1",
+        "medoid_scores": {
+          "m005_1": 0.9525624917553844,
+          "m005_3": 0.9525624917553844
+        },
+        "members": [
+          "m005_1",
+          "m005_3"
+        ]
+      }
+    }
+  ]
+}

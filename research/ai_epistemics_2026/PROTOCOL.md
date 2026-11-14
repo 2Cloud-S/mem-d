@@ -360,3 +360,91 @@ Embedding, parsing, clustering, trust, policy, or recommendation failures remain
 fatal. This isolates the intended intervention without repairing or hiding the
 inherited workflow defect. This clarification precedes the retry and any valid
 feasibility finding; the aborted attempt is retained as a blocker artifact.
+
+## Phase 2B amendment — corpus budgets and blinded audits
+
+**Recorded 2026-11-14, before constructing Phase 2B operating points.** This
+amendment is informed by the Phase 2 development feasibility findings and the
+frozen grid diagnosis; it was not preregistered independently of those findings.
+No solver responses or independent human audits have been collected. The
+original common-per-case-prefix grid and all Phase 2 artifacts remain historical
+results without alteration.
+
+### Diagnosis and prospective budget rule
+
+The frozen run has at most one semantic candidate group per case at every
+threshold. The common cap k is therefore only zero or one: ungated k=0 selects
+nothing, while k=1 selects every case's available group. Gating admits a subset
+at k=1 but cannot create intermediate ungated corpus budgets. Lack of nonzero
+matches on that grid is not evidence that compression matching is intrinsically
+impossible. The gate's actual approvals, refusals, and limited savings are
+separate facts and will not be weakened or retuned.
+
+For each existing threshold, reuse the frozen genuine pipeline evidence,
+candidate memberships, original payloads, fixed medoids, and gate decisions.
+Do not rerun clustering, change similarities, or inject annotations. Validate
+the freeze/data hashes and recompute candidate/medoid and gate identities against
+the unchanged implementation. Sort all candidate groups across the corpus by
+decreasing **unrounded** mean within-group cosine similarity, breaking exact ties
+lexicographically by sorted original member-ID tuple, then medoid ID. Original
+memory IDs are globally unique, so no case/category/family ordering is needed.
+Evaluate every prefix j=0..N of this global order, applying each selected
+replacement only inside its original case. Never cluster across cases. This is
+an **offline corpus-level similarity-first budget control**, not a deployable
+query-blind per-store policy. No randomized control is added.
+
+Original, exact deduplication, and the unchanged full-prefix mem-d gate remain
+anchors at each threshold. The primary match for that gate is chosen among all
+similarity-first prefixes **at the same threshold**, including zero, using the
+smallest absolute aggregate memory-token savings gap, then the smaller prefix
+length. Matching uses the pinned tokenizer, original serialization, and all three
+shared order seeds. Use integer sums over seeds to avoid rounding ties; report
+mean token counts by dividing by three. Require residual compression difference
+at most 0.02 of the original corpus token count, inclusively. If no point meets
+that rule, report unmatched; no interpolation, forced removal, or cross-threshold
+search. Missing actual token counts make matching unavailable. Mark a comparison
+nonzero only if **both** points save positive tokens. This tolerance may be
+permissive at small savings: report signed and absolute token gaps, percentage
+points of original tokens, and gap relative to gate savings, with denominators.
+Report every operating point, not just the selected match. These adaptive
+development comparisons are not independent scenario observations.
+
+Do not consult categories, gold answers, annotated groups, audits, or downstream
+answers for ranking or matching. After selection, compare complete canonical
+survivor payloads and all per-case/seed solver-message bytes. Identity is a
+reported outcome, **not** a matching tie-break. Compare against exact matching by
+payload, not token equality. Report groups/records/cases affected, additional
+non-exact merges and incremental savings, unchanged gate review counts and all
+veto reasons. Non-exact is a syntactic description, not proof of paraphrase safety.
+Report whether any global prefix reproduces the gate as an identity diagnostic,
+without substituting such a point for the predeclared token-selected match.
+Identical prompts do not warrant separate solver calls to infer an intervention
+effect; stochastic differences between identical inputs are not a gate benefit.
+
+### Prospective blinded audit export
+
+Export each actual single-group medoid proposal across all thresholds, accepted
+or vetoed, applying it to a fresh original case with all other records preserved.
+Deduplicate by byte-identical reviewer content: complete original records,
+proposed survivor records, question, decision criteria, and fixed original query
+time, after replacing original record IDs with local ordinal aliases. Do not
+deduplicate merely by number of deleted records or by old safety annotations.
+Sort unique packet hashes, shuffle presentation using fixed seed 20262, and
+assign sequential neutral audit IDs. This randomization concerns presentation
+only, not budget selection, inference, or independent sample size.
+
+Reviewer files contain only the neutral audit ID and the content above. Hide
+condition, threshold, similarity, case/family/category identifiers, gate action,
+gold answers, rationales, required-detail annotations, and prior safety labels.
+Put packet hashes, original ID mappings, source proposals, and gate provenance
+in a separate evaluator-only directory. The public fictional content can still
+be recognized by someone who has seen the dataset; blinding is procedural, not
+a guarantee against re-identification. Share only the reviewer directory.
+
+Supply a neutral rubric and entirely unfilled response template asking about
+decision-relevant loss; scope, negation, certainty, attribution, and time changes;
+original/proposed justified decisions and whether they differ; ambiguity or
+unscorability; and an evidence-based rationale. Inspect the actual fixed medoid,
+not arbitrary replacement or deletion alone. Seek two independent human reviews
+before adjudication; do not auto-fill judgments or describe assistant authorship
+as independent human review. Human review remains pending in this phase.

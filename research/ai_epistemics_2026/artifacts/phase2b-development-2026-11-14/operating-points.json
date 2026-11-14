@@ -1,0 +1,2990 @@
+[
+  {
+    "method": "original",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.45:original",
+    "prefix": null,
+    "threshold": 0.45
+  },
+  {
+    "method": "exact",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.45:exact",
+    "prefix": null,
+    "threshold": 0.45
+  },
+  {
+    "method": "gated",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.45:gated",
+    "prefix": null,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.45:similarity_first:0",
+    "prefix": 0,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_002"
+      ],
+      "cases_affected": 1,
+      "groups_executed": 1,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 1,
+      "token_compression": 0.022796352583586626,
+      "tokens_saved_mean_orders": 75.0,
+      "tokens_saved_seed_sum": 225
+    },
+    "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+    "point_id": "0.45:similarity_first:1",
+    "prefix": 1,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.45:similarity_first:2",
+    "prefix": 2,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05835866261398176,
+      "tokens_saved_mean_orders": 192.0,
+      "tokens_saved_seed_sum": 576
+    },
+    "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+    "point_id": "0.45:similarity_first:3",
+    "prefix": 3,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 4,
+      "groups_executed": 4,
+      "non_exact_group_count": 2,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 4,
+      "token_compression": 0.07750759878419453,
+      "tokens_saved_mean_orders": 255.0,
+      "tokens_saved_seed_sum": 765
+    },
+    "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+    "point_id": "0.45:similarity_first:4",
+    "prefix": 4,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 5,
+      "groups_executed": 5,
+      "non_exact_group_count": 3,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 5,
+      "token_compression": 0.09696048632218845,
+      "tokens_saved_mean_orders": 319.0,
+      "tokens_saved_seed_sum": 957
+    },
+    "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+    "point_id": "0.45:similarity_first:5",
+    "prefix": 5,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 6,
+      "groups_executed": 6,
+      "non_exact_group_count": 4,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 7,
+      "token_compression": 0.1325227963525836,
+      "tokens_saved_mean_orders": 436.0,
+      "tokens_saved_seed_sum": 1308
+    },
+    "payload_sha256": "71867aaffd5af8c60ff134943673a903f64f224d9b64bd723e7f72777c8ca047",
+    "point_id": "0.45:similarity_first:6",
+    "prefix": 6,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 7,
+      "groups_executed": 7,
+      "non_exact_group_count": 5,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 8,
+      "token_compression": 0.15015197568389058,
+      "tokens_saved_mean_orders": 494.0,
+      "tokens_saved_seed_sum": 1482
+    },
+    "payload_sha256": "f00f1461cf65e58ee2fe361d2a0b292a0b26940299f85c3de08eb7b2958eae2e",
+    "point_id": "0.45:similarity_first:7",
+    "prefix": 7,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 8,
+      "groups_executed": 8,
+      "non_exact_group_count": 6,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 9,
+      "token_compression": 0.16899696048632218,
+      "tokens_saved_mean_orders": 556.0,
+      "tokens_saved_seed_sum": 1668
+    },
+    "payload_sha256": "393f1cd2d05d4b7625474c0c77a1885d1015eb88f91e30eca9ed7fed92827be5",
+    "point_id": "0.45:similarity_first:8",
+    "prefix": 8,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_011",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 9,
+      "groups_executed": 9,
+      "non_exact_group_count": 7,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 10,
+      "token_compression": 0.18693009118541035,
+      "tokens_saved_mean_orders": 615.0,
+      "tokens_saved_seed_sum": 1845
+    },
+    "payload_sha256": "ca9f908561d955acf8a56f04d5d1183ff1387eec56a1c86cc849d45e3a70c1a3",
+    "point_id": "0.45:similarity_first:9",
+    "prefix": 9,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_011",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 10,
+      "groups_executed": 10,
+      "non_exact_group_count": 8,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 12,
+      "token_compression": 0.2237082066869301,
+      "tokens_saved_mean_orders": 736.0,
+      "tokens_saved_seed_sum": 2208
+    },
+    "payload_sha256": "37a391538a1d384b2f5a827739e2877eb155aae349b2f883c7181eccc5a946ca",
+    "point_id": "0.45:similarity_first:10",
+    "prefix": 10,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_011",
+        "dev_014",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 11,
+      "groups_executed": 11,
+      "non_exact_group_count": 9,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 13,
+      "token_compression": 0.24498480243161094,
+      "tokens_saved_mean_orders": 806.0,
+      "tokens_saved_seed_sum": 2418
+    },
+    "payload_sha256": "ac9e735b8374b5de491c84e10c5077dd21ef4bc39a49386d2f1763ac0a3fce0f",
+    "point_id": "0.45:similarity_first:11",
+    "prefix": 11,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_011",
+        "dev_014",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 12,
+      "groups_executed": 12,
+      "non_exact_group_count": 10,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 15,
+      "token_compression": 0.282370820668693,
+      "tokens_saved_mean_orders": 929.0,
+      "tokens_saved_seed_sum": 2787
+    },
+    "payload_sha256": "f9fa3d30c4f65d6efc79f9b12af03c3d91818ff4886fc58cc023fb7e66b5b69d",
+    "point_id": "0.45:similarity_first:12",
+    "prefix": 12,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_011",
+        "dev_014",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 13,
+      "groups_executed": 13,
+      "non_exact_group_count": 11,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 17,
+      "token_compression": 0.31854103343465046,
+      "tokens_saved_mean_orders": 1048.0,
+      "tokens_saved_seed_sum": 3144
+    },
+    "payload_sha256": "997169e24446746a994b401cd5d28535ebc2a224ad21e79e5ccc82ee22999f3a",
+    "point_id": "0.45:similarity_first:13",
+    "prefix": 13,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_011",
+        "dev_014",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 14,
+      "groups_executed": 14,
+      "non_exact_group_count": 12,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 19,
+      "token_compression": 0.35623100303951366,
+      "tokens_saved_mean_orders": 1172.0,
+      "tokens_saved_seed_sum": 3516
+    },
+    "payload_sha256": "8fcdb0bd012ec2ba838597bb0d7d3d72d9db4311b416f4d0aa3fc75fa3bff0f8",
+    "point_id": "0.45:similarity_first:14",
+    "prefix": 14,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_011",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 15,
+      "groups_executed": 15,
+      "non_exact_group_count": 13,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 21,
+      "token_compression": 0.39696048632218844,
+      "tokens_saved_mean_orders": 1306.0,
+      "tokens_saved_seed_sum": 3918
+    },
+    "payload_sha256": "27cebf7870dee6ab7a5eccb61be613b036f26fe51a06147ba7475eb70ee0422f",
+    "point_id": "0.45:similarity_first:15",
+    "prefix": 15,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_010",
+        "dev_011",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 16,
+      "groups_executed": 16,
+      "non_exact_group_count": 14,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 23,
+      "token_compression": 0.43069908814589664,
+      "tokens_saved_mean_orders": 1417.0,
+      "tokens_saved_seed_sum": 4251
+    },
+    "payload_sha256": "4ce57b8585def03b38b01edce994991874525312a45eb22fa337079e97ac70f9",
+    "point_id": "0.45:similarity_first:16",
+    "prefix": 16,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 17,
+      "groups_executed": 17,
+      "non_exact_group_count": 15,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 25,
+      "token_compression": 0.4683890577507599,
+      "tokens_saved_mean_orders": 1541.0,
+      "tokens_saved_seed_sum": 4623
+    },
+    "payload_sha256": "c820aba300f3a8e2bf3814ecdba689b2469cac2c0a15b51d556c3cfad94ebdfb",
+    "point_id": "0.45:similarity_first:17",
+    "prefix": 17,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019",
+        "dev_020"
+      ],
+      "cases_affected": 18,
+      "groups_executed": 18,
+      "non_exact_group_count": 16,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 28,
+      "token_compression": 0.5258358662613982,
+      "tokens_saved_mean_orders": 1730.0,
+      "tokens_saved_seed_sum": 5190
+    },
+    "payload_sha256": "853f2b5b435d634ebe14524e3c500ee0142bf75aff043cdc7a2ddfd4c72ed418",
+    "point_id": "0.45:similarity_first:18",
+    "prefix": 18,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019",
+        "dev_020"
+      ],
+      "cases_affected": 19,
+      "groups_executed": 19,
+      "non_exact_group_count": 17,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 30,
+      "token_compression": 0.5580547112462007,
+      "tokens_saved_mean_orders": 1836.0,
+      "tokens_saved_seed_sum": 5508
+    },
+    "payload_sha256": "5586b0cbe56b1009f8a8706c6b7d258cbd9b64b7997b5562310cc51eeda77657",
+    "point_id": "0.45:similarity_first:19",
+    "prefix": 19,
+    "threshold": 0.45
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_012",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019",
+        "dev_020"
+      ],
+      "cases_affected": 20,
+      "groups_executed": 20,
+      "non_exact_group_count": 18,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 31,
+      "token_compression": 0.5775075987841946,
+      "tokens_saved_mean_orders": 1900.0,
+      "tokens_saved_seed_sum": 5700
+    },
+    "payload_sha256": "5489e0a28f2c3156ddbfabe2603c0c157e5036576dbe7affc715345b37efea00",
+    "point_id": "0.45:similarity_first:20",
+    "prefix": 20,
+    "threshold": 0.45
+  },
+  {
+    "method": "original",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.55:original",
+    "prefix": null,
+    "threshold": 0.55
+  },
+  {
+    "method": "exact",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.55:exact",
+    "prefix": null,
+    "threshold": 0.55
+  },
+  {
+    "method": "gated",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.55:gated",
+    "prefix": null,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.55:similarity_first:0",
+    "prefix": 0,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_002"
+      ],
+      "cases_affected": 1,
+      "groups_executed": 1,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 1,
+      "token_compression": 0.022796352583586626,
+      "tokens_saved_mean_orders": 75.0,
+      "tokens_saved_seed_sum": 225
+    },
+    "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+    "point_id": "0.55:similarity_first:1",
+    "prefix": 1,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.55:similarity_first:2",
+    "prefix": 2,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05835866261398176,
+      "tokens_saved_mean_orders": 192.0,
+      "tokens_saved_seed_sum": 576
+    },
+    "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+    "point_id": "0.55:similarity_first:3",
+    "prefix": 3,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 4,
+      "groups_executed": 4,
+      "non_exact_group_count": 2,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 4,
+      "token_compression": 0.07750759878419453,
+      "tokens_saved_mean_orders": 255.0,
+      "tokens_saved_seed_sum": 765
+    },
+    "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+    "point_id": "0.55:similarity_first:4",
+    "prefix": 4,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 5,
+      "groups_executed": 5,
+      "non_exact_group_count": 3,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 5,
+      "token_compression": 0.09696048632218845,
+      "tokens_saved_mean_orders": 319.0,
+      "tokens_saved_seed_sum": 957
+    },
+    "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+    "point_id": "0.55:similarity_first:5",
+    "prefix": 5,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 6,
+      "groups_executed": 6,
+      "non_exact_group_count": 4,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 7,
+      "token_compression": 0.1325227963525836,
+      "tokens_saved_mean_orders": 436.0,
+      "tokens_saved_seed_sum": 1308
+    },
+    "payload_sha256": "71867aaffd5af8c60ff134943673a903f64f224d9b64bd723e7f72777c8ca047",
+    "point_id": "0.55:similarity_first:6",
+    "prefix": 6,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 7,
+      "groups_executed": 7,
+      "non_exact_group_count": 5,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 8,
+      "token_compression": 0.15015197568389058,
+      "tokens_saved_mean_orders": 494.0,
+      "tokens_saved_seed_sum": 1482
+    },
+    "payload_sha256": "f00f1461cf65e58ee2fe361d2a0b292a0b26940299f85c3de08eb7b2958eae2e",
+    "point_id": "0.55:similarity_first:7",
+    "prefix": 7,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 8,
+      "groups_executed": 8,
+      "non_exact_group_count": 6,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 9,
+      "token_compression": 0.16595744680851063,
+      "tokens_saved_mean_orders": 546.0,
+      "tokens_saved_seed_sum": 1638
+    },
+    "payload_sha256": "2e80e12b8d71dbc8be901e86bc6ae27cabdb447d24cea05e364c22cfbb5388bc",
+    "point_id": "0.55:similarity_first:8",
+    "prefix": 8,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 9,
+      "groups_executed": 9,
+      "non_exact_group_count": 7,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 10,
+      "token_compression": 0.18480243161094226,
+      "tokens_saved_mean_orders": 608.0,
+      "tokens_saved_seed_sum": 1824
+    },
+    "payload_sha256": "8fd38631ce118f712018534772033c1e577609872fa1a56859cad7ae564999cf",
+    "point_id": "0.55:similarity_first:9",
+    "prefix": 9,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_013",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 10,
+      "groups_executed": 10,
+      "non_exact_group_count": 8,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 11,
+      "token_compression": 0.20577507598784195,
+      "tokens_saved_mean_orders": 677.0,
+      "tokens_saved_seed_sum": 2031
+    },
+    "payload_sha256": "77ddddbb2a5ea72e1e4eb6851da2b7c0f8b94ed6cf11e38ad8bdd7ffb404f47b",
+    "point_id": "0.55:similarity_first:10",
+    "prefix": 10,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 11,
+      "groups_executed": 11,
+      "non_exact_group_count": 9,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 12,
+      "token_compression": 0.2237082066869301,
+      "tokens_saved_mean_orders": 736.0,
+      "tokens_saved_seed_sum": 2208
+    },
+    "payload_sha256": "8e4c878d8036fdd2d6f02c135bb4c3a8530da257a704d4f0dd813d9e5c507e94",
+    "point_id": "0.55:similarity_first:11",
+    "prefix": 11,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 12,
+      "groups_executed": 12,
+      "non_exact_group_count": 10,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 14,
+      "token_compression": 0.26048632218844986,
+      "tokens_saved_mean_orders": 857.0,
+      "tokens_saved_seed_sum": 2571
+    },
+    "payload_sha256": "efae1a0e1a0ba8fb4803fbf577abfdb6ac6b88a23f088589da47a3d30885cae9",
+    "point_id": "0.55:similarity_first:12",
+    "prefix": 12,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 13,
+      "groups_executed": 13,
+      "non_exact_group_count": 11,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 15,
+      "token_compression": 0.2817629179331307,
+      "tokens_saved_mean_orders": 927.0,
+      "tokens_saved_seed_sum": 2781
+    },
+    "payload_sha256": "09e5d11486663926c63ef0e81721635ad515c06d125fcfa81522fda37f6615a4",
+    "point_id": "0.55:similarity_first:13",
+    "prefix": 13,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 14,
+      "groups_executed": 14,
+      "non_exact_group_count": 12,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 17,
+      "token_compression": 0.3191489361702128,
+      "tokens_saved_mean_orders": 1050.0,
+      "tokens_saved_seed_sum": 3150
+    },
+    "payload_sha256": "99000001843bd5d99bb2499ae123c167672bd028f2a0dd1a88f779d99294c92b",
+    "point_id": "0.55:similarity_first:14",
+    "prefix": 14,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 15,
+      "groups_executed": 15,
+      "non_exact_group_count": 13,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 19,
+      "token_compression": 0.3553191489361702,
+      "tokens_saved_mean_orders": 1169.0,
+      "tokens_saved_seed_sum": 3507
+    },
+    "payload_sha256": "d2a02f0a884c03b5237219d8cc4b0564084ea8ccafdc0a58b262c992848ba53c",
+    "point_id": "0.55:similarity_first:15",
+    "prefix": 15,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 16,
+      "groups_executed": 16,
+      "non_exact_group_count": 14,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 21,
+      "token_compression": 0.39300911854103343,
+      "tokens_saved_mean_orders": 1293.0,
+      "tokens_saved_seed_sum": 3879
+    },
+    "payload_sha256": "4ff1a1c170c918554afa78297b5cbb76e17ccfa33082a86f5b76e69e71ee0f06",
+    "point_id": "0.55:similarity_first:16",
+    "prefix": 16,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 17,
+      "groups_executed": 17,
+      "non_exact_group_count": 15,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 23,
+      "token_compression": 0.4337386018237082,
+      "tokens_saved_mean_orders": 1427.0,
+      "tokens_saved_seed_sum": 4281
+    },
+    "payload_sha256": "21286b1daf68f86f1d9ee5907a85b764495976cd9acc91c82eedb8f3cc24ba3f",
+    "point_id": "0.55:similarity_first:17",
+    "prefix": 17,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 18,
+      "groups_executed": 18,
+      "non_exact_group_count": 16,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 25,
+      "token_compression": 0.4674772036474164,
+      "tokens_saved_mean_orders": 1538.0,
+      "tokens_saved_seed_sum": 4614
+    },
+    "payload_sha256": "6ae09149fbdfb2b50f691d471530aff01c25a61c19221584d6037acc2b3bba33",
+    "point_id": "0.55:similarity_first:18",
+    "prefix": 18,
+    "threshold": 0.55
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019",
+        "dev_020"
+      ],
+      "cases_affected": 19,
+      "groups_executed": 19,
+      "non_exact_group_count": 17,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 28,
+      "token_compression": 0.5249240121580547,
+      "tokens_saved_mean_orders": 1727.0,
+      "tokens_saved_seed_sum": 5181
+    },
+    "payload_sha256": "85551715410744778ad0108e62df251b8b4bfafb95a8f192ecf323fc514c3627",
+    "point_id": "0.55:similarity_first:19",
+    "prefix": 19,
+    "threshold": 0.55
+  },
+  {
+    "method": "original",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.65:original",
+    "prefix": null,
+    "threshold": 0.65
+  },
+  {
+    "method": "exact",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.65:exact",
+    "prefix": null,
+    "threshold": 0.65
+  },
+  {
+    "method": "gated",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.65:gated",
+    "prefix": null,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.65:similarity_first:0",
+    "prefix": 0,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_002"
+      ],
+      "cases_affected": 1,
+      "groups_executed": 1,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 1,
+      "token_compression": 0.022796352583586626,
+      "tokens_saved_mean_orders": 75.0,
+      "tokens_saved_seed_sum": 225
+    },
+    "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+    "point_id": "0.65:similarity_first:1",
+    "prefix": 1,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.65:similarity_first:2",
+    "prefix": 2,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05835866261398176,
+      "tokens_saved_mean_orders": 192.0,
+      "tokens_saved_seed_sum": 576
+    },
+    "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+    "point_id": "0.65:similarity_first:3",
+    "prefix": 3,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 4,
+      "groups_executed": 4,
+      "non_exact_group_count": 2,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 4,
+      "token_compression": 0.07750759878419453,
+      "tokens_saved_mean_orders": 255.0,
+      "tokens_saved_seed_sum": 765
+    },
+    "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+    "point_id": "0.65:similarity_first:4",
+    "prefix": 4,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 5,
+      "groups_executed": 5,
+      "non_exact_group_count": 3,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 5,
+      "token_compression": 0.09696048632218845,
+      "tokens_saved_mean_orders": 319.0,
+      "tokens_saved_seed_sum": 957
+    },
+    "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+    "point_id": "0.65:similarity_first:5",
+    "prefix": 5,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 6,
+      "groups_executed": 6,
+      "non_exact_group_count": 4,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 7,
+      "token_compression": 0.1325227963525836,
+      "tokens_saved_mean_orders": 436.0,
+      "tokens_saved_seed_sum": 1308
+    },
+    "payload_sha256": "71867aaffd5af8c60ff134943673a903f64f224d9b64bd723e7f72777c8ca047",
+    "point_id": "0.65:similarity_first:6",
+    "prefix": 6,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 7,
+      "groups_executed": 7,
+      "non_exact_group_count": 5,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 8,
+      "token_compression": 0.15015197568389058,
+      "tokens_saved_mean_orders": 494.0,
+      "tokens_saved_seed_sum": 1482
+    },
+    "payload_sha256": "693953686b0d6d0cda903b6f075e692034745dfe8d9c27cd0696b0c881ca105c",
+    "point_id": "0.65:similarity_first:7",
+    "prefix": 7,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_010",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 8,
+      "groups_executed": 8,
+      "non_exact_group_count": 6,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 9,
+      "token_compression": 0.1668693009118541,
+      "tokens_saved_mean_orders": 549.0,
+      "tokens_saved_seed_sum": 1647
+    },
+    "payload_sha256": "6d4812f56f7d3d0564b917d819cf6f01e78a372dadd44add78fbf954ac5237a6",
+    "point_id": "0.65:similarity_first:8",
+    "prefix": 8,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 9,
+      "groups_executed": 9,
+      "non_exact_group_count": 7,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 10,
+      "token_compression": 0.18632218844984802,
+      "tokens_saved_mean_orders": 613.0,
+      "tokens_saved_seed_sum": 1839
+    },
+    "payload_sha256": "f8b409b533a37982b8847841215e76ee3705928c8edd222a093cce173c6ee48f",
+    "point_id": "0.65:similarity_first:9",
+    "prefix": 9,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 10,
+      "groups_executed": 10,
+      "non_exact_group_count": 8,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 11,
+      "token_compression": 0.20395136778115502,
+      "tokens_saved_mean_orders": 671.0,
+      "tokens_saved_seed_sum": 2013
+    },
+    "payload_sha256": "60332120a559b5fc4c14d669f13ea038afe81fcf81b6f35a55d778f0f73e7262",
+    "point_id": "0.65:similarity_first:10",
+    "prefix": 10,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 11,
+      "groups_executed": 11,
+      "non_exact_group_count": 9,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 12,
+      "token_compression": 0.21975683890577508,
+      "tokens_saved_mean_orders": 723.0,
+      "tokens_saved_seed_sum": 2169
+    },
+    "payload_sha256": "45edb2972694e86990d517956356a9997ba72b368b4da19785faf87d9870053b",
+    "point_id": "0.65:similarity_first:11",
+    "prefix": 11,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 12,
+      "groups_executed": 12,
+      "non_exact_group_count": 10,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 13,
+      "token_compression": 0.23860182370820668,
+      "tokens_saved_mean_orders": 785.0,
+      "tokens_saved_seed_sum": 2355
+    },
+    "payload_sha256": "073c9b2521e69bf4e4a62d4573f134329755b98ffc8fb20ef042474c272f5c6a",
+    "point_id": "0.65:similarity_first:12",
+    "prefix": 12,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 13,
+      "groups_executed": 13,
+      "non_exact_group_count": 11,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 14,
+      "token_compression": 0.25957446808510637,
+      "tokens_saved_mean_orders": 854.0,
+      "tokens_saved_seed_sum": 2562
+    },
+    "payload_sha256": "5f8e2531ccd5d1386cec6a8c72e8b256a9f3c6cd1031e685932bb488a2f414eb",
+    "point_id": "0.65:similarity_first:13",
+    "prefix": 13,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 14,
+      "groups_executed": 14,
+      "non_exact_group_count": 12,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 15,
+      "token_compression": 0.2775075987841945,
+      "tokens_saved_mean_orders": 913.0,
+      "tokens_saved_seed_sum": 2739
+    },
+    "payload_sha256": "1c0c826c32a2a3664149f434b0d9a743e88b1862f325ab6aa54ef345e1c0f8ee",
+    "point_id": "0.65:similarity_first:14",
+    "prefix": 14,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019"
+      ],
+      "cases_affected": 15,
+      "groups_executed": 15,
+      "non_exact_group_count": 13,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 16,
+      "token_compression": 0.2966565349544073,
+      "tokens_saved_mean_orders": 976.0,
+      "tokens_saved_seed_sum": 2928
+    },
+    "payload_sha256": "e39d0d3f8b143ca579ffb77721cd862c259a6e0ae627036a6372131fa7ba7ee9",
+    "point_id": "0.65:similarity_first:15",
+    "prefix": 15,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019"
+      ],
+      "cases_affected": 16,
+      "groups_executed": 16,
+      "non_exact_group_count": 14,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 18,
+      "token_compression": 0.3334346504559271,
+      "tokens_saved_mean_orders": 1097.0,
+      "tokens_saved_seed_sum": 3291
+    },
+    "payload_sha256": "06cf39e0e0e12bbf719b7b0a3075725b07875a976cc6fb6b4cf38a4f360eac53",
+    "point_id": "0.65:similarity_first:16",
+    "prefix": 16,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019"
+      ],
+      "cases_affected": 17,
+      "groups_executed": 17,
+      "non_exact_group_count": 15,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 19,
+      "token_compression": 0.3547112462006079,
+      "tokens_saved_mean_orders": 1167.0,
+      "tokens_saved_seed_sum": 3501
+    },
+    "payload_sha256": "17e13114bd8eb20b729a520fe22d04300d664d3e062c22f33ee1702539b9a87f",
+    "point_id": "0.65:similarity_first:17",
+    "prefix": 17,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019"
+      ],
+      "cases_affected": 18,
+      "groups_executed": 18,
+      "non_exact_group_count": 16,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 21,
+      "token_compression": 0.39088145896656534,
+      "tokens_saved_mean_orders": 1286.0,
+      "tokens_saved_seed_sum": 3858
+    },
+    "payload_sha256": "7f779e0b5a25a5ce61bc10895e7b614c53165fbb0c650db9d6b98bc00e4d5d25",
+    "point_id": "0.65:similarity_first:18",
+    "prefix": 18,
+    "threshold": 0.65
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_006",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_014",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019",
+        "dev_020"
+      ],
+      "cases_affected": 19,
+      "groups_executed": 19,
+      "non_exact_group_count": 17,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 23,
+      "token_compression": 0.42857142857142855,
+      "tokens_saved_mean_orders": 1410.0,
+      "tokens_saved_seed_sum": 4230
+    },
+    "payload_sha256": "e13a014d947ff23c5b2304d4dc8c665453c1bdd8ac9fcedf070c98ac7a84e2f1",
+    "point_id": "0.65:similarity_first:19",
+    "prefix": 19,
+    "threshold": 0.65
+  },
+  {
+    "method": "original",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.75:original",
+    "prefix": null,
+    "threshold": 0.75
+  },
+  {
+    "method": "exact",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.75:exact",
+    "prefix": null,
+    "threshold": 0.75
+  },
+  {
+    "method": "gated",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.75:gated",
+    "prefix": null,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.75:similarity_first:0",
+    "prefix": 0,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_002"
+      ],
+      "cases_affected": 1,
+      "groups_executed": 1,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 1,
+      "token_compression": 0.022796352583586626,
+      "tokens_saved_mean_orders": 75.0,
+      "tokens_saved_seed_sum": 225
+    },
+    "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+    "point_id": "0.75:similarity_first:1",
+    "prefix": 1,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.75:similarity_first:2",
+    "prefix": 2,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05835866261398176,
+      "tokens_saved_mean_orders": 192.0,
+      "tokens_saved_seed_sum": 576
+    },
+    "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+    "point_id": "0.75:similarity_first:3",
+    "prefix": 3,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 4,
+      "groups_executed": 4,
+      "non_exact_group_count": 2,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 4,
+      "token_compression": 0.07750759878419453,
+      "tokens_saved_mean_orders": 255.0,
+      "tokens_saved_seed_sum": 765
+    },
+    "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+    "point_id": "0.75:similarity_first:4",
+    "prefix": 4,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 5,
+      "groups_executed": 5,
+      "non_exact_group_count": 3,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 5,
+      "token_compression": 0.09696048632218845,
+      "tokens_saved_mean_orders": 319.0,
+      "tokens_saved_seed_sum": 957
+    },
+    "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+    "point_id": "0.75:similarity_first:5",
+    "prefix": 5,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 6,
+      "groups_executed": 6,
+      "non_exact_group_count": 4,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 7,
+      "token_compression": 0.1325227963525836,
+      "tokens_saved_mean_orders": 436.0,
+      "tokens_saved_seed_sum": 1308
+    },
+    "payload_sha256": "71867aaffd5af8c60ff134943673a903f64f224d9b64bd723e7f72777c8ca047",
+    "point_id": "0.75:similarity_first:6",
+    "prefix": 6,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 7,
+      "groups_executed": 7,
+      "non_exact_group_count": 5,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 8,
+      "token_compression": 0.15015197568389058,
+      "tokens_saved_mean_orders": 494.0,
+      "tokens_saved_seed_sum": 1482
+    },
+    "payload_sha256": "693953686b0d6d0cda903b6f075e692034745dfe8d9c27cd0696b0c881ca105c",
+    "point_id": "0.75:similarity_first:7",
+    "prefix": 7,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_010",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 8,
+      "groups_executed": 8,
+      "non_exact_group_count": 6,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 9,
+      "token_compression": 0.1668693009118541,
+      "tokens_saved_mean_orders": 549.0,
+      "tokens_saved_seed_sum": 1647
+    },
+    "payload_sha256": "6d4812f56f7d3d0564b917d819cf6f01e78a372dadd44add78fbf954ac5237a6",
+    "point_id": "0.75:similarity_first:8",
+    "prefix": 8,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 9,
+      "groups_executed": 9,
+      "non_exact_group_count": 7,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 10,
+      "token_compression": 0.18632218844984802,
+      "tokens_saved_mean_orders": 613.0,
+      "tokens_saved_seed_sum": 1839
+    },
+    "payload_sha256": "f8b409b533a37982b8847841215e76ee3705928c8edd222a093cce173c6ee48f",
+    "point_id": "0.75:similarity_first:9",
+    "prefix": 9,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 10,
+      "groups_executed": 10,
+      "non_exact_group_count": 8,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 11,
+      "token_compression": 0.20395136778115502,
+      "tokens_saved_mean_orders": 671.0,
+      "tokens_saved_seed_sum": 2013
+    },
+    "payload_sha256": "60332120a559b5fc4c14d669f13ea038afe81fcf81b6f35a55d778f0f73e7262",
+    "point_id": "0.75:similarity_first:10",
+    "prefix": 10,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 11,
+      "groups_executed": 11,
+      "non_exact_group_count": 9,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 12,
+      "token_compression": 0.21975683890577508,
+      "tokens_saved_mean_orders": 723.0,
+      "tokens_saved_seed_sum": 2169
+    },
+    "payload_sha256": "45edb2972694e86990d517956356a9997ba72b368b4da19785faf87d9870053b",
+    "point_id": "0.75:similarity_first:11",
+    "prefix": 11,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 12,
+      "groups_executed": 12,
+      "non_exact_group_count": 10,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 13,
+      "token_compression": 0.23860182370820668,
+      "tokens_saved_mean_orders": 785.0,
+      "tokens_saved_seed_sum": 2355
+    },
+    "payload_sha256": "073c9b2521e69bf4e4a62d4573f134329755b98ffc8fb20ef042474c272f5c6a",
+    "point_id": "0.75:similarity_first:12",
+    "prefix": 12,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 13,
+      "groups_executed": 13,
+      "non_exact_group_count": 11,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 14,
+      "token_compression": 0.25957446808510637,
+      "tokens_saved_mean_orders": 854.0,
+      "tokens_saved_seed_sum": 2562
+    },
+    "payload_sha256": "5f8e2531ccd5d1386cec6a8c72e8b256a9f3c6cd1031e685932bb488a2f414eb",
+    "point_id": "0.75:similarity_first:13",
+    "prefix": 13,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_009",
+        "dev_010",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 14,
+      "groups_executed": 14,
+      "non_exact_group_count": 12,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 15,
+      "token_compression": 0.27811550151975684,
+      "tokens_saved_mean_orders": 915.0,
+      "tokens_saved_seed_sum": 2745
+    },
+    "payload_sha256": "aa9279a2a8a02ac343a573456c3d1b5613565e7163fa578ec3d2c423d18267a3",
+    "point_id": "0.75:similarity_first:14",
+    "prefix": 14,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 15,
+      "groups_executed": 15,
+      "non_exact_group_count": 13,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 16,
+      "token_compression": 0.29544072948328265,
+      "tokens_saved_mean_orders": 972.0,
+      "tokens_saved_seed_sum": 2916
+    },
+    "payload_sha256": "7b8c93c320f83b69fb649aad0583976ba69b8e02c0def00ed2263c476422e1db",
+    "point_id": "0.75:similarity_first:15",
+    "prefix": 15,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_020"
+      ],
+      "cases_affected": 16,
+      "groups_executed": 16,
+      "non_exact_group_count": 14,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 17,
+      "token_compression": 0.31337386018237084,
+      "tokens_saved_mean_orders": 1031.0,
+      "tokens_saved_seed_sum": 3093
+    },
+    "payload_sha256": "339c292e012f2e543f2629c0c5a48e5451c86b138b9c5070d56b34ef80777e89",
+    "point_id": "0.75:similarity_first:16",
+    "prefix": 16,
+    "threshold": 0.75
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_004",
+        "dev_005",
+        "dev_007",
+        "dev_008",
+        "dev_009",
+        "dev_010",
+        "dev_011",
+        "dev_013",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018",
+        "dev_019",
+        "dev_020"
+      ],
+      "cases_affected": 17,
+      "groups_executed": 17,
+      "non_exact_group_count": 15,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 18,
+      "token_compression": 0.3325227963525836,
+      "tokens_saved_mean_orders": 1094.0,
+      "tokens_saved_seed_sum": 3282
+    },
+    "payload_sha256": "b0ed065b8e7a8b1f78ebbb01d3a4ec1600afa39247eef477361fba57130864d4",
+    "point_id": "0.75:similarity_first:17",
+    "prefix": 17,
+    "threshold": 0.75
+  },
+  {
+    "method": "original",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.85:original",
+    "prefix": null,
+    "threshold": 0.85
+  },
+  {
+    "method": "exact",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.85:exact",
+    "prefix": null,
+    "threshold": 0.85
+  },
+  {
+    "method": "gated",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.85:gated",
+    "prefix": null,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.85:similarity_first:0",
+    "prefix": 0,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_002"
+      ],
+      "cases_affected": 1,
+      "groups_executed": 1,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 1,
+      "token_compression": 0.022796352583586626,
+      "tokens_saved_mean_orders": 75.0,
+      "tokens_saved_seed_sum": 225
+    },
+    "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+    "point_id": "0.85:similarity_first:1",
+    "prefix": 1,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.85:similarity_first:2",
+    "prefix": 2,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05835866261398176,
+      "tokens_saved_mean_orders": 192.0,
+      "tokens_saved_seed_sum": 576
+    },
+    "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+    "point_id": "0.85:similarity_first:3",
+    "prefix": 3,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 4,
+      "groups_executed": 4,
+      "non_exact_group_count": 2,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 4,
+      "token_compression": 0.07750759878419453,
+      "tokens_saved_mean_orders": 255.0,
+      "tokens_saved_seed_sum": 765
+    },
+    "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+    "point_id": "0.85:similarity_first:4",
+    "prefix": 4,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 5,
+      "groups_executed": 5,
+      "non_exact_group_count": 3,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 5,
+      "token_compression": 0.09696048632218845,
+      "tokens_saved_mean_orders": 319.0,
+      "tokens_saved_seed_sum": 957
+    },
+    "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+    "point_id": "0.85:similarity_first:5",
+    "prefix": 5,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 6,
+      "groups_executed": 6,
+      "non_exact_group_count": 4,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 7,
+      "token_compression": 0.1325227963525836,
+      "tokens_saved_mean_orders": 436.0,
+      "tokens_saved_seed_sum": 1308
+    },
+    "payload_sha256": "71867aaffd5af8c60ff134943673a903f64f224d9b64bd723e7f72777c8ca047",
+    "point_id": "0.85:similarity_first:6",
+    "prefix": 6,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 7,
+      "groups_executed": 7,
+      "non_exact_group_count": 5,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 8,
+      "token_compression": 0.15015197568389058,
+      "tokens_saved_mean_orders": 494.0,
+      "tokens_saved_seed_sum": 1482
+    },
+    "payload_sha256": "693953686b0d6d0cda903b6f075e692034745dfe8d9c27cd0696b0c881ca105c",
+    "point_id": "0.85:similarity_first:7",
+    "prefix": 7,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_010",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 8,
+      "groups_executed": 8,
+      "non_exact_group_count": 6,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 9,
+      "token_compression": 0.1668693009118541,
+      "tokens_saved_mean_orders": 549.0,
+      "tokens_saved_seed_sum": 1647
+    },
+    "payload_sha256": "6d4812f56f7d3d0564b917d819cf6f01e78a372dadd44add78fbf954ac5237a6",
+    "point_id": "0.85:similarity_first:8",
+    "prefix": 8,
+    "threshold": 0.85
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_010",
+        "dev_015",
+        "dev_016",
+        "dev_017",
+        "dev_018"
+      ],
+      "cases_affected": 9,
+      "groups_executed": 9,
+      "non_exact_group_count": 7,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 10,
+      "token_compression": 0.18632218844984802,
+      "tokens_saved_mean_orders": 613.0,
+      "tokens_saved_seed_sum": 1839
+    },
+    "payload_sha256": "f8b409b533a37982b8847841215e76ee3705928c8edd222a093cce173c6ee48f",
+    "point_id": "0.85:similarity_first:9",
+    "prefix": 9,
+    "threshold": 0.85
+  },
+  {
+    "method": "original",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.95:original",
+    "prefix": null,
+    "threshold": 0.95
+  },
+  {
+    "method": "exact",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.95:exact",
+    "prefix": null,
+    "threshold": 0.95
+  },
+  {
+    "method": "gated",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_005"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05896656534954407,
+      "tokens_saved_mean_orders": 194.0,
+      "tokens_saved_seed_sum": 582
+    },
+    "payload_sha256": "542cce996a2ff9e6c1ac70e9c2f8a6758dff93b113aa233b462c60f117c1405b",
+    "point_id": "0.95:gated",
+    "prefix": null,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [],
+      "cases_affected": 0,
+      "groups_executed": 0,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 0,
+      "token_compression": 0.0,
+      "tokens_saved_mean_orders": 0.0,
+      "tokens_saved_seed_sum": 0
+    },
+    "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+    "point_id": "0.95:similarity_first:0",
+    "prefix": 0,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_002"
+      ],
+      "cases_affected": 1,
+      "groups_executed": 1,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 1,
+      "token_compression": 0.022796352583586626,
+      "tokens_saved_mean_orders": 75.0,
+      "tokens_saved_seed_sum": 225
+    },
+    "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+    "point_id": "0.95:similarity_first:1",
+    "prefix": 1,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002"
+      ],
+      "cases_affected": 2,
+      "groups_executed": 2,
+      "non_exact_group_count": 0,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 2,
+      "token_compression": 0.04133738601823708,
+      "tokens_saved_mean_orders": 136.0,
+      "tokens_saved_seed_sum": 408
+    },
+    "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+    "point_id": "0.95:similarity_first:2",
+    "prefix": 2,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016"
+      ],
+      "cases_affected": 3,
+      "groups_executed": 3,
+      "non_exact_group_count": 1,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 3,
+      "token_compression": 0.05835866261398176,
+      "tokens_saved_mean_orders": 192.0,
+      "tokens_saved_seed_sum": 576
+    },
+    "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+    "point_id": "0.95:similarity_first:3",
+    "prefix": 3,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 4,
+      "groups_executed": 4,
+      "non_exact_group_count": 2,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 4,
+      "token_compression": 0.07750759878419453,
+      "tokens_saved_mean_orders": 255.0,
+      "tokens_saved_seed_sum": 765
+    },
+    "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+    "point_id": "0.95:similarity_first:4",
+    "prefix": 4,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 5,
+      "groups_executed": 5,
+      "non_exact_group_count": 3,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 5,
+      "token_compression": 0.09696048632218845,
+      "tokens_saved_mean_orders": 319.0,
+      "tokens_saved_seed_sum": 957
+    },
+    "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+    "point_id": "0.95:similarity_first:5",
+    "prefix": 5,
+    "threshold": 0.95
+  },
+  {
+    "method": "similarity_first",
+    "metrics": {
+      "case_ids_affected": [
+        "dev_001",
+        "dev_002",
+        "dev_003",
+        "dev_005",
+        "dev_016",
+        "dev_018"
+      ],
+      "cases_affected": 6,
+      "groups_executed": 6,
+      "non_exact_group_count": 4,
+      "original_tokens_seed_sum": 9870,
+      "records_removed": 6,
+      "token_compression": 0.11458966565349545,
+      "tokens_saved_mean_orders": 377.0,
+      "tokens_saved_seed_sum": 1131
+    },
+    "payload_sha256": "0164728b2addfe22a82156225934344c12265faaee8419a1e4149a8fb34ce944",
+    "point_id": "0.95:similarity_first:6",
+    "prefix": 6,
+    "threshold": 0.95
+  }
+]

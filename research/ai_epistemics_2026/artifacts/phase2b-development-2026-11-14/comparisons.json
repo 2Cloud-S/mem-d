@@ -1,0 +1,853 @@
+{
+  "comparisons": [
+    {
+      "all_similarity_prefixes_identical_to_gate": [
+        2
+      ],
+      "exact": {
+        "method": "exact",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.45:exact",
+        "prefix": null,
+        "threshold": 0.45
+      },
+      "gate_burden": {
+        "approval_groups": 18,
+        "candidate_groups": 20,
+        "conflict_groups": 0,
+        "keeper_disagreements": 0,
+        "original_memories": 52,
+        "review_groups": 18,
+        "review_memories": 48,
+        "simple_controls_review_burden": "not_applicable; no review mechanism",
+        "veto_groups": 18,
+        "veto_reason_counts_nonexclusive": {
+          "approval_required": 18,
+          "competing_recommendation": 18,
+          "invalid_keeper_count": 18,
+          "invalid_resolution_role": 18,
+          "missing_merge_recommendation": 18,
+          "resolution_review": 18
+        }
+      },
+      "gated": {
+        "method": "gated",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.45:gated",
+        "prefix": null,
+        "threshold": 0.45
+      },
+      "gated_vs_exact": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.45:gated",
+        "right": "0.45:exact"
+      },
+      "gated_vs_selected_control": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.45:gated",
+        "right": "0.45:similarity_first:2"
+      },
+      "incremental_payload_changes_over_exact": [],
+      "incremental_tokens_saved_over_exact_mean_orders": 0.0,
+      "match": {
+        "absolute_token_gap_mean_orders": 0.0,
+        "absolute_tolerance_tokens_mean_orders": 65.8,
+        "both_save_positive_tokens": true,
+        "control": "0.45:similarity_first:2",
+        "gap_relative_to_target_savings": 0.0,
+        "nearest_control": "0.45:similarity_first:2",
+        "residual_compression_percentage_points": 0.0,
+        "residual_tokens_mean_orders": 0.0,
+        "residual_tokens_seed_sum": 0,
+        "status": "matched",
+        "target": "0.45:gated"
+      },
+      "selected_similarity_first": {
+        "method": "similarity_first",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.45:similarity_first:2",
+        "prefix": 2,
+        "threshold": 0.45
+      },
+      "threshold": 0.45
+    },
+    {
+      "all_similarity_prefixes_identical_to_gate": [
+        2
+      ],
+      "exact": {
+        "method": "exact",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.55:exact",
+        "prefix": null,
+        "threshold": 0.55
+      },
+      "gate_burden": {
+        "approval_groups": 17,
+        "candidate_groups": 19,
+        "conflict_groups": 0,
+        "keeper_disagreements": 0,
+        "original_memories": 52,
+        "review_groups": 17,
+        "review_memories": 46,
+        "simple_controls_review_burden": "not_applicable; no review mechanism",
+        "veto_groups": 17,
+        "veto_reason_counts_nonexclusive": {
+          "approval_required": 17,
+          "competing_recommendation": 17,
+          "invalid_keeper_count": 17,
+          "invalid_resolution_role": 17,
+          "missing_merge_recommendation": 17,
+          "resolution_review": 17
+        }
+      },
+      "gated": {
+        "method": "gated",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.55:gated",
+        "prefix": null,
+        "threshold": 0.55
+      },
+      "gated_vs_exact": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.55:gated",
+        "right": "0.55:exact"
+      },
+      "gated_vs_selected_control": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.55:gated",
+        "right": "0.55:similarity_first:2"
+      },
+      "incremental_payload_changes_over_exact": [],
+      "incremental_tokens_saved_over_exact_mean_orders": 0.0,
+      "match": {
+        "absolute_token_gap_mean_orders": 0.0,
+        "absolute_tolerance_tokens_mean_orders": 65.8,
+        "both_save_positive_tokens": true,
+        "control": "0.55:similarity_first:2",
+        "gap_relative_to_target_savings": 0.0,
+        "nearest_control": "0.55:similarity_first:2",
+        "residual_compression_percentage_points": 0.0,
+        "residual_tokens_mean_orders": 0.0,
+        "residual_tokens_seed_sum": 0,
+        "status": "matched",
+        "target": "0.55:gated"
+      },
+      "selected_similarity_first": {
+        "method": "similarity_first",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.55:similarity_first:2",
+        "prefix": 2,
+        "threshold": 0.55
+      },
+      "threshold": 0.55
+    },
+    {
+      "all_similarity_prefixes_identical_to_gate": [
+        2
+      ],
+      "exact": {
+        "method": "exact",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.65:exact",
+        "prefix": null,
+        "threshold": 0.65
+      },
+      "gate_burden": {
+        "approval_groups": 17,
+        "candidate_groups": 19,
+        "conflict_groups": 0,
+        "keeper_disagreements": 0,
+        "original_memories": 52,
+        "review_groups": 17,
+        "review_memories": 43,
+        "simple_controls_review_burden": "not_applicable; no review mechanism",
+        "veto_groups": 17,
+        "veto_reason_counts_nonexclusive": {
+          "approval_required": 17,
+          "competing_recommendation": 17,
+          "invalid_keeper_count": 17,
+          "invalid_resolution_role": 17,
+          "missing_merge_recommendation": 17,
+          "resolution_review": 17
+        }
+      },
+      "gated": {
+        "method": "gated",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.65:gated",
+        "prefix": null,
+        "threshold": 0.65
+      },
+      "gated_vs_exact": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.65:gated",
+        "right": "0.65:exact"
+      },
+      "gated_vs_selected_control": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.65:gated",
+        "right": "0.65:similarity_first:2"
+      },
+      "incremental_payload_changes_over_exact": [],
+      "incremental_tokens_saved_over_exact_mean_orders": 0.0,
+      "match": {
+        "absolute_token_gap_mean_orders": 0.0,
+        "absolute_tolerance_tokens_mean_orders": 65.8,
+        "both_save_positive_tokens": true,
+        "control": "0.65:similarity_first:2",
+        "gap_relative_to_target_savings": 0.0,
+        "nearest_control": "0.65:similarity_first:2",
+        "residual_compression_percentage_points": 0.0,
+        "residual_tokens_mean_orders": 0.0,
+        "residual_tokens_seed_sum": 0,
+        "status": "matched",
+        "target": "0.65:gated"
+      },
+      "selected_similarity_first": {
+        "method": "similarity_first",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.65:similarity_first:2",
+        "prefix": 2,
+        "threshold": 0.65
+      },
+      "threshold": 0.65
+    },
+    {
+      "all_similarity_prefixes_identical_to_gate": [
+        2
+      ],
+      "exact": {
+        "method": "exact",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.75:exact",
+        "prefix": null,
+        "threshold": 0.75
+      },
+      "gate_burden": {
+        "approval_groups": 15,
+        "candidate_groups": 17,
+        "conflict_groups": 0,
+        "keeper_disagreements": 0,
+        "original_memories": 52,
+        "review_groups": 15,
+        "review_memories": 36,
+        "simple_controls_review_burden": "not_applicable; no review mechanism",
+        "veto_groups": 15,
+        "veto_reason_counts_nonexclusive": {
+          "approval_required": 15,
+          "competing_recommendation": 15,
+          "invalid_keeper_count": 15,
+          "invalid_resolution_role": 15,
+          "missing_merge_recommendation": 15,
+          "resolution_review": 15
+        }
+      },
+      "gated": {
+        "method": "gated",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.75:gated",
+        "prefix": null,
+        "threshold": 0.75
+      },
+      "gated_vs_exact": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.75:gated",
+        "right": "0.75:exact"
+      },
+      "gated_vs_selected_control": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.75:gated",
+        "right": "0.75:similarity_first:2"
+      },
+      "incremental_payload_changes_over_exact": [],
+      "incremental_tokens_saved_over_exact_mean_orders": 0.0,
+      "match": {
+        "absolute_token_gap_mean_orders": 0.0,
+        "absolute_tolerance_tokens_mean_orders": 65.8,
+        "both_save_positive_tokens": true,
+        "control": "0.75:similarity_first:2",
+        "gap_relative_to_target_savings": 0.0,
+        "nearest_control": "0.75:similarity_first:2",
+        "residual_compression_percentage_points": 0.0,
+        "residual_tokens_mean_orders": 0.0,
+        "residual_tokens_seed_sum": 0,
+        "status": "matched",
+        "target": "0.75:gated"
+      },
+      "selected_similarity_first": {
+        "method": "similarity_first",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.75:similarity_first:2",
+        "prefix": 2,
+        "threshold": 0.75
+      },
+      "threshold": 0.75
+    },
+    {
+      "all_similarity_prefixes_identical_to_gate": [
+        2
+      ],
+      "exact": {
+        "method": "exact",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.85:exact",
+        "prefix": null,
+        "threshold": 0.85
+      },
+      "gate_burden": {
+        "approval_groups": 7,
+        "candidate_groups": 9,
+        "conflict_groups": 0,
+        "keeper_disagreements": 0,
+        "original_memories": 52,
+        "review_groups": 7,
+        "review_memories": 27,
+        "simple_controls_review_burden": "not_applicable; no review mechanism",
+        "veto_groups": 7,
+        "veto_reason_counts_nonexclusive": {
+          "approval_required": 7,
+          "competing_recommendation": 7,
+          "invalid_keeper_count": 7,
+          "invalid_resolution_role": 7,
+          "missing_merge_recommendation": 7,
+          "resolution_review": 7
+        }
+      },
+      "gated": {
+        "method": "gated",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.85:gated",
+        "prefix": null,
+        "threshold": 0.85
+      },
+      "gated_vs_exact": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.85:gated",
+        "right": "0.85:exact"
+      },
+      "gated_vs_selected_control": {
+        "byte_identical_solver_messages": true,
+        "byte_identical_survivor_payloads": true,
+        "differing_case_ids": [],
+        "differing_solver_payloads": [],
+        "left": "0.85:gated",
+        "right": "0.85:similarity_first:2"
+      },
+      "incremental_payload_changes_over_exact": [],
+      "incremental_tokens_saved_over_exact_mean_orders": 0.0,
+      "match": {
+        "absolute_token_gap_mean_orders": 0.0,
+        "absolute_tolerance_tokens_mean_orders": 65.8,
+        "both_save_positive_tokens": true,
+        "control": "0.85:similarity_first:2",
+        "gap_relative_to_target_savings": 0.0,
+        "nearest_control": "0.85:similarity_first:2",
+        "residual_compression_percentage_points": 0.0,
+        "residual_tokens_mean_orders": 0.0,
+        "residual_tokens_seed_sum": 0,
+        "status": "matched",
+        "target": "0.85:gated"
+      },
+      "selected_similarity_first": {
+        "method": "similarity_first",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.85:similarity_first:2",
+        "prefix": 2,
+        "threshold": 0.85
+      },
+      "threshold": 0.85
+    },
+    {
+      "all_similarity_prefixes_identical_to_gate": [],
+      "exact": {
+        "method": "exact",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002"
+          ],
+          "cases_affected": 2,
+          "groups_executed": 2,
+          "non_exact_group_count": 0,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 2,
+          "token_compression": 0.04133738601823708,
+          "tokens_saved_mean_orders": 136.0,
+          "tokens_saved_seed_sum": 408
+        },
+        "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+        "point_id": "0.95:exact",
+        "prefix": null,
+        "threshold": 0.95
+      },
+      "gate_burden": {
+        "approval_groups": 3,
+        "candidate_groups": 6,
+        "conflict_groups": 0,
+        "keeper_disagreements": 0,
+        "original_memories": 52,
+        "review_groups": 3,
+        "review_memories": 23,
+        "simple_controls_review_burden": "not_applicable; no review mechanism",
+        "veto_groups": 3,
+        "veto_reason_counts_nonexclusive": {
+          "approval_required": 3,
+          "competing_recommendation": 3,
+          "invalid_keeper_count": 3,
+          "invalid_resolution_role": 3,
+          "missing_merge_recommendation": 3,
+          "resolution_review": 3
+        }
+      },
+      "gated": {
+        "method": "gated",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002",
+            "dev_005"
+          ],
+          "cases_affected": 3,
+          "groups_executed": 3,
+          "non_exact_group_count": 1,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 3,
+          "token_compression": 0.05896656534954407,
+          "tokens_saved_mean_orders": 194.0,
+          "tokens_saved_seed_sum": 582
+        },
+        "payload_sha256": "542cce996a2ff9e6c1ac70e9c2f8a6758dff93b113aa233b462c60f117c1405b",
+        "point_id": "0.95:gated",
+        "prefix": null,
+        "threshold": 0.95
+      },
+      "gated_vs_exact": {
+        "byte_identical_solver_messages": false,
+        "byte_identical_survivor_payloads": false,
+        "differing_case_ids": [
+          "dev_005"
+        ],
+        "differing_solver_payloads": [
+          {
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "case_id": "dev_005",
+            "order_seed": 2028
+          }
+        ],
+        "left": "0.95:gated",
+        "right": "0.95:exact"
+      },
+      "gated_vs_selected_control": {
+        "byte_identical_solver_messages": false,
+        "byte_identical_survivor_payloads": false,
+        "differing_case_ids": [
+          "dev_005",
+          "dev_016"
+        ],
+        "differing_solver_payloads": [
+          {
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "case_id": "dev_016",
+            "order_seed": 2028
+          }
+        ],
+        "left": "0.95:gated",
+        "right": "0.95:similarity_first:3"
+      },
+      "incremental_payload_changes_over_exact": [
+        {
+          "additional_removed_ids": [
+            "m005_3"
+          ],
+          "case_id": "dev_005",
+          "gated_groups": [
+            {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9525624917553844,
+              "medoid": "m005_1",
+              "medoid_scores": {
+                "m005_1": 0.9525624917553844,
+                "m005_3": 0.9525624917553844
+              },
+              "members": [
+                "m005_1",
+                "m005_3"
+              ]
+            }
+          ],
+          "reinstated_ids": []
+        }
+      ],
+      "incremental_tokens_saved_over_exact_mean_orders": 58.0,
+      "match": {
+        "absolute_token_gap_mean_orders": 2.0,
+        "absolute_tolerance_tokens_mean_orders": 65.8,
+        "both_save_positive_tokens": true,
+        "control": "0.95:similarity_first:3",
+        "gap_relative_to_target_savings": 0.010309278350515464,
+        "nearest_control": "0.95:similarity_first:3",
+        "residual_compression_percentage_points": -0.060790273556231005,
+        "residual_tokens_mean_orders": -2.0,
+        "residual_tokens_seed_sum": -6,
+        "status": "matched",
+        "target": "0.95:gated"
+      },
+      "selected_similarity_first": {
+        "method": "similarity_first",
+        "metrics": {
+          "case_ids_affected": [
+            "dev_001",
+            "dev_002",
+            "dev_016"
+          ],
+          "cases_affected": 3,
+          "groups_executed": 3,
+          "non_exact_group_count": 1,
+          "original_tokens_seed_sum": 9870,
+          "records_removed": 3,
+          "token_compression": 0.05835866261398176,
+          "tokens_saved_mean_orders": 192.0,
+          "tokens_saved_seed_sum": 576
+        },
+        "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+        "point_id": "0.95:similarity_first:3",
+        "prefix": 3,
+        "threshold": 0.95
+      },
+      "threshold": 0.95
+    }
+  ],
+  "historical_grid_diagnosis": [
+    {
+      "groups_per_case_histogram": {
+        "1": 20
+      },
+      "historical_prefix_caps": [
+        0,
+        1
+      ],
+      "threshold": 0.45
+    },
+    {
+      "groups_per_case_histogram": {
+        "0": 1,
+        "1": 19
+      },
+      "historical_prefix_caps": [
+        0,
+        1
+      ],
+      "threshold": 0.55
+    },
+    {
+      "groups_per_case_histogram": {
+        "0": 1,
+        "1": 19
+      },
+      "historical_prefix_caps": [
+        0,
+        1
+      ],
+      "threshold": 0.65
+    },
+    {
+      "groups_per_case_histogram": {
+        "0": 3,
+        "1": 17
+      },
+      "historical_prefix_caps": [
+        0,
+        1
+      ],
+      "threshold": 0.75
+    },
+    {
+      "groups_per_case_histogram": {
+        "0": 11,
+        "1": 9
+      },
+      "historical_prefix_caps": [
+        0,
+        1
+      ],
+      "threshold": 0.85
+    },
+    {
+      "groups_per_case_histogram": {
+        "0": 14,
+        "1": 6
+      },
+      "historical_prefix_caps": [
+        0,
+        1
+      ],
+      "threshold": 0.95
+    }
+  ],
+  "human_review_status": "pending",
+  "no_downstream_decision_or_safety_results": true
+}
