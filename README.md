@@ -73,8 +73,10 @@ Conflict handling is deterministic and safety-biased, with precedence and confli
 Recommendation quality is benchmarked under [ADR-002](docs/design/ADR-002-RECOMMENDATION-EVALUATION.md) using labeled gold cases (`tests/fixtures/recommendation_gold.json`).
 
 The [AI × Epistemics Research Sprint](research/ai_epistemics_2026/README.md)
-adds a Phase 1 research protocol and 20 synthetic development cases for evaluating
-decision-preserving deduplication. No downstream experiment has run. Existing
+adds a research protocol, 20 synthetic development cases, and an external
+experiment harness. A small [local pilot](research/ai_epistemics_2026/PILOT_RESULTS.md)
+found no incremental decision-accuracy benefit from mem-d over simpler controls;
+output-format failures limit interpretation and human review is pending. Existing
 recommendation-fixture accuracy measures internal rule conformity, not improved
 downstream AI decisions. Production memory behavior is unchanged.
 

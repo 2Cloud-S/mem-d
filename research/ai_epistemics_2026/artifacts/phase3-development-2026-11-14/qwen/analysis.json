@@ -1,0 +1,1104 @@
+{
+  "case_results": [
+    {
+      "case_id": "dev_001",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_01"
+    },
+    {
+      "case_id": "dev_002",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_02"
+    },
+    {
+      "case_id": "dev_003",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_03"
+    },
+    {
+      "case_id": "dev_004",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_04"
+    },
+    {
+      "case_id": "dev_005",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_05"
+    },
+    {
+      "case_id": "dev_006",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_01"
+    },
+    {
+      "case_id": "dev_007",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_02"
+    },
+    {
+      "case_id": "dev_008",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_03"
+    },
+    {
+      "case_id": "dev_009",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_04"
+    },
+    {
+      "case_id": "dev_010",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_05"
+    },
+    {
+      "case_id": "dev_011",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_06"
+    },
+    {
+      "case_id": "dev_012",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_07"
+    },
+    {
+      "case_id": "dev_013",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_08"
+    },
+    {
+      "case_id": "dev_014",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_09"
+    },
+    {
+      "case_id": "dev_015",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_10"
+    },
+    {
+      "case_id": "dev_016",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_06"
+    },
+    {
+      "case_id": "dev_017",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_07"
+    },
+    {
+      "case_id": "dev_018",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_08"
+    },
+    {
+      "case_id": "dev_019",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_09"
+    },
+    {
+      "case_id": "dev_020",
+      "condition_errors": {
+        "exact": [
+          1,
+          1,
+          1
+        ],
+        "gated": [
+          1,
+          1,
+          1
+        ],
+        "original": [
+          1,
+          1,
+          1
+        ],
+        "similarity_first": [
+          1,
+          1,
+          1
+        ]
+      },
+      "family_id": "family_10"
+    }
+  ],
+  "conditions": {
+    "exact": {
+      "condition": "exact",
+      "condition_error": 1,
+      "correct_count": 0,
+      "error_count": 60,
+      "excluded_blocks": 0,
+      "excluded_observations": 0,
+      "family_values": {
+        "family_01": [
+          0,
+          1,
+          1
+        ],
+        "family_02": [
+          0,
+          1,
+          1
+        ],
+        "family_03": [
+          0,
+          1,
+          1
+        ],
+        "family_04": [
+          0,
+          1,
+          1
+        ],
+        "family_05": [
+          0,
+          1,
+          1
+        ],
+        "family_06": [
+          0,
+          1,
+          1
+        ],
+        "family_07": [
+          0,
+          1,
+          1
+        ],
+        "family_08": [
+          0,
+          1,
+          1
+        ],
+        "family_09": [
+          0,
+          1,
+          1
+        ],
+        "family_10": [
+          0,
+          1,
+          1
+        ]
+      },
+      "family_weighted_accuracy": 0,
+      "included_cases": 20,
+      "included_families": 10,
+      "included_observations": 60,
+      "introduced": {
+        "denominator": 0,
+        "numerator": 0
+      },
+      "introduced_rate_95ci": null,
+      "introduced_undefined_resamples": 10000,
+      "original_error": 1,
+      "paired_change": 0,
+      "paired_change_95ci": [
+        0.0,
+        0.0
+      ],
+      "parse_reason_counts_planned": {
+        "invalid_output": 60
+      },
+      "planned_observations": 60,
+      "resamples": 10000,
+      "rescued": {
+        "denominator": 60,
+        "numerator": 0
+      },
+      "rescued_rate_95ci": [
+        0.0,
+        0.0
+      ],
+      "rescued_undefined_resamples": 0,
+      "seed": 2026,
+      "transitions": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 60
+      },
+      "unit": "scenario_family"
+    },
+    "gated": {
+      "condition": "gated",
+      "condition_error": 1,
+      "correct_count": 0,
+      "error_count": 60,
+      "excluded_blocks": 0,
+      "excluded_observations": 0,
+      "family_values": {
+        "family_01": [
+          0,
+          1,
+          1
+        ],
+        "family_02": [
+          0,
+          1,
+          1
+        ],
+        "family_03": [
+          0,
+          1,
+          1
+        ],
+        "family_04": [
+          0,
+          1,
+          1
+        ],
+        "family_05": [
+          0,
+          1,
+          1
+        ],
+        "family_06": [
+          0,
+          1,
+          1
+        ],
+        "family_07": [
+          0,
+          1,
+          1
+        ],
+        "family_08": [
+          0,
+          1,
+          1
+        ],
+        "family_09": [
+          0,
+          1,
+          1
+        ],
+        "family_10": [
+          0,
+          1,
+          1
+        ]
+      },
+      "family_weighted_accuracy": 0,
+      "included_cases": 20,
+      "included_families": 10,
+      "included_observations": 60,
+      "introduced": {
+        "denominator": 0,
+        "numerator": 0
+      },
+      "introduced_rate_95ci": null,
+      "introduced_undefined_resamples": 10000,
+      "original_error": 1,
+      "paired_change": 0,
+      "paired_change_95ci": [
+        0.0,
+        0.0
+      ],
+      "parse_reason_counts_planned": {
+        "invalid_output": 60
+      },
+      "planned_observations": 60,
+      "resamples": 10000,
+      "rescued": {
+        "denominator": 60,
+        "numerator": 0
+      },
+      "rescued_rate_95ci": [
+        0.0,
+        0.0
+      ],
+      "rescued_undefined_resamples": 0,
+      "seed": 2026,
+      "transitions": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 60
+      },
+      "unit": "scenario_family"
+    },
+    "original": {
+      "condition": "original",
+      "condition_error": 1,
+      "correct_count": 0,
+      "error_count": 60,
+      "excluded_blocks": 0,
+      "excluded_observations": 0,
+      "family_values": {
+        "family_01": [
+          0,
+          1,
+          1
+        ],
+        "family_02": [
+          0,
+          1,
+          1
+        ],
+        "family_03": [
+          0,
+          1,
+          1
+        ],
+        "family_04": [
+          0,
+          1,
+          1
+        ],
+        "family_05": [
+          0,
+          1,
+          1
+        ],
+        "family_06": [
+          0,
+          1,
+          1
+        ],
+        "family_07": [
+          0,
+          1,
+          1
+        ],
+        "family_08": [
+          0,
+          1,
+          1
+        ],
+        "family_09": [
+          0,
+          1,
+          1
+        ],
+        "family_10": [
+          0,
+          1,
+          1
+        ]
+      },
+      "family_weighted_accuracy": 0,
+      "included_cases": 20,
+      "included_families": 10,
+      "included_observations": 60,
+      "introduced": {
+        "denominator": 0,
+        "numerator": 0
+      },
+      "introduced_rate_95ci": null,
+      "introduced_undefined_resamples": 10000,
+      "original_error": 1,
+      "paired_change": 0,
+      "paired_change_95ci": [
+        0.0,
+        0.0
+      ],
+      "parse_reason_counts_planned": {
+        "invalid_output": 60
+      },
+      "planned_observations": 60,
+      "resamples": 10000,
+      "rescued": {
+        "denominator": 60,
+        "numerator": 0
+      },
+      "rescued_rate_95ci": [
+        0.0,
+        0.0
+      ],
+      "rescued_undefined_resamples": 0,
+      "seed": 2026,
+      "transitions": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 60
+      },
+      "unit": "scenario_family"
+    },
+    "similarity_first": {
+      "condition": "similarity_first",
+      "condition_error": 1,
+      "correct_count": 0,
+      "error_count": 60,
+      "excluded_blocks": 0,
+      "excluded_observations": 0,
+      "family_values": {
+        "family_01": [
+          0,
+          1,
+          1
+        ],
+        "family_02": [
+          0,
+          1,
+          1
+        ],
+        "family_03": [
+          0,
+          1,
+          1
+        ],
+        "family_04": [
+          0,
+          1,
+          1
+        ],
+        "family_05": [
+          0,
+          1,
+          1
+        ],
+        "family_06": [
+          0,
+          1,
+          1
+        ],
+        "family_07": [
+          0,
+          1,
+          1
+        ],
+        "family_08": [
+          0,
+          1,
+          1
+        ],
+        "family_09": [
+          0,
+          1,
+          1
+        ],
+        "family_10": [
+          0,
+          1,
+          1
+        ]
+      },
+      "family_weighted_accuracy": 0,
+      "included_cases": 20,
+      "included_families": 10,
+      "included_observations": 60,
+      "introduced": {
+        "denominator": 0,
+        "numerator": 0
+      },
+      "introduced_rate_95ci": null,
+      "introduced_undefined_resamples": 10000,
+      "original_error": 1,
+      "paired_change": 0,
+      "paired_change_95ci": [
+        0.0,
+        0.0
+      ],
+      "parse_reason_counts_planned": {
+        "invalid_output": 57,
+        "valid_label": 3
+      },
+      "planned_observations": 60,
+      "resamples": 10000,
+      "rescued": {
+        "denominator": 60,
+        "numerator": 0
+      },
+      "rescued_rate_95ci": [
+        0.0,
+        0.0
+      ],
+      "rescued_undefined_resamples": 0,
+      "seed": 2026,
+      "transitions": {
+        "correct_to_correct": 0,
+        "correct_to_wrong": 0,
+        "wrong_to_correct": 0,
+        "wrong_to_wrong": 60
+      },
+      "unit": "scenario_family"
+    }
+  },
+  "explanation_support_status": "unscored; label correctness is a separate metric",
+  "gate_vs_exact": {
+    "condition": "gated",
+    "condition_error": 1,
+    "excluded_blocks": 0,
+    "family_values": {
+      "family_01": [
+        0,
+        1,
+        1
+      ],
+      "family_02": [
+        0,
+        1,
+        1
+      ],
+      "family_03": [
+        0,
+        1,
+        1
+      ],
+      "family_04": [
+        0,
+        1,
+        1
+      ],
+      "family_05": [
+        0,
+        1,
+        1
+      ],
+      "family_06": [
+        0,
+        1,
+        1
+      ],
+      "family_07": [
+        0,
+        1,
+        1
+      ],
+      "family_08": [
+        0,
+        1,
+        1
+      ],
+      "family_09": [
+        0,
+        1,
+        1
+      ],
+      "family_10": [
+        0,
+        1,
+        1
+      ]
+    },
+    "included_cases": 20,
+    "included_families": 10,
+    "introduced": {
+      "denominator": 0,
+      "numerator": 0
+    },
+    "introduced_rate_95ci": null,
+    "introduced_undefined_resamples": 10000,
+    "original_error": 1,
+    "paired_change": 0,
+    "paired_change_95ci": [
+      0.0,
+      0.0
+    ],
+    "reference": "exact",
+    "resamples": 10000,
+    "rescued": {
+      "denominator": 60,
+      "numerator": 0
+    },
+    "rescued_rate_95ci": [
+      0.0,
+      0.0
+    ],
+    "rescued_undefined_resamples": 0,
+    "seed": 2026,
+    "target": "gated",
+    "transitions": {
+      "correct_to_correct": 0,
+      "correct_to_wrong": 0,
+      "wrong_to_correct": 0,
+      "wrong_to_wrong": 60
+    },
+    "unit": "scenario_family"
+  },
+  "gate_vs_similarity_first": {
+    "condition": "gated",
+    "condition_error": 1,
+    "excluded_blocks": 0,
+    "family_values": {
+      "family_01": [
+        0,
+        1,
+        1
+      ],
+      "family_02": [
+        0,
+        1,
+        1
+      ],
+      "family_03": [
+        0,
+        1,
+        1
+      ],
+      "family_04": [
+        0,
+        1,
+        1
+      ],
+      "family_05": [
+        0,
+        1,
+        1
+      ],
+      "family_06": [
+        0,
+        1,
+        1
+      ],
+      "family_07": [
+        0,
+        1,
+        1
+      ],
+      "family_08": [
+        0,
+        1,
+        1
+      ],
+      "family_09": [
+        0,
+        1,
+        1
+      ],
+      "family_10": [
+        0,
+        1,
+        1
+      ]
+    },
+    "included_cases": 20,
+    "included_families": 10,
+    "introduced": {
+      "denominator": 0,
+      "numerator": 0
+    },
+    "introduced_rate_95ci": null,
+    "introduced_undefined_resamples": 10000,
+    "original_error": 1,
+    "paired_change": 0,
+    "paired_change_95ci": [
+      0.0,
+      0.0
+    ],
+    "reference": "similarity_first",
+    "resamples": 10000,
+    "rescued": {
+      "denominator": 60,
+      "numerator": 0
+    },
+    "rescued_rate_95ci": [
+      0.0,
+      0.0
+    ],
+    "rescued_undefined_resamples": 0,
+    "seed": 2026,
+    "target": "gated",
+    "transitions": {
+      "correct_to_correct": 0,
+      "correct_to_wrong": 0,
+      "wrong_to_correct": 0,
+      "wrong_to_wrong": 60
+    },
+    "unit": "scenario_family"
+  },
+  "human_review_status": "pending",
+  "purpose": "exploratory development pilot, not confirmatory"
+}

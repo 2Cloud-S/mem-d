@@ -1,0 +1,47 @@
+{
+  "combined_pytest": {
+    "command": "MEMD_RESEARCH_MODEL_CACHE=/tmp/memd-phase2-hf/hub HF_HUB_OFFLINE=1 /tmp/memd-phase1-venv/bin/python -m pytest tests research/ai_epistemics_2026/tests -q",
+    "failed": 2,
+    "failure_reason": "Missing inherited TXT/JSONL parser fixtures; no fixture changes",
+    "new_phase3_passed": 14,
+    "passed": 512,
+    "preexisting_failure_nodes": [
+      "tests/test_parser.py::test_load_memory_file_supported_formats[memories.txt]",
+      "tests/test_parser.py::test_load_memory_file_supported_formats[memories.jsonl]"
+    ],
+    "research_passed": 69,
+    "skipped": 2
+  },
+  "date": "2026-11-14",
+  "development_validation": {
+    "cases": 20,
+    "cases_per_category": 5,
+    "categories": 4,
+    "families": 10,
+    "memory_records": 52,
+    "status": "passed; labels/data unchanged"
+  },
+  "independent_human_reviews_completed": 0,
+  "no_real_solver_calls_in_tests": true,
+  "provenance_checks": {
+    "extracted_archives_verified": 2,
+    "freezes_verified_per_run": 4,
+    "frozen_runs": 2,
+    "historical_artifact_checksums": "passed",
+    "production_gold_and_historical_artifact_immutability": "passed",
+    "real_physical_submissions_verified": 144,
+    "request_hashes_and_allowlists_verified": 480,
+    "reuse_mapping": "identical request bytes within case/model/order only",
+    "score_recomputation": "exact match to both frozen score files",
+    "source_and_configuration_hashes": "all match delivered sources"
+  },
+  "repository_ruff": {
+    "command": "/tmp/memd-phase1-venv/bin/ruff check . --output-format json",
+    "findings": 86,
+    "unchanged_files": 13
+  },
+  "research_ruff": {
+    "command": "/tmp/memd-phase1-venv/bin/ruff check research/ai_epistemics_2026",
+    "findings": 0
+  }
+}

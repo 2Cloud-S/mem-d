@@ -1,0 +1,4048 @@
+{
+  "match": {
+    "absolute_token_gap_mean_orders": 2.0,
+    "absolute_tolerance_tokens_mean_orders": 65.8,
+    "both_save_positive_tokens": true,
+    "control": "0.95:similarity_first:3",
+    "gap_relative_to_target_savings": 0.010309278350515464,
+    "nearest_control": "0.95:similarity_first:3",
+    "residual_compression_percentage_points": -0.060790273556231005,
+    "residual_tokens_mean_orders": -2.0,
+    "residual_tokens_seed_sum": -6,
+    "status": "matched",
+    "target": "0.95:gated"
+  },
+  "points": [
+    {
+      "method": "original",
+      "metrics": {
+        "case_ids_affected": [],
+        "cases_affected": 0,
+        "groups_executed": 0,
+        "non_exact_group_count": 0,
+        "non_exact_groups": [],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 0,
+        "token_compression": 0.0,
+        "token_counts": [
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 153,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 153,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 153,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 0.0,
+        "tokens_saved_seed_sum": 0
+      },
+      "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+      "point_id": "0.95:original",
+      "prefix": null,
+      "threshold": 0.95
+    },
+    {
+      "method": "exact",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002"
+        ],
+        "cases_affected": 2,
+        "groups_executed": 2,
+        "non_exact_group_count": 0,
+        "non_exact_groups": [],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 2,
+        "token_compression": 0.04133738601823708,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 136.0,
+        "tokens_saved_seed_sum": 408
+      },
+      "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+      "point_id": "0.95:exact",
+      "prefix": null,
+      "threshold": 0.95
+    },
+    {
+      "method": "gated",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002",
+          "dev_005"
+        ],
+        "cases_affected": 3,
+        "groups_executed": 3,
+        "non_exact_group_count": 1,
+        "non_exact_groups": [
+          {
+            "case_id": "dev_005",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9525624917553844,
+              "medoid": "m005_1",
+              "medoid_scores": {
+                "m005_1": 0.9525624917553844,
+                "m005_3": 0.9525624917553844
+              },
+              "members": [
+                "m005_1",
+                "m005_3"
+              ]
+            }
+          }
+        ],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 3,
+        "token_compression": 0.05896656534954407,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 121,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 121,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 121,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 194.0,
+        "tokens_saved_seed_sum": 582
+      },
+      "payload_sha256": "542cce996a2ff9e6c1ac70e9c2f8a6758dff93b113aa233b462c60f117c1405b",
+      "point_id": "0.95:gated",
+      "prefix": null,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [],
+        "cases_affected": 0,
+        "groups_executed": 0,
+        "non_exact_group_count": 0,
+        "non_exact_groups": [],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 0,
+        "token_compression": 0.0,
+        "token_counts": [
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 153,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 153,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 153,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 0.0,
+        "tokens_saved_seed_sum": 0
+      },
+      "payload_sha256": "2d8fa2c2e0992ac19917fe5eaa4262a355fc26beefa116fa7071a86b80b00b7b",
+      "point_id": "0.95:similarity_first:0",
+      "prefix": 0,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_002"
+        ],
+        "cases_affected": 1,
+        "groups_executed": 1,
+        "non_exact_group_count": 0,
+        "non_exact_groups": [],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 1,
+        "token_compression": 0.022796352583586626,
+        "token_counts": [
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 75.0,
+        "tokens_saved_seed_sum": 225
+      },
+      "payload_sha256": "19d58b4499bf0d07100a3ddd20c91163e2700d97d3dc36d306d196a1cc1d0022",
+      "point_id": "0.95:similarity_first:1",
+      "prefix": 1,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002"
+        ],
+        "cases_affected": 2,
+        "groups_executed": 2,
+        "non_exact_group_count": 0,
+        "non_exact_groups": [],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 2,
+        "token_compression": 0.04133738601823708,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 115,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 136.0,
+        "tokens_saved_seed_sum": 408
+      },
+      "payload_sha256": "29054220cf400c53df78265aa1ddb5ee4fbf73f052c274004161c6ed11798ae1",
+      "point_id": "0.95:similarity_first:2",
+      "prefix": 2,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002",
+          "dev_016"
+        ],
+        "cases_affected": 3,
+        "groups_executed": 3,
+        "non_exact_group_count": 1,
+        "non_exact_groups": [
+          {
+            "case_id": "dev_016",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9931168597422395,
+              "medoid": "m016_1",
+              "medoid_scores": {
+                "m016_1": 0.9931168597422395,
+                "m016_2": 0.9931168597422395
+              },
+              "members": [
+                "m016_1",
+                "m016_2"
+              ]
+            }
+          }
+        ],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 3,
+        "token_compression": 0.05835866261398176,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 192.0,
+        "tokens_saved_seed_sum": 576
+      },
+      "payload_sha256": "32d9f00c19e6a0deb63233d0991c9bb78458015a2084abffe0b81ce2ecf19056",
+      "point_id": "0.95:similarity_first:3",
+      "prefix": 3,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002",
+          "dev_016",
+          "dev_018"
+        ],
+        "cases_affected": 4,
+        "groups_executed": 4,
+        "non_exact_group_count": 2,
+        "non_exact_groups": [
+          {
+            "case_id": "dev_016",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9931168597422395,
+              "medoid": "m016_1",
+              "medoid_scores": {
+                "m016_1": 0.9931168597422395,
+                "m016_2": 0.9931168597422395
+              },
+              "members": [
+                "m016_1",
+                "m016_2"
+              ]
+            }
+          },
+          {
+            "case_id": "dev_018",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9689608726915655,
+              "medoid": "m018_1",
+              "medoid_scores": {
+                "m018_1": 0.9689608726915655,
+                "m018_2": 0.9689608726915655
+              },
+              "members": [
+                "m018_1",
+                "m018_2"
+              ]
+            }
+          }
+        ],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 4,
+        "token_compression": 0.07750759878419453,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 255.0,
+        "tokens_saved_seed_sum": 765
+      },
+      "payload_sha256": "ce9ac3116635e099c63a147f2fab741599c8048e6d83f5c73125854cf2dc0a47",
+      "point_id": "0.95:similarity_first:4",
+      "prefix": 4,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002",
+          "dev_003",
+          "dev_016",
+          "dev_018"
+        ],
+        "cases_affected": 5,
+        "groups_executed": 5,
+        "non_exact_group_count": 3,
+        "non_exact_groups": [
+          {
+            "case_id": "dev_003",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9670663839706625,
+              "medoid": "m003_1",
+              "medoid_scores": {
+                "m003_1": 0.9670663839706625,
+                "m003_3": 0.9670663839706625
+              },
+              "members": [
+                "m003_1",
+                "m003_3"
+              ]
+            }
+          },
+          {
+            "case_id": "dev_016",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9931168597422395,
+              "medoid": "m016_1",
+              "medoid_scores": {
+                "m016_1": 0.9931168597422395,
+                "m016_2": 0.9931168597422395
+              },
+              "members": [
+                "m016_1",
+                "m016_2"
+              ]
+            }
+          },
+          {
+            "case_id": "dev_018",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9689608726915655,
+              "medoid": "m018_1",
+              "medoid_scores": {
+                "m018_1": 0.9689608726915655,
+                "m018_2": 0.9689608726915655
+              },
+              "members": [
+                "m018_1",
+                "m018_2"
+              ]
+            }
+          }
+        ],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 5,
+        "token_compression": 0.09696048632218845,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 120,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 120,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 120,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 179,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 319.0,
+        "tokens_saved_seed_sum": 957
+      },
+      "payload_sha256": "7ab3fcab7faa1cbaa73d72086d1742683785fcfd5cdd85d939fee91b8c84e4dd",
+      "point_id": "0.95:similarity_first:5",
+      "prefix": 5,
+      "threshold": 0.95
+    },
+    {
+      "method": "similarity_first",
+      "metrics": {
+        "case_ids_affected": [
+          "dev_001",
+          "dev_002",
+          "dev_003",
+          "dev_005",
+          "dev_016",
+          "dev_018"
+        ],
+        "cases_affected": 6,
+        "groups_executed": 6,
+        "non_exact_group_count": 4,
+        "non_exact_groups": [
+          {
+            "case_id": "dev_003",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9670663839706625,
+              "medoid": "m003_1",
+              "medoid_scores": {
+                "m003_1": 0.9670663839706625,
+                "m003_3": 0.9670663839706625
+              },
+              "members": [
+                "m003_1",
+                "m003_3"
+              ]
+            }
+          },
+          {
+            "case_id": "dev_005",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9525624917553844,
+              "medoid": "m005_1",
+              "medoid_scores": {
+                "m005_1": 0.9525624917553844,
+                "m005_3": 0.9525624917553844
+              },
+              "members": [
+                "m005_1",
+                "m005_3"
+              ]
+            }
+          },
+          {
+            "case_id": "dev_016",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9931168597422395,
+              "medoid": "m016_1",
+              "medoid_scores": {
+                "m016_1": 0.9931168597422395,
+                "m016_2": 0.9931168597422395
+              },
+              "members": [
+                "m016_1",
+                "m016_2"
+              ]
+            }
+          },
+          {
+            "case_id": "dev_018",
+            "group": {
+              "cluster_id": "cluster_1",
+              "mean_similarity": 0.9689608726915655,
+              "medoid": "m018_1",
+              "medoid_scores": {
+                "m018_1": 0.9689608726915655,
+                "m018_2": 0.9689608726915655
+              },
+              "members": [
+                "m018_1",
+                "m018_2"
+              ]
+            }
+          }
+        ],
+        "original_tokens_seed_sum": 9870,
+        "records_removed": 6,
+        "token_compression": 0.11458966565349545,
+        "token_counts": [
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2026
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2027
+          },
+          {
+            "after": 64,
+            "before": 125,
+            "case_id": "dev_001",
+            "order_seed": 2028
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2026
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2027
+          },
+          {
+            "after": 78,
+            "before": 153,
+            "case_id": "dev_002",
+            "order_seed": 2028
+          },
+          {
+            "after": 120,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2026
+          },
+          {
+            "after": 120,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2027
+          },
+          {
+            "after": 120,
+            "before": 184,
+            "case_id": "dev_003",
+            "order_seed": 2028
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2026
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2027
+          },
+          {
+            "after": 125,
+            "before": 125,
+            "case_id": "dev_004",
+            "order_seed": 2028
+          },
+          {
+            "after": 121,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2026
+          },
+          {
+            "after": 121,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2027
+          },
+          {
+            "after": 121,
+            "before": 179,
+            "case_id": "dev_005",
+            "order_seed": 2028
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2026
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2027
+          },
+          {
+            "after": 176,
+            "before": 176,
+            "case_id": "dev_006",
+            "order_seed": 2028
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2026
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2027
+          },
+          {
+            "after": 145,
+            "before": 145,
+            "case_id": "dev_007",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_008",
+            "order_seed": 2028
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2026
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2027
+          },
+          {
+            "after": 177,
+            "before": 177,
+            "case_id": "dev_009",
+            "order_seed": 2028
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2026
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2027
+          },
+          {
+            "after": 169,
+            "before": 169,
+            "case_id": "dev_010",
+            "order_seed": 2028
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2026
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2027
+          },
+          {
+            "after": 123,
+            "before": 123,
+            "case_id": "dev_011",
+            "order_seed": 2028
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2026
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2027
+          },
+          {
+            "after": 129,
+            "before": 129,
+            "case_id": "dev_012",
+            "order_seed": 2028
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2026
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2027
+          },
+          {
+            "after": 196,
+            "before": 196,
+            "case_id": "dev_013",
+            "order_seed": 2028
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2026
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2027
+          },
+          {
+            "after": 142,
+            "before": 142,
+            "case_id": "dev_014",
+            "order_seed": 2028
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2026
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2027
+          },
+          {
+            "after": 201,
+            "before": 201,
+            "case_id": "dev_015",
+            "order_seed": 2028
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2026
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2027
+          },
+          {
+            "after": 59,
+            "before": 115,
+            "case_id": "dev_016",
+            "order_seed": 2028
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2026
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2027
+          },
+          {
+            "after": 184,
+            "before": 184,
+            "case_id": "dev_017",
+            "order_seed": 2028
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2026
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2027
+          },
+          {
+            "after": 66,
+            "before": 129,
+            "case_id": "dev_018",
+            "order_seed": 2028
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2026
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2027
+          },
+          {
+            "after": 254,
+            "before": 254,
+            "case_id": "dev_019",
+            "order_seed": 2028
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2026
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2027
+          },
+          {
+            "after": 188,
+            "before": 188,
+            "case_id": "dev_020",
+            "order_seed": 2028
+          }
+        ],
+        "tokens_saved_mean_orders": 377.0,
+        "tokens_saved_seed_sum": 1131
+      },
+      "payload_sha256": "0164728b2addfe22a82156225934344c12265faaee8419a1e4149a8fb34ce944",
+      "point_id": "0.95:similarity_first:6",
+      "prefix": 6,
+      "threshold": 0.95
+    }
+  ],
+  "selected_points": {
+    "exact": "0.95:exact",
+    "gated": "0.95:gated",
+    "original": "0.95:original",
+    "similarity_first": "0.95:similarity_first:3"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "cached_generation_models_initially": [],
+  "configured_provider_presence_only": {
+    "ANTHROPIC_API_KEY": false,
+    "GEMINI_API_KEY": false,
+    "GOOGLE_API_KEY": false,
+    "OLLAMA_HOST": false,
+    "OPENAI_API_KEY": false,
+    "OPENAI_BASE_URL": false
+  },
+  "cpu_quota_cores": 2,
+  "gpu_available": false,
+  "initial_cached_repositories": [
+    "BAAI/bge-small-en-v1.5",
+    "Qwen/Qwen2.5-0.5B-Instruct (tokenizer only)"
+  ],
+  "initial_engine": "Torch 2.6.0+cpu / Transformers 4.57.1; no llama.cpp, vLLM or Ollama",
+  "memory_limit_bytes": 8589934592,
+  "note": "Capacity/configuration observations only; provider secret values were never printed.",
+  "paid_calls": 0,
+  "solver_backend": "local CPU Transformers"
+}

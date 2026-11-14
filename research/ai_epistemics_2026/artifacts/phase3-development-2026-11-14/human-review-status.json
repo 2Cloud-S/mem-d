@@ -1,0 +1,7 @@
+{
+  "completed_semantic_audits": 0,
+  "explanation_support": "unscored",
+  "independent_human_submissions": 0,
+  "note": "Only synthetic test fixtures exercised the importer. No real reviewer forms were filled or imported.",
+  "status": "pending"
+}

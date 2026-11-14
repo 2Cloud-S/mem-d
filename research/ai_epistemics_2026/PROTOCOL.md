@@ -448,3 +448,56 @@ unscorability; and an evidence-based rationale. Inspect the actual fixed medoid,
 not arbitrary replacement or deletion alone. Seek two independent human reviews
 before adjudication; do not auto-fill judgments or describe assistant authorship
 as independent human review. Human review remains pending in this phase.
+
+## Phase 3 exploratory pilot amendment (2026-11-14, before solver answers)
+
+Select threshold 0.95 because development **transformation analysis**, before
+viewing any solver answers, found a non-identical near-equal-budget comparison.
+This selection is exploratory and informed by development findings, not an
+independently preregistered confirmatory comparison. Five other thresholds
+reproduce simpler controls on these cases. No independent human review is complete.
+
+This prospectively changes the sequencing in PHASE2B_MEMO.md and the handoff:
+exploratory development solver calls may proceed while human audits are pending.
+They do not supply independent semantic validation. Safety outcomes remain
+pending until real reviews arrive. No existing labels, gate rules, frozen
+artifacts, or production behavior change.
+
+The pre-answer pilot plan and model lock specify all 20 development cases, ten
+families, three paired order seeds, and original/exact/frozen similarity-first
+prefix 3/existing-gate conditions at 0.95. Every condition retains 60 planned
+case/order observations per model. Reuse one real response only for byte-identical
+requests **within the same case/model/order block**; never reuse across cases,
+seeds, or models. Freeze that reuse mapping before calls. Reused logical answers
+do not create independent observations, and usage/latency totals count physical
+submissions only. Preserve raw outputs without repair or constrained JSON decoding.
+
+Use CPU local instruction models, pinned revisions and asset hashes, greedy
+generation, float32, two Torch threads, 256 maximum new tokens, and a 4,096-token
+total context limit. Prefer the explicitly selected Qwen2.5-0.5B-Instruct weight
+snapshot; separately attempt SmolLM2-360M-Instruct if resources permit. The old
+Qwen tokenizer-only cache is not evidence of a solver choice or cached weights.
+No paid or remote provider calls are authorized. Bound inference to 1,200 seconds
+per model, with a 60-second per-submission deadline checked during generation;
+native prefill/step work may exceed a deadline by one step. Treat resource/time
+failures as infrastructure failures with at most two identical retries and
+whole-block exclusion; retain all planned observations and exclusion denominators.
+
+For each solver tokenizer, recompute **all** 0.95 corpus-prefix token points and
+the existing matching rule before answers. The primary control remains the frozen
+prefix 3: execute only if it is still the nearest prefix and within tolerance;
+otherwise report that model's matching blocker before any calls. Do not change
+the control based on answers. Freeze requests, generation settings, prompts,
+model/tokenizer files, dependency versions, matching, and reuse plan in a pilot
+manifest before execution. Use a separate cache so generation weights cannot
+alter earlier tokenizer-only snapshot inventories.
+
+Analysis uses the existing equal-family paired metric and family bootstrap,
+including original-memory errors, introduced/rescued errors, gate versus exact
+and gate versus similarity-first. Report planned/included/excluded counts,
+invalid/truncated responses, and which cases/families drive differences. Label
+correctness does not establish a supported explanation: retain unscored explanation
+audit fields and label any assistant inspection accurately. This small-model,
+ten-family pilot supports feasibility findings, not broad generalization. Final
+evaluation design and resource estimates follow the pilot without generating or
+viewing held-out cases; zero/unstable variance cannot justify a precise power claim.

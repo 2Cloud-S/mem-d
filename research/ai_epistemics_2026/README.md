@@ -1,4 +1,4 @@
-# AI × Epistemics Research Sprint — Phases 1–2B
+# AI × Epistemics Research Sprint — Phases 1–3
 
 **Working title:** “When AI Forgets the Caveat: Evaluating Decision-Preserving
 Memory Deduplication.”
@@ -6,9 +6,12 @@ Memory Deduplication.”
 This directory contains a [research protocol](PROTOCOL.md),
 [20 synthetic development cases](development.jsonl), and an external Phase 2
 harness with development compression-feasibility artifacts.
-**No downstream solver experiment has run.** No held-out cases, downstream model
-outcomes, production-memory changes, or dashboard are included. The study is
-not submission-ready; decision benefit and novelty remain open.
+Phase 3 adds an exploratory local downstream pilot; see [PILOT_PLAN.md](PILOT_PLAN.md)
+and [PILOT_RESULTS.md](PILOT_RESULTS.md) for its scope and findings. The Phase 1–2B
+sections below are historical delivery records: their statements about no solver
+calls describe their own phase. No held-out cases, production-memory changes,
+or dashboard are included. The study is not submission-ready; broader decision
+benefit, semantic safety, and novelty remain open.
 
 ## Provenance and inherited components
 
@@ -585,3 +588,142 @@ with full-original anchors and frozen paired execution settings. Separate solver
 calls for identical 0.45–0.85 prompts cannot establish a gating contribution.
 Safety, decision benefit, and generalization remain unmeasured. No downstream
 solver calls, paid APIs, held-out cases, safeguards, or production changes occur.
+
+## Phase 3: bounded real local pilot and genuine review import
+
+Phase 3 continues from `5da79b3ad282eda44c96e7da250c440294089996`. The dated
+[protocol amendment](PROTOCOL.md#phase-3-exploratory-pilot-amendment-2026-11-14-before-solver-answers)
+and [pilot plan](PILOT_PLAN.md) were written before collecting answers. They
+prospectively allow exploratory development calls while independent human review
+is pending. Threshold 0.95 was selected from pre-answer transformation differences,
+not solver outcomes; the comparison is not an independent confirmatory preregistration.
+
+The experiment remains external. Production code, gate rules, gold labels,
+earlier prompts, and all prior frozen artifacts are unchanged. `local_solver.py`
+provides a CPU Transformers transport with explicit allowlists, pinned local
+weights, native chat templates, stateless calls, greedy decoding, and structured
+status/usage/latency logs. `pilot.py` freezes tokenizer-specific matching, requests,
+and within-block reuse before execution. `pilot_analysis.py` uses existing strict
+parsing, paired exclusions, equal-family metrics and bootstrap intervals. It
+exports a separate **unscored** explanation-support audit; correct answer labels
+do not establish valid explanations.
+
+Model selection and limits are in [pilot-lock.json](pilot-lock.json), recorded
+before answers. The two instruction families are Qwen2.5-0.5B-Instruct and
+SmolLM2-360M-Instruct, with immutable revisions. The old Qwen tokenizer-only cache
+was not treated as a selected or cached solver. Full generation weights were
+downloaded publicly into a new cache. No configured provider credentials or
+remote inference endpoint were found; no paid calls are authorized or used.
+Both tokenizers are checked before responses: frozen similarity-first prefix 3
+must remain the nearest eligible match under the existing rule. See the results
+for tokenizer-specific budgets and residuals rather than transferring Qwen counts
+to another family.
+
+### Prepare and run a fresh pilot
+
+Use the existing Phase 2 dependencies. Download only pinned public snapshots into
+a separate cache (this does not execute inference):
+
+```bash
+HF_HUB_DISABLE_XET=1 python - <<'PY'
+import json
+from pathlib import Path
+from research.ai_epistemics_2026.harness.backend import snapshot
+lock = json.loads(Path('research/ai_epistemics_2026/pilot-lock.json').read_text())
+for model in lock['models']:
+    snapshot(model, Path('/tmp/memd-phase3-cache'), True)
+PY
+```
+
+Extract the preserved Phase 2 and Phase 2B archives into a scratch parent, giving
+`phase2-run` and `phase2b-run`, then prepare each family in a new directory:
+
+```bash
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.pilot prepare \
+  --source /tmp/sources/phase2-run --source2b /tmp/sources/phase2b-run \
+  --cache /tmp/memd-phase3-cache --family Qwen2.5 --output /tmp/new-qwen-pilot
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.pilot run \
+  --run /tmp/new-qwen-pilot
+python -m research.ai_epistemics_2026.harness.pilot_analysis --run /tmp/new-qwen-pilot
+```
+
+Use `--family SmolLM2` and a separate output directory for the second family;
+run sequentially on constrained hardware. Preparation records full asset/code/data
+hashes, dependencies, rendered prompts, generation settings, 240 planned logical
+requests, and 72 physical request owners/model. It makes no solver calls. The
+four conditions each retain all 20 cases and three order seeds. The `prefix`
+field is paired stratum 3; the gate remains its unchanged full anchor.
+
+Reuse occurs only inside one case/model/order block for byte-identical requests,
+in the frozen randomized condition schedule. Repetitions are never deduplicated
+across cases, order seeds or families. The freeze contains `reuse-plan.json`;
+responses mark reused attempts and retain their owner. Physical submissions log
+the actual request, rendered prompt/hash, generated token IDs, raw decoded output,
+latency, usage, statuses and retries. Usage/latency totals sum physical attempts,
+not repeated logical copies. These counts are local token/compute observations,
+not monetary cost savings.
+
+Each model has a 20-minute inference budget and 60-second per-submission deadline,
+with one native generation step of deadline slack. No output repair, alternate
+model, JSON-constrained generation, or label editing occurs. Invalid/truncated
+outputs remain decision errors. Infrastructure failures get at most two identical
+retries; one failed condition excludes the entire matched block, with all planned
+denominators retained in the report. Context overflow is an error, not a silently
+removed case. Refusing to overwrite started runs prevents accidental hidden reruns.
+
+### Import actual independent human reviews
+
+Only after a person has completed a copy of the original reviewer template:
+
+```bash
+python -m research.ai_epistemics_2026.harness.review_import \
+  --packets research/ai_epistemics_2026/artifacts/phase2b-development-2026-11-14/reviewer \
+  --submission /path/to/completed-review.json --output /tmp/independent-reviews
+```
+
+The command verifies the original packet freeze, validates exact audit IDs and
+fields, completed/explicitly partial status, judgment choices, and nonempty rationales.
+It preserves original submission bytes plus provenance under a neutral reviewer
+ID, with its own freeze. It never fills forms, overwrites packets, merges reviewers,
+or performs adjudication. Two reviewers must use separate IDs and submissions.
+`review_type` distinguishes self-declared `independent_human` from `assistant`;
+structural validation cannot verify a person's identity or independence. The
+researcher must establish that provenance separately. No completed independent
+human submission has been imported in this phase. Semantic-safety outcomes and
+inter-reviewer agreement remain pending.
+
+See [PILOT_RESULTS.md](PILOT_RESULTS.md) for counts, original-memory errors,
+introduced/rescued errors, contrasts, failures, invalid outputs and exclusions.
+See [FINAL_EVALUATION_PLAN.md](FINAL_EVALUATION_PLAN.md) for the proposed untouched
+family allocation, minimum effect, call/resource budgets and limits of pilot-based
+power estimates. No held-out cases are generated or accessed here. A functioning
+adapter and passing tests alone do not establish a competitive research contribution.
+
+### Phase 3 validation and archive checks
+
+```bash
+MEMD_RESEARCH_MODEL_CACHE=/path/to/preserved-phase2-cache HF_HUB_OFFLINE=1 \
+  python -m pytest tests research/ai_epistemics_2026/tests -q
+ruff check research/ai_epistemics_2026
+python research/ai_epistemics_2026/validate_development.py
+```
+
+All **69 research tests** pass, including fourteen new transport, provenance,
+reuse, paired-contrast, and reviewer-import tests. Tests generate only explicitly
+synthetic fixtures. The combined suite has **512 passed, two skipped, two failed**;
+the failures are the same inherited missing TXT/JSONL parser fixtures. Whole-repository
+Ruff retains 86 findings in thirteen unchanged files; research lint is clean.
+No fixture repair, inherited lint suppression, or benchmark regeneration occurred.
+
+The [Phase 3 artifact directory](artifacts/phase3-development-2026-11-14/) contains
+readable per-model manifests, matching grids, execution summaries and analyses,
+plus full compressed runs. Run `sha256sum -c SHA256SUMS` from that directory.
+Extract `qwen/run.tar.gz` and `smol/run.tar.gz` into scratch directories to obtain
+`qwen-run/` and `smol-run/`. For each extracted run, verify `freeze.json`,
+`responses.freeze.json`, `execution.freeze.json`, and `analysis.freeze.json`
+with `harness.artifacts.verify`. The archives preserve the original preparation,
+response, execution, and scoring freezes without model weights. Actual requests,
+rendered prompts, raw responses, generated IDs, and reuse provenance are included.
+Every frozen source/config hash still matches the delivered code. All prior
+artifacts, development labels, gate/transform code and production behavior remain
+unchanged. See the pilot results for the strict-score limitations and next task.

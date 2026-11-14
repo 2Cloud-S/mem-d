@@ -1,0 +1,15 @@
+{
+  "recorded_date": "2026-11-14",
+  "models": [
+    {"family": "Qwen2.5", "repo_id": "Qwen/Qwen2.5-0.5B-Instruct", "revision": "7ae557604adf67be50417f59c2c2f167def9a775"},
+    {"family": "SmolLM2", "repo_id": "HuggingFaceTB/SmolLM2-360M-Instruct", "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"}
+  ],
+  "threshold": 0.95,
+  "similarity_first_prefix": 3,
+  "order_seeds": [2026, 2027, 2028],
+  "generation": {"do_sample": false, "max_new_tokens": 256, "max_total_tokens": 4096, "dtype": "float32", "device": "cpu", "torch_threads": 2, "deterministic_algorithms": true},
+  "limits": {"model_inference_seconds": 1200, "submission_seconds": 60, "max_infrastructure_retries": 2},
+  "reuse": "byte-identical requests within one case/model/order block only",
+  "paid_provider_calls_authorized": false,
+  "human_review_status": "pending"
+}
