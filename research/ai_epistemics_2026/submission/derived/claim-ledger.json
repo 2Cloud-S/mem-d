@@ -1,0 +1,2066 @@
+[
+  {
+    "derivation": "Count records, category membership and distinct family IDs",
+    "id": "D1",
+    "sources": [
+      "../development.jsonl"
+    ],
+    "statement": "Development corpus",
+    "unit": "development cases; families are the independent resampling unit",
+    "value": {
+      "cases": 20,
+      "categories": {
+        "decision_changing_exception": 5,
+        "genuine_duplicate": 5,
+        "uncertainty_or_attribution": 5,
+        "unresolved_contradiction": 5
+      },
+      "families": 10,
+      "records": 52
+    }
+  },
+  {
+    "derivation": "Compare complete canonical survivor-record payloads, not token totals; questions/criteria/order policy held fixed",
+    "id": "C1",
+    "sources": [
+      "../artifacts/phase2b-development-2026-11-14/run.tar.gz::points.jsonl"
+    ],
+    "statement": "Five identical operating points",
+    "unit": "thresholds on the same twenty-case corpus",
+    "value": [
+      0.45,
+      0.55,
+      0.65,
+      0.75,
+      0.85
+    ]
+  },
+  {
+    "derivation": "Sum actual tokenizer counts over cases and three seeded orders, divide by three; count explicit review resolutions and whole-group vetoes",
+    "id": "C2",
+    "sources": [
+      "../artifacts/phase2-development-2026-11-14/run.tar.gz::transformations.jsonl",
+      "../artifacts/phase2b-development-2026-11-14/run.tar.gz::points.jsonl"
+    ],
+    "statement": "Memory-token budgets and review burden",
+    "unit": "Qwen0.5B-tokenizer corpus memory tokens; recommendations, not review time",
+    "value": [
+      {
+        "approval_groups": 18,
+        "byte_identical_three_controls": true,
+        "candidate_groups": 20,
+        "conflict_groups": 0,
+        "matched_prefix": 2,
+        "methods": {
+          "exact": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "gated": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "original": {
+            "cases": 0,
+            "fraction": 0.0,
+            "groups": 0,
+            "records": 0,
+            "tokens": 0.0
+          },
+          "similarity_first": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          }
+        },
+        "review_groups": 18,
+        "review_memories": 48,
+        "threshold": 0.45,
+        "veto_groups": 18
+      },
+      {
+        "approval_groups": 17,
+        "byte_identical_three_controls": true,
+        "candidate_groups": 19,
+        "conflict_groups": 0,
+        "matched_prefix": 2,
+        "methods": {
+          "exact": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "gated": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "original": {
+            "cases": 0,
+            "fraction": 0.0,
+            "groups": 0,
+            "records": 0,
+            "tokens": 0.0
+          },
+          "similarity_first": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          }
+        },
+        "review_groups": 17,
+        "review_memories": 46,
+        "threshold": 0.55,
+        "veto_groups": 17
+      },
+      {
+        "approval_groups": 17,
+        "byte_identical_three_controls": true,
+        "candidate_groups": 19,
+        "conflict_groups": 0,
+        "matched_prefix": 2,
+        "methods": {
+          "exact": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "gated": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "original": {
+            "cases": 0,
+            "fraction": 0.0,
+            "groups": 0,
+            "records": 0,
+            "tokens": 0.0
+          },
+          "similarity_first": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          }
+        },
+        "review_groups": 17,
+        "review_memories": 43,
+        "threshold": 0.65,
+        "veto_groups": 17
+      },
+      {
+        "approval_groups": 15,
+        "byte_identical_three_controls": true,
+        "candidate_groups": 17,
+        "conflict_groups": 0,
+        "matched_prefix": 2,
+        "methods": {
+          "exact": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "gated": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "original": {
+            "cases": 0,
+            "fraction": 0.0,
+            "groups": 0,
+            "records": 0,
+            "tokens": 0.0
+          },
+          "similarity_first": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          }
+        },
+        "review_groups": 15,
+        "review_memories": 36,
+        "threshold": 0.75,
+        "veto_groups": 15
+      },
+      {
+        "approval_groups": 7,
+        "byte_identical_three_controls": true,
+        "candidate_groups": 9,
+        "conflict_groups": 0,
+        "matched_prefix": 2,
+        "methods": {
+          "exact": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "gated": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "original": {
+            "cases": 0,
+            "fraction": 0.0,
+            "groups": 0,
+            "records": 0,
+            "tokens": 0.0
+          },
+          "similarity_first": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          }
+        },
+        "review_groups": 7,
+        "review_memories": 27,
+        "threshold": 0.85,
+        "veto_groups": 7
+      },
+      {
+        "approval_groups": 3,
+        "byte_identical_three_controls": false,
+        "candidate_groups": 6,
+        "conflict_groups": 0,
+        "matched_prefix": 3,
+        "methods": {
+          "exact": {
+            "cases": 2,
+            "fraction": 0.04133738601823708,
+            "groups": 2,
+            "records": 2,
+            "tokens": 136.0
+          },
+          "gated": {
+            "cases": 3,
+            "fraction": 0.05896656534954407,
+            "groups": 3,
+            "records": 3,
+            "tokens": 194.0
+          },
+          "original": {
+            "cases": 0,
+            "fraction": 0.0,
+            "groups": 0,
+            "records": 0,
+            "tokens": 0.0
+          },
+          "similarity_first": {
+            "cases": 3,
+            "fraction": 0.05835866261398176,
+            "groups": 3,
+            "records": 3,
+            "tokens": 192.0
+          }
+        },
+        "review_groups": 3,
+        "review_memories": 23,
+        "threshold": 0.95,
+        "veto_groups": 3
+      }
+    ]
+  },
+  {
+    "derivation": "Subtract frozen integer token sums; compare actual survivor payloads case by case",
+    "id": "C3",
+    "sources": [
+      "../artifacts/phase2b-development-2026-11-14/run.tar.gz::points.jsonl"
+    ],
+    "statement": "0.95 incremental transformation and matching residual",
+    "unit": "memory tokens under Qwen0.5B tokenizer; fixed-medoid semantic safety unreviewed",
+    "value": {
+      "control_extra_over_exact": {
+        "executed_groups": [
+          {
+            "cluster_id": "cluster_1",
+            "mean_similarity": 0.9931168597422395,
+            "medoid": "m016_1",
+            "medoid_scores": {
+              "m016_1": 0.9931168597422395,
+              "m016_2": 0.9931168597422395
+            },
+            "members": [
+              "m016_1",
+              "m016_2"
+            ]
+          }
+        ],
+        "memories": [
+          {
+            "content": "Confirmed Pollen ribbon delivery commitment: arrival on 12 December.",
+            "id": "m016_1",
+            "source": "Pollen dispatch desk A",
+            "timestamp": "2026-12-01T09:00:00Z"
+          }
+        ],
+        "removed_ids": [
+          "m016_2"
+        ]
+      },
+      "gap_percent_gate_savings": 1.0309278350515463,
+      "gap_percentage_points_original": 0.060790273556231005,
+      "gate_control_gap_tokens": 2,
+      "gate_extra_over_exact": {
+        "executed_groups": [
+          {
+            "cluster_id": "cluster_1",
+            "mean_similarity": 0.9525624917553844,
+            "medoid": "m005_1",
+            "medoid_scores": {
+              "m005_1": 0.9525624917553844,
+              "m005_3": 0.9525624917553844
+            },
+            "members": [
+              "m005_1",
+              "m005_3"
+            ]
+          }
+        ],
+        "memories": [
+          {
+            "content": "Birch sandbox snapshot S8 passed its restore test and is cleared for pruning.",
+            "id": "m005_1",
+            "source": "Birch backup ledger",
+            "timestamp": "2026-12-01T09:00:00Z"
+          },
+          {
+            "content": "Restore validation for sandbox snapshot S8 succeeded; Birch operations authorizes pruning S8.",
+            "id": "m005_2",
+            "source": "Birch backup ledger",
+            "timestamp": "2026-12-01T09:00:00Z"
+          }
+        ],
+        "removed_ids": [
+          "m005_3"
+        ]
+      },
+      "incremental_tokens_over_exact": 58,
+      "tolerance_memory_tokens": 65.8
+    }
+  },
+  {
+    "derivation": "Strictly parse raw responses and compare labels to unchanged evidence-derived keys; preserve all case/order denominators",
+    "id": "S1",
+    "sources": [
+      "../artifacts/phase3-development-2026-11-14/qwen/run.tar.gz",
+      "../artifacts/phase3-development-2026-11-14/smol/run.tar.gz"
+    ],
+    "statement": "Historical solver counts",
+    "unit": "60 case/order observations per condition/model; ten dependent scenario families",
+    "value": [
+      {
+        "changes": {
+          "exact": {
+            "introduced": 0,
+            "rescued": 0,
+            "rescued_cases": []
+          },
+          "gated": {
+            "introduced": 0,
+            "rescued": 0,
+            "rescued_cases": []
+          },
+          "original": {
+            "introduced": 0,
+            "rescued": 0,
+            "rescued_cases": []
+          },
+          "similarity_first": {
+            "introduced": 0,
+            "rescued": 0,
+            "rescued_cases": []
+          }
+        },
+        "conditions": {
+          "exact": {
+            "correct": 0,
+            "planned": 60,
+            "valid": 0,
+            "valid_but_wrong": 0
+          },
+          "gated": {
+            "correct": 0,
+            "planned": 60,
+            "valid": 0,
+            "valid_but_wrong": 0
+          },
+          "original": {
+            "correct": 0,
+            "planned": 60,
+            "valid": 0,
+            "valid_but_wrong": 0
+          },
+          "similarity_first": {
+            "correct": 0,
+            "planned": 60,
+            "valid": 3,
+            "valid_but_wrong": 3
+          }
+        },
+        "execution": {
+          "actual_generated_token_usage": {
+            "completion_tokens": 4854,
+            "prompt_tokens": 25317
+          },
+          "actual_inference_attempts": 72,
+          "attempt_log_entries": 72,
+          "human_review_status": "pending",
+          "physical_latency_seconds": 875.9256431939957,
+          "physical_request_owners": 72,
+          "planned_logical_requests": 240,
+          "provenance": "real",
+          "reused_logical_requests": 168,
+          "usage_missing_attempts": 0
+        },
+        "format_categories": {
+          "non_json": 4,
+          "strict_valid": 3,
+          "wrong_answer_key": 233
+        },
+        "model": "qwen"
+      },
+      {
+        "changes": {
+          "exact": {
+            "introduced": 0,
+            "rescued": 3,
+            "rescued_cases": [
+              "dev_002"
+            ]
+          },
+          "gated": {
+            "introduced": 0,
+            "rescued": 3,
+            "rescued_cases": [
+              "dev_002"
+            ]
+          },
+          "original": {
+            "introduced": 0,
+            "rescued": 0,
+            "rescued_cases": []
+          },
+          "similarity_first": {
+            "introduced": 0,
+            "rescued": 3,
+            "rescued_cases": [
+              "dev_002"
+            ]
+          }
+        },
+        "conditions": {
+          "exact": {
+            "correct": 17,
+            "planned": 60,
+            "valid": 32,
+            "valid_but_wrong": 15
+          },
+          "gated": {
+            "correct": 17,
+            "planned": 60,
+            "valid": 32,
+            "valid_but_wrong": 15
+          },
+          "original": {
+            "correct": 14,
+            "planned": 60,
+            "valid": 29,
+            "valid_but_wrong": 15
+          },
+          "similarity_first": {
+            "correct": 17,
+            "planned": 60,
+            "valid": 35,
+            "valid_but_wrong": 18
+          }
+        },
+        "execution": {
+          "actual_generated_token_usage": {
+            "completion_tokens": 1974,
+            "prompt_tokens": 27540
+          },
+          "actual_inference_attempts": 72,
+          "attempt_log_entries": 72,
+          "human_review_status": "pending",
+          "physical_latency_seconds": 383.055479317999,
+          "physical_request_owners": 72,
+          "planned_logical_requests": 240,
+          "provenance": "real",
+          "reused_logical_requests": 168,
+          "usage_missing_attempts": 0
+        },
+        "format_categories": {
+          "non_json": 112,
+          "strict_valid": 128
+        },
+        "model": "smol"
+      }
+    ]
+  },
+  {
+    "derivation": "Reparse all raw outputs under each frozen interface, keep failures in the eighteen-item eligibility denominator",
+    "id": "S2",
+    "sources": [
+      "../artifacts/phase3b-development-2026-11-15/*/run.tar.gz"
+    ],
+    "statement": "Pre-code calibration outcomes",
+    "unit": "same eighteen reused calibration items, not independent replications",
+    "value": [
+      {
+        "correct": 4,
+        "infrastructure": 5,
+        "interface": "json",
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "planned": 18,
+        "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+        "valid": 13
+      },
+      {
+        "correct": 5,
+        "infrastructure": 0,
+        "interface": "semantic",
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "planned": 18,
+        "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+        "valid": 18
+      },
+      {
+        "correct": 6,
+        "infrastructure": 0,
+        "interface": "semantic",
+        "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "planned": 18,
+        "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+        "valid": 18
+      },
+      {
+        "correct": 8,
+        "infrastructure": 0,
+        "interface": "semantic",
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "planned": 18,
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+        "valid": 18
+      }
+    ]
+  },
+  {
+    "derivation": "Decode each raw code using its own frozen public mapping, compare unchanged keys, group by item/permutation/class",
+    "id": "N1",
+    "sources": [
+      "../artifacts/phase3c-neutral-codes-2026-11-15/run.tar.gz"
+    ],
+    "statement": "Counterbalanced neutral-code diagnostic",
+    "unit": "108 repeated item/mapping pairs from eighteen reused items; no independent-sample significance claim",
+    "value": {
+      "B_percent": 77.77777777777779,
+      "accuracy_percent": 46.2962962962963,
+      "by_class": {
+        "do_not_proceed": {
+          "correct": 11,
+          "planned": 36
+        },
+        "insufficient_evidence": {
+          "correct": 10,
+          "planned": 36
+        },
+        "proceed": {
+          "correct": 29,
+          "planned": 36
+        }
+      },
+      "by_permutation": [
+        {
+          "correct": 11,
+          "mapping": {
+            "A": "proceed",
+            "B": "do_not_proceed",
+            "C": "insufficient_evidence"
+          },
+          "permutation": 1,
+          "planned": 18
+        },
+        {
+          "correct": 10,
+          "mapping": {
+            "A": "proceed",
+            "B": "insufficient_evidence",
+            "C": "do_not_proceed"
+          },
+          "permutation": 2,
+          "planned": 18
+        },
+        {
+          "correct": 6,
+          "mapping": {
+            "A": "do_not_proceed",
+            "B": "proceed",
+            "C": "insufficient_evidence"
+          },
+          "permutation": 3,
+          "planned": 18
+        },
+        {
+          "correct": 8,
+          "mapping": {
+            "A": "do_not_proceed",
+            "B": "insufficient_evidence",
+            "C": "proceed"
+          },
+          "permutation": 4,
+          "planned": 18
+        },
+        {
+          "correct": 6,
+          "mapping": {
+            "A": "insufficient_evidence",
+            "B": "proceed",
+            "C": "do_not_proceed"
+          },
+          "permutation": 5,
+          "planned": 18
+        },
+        {
+          "correct": 9,
+          "mapping": {
+            "A": "insufficient_evidence",
+            "B": "do_not_proceed",
+            "C": "proceed"
+          },
+          "permutation": 6,
+          "planned": 18
+        }
+      ],
+      "changed_items_percent": 88.88888888888889,
+      "code_changes": 11,
+      "code_counts": {
+        "A": 19,
+        "B": 84,
+        "C": 5
+      },
+      "confusion": {
+        "do_not_proceed": {
+          "do_not_proceed": 11,
+          "insufficient_evidence": 9,
+          "proceed": 16
+        },
+        "insufficient_evidence": {
+          "do_not_proceed": 11,
+          "insufficient_evidence": 10,
+          "proceed": 15
+        },
+        "proceed": {
+          "do_not_proceed": 3,
+          "insufficient_evidence": 4,
+          "proceed": 29
+        }
+      },
+      "constant_code_items": 7,
+      "correct": 50,
+      "false_abstentions": 13,
+      "invariant_correct_items": [
+        "interface_07",
+        "interface_13"
+      ],
+      "items": 18,
+      "per_item": {
+        "interface_01": [
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_01",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_01",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_01",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_01",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_01",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_01",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          }
+        ],
+        "interface_02": [
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_02",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_02",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_02",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_02",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_02",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_02",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          }
+        ],
+        "interface_03": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_03",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_03",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_03",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_03",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_03",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_03",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          }
+        ],
+        "interface_04": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_04",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_04",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_04",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_04",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_04",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_04",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          }
+        ],
+        "interface_05": [
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_05",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_05",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_05",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_05",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_05",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_05",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          }
+        ],
+        "interface_06": [
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_06",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_06",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_06",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_06",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_06",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_06",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          }
+        ],
+        "interface_07": [
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_07",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_07",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "C",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_07",
+            "label": "proceed",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_07",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "C",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_07",
+            "label": "proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_07",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          }
+        ],
+        "interface_08": [
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_08",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_08",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_08",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_08",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_08",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_08",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          }
+        ],
+        "interface_09": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_09",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_09",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_09",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_09",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_09",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_09",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          }
+        ],
+        "interface_10": [
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_10",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_10",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_10",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_10",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "C",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_10",
+            "label": "proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_10",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          }
+        ],
+        "interface_11": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_11",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_11",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_11",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_11",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_11",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_11",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          }
+        ],
+        "interface_12": [
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_12",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_12",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_12",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_12",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_12",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_12",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          }
+        ],
+        "interface_13": [
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_13",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_13",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "C",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_13",
+            "label": "proceed",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_13",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_13",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "C",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_13",
+            "label": "proceed",
+            "permutation": 5,
+            "valid": true
+          }
+        ],
+        "interface_14": [
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_14",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_14",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_14",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_14",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_14",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_14",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          }
+        ],
+        "interface_15": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_15",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_15",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_15",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_15",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_15",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_15",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          }
+        ],
+        "interface_16": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_16",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "proceed",
+            "item": "interface_16",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_16",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_16",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_16",
+            "label": "proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": true,
+            "gold": "proceed",
+            "item": "interface_16",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          }
+        ],
+        "interface_17": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_17",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_17",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "A",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_17",
+            "label": "proceed",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_17",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "do_not_proceed",
+            "item": "interface_17",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "do_not_proceed",
+            "item": "interface_17",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          }
+        ],
+        "interface_18": [
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_18",
+            "label": "do_not_proceed",
+            "permutation": 0,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_18",
+            "label": "insufficient_evidence",
+            "permutation": 3,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_18",
+            "label": "proceed",
+            "permutation": 4,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": true,
+            "gold": "insufficient_evidence",
+            "item": "interface_18",
+            "label": "insufficient_evidence",
+            "permutation": 1,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_18",
+            "label": "do_not_proceed",
+            "permutation": 5,
+            "valid": true
+          },
+          {
+            "code": "B",
+            "correct": false,
+            "gold": "insufficient_evidence",
+            "item": "interface_18",
+            "label": "proceed",
+            "permutation": 2,
+            "valid": true
+          }
+        ]
+      },
+      "planned": 108,
+      "semantic_changes": 16,
+      "semantic_counts": {
+        "do_not_proceed": 25,
+        "insufficient_evidence": 23,
+        "proceed": 60
+      },
+      "valid": 108
+    }
+  },
+  {
+    "derivation": "Count unique reviewer packets and read frozen review status; no agreement or safety outcomes imputed",
+    "id": "A1",
+    "sources": [
+      "../artifacts/phase2b-development-2026-11-14/reviewer/packets.json",
+      "../artifacts/phase3c-neutral-codes-2026-11-15/study-status.json"
+    ],
+    "statement": "Independent semantic reviews remain pending",
+    "unit": "proposals are dependent variants of ten development families",
+    "value": {
+      "human_reviews": 0,
+      "unique_proposals": 29
+    }
+  },
+  {
+    "derivation": "Read pinned asset hashes, actual-boundary token sequences and divergence flags",
+    "id": "T1",
+    "sources": [
+      "../artifacts/phase3c-neutral-codes-2026-11-15/token-inspection.json",
+      "../artifacts/phase3c-neutral-codes-2026-11-15/run.tar.gz::manifest.json"
+    ],
+    "statement": "Semantic-label tries and frozen model/tokenizer identities",
+    "unit": "token IDs are tokenizer-specific; reachability does not establish unbiased choice",
+    "value": {
+      "models": [
+        {
+          "candidate_code_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ],
+            "C": [
+              34
+            ]
+          },
+          "candidate_codes_single_at_historical_boundary": true,
+          "eos_id": 151645,
+          "first_token_determines_complete_label": true,
+          "model": {
+            "family": "Qwen2.5",
+            "files_sha256": {
+              "config.json": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+              "generation_config.json": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+              "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+              "model.safetensors": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+              "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+              "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+              "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+            },
+            "repo_id": "Qwen/Qwen2.5-0.5B-Instruct",
+            "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+          },
+          "native_boundary_suffix": "rule?\"}<|im_end|>\n<|im_start|>assistant\n",
+          "native_boundary_token_ids": [
+            5912,
+            7521,
+            92,
+            151645,
+            198,
+            151644,
+            77091,
+            198
+          ],
+          "native_prompt_sha256": "a648001c6fc01df167671452d0be1bbf56d33dbf28dacdb621e2397f66ac5453",
+          "root_branch_ids": [
+            776,
+            2982,
+            1330
+          ],
+          "semantic_labels": {
+            "do_not_proceed": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "do",
+                "_not",
+                "_pro",
+                "ceed"
+              ],
+              "remaining_tokens_forced_after_selection": 4,
+              "token_ids": [
+                2982,
+                7913,
+                2540,
+                4635
+              ],
+              "unique_after_tokens": 1
+            },
+            "insufficient_evidence": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "ins",
+                "ufficient",
+                "_e",
+                "vidence"
+              ],
+              "remaining_tokens_forced_after_selection": 4,
+              "token_ids": [
+                1330,
+                26683,
+                2204,
+                27480
+              ],
+              "unique_after_tokens": 1
+            },
+            "proceed": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "pro",
+                "ceed"
+              ],
+              "remaining_tokens_forced_after_selection": 2,
+              "token_ids": [
+                776,
+                4635
+              ],
+              "unique_after_tokens": 1
+            }
+          },
+          "tokenizer_class": "Qwen2TokenizerFast"
+        },
+        {
+          "candidate_code_ids": {
+            "A": [
+              49
+            ],
+            "B": [
+              50
+            ],
+            "C": [
+              51
+            ]
+          },
+          "candidate_codes_single_at_historical_boundary": true,
+          "eos_id": 2,
+          "first_token_determines_complete_label": true,
+          "model": {
+            "family": "SmolLM2",
+            "files_sha256": {
+              "all_results.json": "71face5e244d784819f937a25206865c295c8889fe4359eec28bbec85d02da0d",
+              "config.json": "224f72354f10d617a359cc82ad15a3c96e866b9b2ffadb81997eeea9e88e22ee",
+              "eval_results.json": "db9bcb5c4f2a3be0d7e88f86af26f375c22c240954af86942d1554d87a488ce8",
+              "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+              "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+              "model.safetensors": "e6bffe7435d7ddc10fd3b9a9efd429dafbacb1cb17015fb5562664e7532bf86e",
+              "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+              "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+              "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+              "train_results.json": "fceae2634b0a268a8adbda73fd0b2192922b496054011f588d2c6e888db1cea1",
+              "trainer_state.json": "2263f580ae0d7890acc11253b83138b3fc1250dc6728688a3387ce813b92eed1",
+              "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+            },
+            "repo_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+            "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"
+          },
+          "native_boundary_suffix": "rule?\"}<|im_end|>\n<|im_start|>assistant\n",
+          "native_boundary_token_ids": [
+            4817,
+            109,
+            2,
+            198,
+            1,
+            520,
+            9531,
+            198
+          ],
+          "native_prompt_sha256": "a648001c6fc01df167671452d0be1bbf56d33dbf28dacdb621e2397f66ac5453",
+          "root_branch_ids": [
+            1228,
+            4326,
+            927
+          ],
+          "semantic_labels": {
+            "do_not_proceed": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "do",
+                "_",
+                "not",
+                "_",
+                "pro",
+                "ceed"
+              ],
+              "remaining_tokens_forced_after_selection": 6,
+              "token_ids": [
+                4326,
+                79,
+                1766,
+                79,
+                1228,
+                3196
+              ],
+              "unique_after_tokens": 1
+            },
+            "insufficient_evidence": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "ins",
+                "u",
+                "fficient",
+                "_",
+                "evidence"
+              ],
+              "remaining_tokens_forced_after_selection": 5,
+              "token_ids": [
+                927,
+                101,
+                3574,
+                79,
+                42477
+              ],
+              "unique_after_tokens": 1
+            },
+            "proceed": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "pro",
+                "ceed"
+              ],
+              "remaining_tokens_forced_after_selection": 2,
+              "token_ids": [
+                1228,
+                3196
+              ],
+              "unique_after_tokens": 1
+            }
+          },
+          "tokenizer_class": "GPT2TokenizerFast"
+        },
+        {
+          "candidate_code_ids": {
+            "A": [
+              32
+            ],
+            "B": [
+              33
+            ],
+            "C": [
+              34
+            ]
+          },
+          "candidate_codes_single_at_historical_boundary": true,
+          "eos_id": 151645,
+          "first_token_determines_complete_label": true,
+          "model": {
+            "family": "Qwen2.5-1.5B",
+            "files_sha256": {
+              "config.json": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+              "generation_config.json": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+              "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+              "model.safetensors": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+              "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+              "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+              "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+            },
+            "repo_id": "Qwen/Qwen2.5-1.5B-Instruct",
+            "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+          },
+          "native_boundary_suffix": "rule?\"}<|im_end|>\n<|im_start|>assistant\n",
+          "native_boundary_token_ids": [
+            5912,
+            7521,
+            92,
+            151645,
+            198,
+            151644,
+            77091,
+            198
+          ],
+          "native_prompt_sha256": "a648001c6fc01df167671452d0be1bbf56d33dbf28dacdb621e2397f66ac5453",
+          "root_branch_ids": [
+            776,
+            2982,
+            1330
+          ],
+          "semantic_labels": {
+            "do_not_proceed": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "do",
+                "_not",
+                "_pro",
+                "ceed"
+              ],
+              "remaining_tokens_forced_after_selection": 4,
+              "token_ids": [
+                2982,
+                7913,
+                2540,
+                4635
+              ],
+              "unique_after_tokens": 1
+            },
+            "insufficient_evidence": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "ins",
+                "ufficient",
+                "_e",
+                "vidence"
+              ],
+              "remaining_tokens_forced_after_selection": 4,
+              "token_ids": [
+                1330,
+                26683,
+                2204,
+                27480
+              ],
+              "unique_after_tokens": 1
+            },
+            "proceed": {
+              "boundary_matches_canonical_encoding": true,
+              "pieces": [
+                "pro",
+                "ceed"
+              ],
+              "remaining_tokens_forced_after_selection": 2,
+              "token_ids": [
+                776,
+                4635
+              ],
+              "unique_after_tokens": 1
+            }
+          },
+          "tokenizer_class": "Qwen2TokenizerFast"
+        }
+      ],
+      "purpose": "Read-only mechanism inspection; no model calls or causal proof of old failures",
+      "solver_calls": 0
+    }
+  },
+  {
+    "derivation": "Verify artifact checksums/freeze digests and git diff production files against baseline",
+    "id": "P1",
+    "sources": [
+      "../README.md",
+      "../REPORT_HANDOFF.md",
+      "../../../memd/"
+    ],
+    "statement": "Inherited production baseline and untouched historical evidence",
+    "unit": "repository provenance; no fixture/test accuracy used as decision evidence",
+    "value": {
+      "baseline": "14af8eccc0141450d01981e189a48b72140ce754",
+      "frozen_head": "255b73fd3986844ea17292e1e8c27776a77cc9a3"
+    }
+  }
+]

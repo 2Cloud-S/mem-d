@@ -1,0 +1,282 @@
+{
+  "pdf_pages": 10,
+  "body_pages": 6,
+  "reference_pages": 1,
+  "appendix_pages": 3,
+  "abstract_words": 191,
+  "public_http_links": 13,
+  "link_checks": [
+    {
+      "url": "https://aclanthology.org/2023.emnlp-main.825/",
+      "status": 200,
+      "final_url": "https://aclanthology.org/2023.emnlp-main.825/"
+    },
+    {
+      "url": "https://aclanthology.org/2024.acl-long.747/",
+      "status": 200,
+      "final_url": "https://aclanthology.org/2024.acl-long.747/"
+    },
+    {
+      "url": "https://apartresearch.com/sprints/ai-x-epistemics-research-sprint-2026-11-13-to-2026-11-15",
+      "status": 200,
+      "final_url": "https://apartresearch.com/sprints/ai-x-epistemics-research-sprint-2026-11-13-to-2026-11-15"
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.03882",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2309.03882"
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.10813",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2410.10813"
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.19413",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2504.19413"
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.12978",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2605.12978"
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.08032",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2607.08032"
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.33013",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2609.33013"
+    },
+    {
+      "url": "https://arxiv.org/abs/2611.07631",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2611.07631"
+    },
+    {
+      "url": "https://github.com/2Cloud-S/mem-d/blob/255b73fd3986844ea17292e1e8c27776a77cc9a3/research/ai_epistemics_2026/README.md",
+      "status": 200,
+      "final_url": "https://github.com/2Cloud-S/mem-d/blob/255b73fd3986844ea17292e1e8c27776a77cc9a3/research/ai_epistemics_2026/README.md"
+    },
+    {
+      "url": "https://github.com/2Cloud-S/mem-d/tree/255b73fd3986844ea17292e1e8c27776a77cc9a3/research/ai_epistemics_2026",
+      "status": 200,
+      "final_url": "https://github.com/2Cloud-S/mem-d/tree/255b73fd3986844ea17292e1e8c27776a77cc9a3/research/ai_epistemics_2026"
+    },
+    {
+      "url": "https://github.com/2Cloud-S/mem-d/tree/sprint/ai-epistemics-2026",
+      "status": 200,
+      "final_url": "https://github.com/2Cloud-S/mem-d/tree/sprint/ai-epistemics-2026"
+    }
+  ],
+  "page_checks": [
+    {
+      "page": 1,
+      "words": 320,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 2,
+      "words": 339,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 3,
+      "words": 442,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 4,
+      "words": 339,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 5,
+      "words": 322,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 6,
+      "words": 373,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 7,
+      "words": 236,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 8,
+      "words": 460,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 9,
+      "words": 386,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    },
+    {
+      "page": 10,
+      "words": 388,
+      "text_within_page": true,
+      "fonts": [
+        "BAAAAA+LiberationSans",
+        "CAAAAA+OldStandardTT-Bold",
+        "DAAAAA+OldStandardTT-Bold",
+        "EAAAAA+OldStandardTT-Bold",
+        "FAAAAA+OldStandardTT-Regular",
+        "GAAAAA+OldStandardTT-Bold",
+        "HAAAAA+OldStandardTT-Regular",
+        "IAAAAA+OldStandardTT-Bold",
+        "JAAAAA+OldStandardTT-Italic",
+        "KAAAAA+OldStandardTT-Bold",
+        "LAAAAA+OldStandardTT-Regular",
+        "MAAAAA+OldStandardTT-Bold",
+        "NAAAAA+OldStandardTT-Regular"
+      ]
+    }
+  ],
+  "pdf_sha256": "0f66613dc5487342726f894eea2edf3c3105c90fcf8be1c7dadfef9868161167",
+  "docx_sha256": "073eca645ea6a21d0e742f6b82b66963ae06f0854af990031f364478369afc5e",
+  "remaining_metadata": "Affiliation or confirmed independent status not provided",
+  "manual_visual_inspection": "See VALIDATION.md; not inferred by this script",
+  "inference_calls": 0
+}

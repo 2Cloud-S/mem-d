@@ -1,0 +1,1591 @@
+{
+  "baseline_commit": "14af8eccc0141450d01981e189a48b72140ce754",
+  "calibration": [
+    {
+      "correct": 4,
+      "infrastructure": 5,
+      "interface": "json",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "planned": 18,
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "valid": 13
+    },
+    {
+      "correct": 5,
+      "infrastructure": 0,
+      "interface": "semantic",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "planned": 18,
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "valid": 18
+    },
+    {
+      "correct": 6,
+      "infrastructure": 0,
+      "interface": "semantic",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "planned": 18,
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "valid": 18
+    },
+    {
+      "correct": 8,
+      "infrastructure": 0,
+      "interface": "semantic",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "planned": 18,
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "valid": 18
+    }
+  ],
+  "compression": [
+    {
+      "approval_groups": 18,
+      "byte_identical_three_controls": true,
+      "candidate_groups": 20,
+      "conflict_groups": 0,
+      "matched_prefix": 2,
+      "methods": {
+        "exact": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "gated": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "original": {
+          "cases": 0,
+          "fraction": 0.0,
+          "groups": 0,
+          "records": 0,
+          "tokens": 0.0
+        },
+        "similarity_first": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        }
+      },
+      "review_groups": 18,
+      "review_memories": 48,
+      "threshold": 0.45,
+      "veto_groups": 18
+    },
+    {
+      "approval_groups": 17,
+      "byte_identical_three_controls": true,
+      "candidate_groups": 19,
+      "conflict_groups": 0,
+      "matched_prefix": 2,
+      "methods": {
+        "exact": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "gated": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "original": {
+          "cases": 0,
+          "fraction": 0.0,
+          "groups": 0,
+          "records": 0,
+          "tokens": 0.0
+        },
+        "similarity_first": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        }
+      },
+      "review_groups": 17,
+      "review_memories": 46,
+      "threshold": 0.55,
+      "veto_groups": 17
+    },
+    {
+      "approval_groups": 17,
+      "byte_identical_three_controls": true,
+      "candidate_groups": 19,
+      "conflict_groups": 0,
+      "matched_prefix": 2,
+      "methods": {
+        "exact": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "gated": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "original": {
+          "cases": 0,
+          "fraction": 0.0,
+          "groups": 0,
+          "records": 0,
+          "tokens": 0.0
+        },
+        "similarity_first": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        }
+      },
+      "review_groups": 17,
+      "review_memories": 43,
+      "threshold": 0.65,
+      "veto_groups": 17
+    },
+    {
+      "approval_groups": 15,
+      "byte_identical_three_controls": true,
+      "candidate_groups": 17,
+      "conflict_groups": 0,
+      "matched_prefix": 2,
+      "methods": {
+        "exact": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "gated": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "original": {
+          "cases": 0,
+          "fraction": 0.0,
+          "groups": 0,
+          "records": 0,
+          "tokens": 0.0
+        },
+        "similarity_first": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        }
+      },
+      "review_groups": 15,
+      "review_memories": 36,
+      "threshold": 0.75,
+      "veto_groups": 15
+    },
+    {
+      "approval_groups": 7,
+      "byte_identical_three_controls": true,
+      "candidate_groups": 9,
+      "conflict_groups": 0,
+      "matched_prefix": 2,
+      "methods": {
+        "exact": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "gated": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "original": {
+          "cases": 0,
+          "fraction": 0.0,
+          "groups": 0,
+          "records": 0,
+          "tokens": 0.0
+        },
+        "similarity_first": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        }
+      },
+      "review_groups": 7,
+      "review_memories": 27,
+      "threshold": 0.85,
+      "veto_groups": 7
+    },
+    {
+      "approval_groups": 3,
+      "byte_identical_three_controls": false,
+      "candidate_groups": 6,
+      "conflict_groups": 0,
+      "matched_prefix": 3,
+      "methods": {
+        "exact": {
+          "cases": 2,
+          "fraction": 0.04133738601823708,
+          "groups": 2,
+          "records": 2,
+          "tokens": 136.0
+        },
+        "gated": {
+          "cases": 3,
+          "fraction": 0.05896656534954407,
+          "groups": 3,
+          "records": 3,
+          "tokens": 194.0
+        },
+        "original": {
+          "cases": 0,
+          "fraction": 0.0,
+          "groups": 0,
+          "records": 0,
+          "tokens": 0.0
+        },
+        "similarity_first": {
+          "cases": 3,
+          "fraction": 0.05835866261398176,
+          "groups": 3,
+          "records": 3,
+          "tokens": 192.0
+        }
+      },
+      "review_groups": 3,
+      "review_memories": 23,
+      "threshold": 0.95,
+      "veto_groups": 3
+    }
+  ],
+  "dataset": {
+    "cases": 20,
+    "categories": {
+      "decision_changing_exception": 5,
+      "genuine_duplicate": 5,
+      "uncertainty_or_attribution": 5,
+      "unresolved_contradiction": 5
+    },
+    "families": 10,
+    "records": 52
+  },
+  "frozen_evidence_head": "255b73fd3986844ea17292e1e8c27776a77cc9a3",
+  "historical_solver": [
+    {
+      "changes": {
+        "exact": {
+          "introduced": 0,
+          "rescued": 0,
+          "rescued_cases": []
+        },
+        "gated": {
+          "introduced": 0,
+          "rescued": 0,
+          "rescued_cases": []
+        },
+        "original": {
+          "introduced": 0,
+          "rescued": 0,
+          "rescued_cases": []
+        },
+        "similarity_first": {
+          "introduced": 0,
+          "rescued": 0,
+          "rescued_cases": []
+        }
+      },
+      "conditions": {
+        "exact": {
+          "correct": 0,
+          "planned": 60,
+          "valid": 0,
+          "valid_but_wrong": 0
+        },
+        "gated": {
+          "correct": 0,
+          "planned": 60,
+          "valid": 0,
+          "valid_but_wrong": 0
+        },
+        "original": {
+          "correct": 0,
+          "planned": 60,
+          "valid": 0,
+          "valid_but_wrong": 0
+        },
+        "similarity_first": {
+          "correct": 0,
+          "planned": 60,
+          "valid": 3,
+          "valid_but_wrong": 3
+        }
+      },
+      "execution": {
+        "actual_generated_token_usage": {
+          "completion_tokens": 4854,
+          "prompt_tokens": 25317
+        },
+        "actual_inference_attempts": 72,
+        "attempt_log_entries": 72,
+        "human_review_status": "pending",
+        "physical_latency_seconds": 875.9256431939957,
+        "physical_request_owners": 72,
+        "planned_logical_requests": 240,
+        "provenance": "real",
+        "reused_logical_requests": 168,
+        "usage_missing_attempts": 0
+      },
+      "format_categories": {
+        "non_json": 4,
+        "strict_valid": 3,
+        "wrong_answer_key": 233
+      },
+      "model": "qwen"
+    },
+    {
+      "changes": {
+        "exact": {
+          "introduced": 0,
+          "rescued": 3,
+          "rescued_cases": [
+            "dev_002"
+          ]
+        },
+        "gated": {
+          "introduced": 0,
+          "rescued": 3,
+          "rescued_cases": [
+            "dev_002"
+          ]
+        },
+        "original": {
+          "introduced": 0,
+          "rescued": 0,
+          "rescued_cases": []
+        },
+        "similarity_first": {
+          "introduced": 0,
+          "rescued": 3,
+          "rescued_cases": [
+            "dev_002"
+          ]
+        }
+      },
+      "conditions": {
+        "exact": {
+          "correct": 17,
+          "planned": 60,
+          "valid": 32,
+          "valid_but_wrong": 15
+        },
+        "gated": {
+          "correct": 17,
+          "planned": 60,
+          "valid": 32,
+          "valid_but_wrong": 15
+        },
+        "original": {
+          "correct": 14,
+          "planned": 60,
+          "valid": 29,
+          "valid_but_wrong": 15
+        },
+        "similarity_first": {
+          "correct": 17,
+          "planned": 60,
+          "valid": 35,
+          "valid_but_wrong": 18
+        }
+      },
+      "execution": {
+        "actual_generated_token_usage": {
+          "completion_tokens": 1974,
+          "prompt_tokens": 27540
+        },
+        "actual_inference_attempts": 72,
+        "attempt_log_entries": 72,
+        "human_review_status": "pending",
+        "physical_latency_seconds": 383.055479317999,
+        "physical_request_owners": 72,
+        "planned_logical_requests": 240,
+        "provenance": "real",
+        "reused_logical_requests": 168,
+        "usage_missing_attempts": 0
+      },
+      "format_categories": {
+        "non_json": 112,
+        "strict_valid": 128
+      },
+      "model": "smol"
+    }
+  ],
+  "neutral": {
+    "B_percent": 77.77777777777779,
+    "accuracy_percent": 46.2962962962963,
+    "by_class": {
+      "do_not_proceed": {
+        "correct": 11,
+        "planned": 36
+      },
+      "insufficient_evidence": {
+        "correct": 10,
+        "planned": 36
+      },
+      "proceed": {
+        "correct": 29,
+        "planned": 36
+      }
+    },
+    "by_permutation": [
+      {
+        "correct": 11,
+        "mapping": {
+          "A": "proceed",
+          "B": "do_not_proceed",
+          "C": "insufficient_evidence"
+        },
+        "permutation": 1,
+        "planned": 18
+      },
+      {
+        "correct": 10,
+        "mapping": {
+          "A": "proceed",
+          "B": "insufficient_evidence",
+          "C": "do_not_proceed"
+        },
+        "permutation": 2,
+        "planned": 18
+      },
+      {
+        "correct": 6,
+        "mapping": {
+          "A": "do_not_proceed",
+          "B": "proceed",
+          "C": "insufficient_evidence"
+        },
+        "permutation": 3,
+        "planned": 18
+      },
+      {
+        "correct": 8,
+        "mapping": {
+          "A": "do_not_proceed",
+          "B": "insufficient_evidence",
+          "C": "proceed"
+        },
+        "permutation": 4,
+        "planned": 18
+      },
+      {
+        "correct": 6,
+        "mapping": {
+          "A": "insufficient_evidence",
+          "B": "proceed",
+          "C": "do_not_proceed"
+        },
+        "permutation": 5,
+        "planned": 18
+      },
+      {
+        "correct": 9,
+        "mapping": {
+          "A": "insufficient_evidence",
+          "B": "do_not_proceed",
+          "C": "proceed"
+        },
+        "permutation": 6,
+        "planned": 18
+      }
+    ],
+    "changed_items_percent": 88.88888888888889,
+    "code_changes": 11,
+    "code_counts": {
+      "A": 19,
+      "B": 84,
+      "C": 5
+    },
+    "confusion": {
+      "do_not_proceed": {
+        "do_not_proceed": 11,
+        "insufficient_evidence": 9,
+        "proceed": 16
+      },
+      "insufficient_evidence": {
+        "do_not_proceed": 11,
+        "insufficient_evidence": 10,
+        "proceed": 15
+      },
+      "proceed": {
+        "do_not_proceed": 3,
+        "insufficient_evidence": 4,
+        "proceed": 29
+      }
+    },
+    "constant_code_items": 7,
+    "correct": 50,
+    "false_abstentions": 13,
+    "invariant_correct_items": [
+      "interface_07",
+      "interface_13"
+    ],
+    "items": 18,
+    "per_item": {
+      "interface_01": [
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_01",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_01",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_01",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_01",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_01",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_01",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        }
+      ],
+      "interface_02": [
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_02",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_02",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_02",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_02",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_02",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_02",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        }
+      ],
+      "interface_03": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_03",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_03",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_03",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_03",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_03",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_03",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        }
+      ],
+      "interface_04": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_04",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_04",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_04",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_04",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_04",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_04",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        }
+      ],
+      "interface_05": [
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_05",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_05",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_05",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_05",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_05",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_05",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        }
+      ],
+      "interface_06": [
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_06",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_06",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_06",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_06",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_06",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_06",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        }
+      ],
+      "interface_07": [
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_07",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_07",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "C",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_07",
+          "label": "proceed",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_07",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "C",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_07",
+          "label": "proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_07",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        }
+      ],
+      "interface_08": [
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_08",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_08",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_08",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_08",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_08",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_08",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        }
+      ],
+      "interface_09": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_09",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_09",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_09",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_09",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_09",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_09",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        }
+      ],
+      "interface_10": [
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_10",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_10",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_10",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_10",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "C",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_10",
+          "label": "proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_10",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        }
+      ],
+      "interface_11": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_11",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_11",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_11",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_11",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_11",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_11",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        }
+      ],
+      "interface_12": [
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_12",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_12",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_12",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_12",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_12",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_12",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        }
+      ],
+      "interface_13": [
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_13",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_13",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "C",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_13",
+          "label": "proceed",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_13",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_13",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "C",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_13",
+          "label": "proceed",
+          "permutation": 5,
+          "valid": true
+        }
+      ],
+      "interface_14": [
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_14",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_14",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_14",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_14",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_14",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_14",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        }
+      ],
+      "interface_15": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_15",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_15",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_15",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_15",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_15",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_15",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        }
+      ],
+      "interface_16": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_16",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "proceed",
+          "item": "interface_16",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_16",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_16",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_16",
+          "label": "proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": true,
+          "gold": "proceed",
+          "item": "interface_16",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        }
+      ],
+      "interface_17": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_17",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_17",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "A",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_17",
+          "label": "proceed",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_17",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "do_not_proceed",
+          "item": "interface_17",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "do_not_proceed",
+          "item": "interface_17",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        }
+      ],
+      "interface_18": [
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_18",
+          "label": "do_not_proceed",
+          "permutation": 0,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_18",
+          "label": "insufficient_evidence",
+          "permutation": 3,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_18",
+          "label": "proceed",
+          "permutation": 4,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": true,
+          "gold": "insufficient_evidence",
+          "item": "interface_18",
+          "label": "insufficient_evidence",
+          "permutation": 1,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_18",
+          "label": "do_not_proceed",
+          "permutation": 5,
+          "valid": true
+        },
+        {
+          "code": "B",
+          "correct": false,
+          "gold": "insufficient_evidence",
+          "item": "interface_18",
+          "label": "proceed",
+          "permutation": 2,
+          "valid": true
+        }
+      ]
+    },
+    "planned": 108,
+    "semantic_changes": 16,
+    "semantic_counts": {
+      "do_not_proceed": 25,
+      "insufficient_evidence": 23,
+      "proceed": 60
+    },
+    "valid": 108
+  },
+  "tokenizer_recount": {
+    "actual_serializations_recounted": 13680,
+    "cached_tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+  },
+  "verified_historical_directories": [
+    "phase2-development-2026-11-14",
+    "phase2b-development-2026-11-14",
+    "phase3-development-2026-11-14",
+    "phase3b-development-2026-11-15",
+    "phase3c-neutral-codes-2026-11-15"
+  ]
+}

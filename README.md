@@ -81,6 +81,8 @@ output-format failures limit interpretation and human review is pending.
 the answer interface and solver capability before another development comparison.
 The [neutral-code diagnostic](research/ai_epistemics_2026/NEUTRAL_CODE_RESULTS.md)
 found mapping sensitivity and failed eligibility; the handoff recommends a bounded feasibility report.
+The [bounded submission report](research/ai_epistemics_2026/submission/README.md)
+packages the frozen evidence, editable source, PDF and claim ledger; affiliation metadata is pending.
 Existing recommendation-fixture accuracy measures internal rule conformity, not improved
 downstream AI decisions. Production memory behavior is unchanged.
 

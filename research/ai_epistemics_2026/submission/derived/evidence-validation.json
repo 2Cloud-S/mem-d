@@ -1,0 +1,19 @@
+{
+  "development_cases": 20,
+  "families": 10,
+  "identical_thresholds": [
+    0.45,
+    0.55,
+    0.65,
+    0.75,
+    0.85
+  ],
+  "neutral_valid": 108,
+  "neutral_correct": 50,
+  "tokenizer_recount": {
+    "actual_serializations_recounted": 13680,
+    "cached_tokenizer_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+  },
+  "claim_groups": 10,
+  "model_calls": 0
+}

@@ -934,3 +934,14 @@ aggregate thresholds and hand-calculated mapping-sensitivity fixtures. No fixtur
 statistics are published as empirical results. All historical score/artifact bytes,
 production behavior, gate rules, gold labels and pending human-review packets
 remain unchanged. No independent human review or explanation validation is claimed.
+
+### Bounded submission report
+
+The [submission package](submission/README.md) contains the six-page body report,
+editable DOCX/Markdown, rendered PDF, 191-word abstract, artifact-derived figures,
+claim ledger and primary-reference audit. It uses the actual current official
+template and includes the required limitations/dual-use appendix and LLM-use
+disclosure. Afnan Khan's provided email is included; affiliation remains unprovided.
+The report introduces no new model trials or held-out cases and preserves all
+historical evidence and scores. Independent human semantic review remains pending.
+No external form submission or main-branch merge is performed.
