@@ -2,7 +2,7 @@
 title: Compression Controls and Decision Measurement in Memory Deduplication
 author: Afnan Khan
 email: inbox.afnankhan@gmail.com
-affiliation: null
+affiliation: Independent Researcher, Pakistan
 track: Model Epistemics & Decision-Making Evals
 ---
 
@@ -130,7 +130,7 @@ Five thresholds reproduce simpler controls; the remaining difference has no demo
 
 **Potential misuse.** Deduplication can selectively erase dissent, caveats, source attribution or uncertainty, making a rumor appear authoritative or manufacturing agreement. Evaluators could also select flattering thresholds, drop invalid responses, or hide review burden. This work mitigates those risks through immutable source copies, metadata-preserving replacements, whole-group vetoes, explicit unknown outcomes, label-blind selection, complete denominators and auditable failures. These engineering precautions are not independently validated safety guarantees. More review can cause fatigue and does not itself establish discrimination.
 
-**Data and review ethics.** No real user memory, private conversation or sensitive deployment data was collected. Scenarios and sources are fictional and low risk. The author's name and email were supplied for this report; affiliation is unverified and is not invented. Two independent blinded reviews were planned for 29 unique actual-medoid proposals, but no person has completed them. Templates remain blank; assistant checks and model outputs are not human annotation, inter-reviewer agreement or adjudication. Any future real-data use would require appropriate consent, privacy and retention controls beyond this study.
+**Data and review ethics.** No real user memory, private conversation or sensitive deployment data was collected. Scenarios and sources are fictional and low risk. The author's name and email were supplied for this report; the author confirmed independent researcher status in Pakistan. Two independent blinded reviews were planned for 29 unique actual-medoid proposals, but no person has completed them. Templates remain blank; assistant checks and model outputs are not human annotation, inter-reviewer agreement or adjudication. Any future real-data use would require appropriate consent, privacy and retention controls beyond this study.
 
 <!-- PAGE_BREAK -->
 

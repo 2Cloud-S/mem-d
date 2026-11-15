@@ -54,7 +54,7 @@ def main():
     text = "\n".join(pages)
     for required in (
         "inbox.afnankhan@gmail.com",
-        "Affiliation not provided",
+        "Independent Researcher, Pakistan",
         "Limitations and Dual-Use / Ethical Considerations",
         "LLM Usage Statement",
     ):
@@ -66,6 +66,7 @@ def main():
         "How to use this template",
         "{{TABLE",
         "[Link to GitHub",
+        "Affiliation not provided",
     ):
         assert forbidden not in text, forbidden
     args.render_dir.mkdir(parents=True, exist_ok=True)
@@ -110,7 +111,7 @@ def main():
         "page_checks": page_checks,
         "pdf_sha256": sha(HERE / "report.pdf"),
         "docx_sha256": sha(HERE / "report.docx"),
-        "remaining_metadata": "Affiliation or confirmed independent status not provided",
+        "remaining_metadata": None,
         "manual_visual_inspection": "See VALIDATION.md; not inferred by this script",
         "inference_calls": 0,
     }

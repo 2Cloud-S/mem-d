@@ -282,7 +282,7 @@ def prepare_template(abstract):
     author.alignment = WD_ALIGN_PARAGRAPH.CENTER
     author.paragraph_format.space_after = Pt(3)
     for index, text in enumerate(
-        ["Afnan Khan", "inbox.afnankhan@gmail.com", "Affiliation not provided"]
+        ["Afnan Khan", "inbox.afnankhan@gmail.com", "Independent Researcher, Pakistan"]
     ):
         if index:
             author.add_run().add_break()

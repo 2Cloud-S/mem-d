@@ -22,7 +22,7 @@ All pages were rendered at 1.3× and inspected by the assistant. This is layout 
 
 | Page | Inspection |
 | --- | --- |
-| 1 | Official title rules and linked footnote retained; author/email and missing affiliation visible; abstract/intro fit. |
+| 1 | Official title rules and linked footnote retained; author/email and confirmed independent affiliation visible; abstract/intro fit. |
 | 2 | Related work and corpus provenance legible; full inherited baseline included. |
 | 3 | Policy, matching, isolation and denominators fit without clipping. |
 | 4 | Compression/review plot legible; overlapping annotation removed; captions identify tokenizer and both review denominators. |
@@ -53,4 +53,8 @@ The two combined-suite failures are the documented inherited missing fixtures `t
 
 ## Outstanding
 
-Affiliation or confirmed independent status for Afnan Khan remains unprovided. The supplied contact is `inbox.afnankhan@gmail.com`. This is the remaining author-metadata requirement before external submission; template access and report rendering are complete. Independent human reviews remain pending as a scientific limitation. No external form submission is performed.
+Afnan Khan confirmed that this work was completed independently. The report and submission details now use **Independent Researcher, Pakistan**. No author-metadata blocker remains. Independent human reviews remain pending as a scientific limitation. No external form submission is performed.
+
+## Confirmed affiliation update — 2026-11-15
+
+The author confirmed independent status. The report builder, Markdown source, author block, ethics disclosure, submission details and metadata checks were updated consistently. The DOCX was regenerated and rendered with the bundled document renderer; its PDF still has six body pages and ten total, and the abstract remains 191 words. All ten page rasters were inspected. Pages 2–7, 9 and 10 are pixel-identical to the previous PDF; only pages 1 and 8 change. Runtime-native DOCX/PDF checks pass for the author line, page count, abstract length, reference boundary and all text bounds. `check_report.py` could not start in this runtime because its `requests` dependency is absent; the equivalent relevant artifact checks above were run directly. Original HTTP-link checks and scientific validation remain historical results and were not rerun for this metadata-only edit. Updated hashes and checks are recorded in `derived/render-validation.json`.

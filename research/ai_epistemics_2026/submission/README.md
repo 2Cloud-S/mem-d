@@ -4,7 +4,7 @@
 
 The report organizes the existing evidence around control equivalence, achieved compression, review burden and measurement validity. It introduces no new trials, labels, safeguards or production changes. The frozen evidence ends at `255b73fd3986844ea17292e1e8c27776a77cc9a3`; the inherited production baseline is `14af8eccc0141450d01981e189a48b72140ce754`. No independent human semantic reviews or untouched evaluation exist.
 
-`report-source.md` is the editable authoring source. `build_report.py` expands its table/reference markers from verified artifact counts and bibliography, producing `report.md` and `report.docx`. It opens the **actual exported official template**, retains its title rules, footnote and abstract shell, removes instructional content/unused authors, and adds the report. The source Markdown's explicit page breaks are applied to following headings so they do not create blank pages. Only the author's provided name/email are used; affiliation is outstanding.
+`report-source.md` is the editable authoring source. `build_report.py` expands its table/reference markers from verified artifact counts and bibliography, producing `report.md` and `report.docx`. It opens the **actual exported official template**, retains its title rules, footnote and abstract shell, removes instructional content/unused authors, and adds the report. The source Markdown's explicit page breaks are applied to following headings so they do not create blank pages. The author's provided name/email and confirmed status, Independent Researcher, Pakistan, are used.
 
 To reproduce the content and figures without model execution:
 

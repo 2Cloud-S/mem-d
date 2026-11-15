@@ -941,7 +941,8 @@ The [submission package](submission/README.md) contains the six-page body report
 editable DOCX/Markdown, rendered PDF, 191-word abstract, artifact-derived figures,
 claim ledger and primary-reference audit. It uses the actual current official
 template and includes the required limitations/dual-use appendix and LLM-use
-disclosure. Afnan Khan's provided email is included; affiliation remains unprovided.
+disclosure. Afnan Khan's provided email and confirmed status as Independent
+Researcher, Pakistan, are included; no author-metadata blocker remains.
 The report introduces no new model trials or held-out cases and preserves all
 historical evidence and scores. Independent human semantic review remains pending.
 No external form submission or main-branch merge is performed.

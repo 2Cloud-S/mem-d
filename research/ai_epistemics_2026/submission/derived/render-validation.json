@@ -274,9 +274,29 @@
       ]
     }
   ],
-  "pdf_sha256": "0f66613dc5487342726f894eea2edf3c3105c90fcf8be1c7dadfef9868161167",
-  "docx_sha256": "073eca645ea6a21d0e742f6b82b66963ae06f0854af990031f364478369afc5e",
-  "remaining_metadata": "Affiliation or confirmed independent status not provided",
+  "pdf_sha256": "ae1e19c18c6d5e6cb9dc0a9ad0036f427a0cd7ee7c8dce72edf766297be920bf",
+  "docx_sha256": "54d4eb4df82cf9a4cfb5110546790f315449f9252729e8d63cc83bf5f975f3be",
+  "remaining_metadata": null,
   "manual_visual_inspection": "See VALIDATION.md; not inferred by this script",
-  "inference_calls": 0
+  "inference_calls": 0,
+  "affiliation_update": {
+    "date": "2026-11-15",
+    "confirmed_by": "author",
+    "affiliation": "Independent Researcher, Pakistan",
+    "unchanged_pages_pixel_identical": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10
+    ],
+    "visual_inspection": "All ten regenerated pages inspected",
+    "checks": "Runtime-native DOCX/PDF checks; check_report.py could not start because requests is absent in this runtime",
+    "link_checks": "Existing link-check results retained from original report preparation; not rerun for metadata-only update",
+    "python_docx_version": "1.2.0",
+    "pymupdf_version": "1.26.6"
+  }
 }

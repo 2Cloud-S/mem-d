@@ -4,7 +4,7 @@
 - **Recommended primary track:** Model Epistemics & Decision-Making Evals
 - **Author:** Afnan Khan
 - **Contact:** inbox.afnankhan@gmail.com (provided by the author)
-- **Affiliation:** not provided. Confirm affiliation or independent status before submission; neither is inferred.
+- **Affiliation:** Independent Researcher, Pakistan (confirmed by the author).
 - **Repository:** https://github.com/2Cloud-S/mem-d
 - **Branch:** https://github.com/2Cloud-S/mem-d/tree/sprint/ai-epistemics-2026
 - **Report:** [PDF](report.pdf), [editable DOCX](report.docx), [Markdown](report.md)
@@ -12,4 +12,4 @@
 - **Length:** six body pages; one reference page and three appendix pages (ten total).
 - **Template:** actual current official Google Docs template exported on 2026-11-15; see [provenance and format checks](TEMPLATE_COMPLIANCE.md).
 
-Outstanding submission metadata: affiliation/independent status only. No university, collaborators or human reviews are invented. Independent semantic reviews remain pending, disclosed as a scientific limitation. This package has not been submitted to the external form. Model experimentation is finished; no held-out evaluation was generated.
+No outstanding author metadata. The author confirmed that this work was completed independently. No university, collaborators or human reviews are invented. Independent semantic reviews remain pending, disclosed as a scientific limitation. This package has not been submitted to the external form. Model experimentation is finished; no held-out evaluation was generated.

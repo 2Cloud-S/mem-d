@@ -12,4 +12,4 @@ The current guidelines require a PDF, a 150–250-word abstract, authors/affilia
 
 Every final report page was rendered and inspected for clipping, table/plot legibility, overlaps, captions, links and unresolved guidance. Automated page bounds, geometry, author/abstract, link and font checks are recorded in `derived/render-validation.json`; see `VALIDATION.md` for manual inspection.
 
-**Outstanding metadata:** Afnan Khan supplied the name and contact email `inbox.afnankhan@gmail.com`. No affiliation or independent status was supplied. The report displays “Affiliation not provided” and the details file flags confirmation before submission. No affiliation, collaborator or reviewer is invented. The external form was not submitted.
+**Confirmed metadata:** Afnan Khan supplied the name and contact email `inbox.afnankhan@gmail.com` and confirmed that this work was completed independently. The report displays “Independent Researcher, Pakistan”. No university affiliation, collaborator or reviewer is invented. The external form was not submitted.
