@@ -1,0 +1,308 @@
+{
+  "models": [
+    {
+      "candidate_code_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ],
+        "C": [
+          34
+        ]
+      },
+      "candidate_codes_single_at_historical_boundary": true,
+      "eos_id": 151645,
+      "first_token_determines_complete_label": true,
+      "model": {
+        "family": "Qwen2.5",
+        "files_sha256": {
+          "config.json": "18e18afcaccafade98daf13a54092927904649e1dd4eba8299ab717d5d94ff45",
+          "generation_config.json": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+          "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+          "model.safetensors": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+          "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+          "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        },
+        "repo_id": "Qwen/Qwen2.5-0.5B-Instruct",
+        "revision": "7ae557604adf67be50417f59c2c2f167def9a775"
+      },
+      "native_boundary_suffix": "rule?\"}<|im_end|>\n<|im_start|>assistant\n",
+      "native_boundary_token_ids": [
+        5912,
+        7521,
+        92,
+        151645,
+        198,
+        151644,
+        77091,
+        198
+      ],
+      "native_prompt_sha256": "a648001c6fc01df167671452d0be1bbf56d33dbf28dacdb621e2397f66ac5453",
+      "root_branch_ids": [
+        776,
+        2982,
+        1330
+      ],
+      "semantic_labels": {
+        "do_not_proceed": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "do",
+            "_not",
+            "_pro",
+            "ceed"
+          ],
+          "remaining_tokens_forced_after_selection": 4,
+          "token_ids": [
+            2982,
+            7913,
+            2540,
+            4635
+          ],
+          "unique_after_tokens": 1
+        },
+        "insufficient_evidence": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "ins",
+            "ufficient",
+            "_e",
+            "vidence"
+          ],
+          "remaining_tokens_forced_after_selection": 4,
+          "token_ids": [
+            1330,
+            26683,
+            2204,
+            27480
+          ],
+          "unique_after_tokens": 1
+        },
+        "proceed": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "pro",
+            "ceed"
+          ],
+          "remaining_tokens_forced_after_selection": 2,
+          "token_ids": [
+            776,
+            4635
+          ],
+          "unique_after_tokens": 1
+        }
+      },
+      "tokenizer_class": "Qwen2TokenizerFast"
+    },
+    {
+      "candidate_code_ids": {
+        "A": [
+          49
+        ],
+        "B": [
+          50
+        ],
+        "C": [
+          51
+        ]
+      },
+      "candidate_codes_single_at_historical_boundary": true,
+      "eos_id": 2,
+      "first_token_determines_complete_label": true,
+      "model": {
+        "family": "SmolLM2",
+        "files_sha256": {
+          "all_results.json": "71face5e244d784819f937a25206865c295c8889fe4359eec28bbec85d02da0d",
+          "config.json": "224f72354f10d617a359cc82ad15a3c96e866b9b2ffadb81997eeea9e88e22ee",
+          "eval_results.json": "db9bcb5c4f2a3be0d7e88f86af26f375c22c240954af86942d1554d87a488ce8",
+          "generation_config.json": "87b916edaaab66b3899b9d0dd0752727dff6666686da0504d89ae0a6e055a013",
+          "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+          "model.safetensors": "e6bffe7435d7ddc10fd3b9a9efd429dafbacb1cb17015fb5562664e7532bf86e",
+          "special_tokens_map.json": "2b7379f3ae813529281a5c602bc5a11c1d4e0a99107aaa597fe936c1e813ca52",
+          "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+          "tokenizer_config.json": "4ec77d44f62efeb38d7e044a1db318f6a939438425312dfa333b8382dbad98df",
+          "train_results.json": "fceae2634b0a268a8adbda73fd0b2192922b496054011f588d2c6e888db1cea1",
+          "trainer_state.json": "2263f580ae0d7890acc11253b83138b3fc1250dc6728688a3387ce813b92eed1",
+          "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+        },
+        "repo_id": "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"
+      },
+      "native_boundary_suffix": "rule?\"}<|im_end|>\n<|im_start|>assistant\n",
+      "native_boundary_token_ids": [
+        4817,
+        109,
+        2,
+        198,
+        1,
+        520,
+        9531,
+        198
+      ],
+      "native_prompt_sha256": "a648001c6fc01df167671452d0be1bbf56d33dbf28dacdb621e2397f66ac5453",
+      "root_branch_ids": [
+        1228,
+        4326,
+        927
+      ],
+      "semantic_labels": {
+        "do_not_proceed": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "do",
+            "_",
+            "not",
+            "_",
+            "pro",
+            "ceed"
+          ],
+          "remaining_tokens_forced_after_selection": 6,
+          "token_ids": [
+            4326,
+            79,
+            1766,
+            79,
+            1228,
+            3196
+          ],
+          "unique_after_tokens": 1
+        },
+        "insufficient_evidence": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "ins",
+            "u",
+            "fficient",
+            "_",
+            "evidence"
+          ],
+          "remaining_tokens_forced_after_selection": 5,
+          "token_ids": [
+            927,
+            101,
+            3574,
+            79,
+            42477
+          ],
+          "unique_after_tokens": 1
+        },
+        "proceed": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "pro",
+            "ceed"
+          ],
+          "remaining_tokens_forced_after_selection": 2,
+          "token_ids": [
+            1228,
+            3196
+          ],
+          "unique_after_tokens": 1
+        }
+      },
+      "tokenizer_class": "GPT2TokenizerFast"
+    },
+    {
+      "candidate_code_ids": {
+        "A": [
+          32
+        ],
+        "B": [
+          33
+        ],
+        "C": [
+          34
+        ]
+      },
+      "candidate_codes_single_at_historical_boundary": true,
+      "eos_id": 151645,
+      "first_token_determines_complete_label": true,
+      "model": {
+        "family": "Qwen2.5-1.5B",
+        "files_sha256": {
+          "config.json": "98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670",
+          "generation_config.json": "e558847a8b4402616f1273797b015104dc266fe4b520056fca88823ba8f8ebe6",
+          "merges.txt": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+          "model.safetensors": "dd924a11b4c220f385b51ffa522daea7c9f3d850e31b162bb5661df483c6d3ee",
+          "tokenizer.json": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+          "tokenizer_config.json": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+          "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        },
+        "repo_id": "Qwen/Qwen2.5-1.5B-Instruct",
+        "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+      },
+      "native_boundary_suffix": "rule?\"}<|im_end|>\n<|im_start|>assistant\n",
+      "native_boundary_token_ids": [
+        5912,
+        7521,
+        92,
+        151645,
+        198,
+        151644,
+        77091,
+        198
+      ],
+      "native_prompt_sha256": "a648001c6fc01df167671452d0be1bbf56d33dbf28dacdb621e2397f66ac5453",
+      "root_branch_ids": [
+        776,
+        2982,
+        1330
+      ],
+      "semantic_labels": {
+        "do_not_proceed": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "do",
+            "_not",
+            "_pro",
+            "ceed"
+          ],
+          "remaining_tokens_forced_after_selection": 4,
+          "token_ids": [
+            2982,
+            7913,
+            2540,
+            4635
+          ],
+          "unique_after_tokens": 1
+        },
+        "insufficient_evidence": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "ins",
+            "ufficient",
+            "_e",
+            "vidence"
+          ],
+          "remaining_tokens_forced_after_selection": 4,
+          "token_ids": [
+            1330,
+            26683,
+            2204,
+            27480
+          ],
+          "unique_after_tokens": 1
+        },
+        "proceed": {
+          "boundary_matches_canonical_encoding": true,
+          "pieces": [
+            "pro",
+            "ceed"
+          ],
+          "remaining_tokens_forced_after_selection": 2,
+          "token_ids": [
+            776,
+            4635
+          ],
+          "unique_after_tokens": 1
+        }
+      },
+      "tokenizer_class": "Qwen2TokenizerFast"
+    }
+  ],
+  "purpose": "Read-only mechanism inspection; no model calls or causal proof of old failures",
+  "solver_calls": 0
+}

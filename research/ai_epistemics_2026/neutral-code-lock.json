@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-15",
+  "experiment": "one exploratory neutral-code diagnostic plus conditional development",
+  "model": {"family": "Qwen2.5-1.5B", "repo_id": "Qwen/Qwen2.5-1.5B-Instruct", "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"},
+  "codes": ["A", "B", "C"],
+  "labels": ["proceed", "do_not_proceed", "insufficient_evidence"],
+  "diagnostic_order_seed": 20261115,
+  "development_mapping_seed": 20261116,
+  "generation": {"do_sample": false, "max_new_tokens": 2, "max_total_tokens": 4096, "dtype": "float32", "device": "cpu", "torch_threads": 2, "deterministic_algorithms": true},
+  "limits": {"model_inference_seconds": 1200, "submission_seconds": 60, "max_infrastructure_retries": 2},
+  "eligibility": {"planned": 108, "minimum_validity": 0.95, "minimum_accuracy": 0.8, "required_valid": 103, "required_correct": 87},
+  "development": {"threshold": 0.95, "similarity_first_prefix": 3, "order_seeds": [2026, 2027, 2028], "logical_requests": 240, "blocks": 60, "mapping_count_each": 10},
+  "additional_checkpoints_allowed": false,
+  "model_downloads_allowed": false,
+  "held_out_generation_allowed": false,
+  "paid_calls_authorized": false,
+  "human_review_status": "pending"
+}

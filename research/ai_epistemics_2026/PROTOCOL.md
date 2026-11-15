@@ -561,3 +561,32 @@ comparison, compression-matching, pairing, family-analysis and preservation rule
 remain unchanged. The original failed interface and its source at `8703c6b`
 remain auditable; this is a prospective engineering amendment, not preregistration
 independent of development experience or evidence of decision benefit.
+
+## Phase 3C neutral-code diagnostic (2026-11-15, before its answers)
+
+The user's new request authorizes one bounded test of the semantic-label trie
+concern after Phase 3B's stop. Read-only inspection shows that all three attempted
+tokenizers diverge on the first label token, after which continuation is forced.
+Reachability does not establish unbiased decisions, and this observation does
+not establish that token bias caused earlier failures.
+
+[NEUTRAL_CODE_PLAN.md](NEUTRAL_CODE_PLAN.md) and `neutral-code-lock.json` freeze
+one cached Qwen2.5-1.5B diagnostic: unchanged eighteen calibration items crossed
+with all six mappings from single-token A/B/C to the three semantic labels.
+Verify single-token status at every actual generation boundary. Show the full
+mapping in every prompt, permit all three codes then EOS, and decode without
+gold. Freeze 108 requests, shuffled execution, assets, settings, runtime limits,
+scoring and eligibility before answers. Require 103/108 valid and 87/108 correct;
+all planned pairs count, including failures. Report each permutation and semantic
+class, distributions and within-item changes without selecting a best mapping.
+These reused items are exploratory calibration, not untouched validation or 108
+independent scenarios. Code priors/mapping comprehension remain possible confounds.
+
+If and only if it qualifies, execute the existing twenty-case/four-condition
+development comparison at 0.95 without another permission pause, with the same
+interface and a frozen, label-blind schedule assigning each mapping to ten of
+sixty case/order blocks. Keep mappings paired, recompute/freeze actual-token
+matching, and reuse responses only for identical complete requests in a block.
+Use unchanged family analysis and failure handling. If it fails, stop model
+experimentation. No held-out cases, extra prompts/checkpoints, label/gate changes,
+paid calls or fabricated human reviews are allowed. Prior artifacts remain intact.
