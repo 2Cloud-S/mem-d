@@ -11,7 +11,9 @@ from .artifacts import digest, read_jsonl, verify
 from .execution import parse_response
 
 
-def score_frozen(directory, cases: list[dict], data_bytes: bytes) -> list[dict]:
+def score_frozen(
+    directory, cases: list[dict], data_bytes: bytes, response_parser=parse_response
+) -> list[dict]:
     import json
 
     verify(directory)
@@ -34,7 +36,7 @@ def score_frozen(directory, cases: list[dict], data_bytes: bytes) -> list[dict]:
     for request in requests:
         case = case_map[request["case_id"]]
         response = lookup[request["request_id"]]
-        parsed = parse_response(response)
+        parsed = response_parser(response)
         error = parsed["error"]
         if parsed["label"] is not None:
             error = int(parsed["label"] not in case["evaluator_only"]["acceptable_answer_labels"])

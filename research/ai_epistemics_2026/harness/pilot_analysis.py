@@ -29,14 +29,16 @@ def contrast(rows: list[dict], target: str, reference: str) -> dict:
     }
 
 
-def analyze(directory: Path, data: Path) -> dict:
+def analyze(
+    directory: Path, data: Path, response_parser=parse_response, explanations_collected: bool = True
+) -> dict:
     verify(directory)
     verify(directory, "responses.freeze.json")
     verify(directory, "execution.freeze.json")
     if (directory / "analysis.freeze.json").exists():
         raise ValueError("Refusing to overwrite pilot analysis")
     cases = load_cases(data)
-    rows = score_frozen(directory, cases, data.read_bytes())
+    rows = score_frozen(directory, cases, data.read_bytes(), response_parser)
     if any(r["provenance"] != "real" for r in rows):
         raise ValueError("Synthetic fixtures are not empirical pilot results")
     requests = {r["request_id"]: r for r in read_jsonl(directory / "requests.jsonl")}
@@ -83,7 +85,9 @@ def analyze(directory: Path, data: Path) -> dict:
         "gate_vs_similarity_first": contrast(rows, "gated", "similarity_first"),
         "case_results": case_results,
         "human_review_status": "pending",
-        "explanation_support_status": "unscored; label correctness is a separate metric",
+        "explanation_support_status": "unscored; label correctness is a separate metric"
+        if explanations_collected
+        else "not collected in the forced-choice interface",
     }
     case_map = {c["case_id"]: c for c in cases}
     explanation_audit = []
@@ -97,7 +101,7 @@ def analyze(directory: Path, data: Path) -> dict:
                 "order_seed": request["order_seed"],
                 "condition": request["condition"],
                 "response": response["text"],
-                "parsed": parse_response(response),
+                "parsed": response_parser(response),
                 "acceptable_labels": case["evaluator_only"]["acceptable_answer_labels"],
                 "explanation_supported": None,
                 "reviewer_provenance": None,

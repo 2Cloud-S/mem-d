@@ -23,9 +23,8 @@ from .artifacts import (
 )
 from .backend import TokenCounter, snapshot
 from .budgets import build_points, corpus_bytes, token_match
-from .constrained import ConstrainedTransport
-from .execution import parse_response
-from .local_solver import render_request
+from .forced_choice import SYSTEM as CHOICE_SYSTEM
+from .forced_choice import ForcedChoiceTransport, parse_choice, render_choice
 from .phase2b import load_frozen
 from .pilot import reuse_plan
 from .pilot import run as execute_run
@@ -37,7 +36,7 @@ CALIBRATION = RESEARCH / "interface-calibration.jsonl"
 
 
 def lock() -> dict:
-    return json.loads((RESEARCH / "interface-lock.json").read_text())
+    return json.loads((RESEARCH / "forced-choice-lock.json").read_text())
 
 
 def model_config(spec: dict) -> dict:
@@ -96,7 +95,11 @@ def eligibility(directory: Path) -> dict:
         verify(directory, name)
     info = json.loads((directory / "manifest.json").read_text())
     report = json.loads((directory / "eligibility.json").read_text())
-    if info["experiment"] != "phase3b-calibration" or report["provenance"] != "real":
+    if (
+        info["experiment"] != "phase3b-forced-calibration"
+        or report["provenance"] != "real"
+        or info["constraint"] != lock()["interface"]
+    ):
         raise ValueError("Eligibility requires a real frozen calibration")
     return {"manifest": info, "report": report}
 
@@ -145,7 +148,7 @@ def prepare(
             raise ValueError("Model failed the frozen calibration thresholds")
         if qualified["manifest"]["model"] != assets:
             raise ValueError("Calibration and development must use identical model assets")
-        for name in ("interface-lock.json", "answer-schema.json"):
+        for name in ("forced-choice-lock.json", "harness/forced_choice.py"):
             rel = str((RESEARCH / name).relative_to(ROOT))
             if qualified["manifest"]["source_sha256"][rel] != digest(
                 (RESEARCH / name).read_bytes()
@@ -183,15 +186,21 @@ def prepare(
             "points": [{k: v for k, v in p.items() if k != "outputs"} for p in points],
             "selected_points": {name: selected[name]["point_id"] for name in CONDITIONS},
         }
+    # Construct actual forced-choice requests before hashing/freezing. The legacy
+    # public-input builders above stay unchanged, including all survivor payloads.
+    for row in requests:
+        row["request"]["model"]["max_output_tokens"] = 24
+        row["request"]["messages"][0]["content"] = CHOICE_SYSTEM
+        row["request_id"] = object_hash([row["block_id"], row["condition"], row["request"]])
     info = manifest(data, json.loads((RESEARCH / "model-lock.json").read_text()))
     info.update(
         {
-            "experiment": f"phase3b-{kind}",
-            "purpose": "constrained JSON, exploratory development only",
+            "experiment": f"phase3b-forced-{kind}",
+            "purpose": "forced-choice decision accuracy; explanations not collected",
             "prepared_utc": datetime.now(timezone.utc).isoformat(),
             "model": assets,
             "model_cache": str(cache),
-            "solver": model_config(spec),
+            "solver": {**model_config(spec), "max_output_tokens": 24},
             "generation": plan["generation"],
             "limits": {
                 "model_inference_seconds": plan["limits"][
@@ -220,7 +229,9 @@ def prepare(
     )
     for name in (
         "PHASE3B_PLAN.md",
+        "PHASE3B_FORCED_CHOICE_PLAN.md",
         "interface-lock.json",
+        "forced-choice-lock.json",
         "answer-schema.json",
         "interface-calibration.jsonl",
         "requirements-phase3b.txt",
@@ -234,7 +245,7 @@ def prepare(
     rendered = [
         {
             "request_id": r["request_id"],
-            **render_request(counter.tokenizer, r["request"], info["solver"]),
+            **render_choice(counter.tokenizer, r["request"], info["solver"]),
         }
         for r in requests
         if r["request_id"] in owners
@@ -268,7 +279,9 @@ def execute(directory: Path) -> dict:
     path, assets = snapshot(info["model"], Path(info["model_cache"]), False)
     if assets != info["model"]:
         raise ValueError("Pinned model assets changed")
-    transport = ConstrainedTransport(path, info["solver"], info["generation"], info["limits"])
+    if not info["experiment"].startswith("phase3b-forced-"):
+        raise ValueError("Legacy JSON trial requires source commit 8703c6b; never rerun it")
+    transport = ForcedChoiceTransport(path, info["solver"], info["generation"], info["limits"])
     return execute_run(directory, transport)
 
 
@@ -278,7 +291,7 @@ def score_calibration(directory: Path) -> dict:
     if (directory / "eligibility.freeze.json").exists():
         raise ValueError("Refusing to rescore calibration")
     info = json.loads((directory / "manifest.json").read_text())
-    if info["experiment"] != "phase3b-calibration":
+    if info["experiment"] != "phase3b-forced-calibration":
         raise ValueError("Not a calibration run")
     keys = json.loads((directory / "calibration-keys.json").read_text())
     requests = {r["request_id"]: r for r in read_jsonl(directory / "requests.jsonl")}
@@ -290,7 +303,7 @@ def score_calibration(directory: Path) -> dict:
     rows = []
     for response in responses:
         cid = requests[response["request_id"]]["case_id"]
-        parsed = parse_response(response)
+        parsed = parse_choice(response)
         rows.append(
             {
                 "calibration_id": cid,
@@ -351,7 +364,7 @@ def format_metrics(rows: list[dict]) -> dict:
 
 
 def score_development(directory: Path) -> dict:
-    analyze(directory, RESEARCH / "development.jsonl")
+    analyze(directory, RESEARCH / "development.jsonl", parse_choice, explanations_collected=False)
     result = format_metrics(read_jsonl(directory / "scores.jsonl"))
     write_json(directory / "interface-metrics.json", result)
     freeze(directory, ["interface-metrics.json"], "interface-analysis.freeze.json")
@@ -388,7 +401,7 @@ def main():
         info = json.loads((args.run / "manifest.json").read_text())
         result = (
             score_calibration(args.run)
-            if info["experiment"] == "phase3b-calibration"
+            if info["experiment"] == "phase3b-forced-calibration"
             else score_development(args.run)
         )
     print(json.dumps(result, indent=2))

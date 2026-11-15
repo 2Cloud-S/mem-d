@@ -533,3 +533,31 @@ correctness, original-memory errors and paired contrasts, using the existing
 family-based analysis. This experiment changes the decoding intervention and
 must remain distinct from the old unconstrained pilot. Human audits remain
 pending; no held-out cases are generated and no production/gate/gold changes occur.
+
+### Phase 3B prospective resource fallback (2026-11-15, before forced-choice answers)
+
+The initial Qwen constrained-JSON calibration exhausted its 600-second budget;
+short complete answers took roughly 45–50 seconds. Preserve that entire failed
+trial and its complete denominators. Before inspecting its decision scores or
+collecting any new study answers, the operational latency motivated the fallback
+specified in [PHASE3B_FORCED_CHOICE_PLAN.md](PHASE3B_FORCED_CHOICE_PLAN.md).
+This explicitly amends the one-interface limit to two: the abandoned JSON trial
+and one strict forced-choice interface. No more JSON trials are executed.
+
+The new target is exact forced-choice decision accuracy **without explanation
+collection**, with all three labels available through a tokenizer-derived trie.
+Use the documented Transformers masking callback, unchanged inputs/criteria,
+native templates and a common fixed forced-choice prompt. Freeze code, the
+unchanged calibration/keys, exact model assets and 24-output-token limit before
+execution. Preserve 95% validity / 80% accuracy eligibility and planned denominators.
+Test both original models; only if neither qualifies, attempt the one predeclared
+1.5B fallback if resources permit. Maximum four model/interface trial pairs,
+three unique models. No development treatment effects guide these choices.
+
+Old strict JSON parsing remains the default; explicitly inject the forced-choice
+parser only for new runs. Retrospective normalization is not used. Keep explanation
+support uncollected and independent human memory audits pending. All other
+comparison, compression-matching, pairing, family-analysis and preservation rules
+remain unchanged. The original failed interface and its source at `8703c6b`
+remain auditable; this is a prospective engineering amendment, not preregistration
+independent of development experience or evidence of decision benefit.

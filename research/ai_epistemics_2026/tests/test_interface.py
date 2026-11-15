@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import json
 import os
+import tarfile
+import time
 from copy import deepcopy
 from pathlib import Path
 
@@ -12,8 +14,18 @@ import torch
 from transformers import AutoTokenizer
 from transformers.generation.logits_process import PrefixConstrainedLogitsProcessor
 
+from research.ai_epistemics_2026.harness.analysis import score_frozen
 from research.ai_epistemics_2026.harness.artifacts import RESEARCH, read_jsonl
 from research.ai_epistemics_2026.harness.constrained import ConstrainedModel, parser, schema
+from research.ai_epistemics_2026.harness.forced_choice import (
+    LABELS,
+    ForcedChoiceTransport,
+    label_trie,
+    parse_choice,
+)
+from research.ai_epistemics_2026.harness.forced_choice import (
+    SYSTEM as CHOICE_SYSTEM,
+)
 from research.ai_epistemics_2026.harness.interface_pilot import (
     CALIBRATION,
     calibration_requests,
@@ -23,6 +35,7 @@ from research.ai_epistemics_2026.harness.interface_pilot import (
     prepare,
 )
 from research.ai_epistemics_2026.harness.local_solver import validate_request
+from research.ai_epistemics_2026.validate_development import load_cases
 
 
 def accepts(text):
@@ -171,3 +184,76 @@ def test_no_new_trial_overwrite_or_early_fallback(tmp_path):
         prepare("calibration", "Qwen2.5", tmp_path, tmp_path)
     with pytest.raises(ValueError, match="First test"):
         prepare("calibration", "Qwen2.5-1.5B", tmp_path, tmp_path / "new")
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "proceed ",
+        " proceed",
+        "Proceed",
+        '"proceed"',
+        '{"answer_label":"proceed"}',
+        "proceed\n",
+        "yes",
+    ],
+)
+def test_forced_parser_never_normalizes(text):
+    assert parse_choice({"status": "ok", "text": text})["error"] == 1
+
+
+def test_forced_actual_token_trie_and_transport_submission(tokenizer_data):
+    tokenizer, _ = tokenizer_data
+    for label in LABELS:
+        prefix = tokenizer.encode("Synthetic prompt only.", add_special_tokens=False)
+        callback = label_trie(tokenizer, len(prefix))
+        mask = PrefixConstrainedLogitsProcessor(callback, 1)
+        assert mask(torch.tensor([prefix]), torch.zeros((1, len(tokenizer))))[
+            0, tokenizer.eos_token_id
+        ].isneginf()
+        for token in tokenizer.encode(label, add_special_tokens=False):
+            assert token in callback(0, torch.tensor(prefix))
+            prefix.append(token)
+        assert callback(0, torch.tensor(prefix)) == [tokenizer.eos_token_id]
+
+    class SyntheticModel:
+        def generate(self, **kwargs):
+            # Clearly synthetic test fixture; no learned model/calibration result.
+            assert kwargs["max_new_tokens"] == 24
+            assert kwargs["do_sample"] is False
+            assert "past_key_values" not in kwargs
+            ids = kwargs["input_ids"][0].tolist()
+            for token in tokenizer.encode("do_not_proceed", add_special_tokens=False):
+                assert token in kwargs["prefix_allowed_tokens_fn"](0, torch.tensor(ids))
+                ids.append(token)
+            ids.append(tokenizer.eos_token_id)
+            return torch.tensor([ids])
+
+    value = ForcedChoiceTransport.__new__(ForcedChoiceTransport)
+    value.provenance = "synthetic_test_fixture"
+    value.tokenizer, value.model = tokenizer, SyntheticModel()
+    value.identity = {"model_id": "synthetic_test_fixture", "revision": "test"}
+    value.generation = {"max_total_tokens": 4096}
+    value.limits = {"model_inference_seconds": 600, "submission_seconds": 90}
+    value.started = time.perf_counter()
+    request = calibration_requests(read_jsonl(CALIBRATION), lock()["models"][0])[0]["request"]
+    request["model"].update(value.identity, max_output_tokens=24)
+    request["messages"][0]["content"] = CHOICE_SYSTEM
+    result = value.submit(request)
+    assert result["submitted_request"] == request
+    assert CHOICE_SYSTEM in result["rendered_prompt"]
+    assert parse_choice(result)["label"] == "do_not_proceed"
+    assert result["usage"]["completion_tokens"] == len(result["generated_token_ids"])
+
+
+@pytest.mark.parametrize("family", ["qwen", "smol"])
+def test_old_strict_scores_recompute_without_normalization(tmp_path, family):
+    archive = RESEARCH / "artifacts/phase3-development-2026-11-14" / family / "run.tar.gz"
+    with tarfile.open(archive) as tar:
+        for member in tar.getmembers():
+            assert member.isfile() and len(Path(member.name).parts) == 2
+            (tmp_path / Path(member.name).name).write_bytes(tar.extractfile(member).read())
+    data = RESEARCH / "development.jsonl"
+    assert score_frozen(tmp_path, load_cases(data), data.read_bytes()) == read_jsonl(
+        tmp_path / "scores.jsonl"
+    )
