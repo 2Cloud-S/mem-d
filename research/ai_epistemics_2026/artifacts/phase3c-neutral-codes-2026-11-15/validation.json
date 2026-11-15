@@ -1,0 +1,31 @@
+{
+  "actual_prompt_and_token_traces_verified": 108,
+  "annotation_sentinel_requests": "identical entire 108-request grid",
+  "combined_tests": {
+    "failed": 2,
+    "passed": 559,
+    "preexisting_failures": [
+      "tests/test_parser.py::test_load_memory_file_supported_formats[memories.txt]",
+      "tests/test_parser.py::test_load_memory_file_supported_formats[memories.jsonl]"
+    ],
+    "research_passed": 116,
+    "skipped": 2
+  },
+  "dataset_validation": "20 cases; 10 families; 52 records; unchanged labels",
+  "date": "2026-11-15",
+  "eligibility_guard": "actual failed diagnostic rejected before model loading or development request creation",
+  "extracted_archive_freezes_verified": 4,
+  "held_out_cases": 0,
+  "historical_artifacts_gold_gate_and_production_immutability": "passed",
+  "independent_human_reviews": 0,
+  "independent_score_recomputation": "all 108 exact; 50 correct",
+  "lint": {
+    "repository_findings": 86,
+    "research_findings": 0,
+    "unchanged_files": 13
+  },
+  "new_model_downloads": 0,
+  "paid_calls": 0,
+  "pre_answer_source_commit": "02d3322fdffdcc36fbd9206ff974bbefdab0ccc5",
+  "source_hash_replay_and_current_delivery": "all match"
+}

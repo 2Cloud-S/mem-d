@@ -79,6 +79,8 @@ found no incremental decision-accuracy benefit from mem-d over simpler controls;
 output-format failures limit interpretation and human review is pending.
 [Phase 3B](research/ai_epistemics_2026/PHASE3B_RESULTS.md) separately validates
 the answer interface and solver capability before another development comparison.
+The [neutral-code diagnostic](research/ai_epistemics_2026/NEUTRAL_CODE_RESULTS.md)
+found mapping sensitivity and failed eligibility; the handoff recommends a bounded feasibility report.
 Existing recommendation-fixture accuracy measures internal rule conformity, not improved
 downstream AI decisions. Production memory behavior is unchanged.
 

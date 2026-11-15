@@ -1,0 +1,688 @@
+{
+  "accuracy": 0.46296296296296297,
+  "by_item": [
+    {
+      "case_id": "interface_01",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_02",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_03",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_04",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_05",
+      "codes": [
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_06",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_07",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "C"
+      ],
+      "correct": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "distinct_valid_codes": 3,
+      "distinct_valid_labels": 1,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "proceed",
+        "proceed",
+        "proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_08",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_09",
+      "codes": [
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_10",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "C"
+      ],
+      "correct": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "distinct_valid_codes": 3,
+      "distinct_valid_labels": 2,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_11",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_12",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_13",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "C",
+        "B",
+        "C"
+      ],
+      "correct": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "distinct_valid_codes": 3,
+      "distinct_valid_labels": 1,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "proceed",
+        "proceed",
+        "proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_14",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_15",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_16",
+      "codes": [
+        "A",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        false
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_17",
+      "codes": [
+        "B",
+        "A",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "distinct_valid_codes": 2,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "proceed",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    },
+    {
+      "case_id": "interface_18",
+      "codes": [
+        "B",
+        "B",
+        "B",
+        "B",
+        "B",
+        "B"
+      ],
+      "correct": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        false
+      ],
+      "distinct_valid_codes": 1,
+      "distinct_valid_labels": 3,
+      "labels": [
+        "do_not_proceed",
+        "insufficient_evidence",
+        "proceed",
+        "insufficient_evidence",
+        "proceed",
+        "do_not_proceed"
+      ],
+      "valid": 6
+    }
+  ],
+  "by_permutation": {
+    "P1": {
+      "accuracy": 0.6111111111111112,
+      "correct": 11,
+      "mapping": {
+        "A": "proceed",
+        "B": "do_not_proceed",
+        "C": "insufficient_evidence"
+      },
+      "planned": 18,
+      "valid": 18
+    },
+    "P2": {
+      "accuracy": 0.5555555555555556,
+      "correct": 10,
+      "mapping": {
+        "A": "proceed",
+        "B": "insufficient_evidence",
+        "C": "do_not_proceed"
+      },
+      "planned": 18,
+      "valid": 18
+    },
+    "P3": {
+      "accuracy": 0.3333333333333333,
+      "correct": 6,
+      "mapping": {
+        "A": "do_not_proceed",
+        "B": "proceed",
+        "C": "insufficient_evidence"
+      },
+      "planned": 18,
+      "valid": 18
+    },
+    "P4": {
+      "accuracy": 0.4444444444444444,
+      "correct": 8,
+      "mapping": {
+        "A": "do_not_proceed",
+        "B": "insufficient_evidence",
+        "C": "proceed"
+      },
+      "planned": 18,
+      "valid": 18
+    },
+    "P5": {
+      "accuracy": 0.3333333333333333,
+      "correct": 6,
+      "mapping": {
+        "A": "insufficient_evidence",
+        "B": "proceed",
+        "C": "do_not_proceed"
+      },
+      "planned": 18,
+      "valid": 18
+    },
+    "P6": {
+      "accuracy": 0.5,
+      "correct": 9,
+      "mapping": {
+        "A": "insufficient_evidence",
+        "B": "do_not_proceed",
+        "C": "proceed"
+      },
+      "planned": 18,
+      "valid": 18
+    }
+  },
+  "by_semantic_class": {
+    "do_not_proceed": {
+      "accuracy": 0.3055555555555556,
+      "correct": 11,
+      "planned": 36,
+      "valid": 36
+    },
+    "insufficient_evidence": {
+      "accuracy": 0.2777777777777778,
+      "correct": 10,
+      "planned": 36,
+      "valid": 36
+    },
+    "proceed": {
+      "accuracy": 0.8055555555555556,
+      "correct": 29,
+      "planned": 36,
+      "valid": 36
+    }
+  },
+  "confusion": {
+    "do_not_proceed": {
+      "None": 0,
+      "do_not_proceed": 11,
+      "insufficient_evidence": 9,
+      "proceed": 16
+    },
+    "insufficient_evidence": {
+      "None": 0,
+      "do_not_proceed": 11,
+      "insufficient_evidence": 10,
+      "proceed": 15
+    },
+    "proceed": {
+      "None": 0,
+      "do_not_proceed": 3,
+      "insufficient_evidence": 4,
+      "proceed": 29
+    }
+  },
+  "correct": 50,
+  "eligible": false,
+  "explanation_support": "not collected",
+  "independent_human_reviews": 0,
+  "insufficient_evidence_selection": {
+    "correct": 10,
+    "false_abstentions": 13,
+    "gold_pairs": 36,
+    "predicted": 23
+  },
+  "items_changing_code_among_valid": 11,
+  "items_changing_semantic_answer_among_valid": 16,
+  "items_invariant_semantics_all_six_valid": 2,
+  "items_same_code_all_six_valid": 7,
+  "items_with_at_least_two_valid": 18,
+  "items_with_six_valid": 18,
+  "output_code_distribution_valid": {
+    "A": 19,
+    "B": 84,
+    "C": 5
+  },
+  "parse_reasons": {
+    "valid_label": 108
+  },
+  "planned": 108,
+  "provenance": "real",
+  "reused_calibration_items": 18,
+  "semantic_distribution_valid": {
+    "do_not_proceed": 25,
+    "insufficient_evidence": 23,
+    "proceed": 60
+  },
+  "valid": 108,
+  "valid_but_wrong": 58,
+  "validity": 1.0
+}

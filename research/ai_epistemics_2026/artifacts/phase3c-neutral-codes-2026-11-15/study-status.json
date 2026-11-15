@@ -1,0 +1,17 @@
+{
+  "checkpoints_downloaded": 0,
+  "correct": 50,
+  "development_requests_prepared": 0,
+  "development_solver_calls": 0,
+  "diagnostic": "completed; aggregate eligibility failed",
+  "explanations": "not collected",
+  "further_model_experimentation": "stopped",
+  "held_out_cases_generated": 0,
+  "independent_human_reviews": 0,
+  "paid_calls": 0,
+  "planned_calibration_pairs": 108,
+  "recommendation": "finalize bounded feasibility study; do not proceed to new evaluation with current measurement",
+  "required_correct": 87,
+  "reused_calibration_items": 18,
+  "valid": 108
+}

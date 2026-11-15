@@ -1,4 +1,4 @@
-# AI × Epistemics Research Sprint — Phases 1–3B
+# AI × Epistemics Research Sprint — Phases 1–3C
 
 **Working title:** “When AI Forgets the Caveat: Evaluating Decision-Preserving
 Memory Deduplication.”
@@ -9,7 +9,9 @@ harness with development compression-feasibility artifacts.
 Phase 3 adds an exploratory local downstream pilot; see [PILOT_PLAN.md](PILOT_PLAN.md)
 and [PILOT_RESULTS.md](PILOT_RESULTS.md) for its scope and findings. Phase 3B
 separates format compliance from decision capability; see
-[PHASE3B_RESULTS.md](PHASE3B_RESULTS.md). The Phase 1–3
+[PHASE3B_RESULTS.md](PHASE3B_RESULTS.md). The subsequent
+[neutral-code diagnostic](NEUTRAL_CODE_RESULTS.md) found 50/108 correct despite
+108/108 valid outputs; no new development rerun qualifies. The Phase 1–3B
 sections below are historical delivery records: their statements about no solver
 calls describe their own phase. No held-out cases, production-memory changes,
 or dashboard are included. The study is not submission-ready; broader decision
@@ -837,3 +839,98 @@ requests. No production, gate, gold or historical-artifact cleanup was performed
 The next task is independent review of the existing blinded proposals and a
 bounded feasibility report. Resolve solver/interface accuracy under a future
 prospective amendment before generating or executing an untouched evaluation.
+
+## Phase 3C: one neutral-code measurement diagnostic
+
+The user's next request authorizes one bounded diagnostic after the Phase 3B stop.
+[LABEL_TOKEN_INSPECTION.md](LABEL_TOKEN_INSPECTION.md) documents all three attempted
+tokenizers: the semantic-label trie diverges at the first token and then forces
+every suffix token and EOS. Reachability establishes permission, not equal label
+priors or a fair complete-answer comparison. That mechanism alone does not prove
+the cause of earlier calibration failures.
+
+[NEUTRAL_CODE_PLAN.md](NEUTRAL_CODE_PLAN.md), the chronological protocol amendment,
+and [neutral-code-lock.json](neutral-code-lock.json) freeze one cached Qwen1.5B
+diagnostic before answers. A/B/C are distinct single tokens at every actual native
+generation boundary. Every prompt displays a complete code-to-label mapping;
+all three code IDs are allowed at the first step and only EOS afterward. The
+transport has no gold access. Evidence, question, criteria and answer options
+remain unchanged. All six mappings are crossed with all eighteen existing
+calibration items, then shuffled with a fixed seed: 108 planned answers, **not
+108 independent scenarios or untouched validation**. No best mapping is selected.
+
+Eligibility is at least 103 valid and 87 correct out of all 108 planned pairs,
+with every permutation and semantic class reported separately. Format failures,
+truncations and infrastructure failures remain in eligibility denominators.
+Within-item semantic changes/code changes and predicted-code/semantic distributions
+diagnose interface sensitivity; they establish neither mem-d benefit nor general
+model incapacity. New instructions and mapping comprehension also differ from
+the old interface, so improvements cannot isolate tokenization as the sole cause.
+No explanations are collected or independently validated.
+
+`harness/neutral_codes.py` supplies public mapping validation, boundary verification,
+strict decoding and the single-token transport. `harness/code_diagnostic.py`
+reuses existing execution logs/freezes/reuse and family analysis, enforces aggregate
+qualification, and prepares the conditional development comparison. Historical
+parsers, raw responses and scores are unchanged. No new model is downloaded.
+
+```bash
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.code_diagnostic \
+  prepare-diagnostic --cache /path/to/existing-model-cache --run /tmp/new-code-diagnostic
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.code_diagnostic \
+  run --run /tmp/new-code-diagnostic
+python -m research.ai_epistemics_2026.harness.code_diagnostic \
+  score --run /tmp/new-code-diagnostic
+```
+
+Only aggregate qualification permits a development preparation:
+
+```bash
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.code_diagnostic \
+  prepare-development --cache /path/to/existing-model-cache \
+  --diagnostic /tmp/new-code-diagnostic --source /tmp/sources/phase2-run \
+  --source2b /tmp/sources/phase2b-run --run /tmp/new-code-development
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.code_diagnostic \
+  run --run /tmp/new-code-development
+python -m research.ai_epistemics_2026.harness.code_diagnostic \
+  score --run /tmp/new-code-development
+```
+
+The conditional policy is fixed before diagnostic answers: all twenty development
+cases, three shared order seeds and four conditions at 0.95; a label-blind schedule
+assigns each of the six mappings to ten paired blocks, with the same mapping in
+all conditions of a block. Actual tokenizer matching is frozen before study
+answers. Reuse requires identical complete requests within a block, including
+the mapping. Model settings/source/asset hashes, execution order, native prompts,
+raw outputs/IDs, attempts and usage are auditable. Failure stops model experiments;
+it does not authorize another prompt, mapping selection or checkpoint.
+
+[REPORT_HANDOFF.md](REPORT_HANDOFF.md) separates the evidence categories and outlines
+a 4–8-page report, including adaptive decisions, provisional novelty, tiny correlated
+data and missing independent reviews. [NEUTRAL_CODE_RESULTS.md](NEUTRAL_CODE_RESULTS.md)
+reports every mapping and class. **Actual outcome: 50/108 correct, 108/108 valid;
+not eligible (87 correct required).** B is selected 84/108 times, and semantic
+answers vary across mappings for 16/18 reused items. This is an interface finding,
+not proof that old failures were caused by token bias or that mem-d improves
+decisions. Development preparation rejects the actual failed diagnostic before
+model loading or request creation. No further model experiments occur. Finalize
+the bounded feasibility report; do not scale this measurement or generate held-out cases.
+
+The [new artifact directory](artifacts/phase3c-neutral-codes-2026-11-15/) contains
+the machine-readable three-tokenizer inspection, actual diagnostic manifest,
+analysis, execution summary, full run archive and checksums. The source at `02d3322`
+was committed before answers; all frozen source/data/config hashes match that
+commit and the delivered code. Verify `SHA256SUMS`, extract the archive into
+scratch, and verify its preparation, response, execution and analysis freezes
+using `harness.artifacts.verify`. Requests, explicit mappings, raw outputs/token
+IDs, all attempt statuses and usage are retained. No model weights are republished.
+
+All 116 research tests pass within the combined suite (559 passed, two skipped,
+the same two inherited missing TXT/JSONL parser fixtures). Research lint remains
+clean; repository lint retains 86 findings in thirteen unchanged files. Checks
+cover real tokenizer boundaries/Transformers masks, full-grid/sentinel isolation,
+mapping-aware decoding, complete-request reuse, balanced conditional schedules,
+aggregate thresholds and hand-calculated mapping-sensitivity fixtures. No fixture
+statistics are published as empirical results. All historical score/artifact bytes,
+production behavior, gate rules, gold labels and pending human-review packets
+remain unchanged. No independent human review or explanation validation is claimed.

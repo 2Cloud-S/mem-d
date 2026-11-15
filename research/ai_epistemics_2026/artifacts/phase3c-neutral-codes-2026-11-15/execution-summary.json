@@ -1,0 +1,15 @@
+{
+  "actual_generated_token_usage": {
+    "completion_tokens": 216,
+    "prompt_tokens": 30756
+  },
+  "actual_inference_attempts": 108,
+  "attempt_log_entries": 108,
+  "human_review_status": "pending",
+  "physical_latency_seconds": 600.9802401739953,
+  "physical_request_owners": 108,
+  "planned_logical_requests": 108,
+  "provenance": "real",
+  "reused_logical_requests": 0,
+  "usage_missing_attempts": 0
+}
