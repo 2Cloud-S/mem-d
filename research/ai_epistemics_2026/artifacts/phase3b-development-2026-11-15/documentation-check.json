@@ -1,0 +1,19 @@
+{
+  "compatibility_validation": "Actual installed parser, token-enforcer and Transformers processor tested before model inference",
+  "date": "2026-11-15",
+  "retrieved_documents": {
+    "enforcer_jsonparser": {
+      "sha256": "6bc4a8a10621c6d38d70ebb5ae1dc21aaa98c0454a2e80be1896586f10dccf94"
+    },
+    "enforcer_readme": {
+      "sha256": "416444dc4c55638238b10c7c513f52b74fb746cf26f91bd8c1644ae7628a7e94"
+    },
+    "enforcer_transformers": {
+      "sha256": "07fa6f13d210d5c926216e467011cb110e08298bcaa2408464a389843a6d360e"
+    },
+    "transformers_4_57_1_generation_api": {
+      "sha256": "b5c0875c01375e09c221941821532951deffed357571cdaf614e6d1e25e374e2"
+    }
+  },
+  "urls": "See verified primary URLs in PHASE3B_PLAN.md"
+}

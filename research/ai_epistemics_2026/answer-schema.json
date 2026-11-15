@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "answer_label": {"type": "string", "enum": ["proceed", "do_not_proceed", "insufficient_evidence"]},
+    "justification": {"type": "string", "pattern": "[!-~][ -~]*"}
+  },
+  "required": ["answer_label", "justification"],
+  "additionalProperties": false
+}

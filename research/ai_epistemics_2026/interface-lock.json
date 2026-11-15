@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-15",
+  "interface": "lm-format-enforcer constrained JSON v1",
+  "lm_format_enforcer": "0.11.3",
+  "interegular": "0.3.3",
+  "schema": "answer-schema.json",
+  "system_prompt": "unchanged harness.requests.SYSTEM",
+  "max_interface_trials": 1,
+  "models": [
+    {"family": "Qwen2.5", "repo_id": "Qwen/Qwen2.5-0.5B-Instruct", "revision": "7ae557604adf67be50417f59c2c2f167def9a775"},
+    {"family": "SmolLM2", "repo_id": "HuggingFaceTB/SmolLM2-360M-Instruct", "revision": "a10cc1512eabd3dde888204e902eca88bddb4951"},
+    {"family": "Qwen2.5-1.5B", "repo_id": "Qwen/Qwen2.5-1.5B-Instruct", "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"}
+  ],
+  "fallback_rule": "Attempt third model only if neither existing model passes calibration and resources permit; no other models or interfaces in this phase",
+  "eligibility": {"minimum_structural_validity": 0.95, "minimum_decision_accuracy": 0.8, "planned_items": 18, "required_valid": 18, "required_correct": 15},
+  "calibration_seed": 2026,
+  "generation": {"do_sample": false, "max_new_tokens": 256, "max_total_tokens": 4096, "dtype": "float32", "device": "cpu", "torch_threads": 2, "deterministic_algorithms": true},
+  "limits": {"calibration_seconds": 600, "development_seconds": 1500, "larger_calibration_seconds": 900, "larger_development_seconds": 2700, "submission_seconds": 90, "max_infrastructure_retries": 2},
+  "development": {"threshold": 0.95, "similarity_first_prefix": 3, "order_seeds": [2026, 2027, 2028]},
+  "paid_calls_authorized": false,
+  "human_review_status": "pending"
+}

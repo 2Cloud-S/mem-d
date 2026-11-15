@@ -1,0 +1,141 @@
+{
+  "models": {
+    "qwen": {
+      "actual_chat_templates_replayed": 72,
+      "format_metrics": {
+        "exact": {
+          "correct": 0,
+          "decision_accuracy_among_valid": null,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 60,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 60
+          },
+          "valid": 0,
+          "valid_but_wrong": 0
+        },
+        "gated": {
+          "correct": 0,
+          "decision_accuracy_among_valid": null,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 60,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 60
+          },
+          "valid": 0,
+          "valid_but_wrong": 0
+        },
+        "original": {
+          "correct": 0,
+          "decision_accuracy_among_valid": null,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 60,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 60
+          },
+          "valid": 0,
+          "valid_but_wrong": 0
+        },
+        "similarity_first": {
+          "correct": 0,
+          "decision_accuracy_among_valid": 0.0,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 57,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 57,
+            "valid_label": 3
+          },
+          "valid": 3,
+          "valid_but_wrong": 3
+        }
+      },
+      "logical_response_shape_counts": {
+        "answer,justification": 233,
+        "answer_label,justification": 3,
+        "not JSON": 4
+      },
+      "source_response_freeze_sha256": "4365006448fdccf2218c3cb777a125ac5fc7947cf8de33cb435e7b528b5c3030",
+      "source_score_freeze_sha256": "02b058ffa4a82495d9319a770f90d19f61f9d7ee7ccabcba3c3ac5d6dcc994ac",
+      "submitted_prompts_verified": 240,
+      "system_prompt_preserved_in_every_native_rendering": true
+    },
+    "smol": {
+      "actual_chat_templates_replayed": 72,
+      "format_metrics": {
+        "exact": {
+          "correct": 17,
+          "decision_accuracy_among_valid": 0.53125,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 28,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 28,
+            "valid_label": 32
+          },
+          "valid": 32,
+          "valid_but_wrong": 15
+        },
+        "gated": {
+          "correct": 17,
+          "decision_accuracy_among_valid": 0.53125,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 28,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 28,
+            "valid_label": 32
+          },
+          "valid": 32,
+          "valid_but_wrong": 15
+        },
+        "original": {
+          "correct": 14,
+          "decision_accuracy_among_valid": 0.4827586206896552,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 31,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 31,
+            "valid_label": 29
+          },
+          "valid": 29,
+          "valid_but_wrong": 15
+        },
+        "similarity_first": {
+          "correct": 17,
+          "decision_accuracy_among_valid": 0.4857142857142857,
+          "excluded": 0,
+          "included": 60,
+          "invalid_included": 25,
+          "planned": 60,
+          "planned_parse_reasons": {
+            "invalid_output": 25,
+            "valid_label": 35
+          },
+          "valid": 35,
+          "valid_but_wrong": 18
+        }
+      },
+      "logical_response_shape_counts": {
+        "answer_label,justification": 128,
+        "not JSON": 112
+      },
+      "source_response_freeze_sha256": "78ff6fc526b772474b288fdc04754d45dfe607c73770a6f8ad5b530b3d512622",
+      "source_score_freeze_sha256": "ad665ffab82578ddadc936590cacbe90c5396e17f1bfa9963524d698b16aed90",
+      "submitted_prompts_verified": 240,
+      "system_prompt_preserved_in_every_native_rendering": true
+    }
+  },
+  "purpose": "Separate historical schema failures from valid-but-wrong decisions; no normalization, repair or replacement of strict scores"
+}

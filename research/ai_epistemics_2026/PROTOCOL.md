@@ -501,3 +501,35 @@ audit fields and label any assistant inspection accurately. This small-model,
 ten-family pilot supports feasibility findings, not broad generalization. Final
 evaluation design and resource estimates follow the pilot without generating or
 viewing held-out cases; zero/unstable variance cannot justify a precise power claim.
+
+## Phase 3B common-interface amendment (2026-11-15, before new answers)
+
+The Phase 3 strict score is dominated by schema errors. Preserve all old responses
+and scores, quantify invalid versus valid-but-wrong outputs separately, and do
+not retrospectively replace strict decisions with inferred prose labels.
+
+Prospectively adopt one label-blind constrained JSON interface as specified in
+[PHASE3B_PLAN.md](PHASE3B_PLAN.md), `answer-schema.json`, and `interface-lock.json`.
+The actual solver system prompt, substantive labels, criteria, transformations,
+and scoring stay unchanged. Token filtering enforces exactly the two required
+fields, all three offered labels and a nonempty plain ASCII justification. It
+does not enforce a particular decision or evidence rationale. Explain the parser's
+restricted explanation alphabet and keep support auditing separate. Test the
+actual backend constraints before any answers; no repeated interface optimization.
+
+Freeze the 18-item separate calibration with pre-answer keys, model settings,
+interface and source hashes before execution. Eligibility requires at least 95%
+valid outputs and 80% calibration accuracy over every planned item (18/18 valid,
+15/18 correct), with real provenance. First test both existing models; only if
+neither passes may the single predeclared modestly larger local fallback be tried.
+Maximum three model trials, one interface, no paid inference, no tuning by mem-d
+advantage. Calibration is a pragmatic check, not proof of general capability or
+independent human annotation. If no model qualifies, stop inference.
+
+Only qualifying models receive a new, separately frozen development run at 0.95,
+all 20 cases and three paired seeds, unchanged within-block identity reuse and
+tokenizer-specific pre-answer matching. Report format validity separately from
+correctness, original-memory errors and paired contrasts, using the existing
+family-based analysis. This experiment changes the decoding intervention and
+must remain distinct from the old unconstrained pilot. Human audits remain
+pending; no held-out cases are generated and no production/gate/gold changes occur.
