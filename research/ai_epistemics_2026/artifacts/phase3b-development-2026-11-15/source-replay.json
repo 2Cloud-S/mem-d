@@ -1,0 +1,7 @@
+{
+  "forced_choice_source_commit": "eee2cec",
+  "initial_json_commit_timing": "Hashes frozen before calls; commit 8703c6b captured the same unchanged source during the initial run, not before its first answer.",
+  "initial_json_trial_source_commit": "8703c6b",
+  "preparation_commits_are_local_provenance_not_external_preregistration": true,
+  "verification": "Every manifest source_sha256 matches git show of the indicated committed source; all three forced-choice manifests also match current delivered source files"
+}

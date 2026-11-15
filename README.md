@@ -76,8 +76,10 @@ The [AI × Epistemics Research Sprint](research/ai_epistemics_2026/README.md)
 adds a research protocol, 20 synthetic development cases, and an external
 experiment harness. A small [local pilot](research/ai_epistemics_2026/PILOT_RESULTS.md)
 found no incremental decision-accuracy benefit from mem-d over simpler controls;
-output-format failures limit interpretation and human review is pending. Existing
-recommendation-fixture accuracy measures internal rule conformity, not improved
+output-format failures limit interpretation and human review is pending.
+[Phase 3B](research/ai_epistemics_2026/PHASE3B_RESULTS.md) separately validates
+the answer interface and solver capability before another development comparison.
+Existing recommendation-fixture accuracy measures internal rule conformity, not improved
 downstream AI decisions. Production memory behavior is unchanged.
 
 Current published results:

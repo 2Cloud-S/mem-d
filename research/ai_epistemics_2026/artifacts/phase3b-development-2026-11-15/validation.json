@@ -1,0 +1,83 @@
+{
+  "actual_inference_calls_verified": 68,
+  "archives_verified": [
+    {
+      "archive": "json-qwen-calibration",
+      "freezes": [
+        "eligibility.freeze.json",
+        "execution.freeze.json",
+        "freeze.json",
+        "responses.freeze.json"
+      ],
+      "requests": 18,
+      "source_replay_commit": "8703c6b"
+    },
+    {
+      "archive": "json-smol-prepared",
+      "freezes": [
+        "freeze.json"
+      ],
+      "requests": 18,
+      "source_replay_commit": "8703c6b"
+    },
+    {
+      "archive": "qwen-choice-calibration",
+      "freezes": [
+        "eligibility.freeze.json",
+        "execution.freeze.json",
+        "freeze.json",
+        "responses.freeze.json"
+      ],
+      "requests": 18,
+      "source_replay_commit": "eee2cec"
+    },
+    {
+      "archive": "smol-choice-calibration",
+      "freezes": [
+        "eligibility.freeze.json",
+        "execution.freeze.json",
+        "freeze.json",
+        "responses.freeze.json"
+      ],
+      "requests": 18,
+      "source_replay_commit": "eee2cec"
+    },
+    {
+      "archive": "larger-choice-calibration",
+      "freezes": [
+        "eligibility.freeze.json",
+        "execution.freeze.json",
+        "freeze.json",
+        "responses.freeze.json"
+      ],
+      "requests": 18,
+      "source_replay_commit": "eee2cec"
+    }
+  ],
+  "attempt_records_verified": 82,
+  "calibration_annotation_sentinel_requests": "exactly identical for all three models",
+  "combined_pytest": {
+    "command": "MEMD_RESEARCH_MODEL_CACHE=/tmp/memd-phase2-hf/hub MEMD_PHASE3B_CACHE=/tmp/memd-phase3-hf/hub HF_HUB_OFFLINE=1 python -m pytest tests research/ai_epistemics_2026/tests -q",
+    "failed": 2,
+    "passed": 543,
+    "preexisting_failures": [
+      "tests/test_parser.py::test_load_memory_file_supported_formats[memories.txt]",
+      "tests/test_parser.py::test_load_memory_file_supported_formats[memories.jsonl]"
+    ],
+    "research_passed": 100,
+    "skipped": 2
+  },
+  "date": "2026-11-15",
+  "development_eligibility_rejection": "failed 1.5B rejected before requests/output directory creation",
+  "forced_choice_token_traces_verified": 54,
+  "held_out_generation": 0,
+  "historical_checksums_and_production_gold_immutability": "passed",
+  "historical_strict_score_recomputation": "both frozen score files exactly reproduced by regression tests",
+  "independent_human_reviews": 0,
+  "paid_inference_calls": 0,
+  "ruff": {
+    "repository_findings": 86,
+    "research_findings": 0,
+    "unchanged_files": 13
+  }
+}

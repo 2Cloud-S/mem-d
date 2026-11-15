@@ -1,4 +1,4 @@
-# AI × Epistemics Research Sprint — Phases 1–3
+# AI × Epistemics Research Sprint — Phases 1–3B
 
 **Working title:** “When AI Forgets the Caveat: Evaluating Decision-Preserving
 Memory Deduplication.”
@@ -7,7 +7,9 @@ This directory contains a [research protocol](PROTOCOL.md),
 [20 synthetic development cases](development.jsonl), and an external Phase 2
 harness with development compression-feasibility artifacts.
 Phase 3 adds an exploratory local downstream pilot; see [PILOT_PLAN.md](PILOT_PLAN.md)
-and [PILOT_RESULTS.md](PILOT_RESULTS.md) for its scope and findings. The Phase 1–2B
+and [PILOT_RESULTS.md](PILOT_RESULTS.md) for its scope and findings. Phase 3B
+separates format compliance from decision capability; see
+[PHASE3B_RESULTS.md](PHASE3B_RESULTS.md). The Phase 1–3
 sections below are historical delivery records: their statements about no solver
 calls describe their own phase. No held-out cases, production-memory changes,
 or dashboard are included. The study is not submission-ready; broader decision
@@ -727,3 +729,111 @@ rendered prompts, raw responses, generated IDs, and reuse provenance are include
 Every frozen source/config hash still matches the delivered code. All prior
 artifacts, development labels, gate/transform code and production behavior remain
 unchanged. See the pilot results for the strict-score limitations and next task.
+
+## Phase 3B: fixed interface, eligibility before study inference
+
+The [initial plan](PHASE3B_PLAN.md) attempted constrained JSON using a pinned,
+documented LM Format Enforcer/Transformers integration. The actual constraint
+tests passed, but the Qwen calibration exceeded its runtime budget and failed
+decision eligibility. Its entire failed trial and the unexecuted SmolLM2 preparation
+remain separate frozen artifacts. Source commit `8703c6b` reproduces their source
+hashes. No old response, strict score, label, production behavior or gate changed.
+
+The [prospective resource amendment](PHASE3B_FORCED_CHOICE_PLAN.md) freezes one
+fallback: exact-label forced choice with no explanation collection. All three
+labels remain possible through a small tokenizer-derived trie and the documented
+Transformers masking callback. The native templates and public payload allowlists
+remain in use; no gold/category/gate signal reaches the interface. The parser
+does not strip whitespace or normalize answers. The output cap is 24 tokens;
+model identities, CPU settings and resource limits are in
+[forced-choice-lock.json](forced-choice-lock.json). Source commit `eee2cec`
+records this interface before its responses. No more interface optimization is
+permitted in this phase, and no paid inference is used.
+
+The [18 calibration items](interface-calibration.jsonl) and pre-answer keys are
+separate from the study cases: six per label, straightforward fictional facts
+with explicit criteria, defined without mem-d. They are assistant-authored,
+not independently human annotated. Every planned item counts: qualification
+requires 18 valid and at least 15 correct, implementing the frozen 95% validity /
+80% accuracy thresholds. These pragmatic checks are not general capability evidence.
+Both original models are tested first; the single pinned 1.5B fallback is permitted
+only if neither qualifies. The complete trial ledger records attempts/non-attempts.
+
+**Actual outcome: no qualifying solver and no development rerun.** Forced choice
+is structurally valid on 18/18 calibration items for each model, but Qwen0.5B,
+SmolLM2-360M and Qwen1.5B score only 5/18, 6/18 and 8/18 correct, respectively.
+The threshold is 15/18. The larger model ran successfully on CPU; the blocker is
+decision eligibility, not lack of a GPU. Inference stops at the declared cap.
+
+Implementation reuses the existing transformation, request, execution/reuse and
+family-analysis modules. `harness/forced_choice.py` supplies the small real transport
+and parser. `harness/interface_pilot.py` freezes calibration and tokenizer-specific
+development requests, enforces eligibility, and records execution/format metrics.
+The scorer has an explicit parser parameter whose **default remains historical
+strict JSON**; regression checks reproduce both old pilot score files exactly.
+Explanations are not collected under the forced-choice target. No explanation
+support or independent semantic-safety conclusion is inferred from correct labels.
+
+### Commands
+
+Use the existing pinned CPU environment; `requirements-phase3b.txt` additionally
+pins the JSON-trial dependency for auditing/tests. Cached exact weight revisions
+are required; downloading public model weights is separate from inference. Run
+models sequentially. Use a new directory for every frozen preparation:
+
+```bash
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.interface_pilot \
+  prepare-calibration --family Qwen2.5 --cache /path/to/model-cache \
+  --run /tmp/new-choice-calibration
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.interface_pilot \
+  run --run /tmp/new-choice-calibration
+python -m research.ai_epistemics_2026.harness.interface_pilot \
+  score --run /tmp/new-choice-calibration
+```
+
+Use `--family SmolLM2` for the other original model. The conditional
+`--family Qwen2.5-1.5B` additionally requires two `--prior-calibration` arguments
+pointing to the failed frozen original-model calibrations. A qualified model alone
+may prepare study questions, with the preserved archives extracted as earlier:
+
+```bash
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.interface_pilot \
+  prepare-development --family Qwen2.5-1.5B --cache /path/to/model-cache \
+  --calibration /path/to/eligible-calibration --source /tmp/sources/phase2-run \
+  --source2b /tmp/sources/phase2b-run --run /tmp/new-choice-development
+HF_HUB_OFFLINE=1 python -m research.ai_epistemics_2026.harness.interface_pilot \
+  run --run /tmp/new-choice-development
+python -m research.ai_epistemics_2026.harness.interface_pilot \
+  score --run /tmp/new-choice-development
+```
+
+Preparation checks that the frozen similarity-first prefix 3 remains nearest
+under the actual tokenizer, exports every 0.95 budget point, and freezes matching
+before study answers. Reuse remains within one case/model/order block only.
+All twenty cases, ten families, three orders and four conditions remain planned;
+paired infrastructure failures are reported rather than silently dropped.
+
+Review import remains the unchanged command above, with separate original human
+submissions before adjudication. No person has completed a review in this phase.
+[SMALL_EVALUATION_PLAN.md](SMALL_EVALUATION_PLAN.md) proposes a conditional
+48-case / 24-family descriptive study, not the previously proposed 200-case
+evaluation or a powered design. Neither set is authored or accessed here.
+
+The [Phase 3B artifacts](artifacts/phase3b-development-2026-11-15/) include four
+actual trial archives plus the unexecuted JSON preparation, readable manifests,
+all raw submissions/responses/token IDs and attempts, eligibility scores,
+historical schema diagnostics, source replay commits, a trial ledger and checksums.
+Verify `SHA256SUMS`, then extract each archive into scratch and verify every
+`*freeze.json` with `harness.artifacts.verify`. JSON source hashes match `8703c6b`;
+forced-choice source hashes match pre-answer commit `eee2cec`. Default strict
+JSON score recomputation remains exact for both historical pilots.
+
+Checks: 100 research tests pass within the combined suite (543 passed, two skipped,
+the same two inherited missing TXT/JSONL parser fixtures). Research lint and dataset
+validation pass; repository lint retains 86 findings in thirteen unchanged files.
+Actual trie paths were also checked with the fallback tokenizer. Development
+preparation refuses the real failed fallback calibration without creating study
+requests. No production, gate, gold or historical-artifact cleanup was performed.
+The next task is independent review of the existing blinded proposals and a
+bounded feasibility report. Resolve solver/interface accuracy under a future
+prospective amendment before generating or executing an untouched evaluation.

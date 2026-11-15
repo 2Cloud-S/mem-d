@@ -1,0 +1,8 @@
+{
+  "forced_choice_explanations": "not collected",
+  "historical_explanation_support": "unscored",
+  "independent_human_reviews": 0,
+  "independent_reviewer_imports": 0,
+  "note": "Assistant-authored calibration keys and synthetic test fixtures are not independent human review.",
+  "status": "pending"
+}

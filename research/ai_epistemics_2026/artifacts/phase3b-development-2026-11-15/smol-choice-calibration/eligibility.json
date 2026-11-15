@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.3333333333333333,
+  "correct": 6,
+  "eligible": false,
+  "independent_human_validation": false,
+  "invalid": 0,
+  "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+  "planned": 18,
+  "provenance": "real",
+  "valid": 18,
+  "valid_but_wrong": 12,
+  "validity": 1.0
+}

@@ -1,0 +1,205 @@
+{
+  "actual_inference_calls": 68,
+  "actual_model_interface_trials": 4,
+  "development_requests_prepared": 0,
+  "development_requests_submitted": 0,
+  "eligible_models": [],
+  "logged_attempt_records": 82,
+  "model_interface_trial_limit": 4,
+  "not_executed": [
+    {
+      "artifact_directory": "json-smol-prepared",
+      "interface": "constrained JSON",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "reason": "Prospective resource fallback abandoned JSON interface before this model ran",
+      "status": "prepared, no inference"
+    },
+    {
+      "interface": "constrained JSON",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "reason": "JSON abandoned; larger model attempted only in frozen forced-choice fallback",
+      "status": "not prepared, no inference"
+    }
+  ],
+  "paid_calls": 0,
+  "planned_interface_limit_after_prospective_amendment": 2,
+  "stop_reason": "All three fixed forced-choice combinations fail the 80% calibration accuracy threshold; declared trial limit reached",
+  "trials": [
+    {
+      "artifact_directory": "json-qwen-calibration",
+      "eligibility": {
+        "accuracy": 0.2222222222222222,
+        "correct": 4,
+        "eligible": false,
+        "independent_human_validation": false,
+        "invalid": 5,
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "planned": 18,
+        "provenance": "real",
+        "valid": 13,
+        "valid_but_wrong": 9,
+        "validity": 0.7222222222222222
+      },
+      "execution": {
+        "actual_generated_token_usage": {
+          "completion_tokens": 669,
+          "prompt_tokens": 3251
+        },
+        "actual_inference_attempts": 14,
+        "attempt_log_entries": 28,
+        "human_review_status": "pending",
+        "physical_latency_seconds": 596.6323859180006,
+        "physical_request_owners": 18,
+        "planned_logical_requests": 18,
+        "provenance": "real",
+        "reused_logical_requests": 0,
+        "usage_missing_attempts": 0
+      },
+      "final_parse_reasons": {
+        "infrastructure": 5,
+        "valid_label": 13
+      },
+      "interface": "lm-format-enforcer constrained JSON v1",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "predicted_labels": {
+        "proceed": 13
+      },
+      "prepared_utc": "2026-11-15T08:13:22.785878+00:00",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "source_freeze_sha256": "8e3c74aecfe5c1b485f48f7cb598d9c466fef2482f654b8e5f25c8cde165a934",
+      "source_replay_commit": "8703c6b"
+    },
+    {
+      "artifact_directory": "qwen-choice-calibration",
+      "eligibility": {
+        "accuracy": 0.2777777777777778,
+        "correct": 5,
+        "eligible": false,
+        "independent_human_validation": false,
+        "invalid": 0,
+        "model": "Qwen/Qwen2.5-0.5B-Instruct",
+        "planned": 18,
+        "provenance": "real",
+        "valid": 18,
+        "valid_but_wrong": 13,
+        "validity": 1.0
+      },
+      "execution": {
+        "actual_generated_token_usage": {
+          "completion_tokens": 66,
+          "prompt_tokens": 4316
+        },
+        "actual_inference_attempts": 18,
+        "attempt_log_entries": 18,
+        "human_review_status": "pending",
+        "physical_latency_seconds": 29.67227948000027,
+        "physical_request_owners": 18,
+        "planned_logical_requests": 18,
+        "provenance": "real",
+        "reused_logical_requests": 0,
+        "usage_missing_attempts": 0
+      },
+      "final_parse_reasons": {
+        "valid_label": 18
+      },
+      "interface": "strict forced-choice token trie v1; no explanations",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "predicted_labels": {
+        "do_not_proceed": 6,
+        "proceed": 12
+      },
+      "prepared_utc": "2026-11-15T08:29:40.473605+00:00",
+      "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+      "source_freeze_sha256": "3a58b232ccf3f7fe848b70c23bea05589093049b134c3306958c96e8c0b7ee42",
+      "source_replay_commit": "eee2cec"
+    },
+    {
+      "artifact_directory": "smol-choice-calibration",
+      "eligibility": {
+        "accuracy": 0.3333333333333333,
+        "correct": 6,
+        "eligible": false,
+        "independent_human_validation": false,
+        "invalid": 0,
+        "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+        "planned": 18,
+        "provenance": "real",
+        "valid": 18,
+        "valid_but_wrong": 12,
+        "validity": 1.0
+      },
+      "execution": {
+        "actual_generated_token_usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 4745
+        },
+        "actual_inference_attempts": 18,
+        "attempt_log_entries": 18,
+        "human_review_status": "pending",
+        "physical_latency_seconds": 26.414485744000103,
+        "physical_request_owners": 18,
+        "planned_logical_requests": 18,
+        "provenance": "real",
+        "reused_logical_requests": 0,
+        "usage_missing_attempts": 0
+      },
+      "final_parse_reasons": {
+        "valid_label": 18
+      },
+      "interface": "strict forced-choice token trie v1; no explanations",
+      "model": "HuggingFaceTB/SmolLM2-360M-Instruct",
+      "predicted_labels": {
+        "proceed": 18
+      },
+      "prepared_utc": "2026-11-15T08:29:39.531492+00:00",
+      "revision": "a10cc1512eabd3dde888204e902eca88bddb4951",
+      "source_freeze_sha256": "cf21f2762d034f642729de14574701efa1b97d815576698e1509cd42a042b4a5",
+      "source_replay_commit": "eee2cec"
+    },
+    {
+      "artifact_directory": "larger-choice-calibration",
+      "eligibility": {
+        "accuracy": 0.4444444444444444,
+        "correct": 8,
+        "eligible": false,
+        "independent_human_validation": false,
+        "invalid": 0,
+        "model": "Qwen/Qwen2.5-1.5B-Instruct",
+        "planned": 18,
+        "provenance": "real",
+        "valid": 18,
+        "valid_but_wrong": 10,
+        "validity": 1.0
+      },
+      "execution": {
+        "actual_generated_token_usage": {
+          "completion_tokens": 58,
+          "prompt_tokens": 4316
+        },
+        "actual_inference_attempts": 18,
+        "attempt_log_entries": 18,
+        "human_review_status": "pending",
+        "physical_latency_seconds": 96.33464517399989,
+        "physical_request_owners": 18,
+        "planned_logical_requests": 18,
+        "provenance": "real",
+        "reused_logical_requests": 0,
+        "usage_missing_attempts": 0
+      },
+      "final_parse_reasons": {
+        "valid_label": 18
+      },
+      "interface": "strict forced-choice token trie v1; no explanations",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "predicted_labels": {
+        "do_not_proceed": 2,
+        "proceed": 16
+      },
+      "prepared_utc": "2026-11-15T08:43:07.544996+00:00",
+      "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+      "source_freeze_sha256": "c8c5531f0ed11008b5cc1b1ab0bd6bf9a19baeb0496ffdf86d398de67b612a5c",
+      "source_replay_commit": "eee2cec"
+    }
+  ],
+  "unique_models": 3
+}

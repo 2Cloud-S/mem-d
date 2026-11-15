@@ -1,0 +1,16 @@
+{
+  "configured_provider_presence": {
+    "ANTHROPIC_API_KEY": false,
+    "HF_TOKEN": false,
+    "OPENAI_API_KEY": false,
+    "OPENAI_BASE_URL": false
+  },
+  "cpu_quota_cores": 2,
+  "date": "2026-11-15",
+  "forced_choice": "same CPU hardware; no GPU assumption",
+  "gpu_available": false,
+  "initial_json_trial": "14 real attempts; 28 logged attempts including unsubmitted budget-exhausted retries; 18 planned items preserved",
+  "memory_limit_bytes": 8589934592,
+  "paid_calls": 0,
+  "scratch_free_bytes_at_inspection": 4885102592
+}
